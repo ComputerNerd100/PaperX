@@ -2,6 +2,7 @@ package io.papermc.paper.api;
 
 import io.papermc.paper.api.advancement.Advancement;
 import io.papermc.paper.api.ban.BanList;
+import io.papermc.paper.api.boss.*;
 import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
@@ -15,10 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.awt.image.BufferedImage;
 import java.nio.file.Path;
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
