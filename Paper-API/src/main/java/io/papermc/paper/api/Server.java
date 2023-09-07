@@ -1,6 +1,7 @@
 package io.papermc.paper.api;
 
 import io.papermc.paper.api.advancement.Advancement;
+import io.papermc.paper.api.ban.BanList;
 import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
@@ -10,6 +11,7 @@ import net.kyori.adventure.text.Component;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.image.BufferedImage;
 import java.nio.file.Path;
@@ -192,7 +194,7 @@ public interface Server extends PluginMessageRecipient, ForwardingAudience { // 
 
     @NonNull Set<OfflinePlayer> bannedPlayers();
 
-    @NonNull BanList banList(@NonNull BanList.Type type);
+    @NonNull BanList banList(@NotNull BanList.Type type);
 
     @NonNull Set<OfflinePlayer> operators();
 
