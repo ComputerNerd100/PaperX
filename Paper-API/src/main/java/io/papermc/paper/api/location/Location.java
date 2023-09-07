@@ -2,8 +2,10 @@ package io.papermc.paper.api.location;
 
 import com.google.common.base.Preconditions;
 import io.papermc.paper.api.util.NumberConversions;
+import io.papermc.paper.api.util.vector.Vector;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
 
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
@@ -28,7 +30,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param y The y-coordinate of this new location
      * @param z The z-coordinate of this new location
      */
-    public Location(@UndefinedNullability final World world, final double x, final double y, final double z) { // Paper
+    public Location(@Nullable final World world, final double x, final double y, final double z) { // Paper
         this(world, x, y, z, 0, 0);
     }
 
@@ -42,7 +44,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param yaw The absolute rotation on the x-plane, in degrees
      * @param pitch The absolute rotation on the y-plane, in degrees
      */
-    public Location(@UndefinedNullability final World world, final double x, final double y, final double z, final float yaw, final float pitch) { // Paper
+    public Location(@Nullable final World world, final double x, final double y, final double z, final float yaw, final float pitch) { // Paper
         if (world != null) {
             this.world = new WeakReference<>(world);
         }
@@ -84,7 +86,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @throws IllegalArgumentException when world is unloaded
      * @see #isWorldLoaded()
      */
-    @UndefinedNullability // Paper
+    @Nullable // Paper
     public World getWorld() {
         if (this.world == null) {
             return null;
