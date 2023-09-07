@@ -1,5 +1,6 @@
 package io.papermc.paper.api;
 
+import io.papermc.paper.api.advancement.Advancement;
 import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
