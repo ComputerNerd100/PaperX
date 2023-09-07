@@ -1,7 +1,10 @@
 package io.papermc.paper.api;
 
 import io.papermc.paper.api.entity.Player;
+import io.papermc.paper.api.namespace.Keyed;
+import io.papermc.paper.api.namespace.NamespacedKey;
 import net.kyori.adventure.audience.ForwardingAudience;
+import net.kyori.adventure.text.Component;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.Contract;
@@ -251,7 +254,7 @@ public interface Server extends PluginMessageRecipient, ForwardingAudience { // 
 
     @NonNull KeyedBossBar bossBar(@NonNull NamespacedKey key);
 
-    boolean removeBossBar(@NonNull NamedspacedKey key);
+    boolean removeBossBar(@NonNull NamespacedKey key);
 
     @Nullable Entity entity(@NonNull UUID uuid);
 
