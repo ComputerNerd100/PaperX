@@ -132,4 +132,19 @@ public interface BossBar {
      * @return visible status
      */
     boolean isVisible();
+
+    /**
+     * Shows the previously hidden boss bar to all attached players
+     * @deprecated {@link #setVisible(boolean)}
+     */
+    @Deprecated
+    void show();
+
+    /**
+     * Hides this boss bar from all attached players
+     * @deprecated {@link #setVisible(boolean)}
+     */
+    @Deprecated
+    void hide();
+
 }
