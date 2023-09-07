@@ -4,6 +4,7 @@ import io.papermc.paper.api.advancement.Advancement;
 import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
+import io.papermc.paper.api.profile.PlayerProfile;
 import net.kyori.adventure.audience.ForwardingAudience;
 import net.kyori.adventure.text.Component;
 import org.checkerframework.checker.nullness.qual.NonNull;
