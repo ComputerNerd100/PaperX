@@ -1,0 +1,66 @@
+package io.papermc.paper.api.inventory.meta;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
+
+import java.util.List;
+
+/**
+ * Represents a suspicious stew that can have custom effects.
+ */
+public interface SuspiciousStewMeta extends ItemMeta {
+
+    /**
+     * Checks for the presence of custom potion effects.
+     *
+     * @return true if custom potion effects are applied
+     */
+    boolean hasCustomEffects();
+
+    /**
+     * Gets an immutable list containing all custom potion effects applied to
+     * this suspicious stew.
+     * <p>
+     * Plugins should check that hasCustomEffects() returns true before calling
+     * this method.
+     *
+     * @return the immutable list of custom potion effects
+     */
+    @NonNull List<PotionEffect> getCustomEffects();
+
+    /**
+     * Adds a custom potion effect to this suspicious stew.
+     *
+     * @param effect the potion effect to add
+     * @param overwrite true if any existing effect of the same type should be
+     * overwritten
+     * @return true if the suspicious stew meta changed as a result of this call
+     */
+    boolean addCustomEffect(@NonNull PotionEffect effect, boolean overwrite);
+
+    /**
+     * Removes a custom potion effect from this suspicious stew.
+     *
+     * @param type the potion effect type to remove
+     * @return true if the suspicious stew meta changed as a result of this call
+     */
+    boolean removeCustomEffect(@NonNull PotionEffectType type);
+
+    /**
+     * Checks for a specific custom potion effect type on this suspicious stew.
+     *
+     * @param type the potion effect type to check for
+     * @return true if the suspicious stew has this effect
+     */
+    boolean hasCustomEffect(@NonNull PotionEffectType type);
+
+    /**
+     * Removes all custom potion effects from this suspicious stew.
+     *
+     * @return true if the suspicious stew meta changed as a result of this call
+     */
+    boolean clearCustomEffects();
+
+    @Override
+    SuspiciousStewMeta clone();
+}
+
