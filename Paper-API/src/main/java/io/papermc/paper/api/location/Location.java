@@ -1,6 +1,7 @@
 package io.papermc.paper.api.location;
 
 import com.google.common.base.Preconditions;
+import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.util.NumberConversions;
 import io.papermc.paper.api.util.vector.Vector;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -624,7 +625,6 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
         return centerLoc;
     }
 
-    // Paper start - Add heightmap api
     /**
      * Returns a copy of this location except with y = getWorld().getHighestBlockYAt(this.getBlockX(), this.getBlockZ())
      * @return A copy of this location except with y = getWorld().getHighestBlockYAt(this.getBlockX(), this.getBlockZ())
@@ -662,9 +662,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
         ret.setY(this.getWorld().getHighestBlockYAt(this, heightMap));
         return ret;
     }
-    // Paper end - Add heightmap api
 
-    // Paper start - Expand Explosions API
     /**
      * Creates explosion at this location with given power
      *
@@ -745,7 +743,6 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
     public boolean createExplosion(@Nullable Entity source, float power, boolean setFire, boolean breakBlocks) {
         return this.getWorld().createExplosion(source, this, power, setFire, breakBlocks);
     }
-    // Paper end - Expand Explosions API
 
     /**
      * Returns a list of entities within a bounding box centered around a Location.
