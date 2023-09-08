@@ -1,6 +1,7 @@
 package io.papermc.paper.api.loot;
 
 import com.google.common.base.Preconditions;
+import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -125,7 +126,7 @@ public final class LootContext {
          * Set the {@link org.bukkit.enchantments.Enchantment#LOOT_BONUS_MOBS}
          * level equivalent to use when generating loot. Values less than or
          * equal to 0 will force the {@link LootTable} to only return a single
-         * {@link org.bukkit.inventory.ItemStack} per pool.
+         * {@link ItemStack} per pool.
          *
          * @param modifier the looting level modifier
          * @return the Builder

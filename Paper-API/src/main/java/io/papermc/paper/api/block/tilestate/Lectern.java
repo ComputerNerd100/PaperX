@@ -2,6 +2,8 @@ package io.papermc.paper.api.block.tilestate;
 
 
 import io.papermc.paper.api.block.container.Container;
+import io.papermc.paper.api.inventory.BlockInventoryHolder;
+import io.papermc.paper.api.inventory.Inventory;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 

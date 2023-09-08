@@ -1,11 +1,12 @@
 package io.papermc.paper.api.block.container;
 
 import io.papermc.paper.api.block.container.Container;
+import io.papermc.paper.api.inventory.LootableBlockInventory;
 
 /**
  * Represents a captured state of a dropper.
  */
-public interface Dropper extends Container, LootableBlockInventory { // Paper
+public interface Dropper extends Container, LootableBlockInventory {
 
     /**
      * Tries to drop a randomly selected item from the dropper's inventory,

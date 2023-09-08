@@ -1,12 +1,14 @@
 package io.papermc.paper.api.block.container;
 
 import io.papermc.paper.api.block.tilestate.LockableTileState;
+import io.papermc.paper.api.inventory.BlockInventoryHolder;
+import io.papermc.paper.api.inventory.Inventory;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents a captured state of a container block.
  */
-public interface Container extends LockableTileState, BlockInventoryHolder { // Paper
+public interface Container extends LockableTileState, BlockInventoryHolder {
 
     /**
      * Gets the inventory of the block represented by this block state.

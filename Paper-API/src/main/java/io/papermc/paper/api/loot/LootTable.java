@@ -1,5 +1,7 @@
 package io.papermc.paper.api.loot;
 
+import io.papermc.paper.api.inventory.Inventory;
+import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.namespace.Keyed;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

@@ -1,6 +1,7 @@
 package io.papermc.paper.api.block;
 
 import io.papermc.paper.api.block.data.BlockData;
+import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.metadata.Metadatable;
@@ -135,81 +136,6 @@ public interface Block extends Metadatable, Translatable {
      */
     int getZ();
 
-    // Paper Start
-    /**
-     * Returns this block's coordinates packed into a long value.
-     * Computed via: {@code Block.getBlockKey(this.getX(), this.getY(), this.getZ())}
-     * @see Block#getBlockKey(int, int, int)
-     * @return This block's x, y, and z coordinates packed into a long value
-     * @deprecated see {@link #getBlockKey(int, int, int)}
-     */
-    @Deprecated
-    default long getBlockKey() {
-        return Block.getBlockKey(this.getX(), this.getY(), this.getZ());
-    }
-
-    /**
-     * Returns the specified block coordinates packed into a long value
-     * <p>
-     * The return value can be computed as follows:
-     * <br>
-     * {@code long value = ((long)x & 0x7FFFFFF) | (((long)z & 0x7FFFFFF) << 27) | ((long)y << 54);}
-     * </p>
-     *
-     * <p>
-     * And may be unpacked as follows:
-     * <br>
-     * {@code int x = (int) ((packed << 37) >> 37);}
-     * <br>
-     * {@code int y = (int) (packed >> 54);}
-     * <br>
-     * {@code int z = (int) ((packed << 10) >> 37);}
-     * </p>
-     *
-     * @return This block's x, y, and z coordinates packed into a long value
-     * @deprecated only encodes y block ranges from -512 to 511 and represents an already changed implementation detail
-     */
-    @Deprecated
-    static long getBlockKey(int x, int y, int z) {
-        return ((long)x & 0x7FFFFFF) | (((long)z & 0x7FFFFFF) << 27) | ((long)y << 54);
-    }
-
-    /**
-     * Returns the x component from the packed value.
-     * @param packed The packed value, as computed by {@link Block#getBlockKey(int, int, int)}
-     * @see Block#getBlockKey(int, int, int)
-     * @return The x component from the packed value.
-     * @deprecated see {@link #getBlockKey(int, int, int)}
-     */
-    @Deprecated
-    static int getBlockKeyX(long packed) {
-        return (int) ((packed << 37) >> 37);
-    }
-
-    /**
-     * Returns the y component from the packed value.
-     * @param packed The packed value, as computed by {@link Block#getBlockKey(int, int, int)}
-     * @see Block#getBlockKey(int, int, int)
-     * @return The y component from the packed value.
-     * @deprecated see {@link #getBlockKey(int, int, int)}
-     */
-    @Deprecated
-    static int getBlockKeyY(long packed) {
-        return (int) (packed >> 54);
-    }
-
-    /**
-     * Returns the z component from the packed value.
-     * @param packed The packed value, as computed by {@link Block#getBlockKey(int, int, int)}
-     * @see Block#getBlockKey(int, int, int)
-     * @return The z component from the packed value.
-     * @deprecated see {@link #getBlockKey(int, int, int)}
-     */
-    @Deprecated
-    static int getBlockKeyZ(long packed) {
-        return (int) ((packed << 10) >> 37);
-    }
-
     /**
      * Checks if the itemstack is a valid tool to
      * break the block with
@@ -218,7 +144,6 @@ public interface Block extends Metadatable, Translatable {
      * @return whether the block will drop items
      */
     boolean isValidTool(@NotNull ItemStack itemStack);
-    // Paper End
 
     /**
      * Gets the Location of the block
@@ -336,7 +261,6 @@ public interface Block extends Metadatable, Translatable {
     @NotNull
     BlockState getState();
 
-    // Paper start
     /**
      * @see #getState() optionally disables use of snapshot, to operate on real block data
      * @param useSnapshot if this block is a TE, should we create a fully copy of the TileEntity
@@ -344,7 +268,6 @@ public interface Block extends Metadatable, Translatable {
      */
     @NotNull
     BlockState getState(boolean useSnapshot);
-    // Paper end
 
     /**
      * Returns the biome that this block resides in
@@ -355,7 +278,6 @@ public interface Block extends Metadatable, Translatable {
     @NotNull
     Biome getBiome();
 
-    // Paper start
     /**
      * Gets the computed biome at the location of this Block.
      *
@@ -364,7 +286,6 @@ public interface Block extends Metadatable, Translatable {
      */
     @NotNull
     Biome getComputedBiome();
-    // Paper end
 
     /**
      * Sets the biome that this block resides in
@@ -439,7 +360,6 @@ public interface Block extends Metadatable, Translatable {
      */
     boolean isLiquid();
 
-    // Paper start
     /**
      * Check if this block is solid
      * <p>
@@ -480,7 +400,6 @@ public interface Block extends Metadatable, Translatable {
      * @return true if collidable
      */
     boolean isCollidable();
-    // Paper end
 
     /**
      * Gets the temperature of this block.
@@ -524,7 +443,6 @@ public interface Block extends Metadatable, Translatable {
      */
     boolean breakNaturally(@Nullable ItemStack tool);
 
-    // Paper start
     /**
      * Breaks the block and spawns item drops as if a player had broken it
      *
@@ -583,7 +501,6 @@ public interface Block extends Metadatable, Translatable {
      * For certain blocks, this behavior may be the same as {@link Block#tick()}.
      */
     void randomTick();
-    // Paper end
 
     /**
      * Simulate bone meal application to this block (if possible).

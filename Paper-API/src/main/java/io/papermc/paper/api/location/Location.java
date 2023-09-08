@@ -1,6 +1,7 @@
 package io.papermc.paper.api.location;
 
 import com.google.common.base.Preconditions;
+import io.papermc.paper.api.annotation.Utility;
 import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.util.NumberConversions;
 import io.papermc.paper.api.util.vector.Vector;
@@ -601,18 +602,6 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
         return blockLoc;
     }
 
-    // Paper Start
-    /**
-     * @return The block key for this location's block location.
-     * @see Block#getBlockKey(int, int, int)
-     * @deprecated only encodes y block ranges from -512 to 511 and represents an already changed implementation detail
-     */
-    @Deprecated
-    public long toBlockKey() {
-        return Block.getBlockKey(getBlockX(), getBlockY(), getBlockZ());
-    }
-    // Paper End
-
     /**
      * @return A new location where X/Y/Z are the center of the block
      */
@@ -633,22 +622,6 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
     @NotNull
     public Location toHighestLocation() {
         return this.toHighestLocation(HeightMap.WORLD_SURFACE);
-    }
-
-    /**
-     * Returns a copy of this location except with y = getWorld().getHighestBlockYAt(this.getBlockX(), this.getBlockZ(), heightmap)
-     * @param heightmap The heightmap to use for finding the highest y location.
-     * @return A copy of this location except with y = getWorld().getHighestBlockYAt(this.getBlockX(), this.getBlockZ(), heightmap)
-     * @throws NullPointerException if {{@link #getWorld()}} is {@code null}
-     * @throws UnsupportedOperationException if {@link World#getHighestBlockYAt(int, int, com.destroystokyo.paper.HeightmapType)} does not support the specified heightmap
-     * @deprecated Use {@link org.bukkit.Location#toHighestLocation(HeightMap)}
-     */
-    @NotNull
-    @Deprecated(forRemoval = true) @org.jetbrains.annotations.ApiStatus.ScheduledForRemoval(inVersion = "1.21")
-    public Location toHighestLocation(@NotNull final com.destroystokyo.paper.HeightmapType heightmap) {
-        final Location ret = this.clone();
-        ret.setY(this.getWorld().getHighestBlockYAt(this, heightmap));
-        return ret;
     }
 
     /**

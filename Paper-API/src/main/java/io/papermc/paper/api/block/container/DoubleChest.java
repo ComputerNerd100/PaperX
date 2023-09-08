@@ -1,8 +1,12 @@
 package io.papermc.paper.api.block.container;
 
+import io.papermc.paper.api.inventory.DoubleChestInventory;
+import io.papermc.paper.api.inventory.Inventory;
+import io.papermc.paper.api.inventory.InventoryHolder;
 import io.papermc.paper.api.location.Location;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 
 /**
  * Represents a double chest.
@@ -10,12 +14,12 @@ import org.jetbrains.annotations.Nullable;
 public class DoubleChest implements InventoryHolder {
     private DoubleChestInventory inventory;
 
-    public DoubleChest(@NotNull DoubleChestInventory chest) {
+    public DoubleChest(@NonNull DoubleChestInventory chest) {
         inventory = chest;
     }
 
     @Override
-    @NotNull
+    @NonNull
     public Inventory getInventory() {
         return inventory;
     }
@@ -42,7 +46,7 @@ public class DoubleChest implements InventoryHolder {
     }
     // Paper end
 
-    @NotNull
+    @NonNull
     public Location getLocation() {
         return getInventory().getLocation();
     }

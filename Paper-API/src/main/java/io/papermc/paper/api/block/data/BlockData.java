@@ -4,6 +4,7 @@ import io.papermc.paper.api.Server;
 import io.papermc.paper.api.block.*;
 import io.papermc.paper.api.block.structure.Mirror;
 import io.papermc.paper.api.block.structure.StructureRotation;
+import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -241,8 +242,6 @@ public interface BlockData extends Cloneable {
     @NonNull
     @ApiStatus.Experimental
     BlockState createBlockState();
-
-    // Paper start - destroy speed API
     /**
      * Gets the speed at which this block will be destroyed by a given {@link ItemStack}
      * <p>
@@ -265,9 +264,7 @@ public interface BlockData extends Cloneable {
      * @return the speed that this Block will be mined by the given {@link ItemStack}
      */
     float getDestroySpeed(@NonNull ItemStack itemStack, boolean considerEnchants);
-    // Paper end - destroy speed API
 
-    // Paper start - Tick API
     /**
      * Gets if this block is ticked randomly in the world.
      * The blocks current state may change this value.
@@ -275,5 +272,4 @@ public interface BlockData extends Cloneable {
      * @return is ticked randomly
      */
     boolean isRandomlyTicked();
-    // Paper end - Tick API
 }

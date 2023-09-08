@@ -1,6 +1,8 @@
 package io.papermc.paper.api.block.container;
 
 import io.papermc.paper.api.block.tilestate.TileState;
+import io.papermc.paper.api.inventory.BlockInventoryHolder;
+import io.papermc.paper.api.inventory.ChiseledBookshelfInventory;
 import io.papermc.paper.api.util.vector.Vector;
 import org.jetbrains.annotations.NotNull;
 

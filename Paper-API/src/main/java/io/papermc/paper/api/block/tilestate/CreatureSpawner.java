@@ -1,6 +1,7 @@
 package io.papermc.paper.api.block.tilestate;
 
 
+import io.papermc.paper.api.inventory.ItemStack;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.NotNull;
@@ -217,7 +218,7 @@ public interface CreatureSpawner extends TileState {
 
     /**
      * Sets the {@link EntityType} to {@link EntityType#DROPPED_ITEM} and sets the data to the given
-     * {@link org.bukkit.inventory.ItemStack ItemStack}.
+     * {@link ItemStack ItemStack}.
      * <p>
      * {@link #setSpawnCount(int)} does not dictate the amount of items in the stack spawned, but rather how many
      * stacks should be spawned.

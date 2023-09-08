@@ -1,5 +1,7 @@
 package io.papermc.paper.api.block.container;
 
+import io.papermc.paper.api.inventory.FurnaceInventory;
+import io.papermc.paper.api.inventory.recipe.CookingRecipe;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import org.jetbrains.annotations.NotNull;
 

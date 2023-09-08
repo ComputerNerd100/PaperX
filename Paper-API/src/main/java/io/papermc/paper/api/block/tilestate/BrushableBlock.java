@@ -1,6 +1,7 @@
 package io.papermc.paper.api.block.tilestate;
 
 
+import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.loot.Lootable;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -16,7 +17,7 @@ public interface BrushableBlock extends Lootable, TileState {
      * @return the item
      */
     @org.jetbrains.annotations.NotNull // Paper
-    public ItemStack getItem();
+    ItemStack getItem();
 
     /**
      * Sets the item which will be revealed when the sand is fully brushed away
@@ -24,5 +25,5 @@ public interface BrushableBlock extends Lootable, TileState {
      *
      * @param item the item
      */
-    public void setItem(@Nullable ItemStack item);
+    void setItem(@Nullable ItemStack item);
 }

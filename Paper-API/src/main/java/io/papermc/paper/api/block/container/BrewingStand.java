@@ -1,5 +1,6 @@
 package io.papermc.paper.api.block.container;
 
+import io.papermc.paper.api.inventory.BrewerInventory;
 import org.jetbrains.annotations.NotNull;
 
 /**

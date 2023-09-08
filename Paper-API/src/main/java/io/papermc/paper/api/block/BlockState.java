@@ -1,6 +1,7 @@
 package io.papermc.paper.api.block;
 
 import io.papermc.paper.api.block.data.BlockData;
+import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.metadata.Metadatable;
@@ -204,7 +205,6 @@ public interface BlockState extends Metadatable {
      */
     boolean isPlaced();
 
-    // Paper start
     /**
      * Checks if this block state is collidable.
      *
@@ -240,5 +240,4 @@ public interface BlockState extends Metadatable {
      */
     @NotNull
     java.util.@org.jetbrains.annotations.Unmodifiable Collection<ItemStack> getDrops(@NotNull ItemStack tool, @Nullable Entity entity);
-    // Paper end
 }

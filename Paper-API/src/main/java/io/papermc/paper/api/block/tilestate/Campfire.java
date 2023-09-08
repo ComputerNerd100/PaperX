@@ -1,6 +1,8 @@
 package io.papermc.paper.api.block.tilestate;
 
 
+import io.papermc.paper.api.inventory.Inventory;
+import io.papermc.paper.api.inventory.ItemStack;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -25,7 +27,7 @@ public interface Campfire extends TileState {
     /**
      * @param index The index where to put the ItemStack
      * @param item The ItemStack to set
-     * @see Inventory#setItem(int, org.bukkit.inventory.ItemStack)
+     * @see Inventory#setItem(int, ItemStack)
      */
     void setItem(int index, @Nullable ItemStack item);
 

@@ -2,6 +2,7 @@ package io.papermc.paper.api.block.container;
 
 import io.papermc.paper.api.block.tilestate.Lidded;
 import io.papermc.paper.api.block.color.DyeColor;
+import io.papermc.paper.api.inventory.LootableBlockInventory;
 import org.jetbrains.annotations.Nullable;
 
 /**
