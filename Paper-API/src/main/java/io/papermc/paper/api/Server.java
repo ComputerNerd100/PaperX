@@ -6,6 +6,7 @@ import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.boss.*;
 import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.loot.LootTable;
+import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.profile.PlayerProfile;

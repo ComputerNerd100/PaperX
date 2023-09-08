@@ -2,6 +2,7 @@ package io.papermc.paper.api.block;
 
 import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.location.Location;
+import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.metadata.Metadatable;
 import io.papermc.paper.api.util.vector.Vector;
 import net.kyori.adventure.translation.Translatable;
@@ -422,7 +423,7 @@ public interface Block extends Metadatable, Translatable {
      * Checks if this block is empty.
      * <p>
      * A block is considered empty when {@link #getType()} returns {@link
-     * Material#AIR}.
+     * io.papermc.paper.api.material.Material#AIR}.
      *
      * @return true if this block is empty
      */
@@ -432,7 +433,7 @@ public interface Block extends Metadatable, Translatable {
      * Checks if this block is liquid.
      * <p>
      * A block is considered liquid when {@link #getType()} returns {@link
-     * Material#WATER} or {@link Material#LAVA}.
+     * io.papermc.paper.api.material.Material#WATER} or {@link io.papermc.paper.api.material.Material#LAVA}.
      *
      * @return true if this block is liquid
      */

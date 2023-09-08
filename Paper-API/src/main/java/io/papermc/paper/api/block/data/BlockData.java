@@ -5,6 +5,7 @@ import io.papermc.paper.api.block.*;
 import io.papermc.paper.api.block.structure.Mirror;
 import io.papermc.paper.api.block.structure.StructureRotation;
 import io.papermc.paper.api.location.Location;
+import io.papermc.paper.api.material.Material;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

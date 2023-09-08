@@ -2,6 +2,7 @@ package io.papermc.paper.api.block;
 
 import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.location.Location;
+import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.metadata.Metadatable;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
