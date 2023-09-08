@@ -13,6 +13,7 @@ allprojects {
     }
 
     dependencies {
+        implementation("org.joml:joml:1.10.5")
         implementation("org.checkerframework:checker-qual:3.22.1")
         compileOnly("org.jetbrains:annotations:23.0.0")
         compileOnly("org.projectlombok:lombok:1.18.24")
