@@ -5,11 +5,21 @@ import com.google.common.primitives.Doubles;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.util.NumberConversions;
 import org.jetbrains.annotations.NotNull;
+import org.joml.RoundingMode;
+import org.joml.Vector3d;
+import org.joml.Vector3f;
+import org.joml.Vector3i;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * Represents a mutable vector. Because the components of Vectors are mutable,
+ * storing Vectors long term may be dangerous if passing code modifies the
+ * Vector later. If you want to keep around a Vector, it may be wise to call
+ * <code>clone()</code> in order to get a copy.
+ */
 public class Vector implements Cloneable, ConfigurationSerializable {
     private static final long serialVersionUID = -2657651106777219169L;
 
