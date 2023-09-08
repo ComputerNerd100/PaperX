@@ -2,6 +2,7 @@ package io.papermc.paper.api.util.vector;
 
 import com.google.common.base.Preconditions;
 import com.google.common.primitives.Doubles;
+import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.util.NumberConversions;
 import org.jetbrains.annotations.NotNull;
 
