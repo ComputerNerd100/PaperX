@@ -1,7 +1,7 @@
 package io.papermc.paper.api.block.data;
 
 import io.papermc.paper.api.util.Axis;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Set;
 
@@ -19,7 +19,7 @@ public interface Orientable extends BlockData {
      *
      * @return the 'axis' value
      */
-    @NotNull
+    @NonNull
     Axis getAxis();
 
     /**
@@ -27,13 +27,13 @@ public interface Orientable extends BlockData {
      *
      * @param axis the new 'axis' value
      */
-    void setAxis(@NotNull Axis axis);
+    void setAxis(@NonNull Axis axis);
 
     /**
      * Gets the axes which are applicable to this block.
      *
      * @return the allowed 'axis' values
      */
-    @NotNull
+    @NonNull
     Set<Axis> getAxes();
 }

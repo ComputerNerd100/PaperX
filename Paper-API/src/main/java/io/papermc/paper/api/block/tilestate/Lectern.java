@@ -2,7 +2,8 @@ package io.papermc.paper.api.block.tilestate;
 
 
 import io.papermc.paper.api.block.container.Container;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
+
 
 /**
  * Represents a captured state of a lectern.
@@ -30,7 +31,7 @@ public interface Lectern extends TileState, BlockInventoryHolder {
      * @return inventory
      * @see Container#getInventory()
      */
-    @NotNull
+    @NonNull
     @Override
     Inventory getInventory();
 
@@ -38,6 +39,6 @@ public interface Lectern extends TileState, BlockInventoryHolder {
      * @return snapshot inventory
      * @see Container#getSnapshotInventory()
      */
-    @NotNull
+    @NonNull
     Inventory getSnapshotInventory();
 }

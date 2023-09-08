@@ -1,7 +1,7 @@
 package io.papermc.paper.api.block.data;
 
 import io.papermc.paper.api.block.BlockFace;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Set;
 
@@ -18,7 +18,7 @@ public interface Directional extends BlockData {
      *
      * @return the 'facing' value
      */
-    @NotNull
+    @NonNull
     BlockFace getFacing();
 
     /**
@@ -26,14 +26,14 @@ public interface Directional extends BlockData {
      *
      * @param facing the new 'facing' value
      */
-    void setFacing(@NotNull BlockFace facing);
+    void setFacing(@NonNull BlockFace facing);
 
     /**
      * Gets the faces which are applicable to this block.
      *
      * @return the allowed 'facing' values
      */
-    @NotNull
+    @NonNull
     Set<BlockFace> getFaces();
 }
 

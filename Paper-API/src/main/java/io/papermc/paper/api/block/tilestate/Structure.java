@@ -4,7 +4,7 @@ import io.papermc.paper.api.block.structure.Mirror;
 import io.papermc.paper.api.block.structure.StructureRotation;
 import io.papermc.paper.api.block.structure.UsageMode;
 import io.papermc.paper.api.util.vector.BlockVector;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a structure block that can save and load blocks from a file. They
@@ -17,7 +17,7 @@ public interface Structure extends TileState {
      *
      * @return structure name
      */
-    @NotNull
+    @NonNull
     String getStructureName();
 
     /**
@@ -28,14 +28,14 @@ public interface Structure extends TileState {
      *
      * @param name the case-sensitive name of this structure
      */
-    void setStructureName(@NotNull String name);
+    void setStructureName(@NonNull String name);
 
     /**
      * Get the name of who created this structure.
      *
      * @return the name of whoever created this structure.
      */
-    @NotNull
+    @NonNull
     String getAuthor();
 
     /**
@@ -43,7 +43,7 @@ public interface Structure extends TileState {
      *
      * @param author whoever created this structure (not empty)
      */
-    void setAuthor(@NotNull String author);
+    void setAuthor(@NonNull String author);
 
     /**
      * Set the name of whoever created this structure using a
@@ -51,7 +51,7 @@ public interface Structure extends TileState {
      *
      * @param livingEntity the entity who created this structure
      */
-    void setAuthor(@NotNull LivingEntity livingEntity);
+    void setAuthor(@NonNull LivingEntity livingEntity);
 
     /**
      * The relative position of the structure outline based on the position of
@@ -61,7 +61,7 @@ public interface Structure extends TileState {
      * @return a Location which contains the relative distance this structure is
      * from the structure block.
      */
-    @NotNull
+    @NonNull
     BlockVector getRelativePosition();
 
     /**
@@ -71,7 +71,7 @@ public interface Structure extends TileState {
      * @param vector the {@link BlockVector} containing the relative origin
      * coordinates of this structure.
      */
-    void setRelativePosition(@NotNull BlockVector vector);
+    void setRelativePosition(@NonNull BlockVector vector);
 
     /**
      * The distance to the opposite corner of this structure. The maximum
@@ -82,7 +82,7 @@ public interface Structure extends TileState {
      * @return a {@link BlockVector} which contains the total size of the
      * structure.
      */
-    @NotNull
+    @NonNull
     BlockVector getStructureSize();
 
     /**
@@ -92,21 +92,21 @@ public interface Structure extends TileState {
      * @param vector the {@link BlockVector} containing the size of this
      * structure, based off of the origin coordinates.
      */
-    void setStructureSize(@NotNull BlockVector vector);
+    void setStructureSize(@NonNull BlockVector vector);
 
     /**
      * Sets the mirroring of the structure.
      *
      * @param mirror the new mirroring method
      */
-    void setMirror(@NotNull Mirror mirror);
+    void setMirror(@NonNull Mirror mirror);
 
     /**
      * How this structure is mirrored.
      *
      * @return the current mirroring method
      */
-    @NotNull
+    @NonNull
     Mirror getMirror();
 
     /**
@@ -114,14 +114,14 @@ public interface Structure extends TileState {
      *
      * @param rotation the new rotation
      */
-    void setRotation(@NotNull StructureRotation rotation);
+    void setRotation(@NonNull StructureRotation rotation);
 
     /**
      * Get how this structure is rotated.
      *
      * @return the new rotation
      */
-    @NotNull
+    @NonNull
     StructureRotation getRotation();
 
     /**
@@ -129,14 +129,14 @@ public interface Structure extends TileState {
      *
      * @param mode the new mode to set.
      */
-    void setUsageMode(@NotNull UsageMode mode);
+    void setUsageMode(@NonNull UsageMode mode);
 
     /**
      * Get the {@link UsageMode} of this structure block.
      *
      * @return the mode this block is currently in.
      */
-    @NotNull
+    @NonNull
     UsageMode getUsageMode();
 
     /**
@@ -227,7 +227,7 @@ public interface Structure extends TileState {
      *
      * @param metadata the function to perform on the selected location
      */
-    void setMetadata(@NotNull String metadata);
+    void setMetadata(@NonNull String metadata);
 
     /**
      * Get the metadata function this structure block will perform when
@@ -237,6 +237,6 @@ public interface Structure extends TileState {
      *
      * @return the function that will be performed when this block is activated
      */
-    @NotNull
+    @NonNull
     String getMetadata();
 }

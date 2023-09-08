@@ -4,7 +4,7 @@ import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.block.BlockState;
 import io.papermc.paper.api.persistance.PersistentDataContainer;
 import io.papermc.paper.api.persistance.PersistentDataHolder;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public interface TileState extends BlockState, PersistentDataHolder {
     /**
@@ -23,11 +23,10 @@ public interface TileState extends BlockState, PersistentDataHolder {
      *
      * @return the custom tag container
      */
-    @NotNull
+    @NonNull
     @Override
     PersistentDataContainer getPersistentDataContainer();
 
-    // Paper start
     /**
      * Checks if this TileState is a snapshot or a live
      * representation of the underlying tile entity.
@@ -39,5 +38,4 @@ public interface TileState extends BlockState, PersistentDataHolder {
      * @see Block#getState(boolean)
      */
     boolean isSnapshot();
-    // Paper end
 }

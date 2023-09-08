@@ -2,8 +2,10 @@ package io.papermc.paper.api.block.tilestate;
 
 
 import io.papermc.paper.api.block.container.Container;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import io.papermc.paper.api.material.Material;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 
 /**
  * Represents a captured state of a jukebox.
@@ -15,7 +17,7 @@ public interface Jukebox extends TileState, BlockInventoryHolder {
      *
      * @return The record Material, or AIR if none is inserted
      */
-    @NotNull
+    @NonNull
     public Material getPlaying();
 
     /**
@@ -42,7 +44,7 @@ public interface Jukebox extends TileState, BlockInventoryHolder {
      *
      * @return a copy of the inserted record, or an air stack if none
      */
-    @NotNull
+    @NonNull
     public ItemStack getRecord();
 
     /**
@@ -87,7 +89,7 @@ public interface Jukebox extends TileState, BlockInventoryHolder {
      * @return inventory
      * @see Container#getInventory()
      */
-    @NotNull
+    @NonNull
     @Override
     JukeboxInventory getInventory();
 
@@ -95,7 +97,7 @@ public interface Jukebox extends TileState, BlockInventoryHolder {
      * @return snapshot inventory
      * @see Container#getSnapshotInventory()
      */
-    @NotNull
+    @NonNull
     JukeboxInventory getSnapshotInventory();
 }
 

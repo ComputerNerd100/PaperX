@@ -4,7 +4,6 @@ package io.papermc.paper.api.block.sign;
 import io.papermc.paper.api.block.color.Colorable;
 import net.kyori.adventure.text.Component;
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public interface SignSide extends Colorable {
      *
      * @return List of components containing each line of text
      */
-    @NotNull
+    @NonNull
     List<Component> lines();
 
     /**
@@ -30,7 +29,7 @@ public interface SignSide extends Colorable {
      * @throws IndexOutOfBoundsException Thrown when the line does not exist
      * @return Text on the given line
      */
-    @NotNull
+    @NonNull
     Component line(int index) throws IndexOutOfBoundsException;
 
     /**

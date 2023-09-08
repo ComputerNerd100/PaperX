@@ -1,7 +1,7 @@
 package io.papermc.paper.api.block.data;
 
 import io.papermc.paper.api.block.BlockFace;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'rotation' represents the current rotation of this block.
@@ -13,7 +13,7 @@ public interface Rotatable extends BlockData {
      *
      * @return the 'rotation' value
      */
-    @NotNull
+    @NonNull
     BlockFace getRotation();
 
     /**
@@ -21,5 +21,5 @@ public interface Rotatable extends BlockData {
      *
      * @param rotation the new 'rotation' value
      */
-    void setRotation(@NotNull BlockFace rotation);
+    void setRotation(@NonNull BlockFace rotation);
 }

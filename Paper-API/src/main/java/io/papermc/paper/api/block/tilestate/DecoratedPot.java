@@ -1,7 +1,9 @@
 package io.papermc.paper.api.block.tilestate;
 
+import io.papermc.paper.api.material.Material;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Map;
@@ -20,7 +22,7 @@ public interface DecoratedPot extends TileState {
      * tagged by {@link Tag#ITEMS_DECORATED_POT_SHERDS}, {@link Material#BRICK},
      * or {@code null}
      */
-    public void setSherd(@NotNull Side side, @Nullable Material sherd);
+    public void setSherd(@NonNull Side side, @Nullable Material sherd);
 
     /**
      * Get the sherd on the provided side.
@@ -28,8 +30,8 @@ public interface DecoratedPot extends TileState {
      * @param side the side to get
      * @return the sherd on the side or {@link Material#BRICK} if it's blank
      */
-    @NotNull
-    public Material getSherd(@NotNull Side side);
+    @NonNull
+    public Material getSherd(@NonNull Side side);
 
     /**
      * Gets a Map of all sides on this decorated pot and the sherds on them.
@@ -38,7 +40,7 @@ public interface DecoratedPot extends TileState {
      *
      * @return the sherds
      */
-    @NotNull
+    @NonNull
     public Map<Side, Material> getSherds();
 
     /**
@@ -49,7 +51,7 @@ public interface DecoratedPot extends TileState {
      * @deprecated in favor of {@link #getSherds()}
      */
     @Deprecated
-    @NotNull
+    @NonNull
     public List<Material> getShards();
 
     /**

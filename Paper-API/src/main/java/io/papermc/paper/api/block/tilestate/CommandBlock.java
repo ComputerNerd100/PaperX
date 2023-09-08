@@ -1,8 +1,9 @@
 package io.papermc.paper.api.block.tilestate;
 
 import net.kyori.adventure.text.Component;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents a captured state of a command block.
@@ -16,7 +17,7 @@ public interface CommandBlock extends TileState, CommandBlockHolder { // Paper
      *
      * @return Command that this CommandBlock will run when powered.
      */
-    @NotNull
+    @NonNull
     public String getCommand();
 
     /**
@@ -35,7 +36,7 @@ public interface CommandBlock extends TileState, CommandBlockHolder { // Paper
      *
      * @return Name of this CommandBlock.
      */
-    @NotNull Component name();
+    @NonNull Component name();
 
     /**
      * Sets the name of this CommandBlock.  The name is used with commands

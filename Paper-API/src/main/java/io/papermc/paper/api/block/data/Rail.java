@@ -1,6 +1,6 @@
 package io.papermc.paper.api.block.data;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Set;
 
@@ -17,7 +17,7 @@ public interface Rail extends Waterlogged {
      *
      * @return the 'shape' value
      */
-    @NotNull
+    @NonNull
     Shape getShape();
 
     /**
@@ -25,14 +25,14 @@ public interface Rail extends Waterlogged {
      *
      * @param shape the new 'shape' value
      */
-    void setShape(@NotNull Shape shape);
+    void setShape(@NonNull Shape shape);
 
     /**
      * Gets the shapes which are applicable to this block.
      *
      * @return the allowed 'shape' values
      */
-    @NotNull
+    @NonNull
     Set<Shape> getShapes();
 
     /**

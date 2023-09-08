@@ -1,6 +1,6 @@
 package io.papermc.paper.api.block.tilestate;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.List;
 
@@ -44,7 +44,7 @@ public interface EntityBlockStorage<T extends Entity> extends TileState {
      *
      * @return List of all entities which were released
      */
-    @NotNull
+    @NonNull
     List<T> releaseEntities();
 
     /**
@@ -52,7 +52,7 @@ public interface EntityBlockStorage<T extends Entity> extends TileState {
      *
      * @param entity Entity to add to the block
      */
-    void addEntity(@NotNull T entity);
+    void addEntity(@NonNull T entity);
 
     // Paper start - Add EntityBlockStorage clearEntities
     /**

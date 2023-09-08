@@ -1,6 +1,7 @@
 package io.papermc.paper.api.block.tilestate;
 
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.NotNull;
 
@@ -224,6 +225,6 @@ public interface CreatureSpawner extends TileState {
      * @param itemStack The item to spawn. Must not {@link org.bukkit.Material#isAir be air}.
      * @see #setSpawnedType(EntityType)
      */
-    void setSpawnedItem(@NotNull ItemStack itemStack);
+    void setSpawnedItem(@NonNull ItemStack itemStack);
     // Paper end
 }

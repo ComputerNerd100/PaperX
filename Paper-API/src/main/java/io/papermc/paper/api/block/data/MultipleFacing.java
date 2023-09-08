@@ -1,7 +1,7 @@
 package io.papermc.paper.api.block.data;
 
 import io.papermc.paper.api.block.BlockFace;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Set;
 
@@ -22,7 +22,7 @@ public interface MultipleFacing extends BlockData {
      * @param face to check
      * @return if face is enabled
      */
-    boolean hasFace(@NotNull BlockFace face);
+    boolean hasFace(@NonNull BlockFace face);
 
     /**
      * Set whether this block has the specified face enabled.
@@ -30,14 +30,14 @@ public interface MultipleFacing extends BlockData {
      * @param face to set
      * @param has the face
      */
-    void setFace(@NotNull BlockFace face, boolean has);
+    void setFace(@NonNull BlockFace face, boolean has);
 
     /**
      * Get all of the faces which are enabled on this block.
      *
      * @return all faces enabled
      */
-    @NotNull
+    @NonNull
     Set<BlockFace> getFaces();
 
     /**
@@ -45,7 +45,7 @@ public interface MultipleFacing extends BlockData {
      *
      * @return all allowed faces
      */
-    @NotNull
+    @NonNull
     Set<BlockFace> getAllowedFaces();
 }
 

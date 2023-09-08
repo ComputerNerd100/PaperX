@@ -1,8 +1,7 @@
 package io.papermc.paper.api.block.tilestate;
 
-import io.papermc.paper.api.block.tilestate.EntityBlockStorage;
 import io.papermc.paper.api.location.Location;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a captured state of a bee hive.

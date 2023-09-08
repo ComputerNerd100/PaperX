@@ -1,6 +1,6 @@
 package io.papermc.paper.api.block.data;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'half' denotes which half of a two block tall material this block is.
@@ -14,7 +14,7 @@ public interface Bisected extends BlockData {
      *
      * @return the 'half' value
      */
-    @NotNull
+    @NonNull
     Half getHalf();
 
     /**
@@ -22,7 +22,7 @@ public interface Bisected extends BlockData {
      *
      * @param half the new 'half' value
      */
-    void setHalf(@NotNull Half half);
+    void setHalf(@NonNull Half half);
 
     /**
      * The half of a vertically bisected block.

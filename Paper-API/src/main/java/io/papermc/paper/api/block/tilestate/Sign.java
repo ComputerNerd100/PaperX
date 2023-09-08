@@ -4,7 +4,6 @@ import io.papermc.paper.api.block.color.Colorable;
 import io.papermc.paper.api.block.sign.Side;
 import io.papermc.paper.api.block.sign.SignSide;
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents a captured state of either a SignPost or a WallSign.
@@ -44,7 +43,7 @@ public interface Sign extends TileState, Colorable {
      * @param entity the entity
      * @return the side it is facing
      */
-    default @NotNull Side getInteractableSideFor(@NonNull Entity entity) {
+    default @NonNull Side getInteractableSideFor(@NonNull Entity entity) {
         return this.getInteractableSideFor(entity.getLocation());
     }
 
@@ -54,7 +53,7 @@ public interface Sign extends TileState, Colorable {
      * @param position the position
      * @return the side the position is facing
      */
-    default @NotNull Side getInteractableSideFor(@NonNull Position position) {
+    default @NonNull Side getInteractableSideFor(@NonNull Position position) {
         return this.getInteractableSideFor(position.x(), position.z());
     }
 
@@ -65,7 +64,7 @@ public interface Sign extends TileState, Colorable {
      * @param z the z coord
      * @return the side the coordinates are facing
      */
-    @NotNull Side getInteractableSideFor(double x, double z);
+    @NonNull Side getInteractableSideFor(double x, double z);
     // Paper end
 }
 

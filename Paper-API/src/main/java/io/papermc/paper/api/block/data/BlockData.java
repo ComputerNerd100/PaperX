@@ -6,9 +6,9 @@ import io.papermc.paper.api.block.structure.Mirror;
 import io.papermc.paper.api.block.structure.StructureRotation;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.ApiStatus;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public interface BlockData extends Cloneable {
 
@@ -17,7 +17,7 @@ public interface BlockData extends Cloneable {
      *
      * @return the material
      */
-    @NotNull
+    @NonNull
     Material getMaterial();
 
     /**
@@ -27,7 +27,7 @@ public interface BlockData extends Cloneable {
      *
      * @return serialized data string for this block
      */
-    @NotNull
+    @NonNull
     String getAsString();
 
     /**
@@ -56,7 +56,7 @@ public interface BlockData extends Cloneable {
      *
      * @return serialized data string for this block
      */
-    @NotNull
+    @NonNull
     String getAsString(boolean hideUnspecified);
 
     /**
@@ -71,8 +71,8 @@ public interface BlockData extends Cloneable {
      * @param data the data to merge from
      * @return a new instance of this blockdata with the merged data
      */
-    @NotNull
-    BlockData merge(@NotNull BlockData data);
+    @NonNull
+    BlockData merge(@NonNull BlockData data);
 
     /**
      * Checks if the specified BlockData matches this block data.
@@ -96,7 +96,7 @@ public interface BlockData extends Cloneable {
      *
      * @return a copy of the block data
      */
-    @NotNull
+    @NonNull
     BlockData clone();
 
     /**
@@ -105,7 +105,7 @@ public interface BlockData extends Cloneable {
      *
      * @return the sound effect group
      */
-    @NotNull
+    @NonNull
     SoundGroup getSoundGroup();
 
     /**
@@ -145,14 +145,14 @@ public interface BlockData extends Cloneable {
      * @param tool The tool or item used for breaking this block
      * @return true if the tool is preferred for breaking this block.
      */
-    boolean isPreferredTool(@NotNull ItemStack tool);
+    boolean isPreferredTool(@NonNull ItemStack tool);
 
     /**
      * Returns the reaction of the block when moved by a piston
      *
      * @return reaction
      */
-    @NotNull
+    @NonNull
     PistonMoveReaction getPistonMoveReaction();
 
     /**
@@ -166,7 +166,7 @@ public interface BlockData extends Cloneable {
      * @return true if the block is supported, false if this state would not survive
      * the world conditions
      */
-    boolean isSupported(@NotNull Block block);
+    boolean isSupported(@NonNull Block block);
 
     /**
      * Checks if this state would be properly supported if it were placed at
@@ -180,7 +180,7 @@ public interface BlockData extends Cloneable {
      * @return true if the block is supported, false if this state would not survive
      * the world conditions
      */
-    boolean isSupported(@NotNull Location location);
+    boolean isSupported(@NonNull Location location);
 
     /**
      * Checks if a state's {@link BlockFace} is capable of providing a given level
@@ -196,7 +196,7 @@ public interface BlockData extends Cloneable {
      *
      * @return true if the face is sturdy and can support a block, false otherwise
      */
-    boolean isFaceSturdy(@NotNull BlockFace face, @NotNull BlockSupport support);
+    boolean isFaceSturdy(@NonNull BlockFace face, @NonNull BlockSupport support);
 
     /**
      * Gets the material that a player would use to place this block.
@@ -211,7 +211,7 @@ public interface BlockData extends Cloneable {
      * </pre>
      * @return placement material or {@link Material#AIR} if it doesn't have one
      */
-    @NotNull
+    @NonNull
     Material getPlacementMaterial();
 
     /**
@@ -221,7 +221,7 @@ public interface BlockData extends Cloneable {
      *
      * @param rotation the rotation
      */
-    void rotate(@NotNull StructureRotation rotation);
+    void rotate(@NonNull StructureRotation rotation);
 
     /**
      * Mirrors this blockdata using the specified {@link Mirror}.
@@ -230,7 +230,7 @@ public interface BlockData extends Cloneable {
      *
      * @param mirror the mirror
      */
-    void mirror(@NotNull Mirror mirror);
+    void mirror(@NonNull Mirror mirror);
 
     /**
      * Creates a new default {@link BlockState} for this type of Block, not
@@ -238,7 +238,7 @@ public interface BlockData extends Cloneable {
      *
      * @return a new {@link BlockState}
      */
-    @NotNull
+    @NonNull
     @ApiStatus.Experimental
     BlockState createBlockState();
 
@@ -251,7 +251,7 @@ public interface BlockData extends Cloneable {
      * @param itemStack {@link ItemStack} used to mine this Block
      * @return the speed that this Block will be mined by the given {@link ItemStack}
      */
-    default float getDestroySpeed(final @NotNull ItemStack itemStack) {
+    default float getDestroySpeed(final @NonNull ItemStack itemStack) {
         return this.getDestroySpeed(itemStack, false);
     }
 
@@ -264,7 +264,7 @@ public interface BlockData extends Cloneable {
      * @param considerEnchants true to look at enchants on the itemstack
      * @return the speed that this Block will be mined by the given {@link ItemStack}
      */
-    float getDestroySpeed(@NotNull ItemStack itemStack, boolean considerEnchants);
+    float getDestroySpeed(@NonNull ItemStack itemStack, boolean considerEnchants);
     // Paper end - destroy speed API
 
     // Paper start - Tick API

@@ -1,7 +1,8 @@
 package io.papermc.paper.api.block.tilestate;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents a block (usually a container) that may be locked. When a lock is
@@ -22,7 +23,7 @@ public interface Lockable {
      *
      * @return the key needed.
      */
-    @NotNull
+    @NonNull
     String getLock();
 
     /**

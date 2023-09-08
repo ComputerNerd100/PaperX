@@ -2,7 +2,7 @@ package io.papermc.paper.api.block.tilestate;
 
 import io.papermc.paper.api.block.BlockFace;
 import io.papermc.paper.api.block.data.BlockData;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public interface MovingPiston extends TileState {
 
@@ -11,7 +11,7 @@ public interface MovingPiston extends TileState {
      *
      * @return the pushed block
      */
-    @NotNull
+    @NonNull
     BlockData getMovingBlock();
 
     /**
@@ -20,7 +20,7 @@ public interface MovingPiston extends TileState {
      *
      * @return the direction
      */
-    @NotNull
+    @NonNull
     BlockFace getDirection();
 
     /**

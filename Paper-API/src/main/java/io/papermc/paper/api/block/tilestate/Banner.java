@@ -3,7 +3,7 @@ package io.papermc.paper.api.block.tilestate;
 import io.papermc.paper.api.Nameable;
 import io.papermc.paper.api.block.banner.Pattern;
 import io.papermc.paper.api.block.color.DyeColor;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.List;
 
@@ -11,14 +11,14 @@ import java.util.List;
  * Represents a captured state of a banner.
  */
 public interface
-Banner extends TileState, Nameable { // Paper - Nameable API
+Banner extends TileState, Nameable {
 
     /**
      * Returns the base color for this banner
      *
      * @return the base color
      */
-    @NotNull
+    @NonNull
     DyeColor getBaseColor();
 
     /**
@@ -28,14 +28,14 @@ Banner extends TileState, Nameable { // Paper - Nameable API
      *
      * @param color the base color
      */
-    void setBaseColor(@NotNull DyeColor color);
+    void setBaseColor(@NonNull DyeColor color);
 
     /**
      * Returns a list of patterns on this banner
      *
      * @return the patterns
      */
-    @NotNull
+    @NonNull
     List<Pattern> getPatterns();
 
     /**
@@ -43,7 +43,7 @@ Banner extends TileState, Nameable { // Paper - Nameable API
      *
      * @param patterns the new list of patterns
      */
-    void setPatterns(@NotNull List<Pattern> patterns);
+    void setPatterns(@NonNull List<Pattern> patterns);
 
     /**
      * Adds a new pattern on top of the existing
@@ -51,7 +51,7 @@ Banner extends TileState, Nameable { // Paper - Nameable API
      *
      * @param pattern the new pattern to add
      */
-    void addPattern(@NotNull Pattern pattern);
+    void addPattern(@NonNull Pattern pattern);
 
     /**
      * Returns the pattern at the specified index
@@ -59,7 +59,7 @@ Banner extends TileState, Nameable { // Paper - Nameable API
      * @param i the index
      * @return the pattern
      */
-    @NotNull
+    @NonNull
     Pattern getPattern(int i);
 
     /**
@@ -68,7 +68,7 @@ Banner extends TileState, Nameable { // Paper - Nameable API
      * @param i the index
      * @return the removed pattern
      */
-    @NotNull
+    @NonNull
     Pattern removePattern(int i);
 
     /**
@@ -77,7 +77,7 @@ Banner extends TileState, Nameable { // Paper - Nameable API
      * @param i       the index
      * @param pattern the new pattern
      */
-    void setPattern(int i, @NotNull Pattern pattern);
+    void setPattern(int i, @NonNull Pattern pattern);
 
     /**
      * Returns the number of patterns on this

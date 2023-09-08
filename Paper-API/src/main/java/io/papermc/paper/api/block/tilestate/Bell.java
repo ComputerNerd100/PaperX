@@ -1,7 +1,7 @@
 package io.papermc.paper.api.block.tilestate;
 
 import io.papermc.paper.api.block.BlockFace;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a captured state of Bell.

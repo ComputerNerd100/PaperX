@@ -2,8 +2,9 @@ package io.papermc.paper.api.namespace;
 
 import com.google.common.base.Preconditions;
 import net.kyori.adventure.key.Key;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 
 import java.util.Locale;
 import java.util.UUID;
@@ -81,7 +82,7 @@ public final class NamespacedKey implements Key, Namespaced {
      * @param key key
      * @see #NamespacedKey(Plugin, String)
      */
-    public NamespacedKey(@NotNull String namespace, @NotNull String key) {
+    public NamespacedKey(@NonNull String namespace, @NonNull String key) {
         Preconditions.checkArgument(namespace != null && isValidNamespace(namespace), "Invalid namespace. Must be [a-z0-9._-]: %s", namespace);
         Preconditions.checkArgument(key != null && isValidKey(key), "Invalid key. Must be [a-z0-9/._-]: %s", key);
 
@@ -104,7 +105,7 @@ public final class NamespacedKey implements Key, Namespaced {
      * @param plugin the plugin to use for the namespace
      * @param key the key to create
      */
-    public NamespacedKey(@NotNull Plugin plugin, @NotNull String key) {
+    public NamespacedKey(@NonNull Plugin plugin, @NonNull String key) {
         Preconditions.checkArgument(plugin != null, "Plugin cannot be null");
         Preconditions.checkArgument(key != null, "Key cannot be null");
 
@@ -119,13 +120,13 @@ public final class NamespacedKey implements Key, Namespaced {
         Preconditions.checkArgument(string.length() < 256, "NamespacedKey must be less than 256 characters (%s)", string);
     }
 
-    @NotNull
+    @NonNull
     @Override
     public String getNamespace() {
         return namespace;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public String getKey() {
         return key;
@@ -159,7 +160,7 @@ public final class NamespacedKey implements Key, Namespaced {
      * @deprecated should never be used by plugins, for internal use only!!
      */
     @Deprecated
-    @NotNull
+    @NonNull
     public static NamespacedKey randomKey() {
         return new NamespacedKey(PAPER, UUID.randomUUID().toString());
     }
@@ -170,8 +171,8 @@ public final class NamespacedKey implements Key, Namespaced {
      * @param key the key to use
      * @return new key in the Minecraft namespace
      */
-    @NotNull
-    public static NamespacedKey minecraft(@NotNull String key) {
+    @NonNull
+    public static NamespacedKey minecraft(@NonNull String key) {
         return new NamespacedKey(MINECRAFT, key);
     }
 
@@ -200,7 +201,7 @@ public final class NamespacedKey implements Key, Namespaced {
      * @see #fromString(String)
      */
     @Nullable
-    public static NamespacedKey fromString(@NotNull String string, @Nullable Plugin defaultNamespace) {
+    public static NamespacedKey fromString(@NonNull String string, @Nullable Plugin defaultNamespace) {
         Preconditions.checkArgument(string != null && !string.isEmpty(), "Input string must not be empty or null");
 
         String[] components = string.split(":", 3);
@@ -243,23 +244,23 @@ public final class NamespacedKey implements Key, Namespaced {
      * @see #fromString(String, Plugin)
      */
     @Nullable
-    public static NamespacedKey fromString(@NotNull String key) {
+    public static NamespacedKey fromString(@NonNull String key) {
         return fromString(key, null);
     }
 
-    @NotNull
+    @NonNull
     @Override
     public String namespace() {
         return this.getNamespace();
     }
 
-    @NotNull
+    @NonNull
     @Override
     public String value() {
         return this.getKey();
     }
 
-    @NotNull
+    @NonNull
     @Override
     public String asString() {
         return this.namespace + ':' + this.key;
