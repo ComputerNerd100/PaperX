@@ -1,6 +1,10 @@
 package io.papermc.paper.api.inventory;
 
+import io.papermc.paper.api.Server;
 import io.papermc.paper.api.block.color.Color;
+import io.papermc.paper.api.inventory.meta.BookMeta;
+import io.papermc.paper.api.inventory.meta.ItemMeta;
+import io.papermc.paper.api.inventory.meta.SkullMeta;
 import io.papermc.paper.api.material.Material;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.HoverEvent;

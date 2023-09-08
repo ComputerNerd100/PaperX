@@ -355,7 +355,7 @@ public interface ItemMeta extends Cloneable, ConfigurationSerializable, Persiste
     /**
      * Gets the collection of namespaced keys that the item can destroy in {@link org.bukkit.GameMode#ADVENTURE}
      *
-     * @return Set of {@link com.destroystokyo.paper.Namespaced}
+     * @return Set of {@link Namespaced}
      */
     @NonNull Set<Namespaced> getDestroyableKeys();
 

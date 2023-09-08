@@ -1,6 +1,7 @@
 package io.papermc.paper.api.inventory;
 
 import io.papermc.paper.api.annotation.Utility;
+import io.papermc.paper.api.inventory.meta.ItemMeta;
 import io.papermc.paper.api.material.Material;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.HoverEvent;
@@ -14,6 +15,7 @@ import org.jetbrains.annotations.Range;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.UnaryOperator;
 
