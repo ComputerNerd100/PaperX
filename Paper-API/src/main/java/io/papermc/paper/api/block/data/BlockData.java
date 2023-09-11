@@ -7,6 +7,7 @@ import io.papermc.paper.api.block.structure.StructureRotation;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
+import io.papermc.paper.api.sound.SoundGroup;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.ApiStatus;

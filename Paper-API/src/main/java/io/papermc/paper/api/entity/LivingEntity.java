@@ -10,6 +10,7 @@ import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.projectilesource.ProjectileSource;
+import io.papermc.paper.api.sound.Sound;
 import io.papermc.paper.api.util.vector.Vector;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -29,7 +30,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return height of the living entity's eyes above its location
      */
-    public double getEyeHeight();
+    double getEyeHeight();
 
     /**
      * Gets the height of the living entity's eyes above its Location.
@@ -38,15 +39,14 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *     sneaking and gliding will be ignored
      * @return height of the living entity's eyes above its location
      */
-    public double getEyeHeight(boolean ignorePose);
+    double getEyeHeight(boolean ignorePose);
 
     /**
      * Get a Location detailing the current eye position of the living entity.
      *
      * @return a location at the eyes of the living entity
      */
-    @NonNull
-    public Location getEyeLocation();
+    @NonNull Location getEyeLocation();
 
     /**
      * Gets all blocks along the living entity's line of sight.
@@ -61,8 +61,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @return list containing all blocks along the living entity's line of
      *     sight
      */
-    @NonNull
-    public List<Block> getLineOfSight(@Nullable Set<Material> transparent, int maxDistance);
+    @NonNull List<Block> getLineOfSight(@Nullable Set<Material> transparent, int maxDistance);
 
     /**
      * Gets the block that the living entity has targeted.
@@ -77,8 +76,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *     by server by at least 100 blocks, no less)
      * @return block that the living entity has targeted
      */
-    @NonNull
-    public Block getTargetBlock(@Nullable Set<Material> transparent, int maxDistance);
+    @NonNull Block getTargetBlock(@Nullable Set<Material> transparent, int maxDistance);
     
     /**
      * Gets the blockface of that block that the living entity has targeted, ignoring fluids
@@ -88,7 +86,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *     or null if no block is targeted
      */
     @Nullable
-    public default BlockFace getTargetBlockFace(int maxDistance) {
+    default BlockFace getTargetBlockFace(int maxDistance) {
         return getTargetBlockFace(maxDistance, FluidCollisionMode.NEVER);
     }
 
@@ -100,8 +98,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @return blockface of the block that the living entity has targeted,
      *     or null if no block is targeted
      */
-    @Nullable
-    public BlockFace getTargetBlockFace(int maxDistance, @NonNull FluidCollisionMode fluidMode);
+    @Nullable BlockFace getTargetBlockFace(int maxDistance, @NonNull FluidCollisionMode fluidMode);
 
     /**
      * Gets information about the entity being targeted
@@ -110,7 +107,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @return entity being targeted, or null if no entity is targeted
      */
     @Nullable
-    public default Entity getTargetEntity(int maxDistance) {
+    default Entity getTargetEntity(int maxDistance) {
         return getTargetEntity(maxDistance, false);
     }
 
@@ -121,8 +118,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @param ignoreBlocks true to scan through blocks
      * @return entity being targeted, or null if no entity is targeted
      */
-    @Nullable
-    public Entity getTargetEntity(int maxDistance, boolean ignoreBlocks);
+    @Nullable Entity getTargetEntity(int maxDistance, boolean ignoreBlocks);
     
     /**
      * Gets information about the entity being targeted
@@ -161,8 +157,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @return list containing the last 2 blocks along the living entity's
      *     line of sight
      */
-    @NonNull
-    public List<Block> getLastTwoTargetBlocks(@Nullable Set<Material> transparent, int maxDistance);
+    @NonNull List<Block> getLastTwoTargetBlocks(@Nullable Set<Material> transparent, int maxDistance);
 
     /**
      * Gets the block that the living entity has targeted.
@@ -177,8 +172,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @return block that the living entity has targeted
      * @see #getTargetBlockExact(int, org.bukkit.FluidCollisionMode)
      */
-    @Nullable
-    public Block getTargetBlockExact(int maxDistance);
+    @Nullable Block getTargetBlockExact(int maxDistance);
 
     /**
      * Gets the block that the living entity has targeted.
@@ -193,8 +187,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @return block that the living entity has targeted
      * @see #rayTraceBlocks(double, FluidCollisionMode)
      */
-    @Nullable
-    public Block getTargetBlockExact(int maxDistance, @NonNull FluidCollisionMode fluidCollisionMode);
+    @Nullable Block getTargetBlockExact(int maxDistance, @NonNull FluidCollisionMode fluidCollisionMode);
 
     /**
      * Performs a ray trace that provides information on the targeted block.
@@ -210,8 +203,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *     is no targeted block in range
      * @see #rayTraceBlocks(double, FluidCollisionMode)
      */
-    @Nullable
-    public RayTraceResult rayTraceBlocks(double maxDistance);
+    @Nullable RayTraceResult rayTraceBlocks(double maxDistance);
 
     /**
      * Performs a ray trace that provides information on the targeted block.
@@ -227,8 +219,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *     is no targeted block in range
      * @see World#rayTraceBlocks(Location, Vector, double, FluidCollisionMode)
      */
-    @Nullable
-    public RayTraceResult rayTraceBlocks(double maxDistance, @NonNull FluidCollisionMode fluidCollisionMode);
+    @Nullable RayTraceResult rayTraceBlocks(double maxDistance, @NonNull FluidCollisionMode fluidCollisionMode);
 
     /**
      * Returns the amount of air that the living entity has remaining, in
@@ -236,49 +227,49 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return amount of air remaining
      */
-    public int getRemainingAir();
+    int getRemainingAir();
 
     /**
      * Sets the amount of air that the living entity has remaining, in ticks.
      *
      * @param ticks amount of air remaining
      */
-    public void setRemainingAir(int ticks);
+    void setRemainingAir(int ticks);
 
     /**
      * Returns the maximum amount of air the living entity can have, in ticks.
      *
      * @return maximum amount of air
      */
-    public int getMaximumAir();
+    int getMaximumAir();
 
     /**
      * Sets the maximum amount of air the living entity can have, in ticks.
      *
      * @param ticks maximum amount of air
      */
-    public void setMaximumAir(int ticks);
+    void setMaximumAir(int ticks);
 
     /**
      * Gets the time in ticks until the next arrow leaves the entity's body.
      *
      * @return ticks until arrow leaves
      */
-    public int getArrowCooldown();
+    int getArrowCooldown();
 
     /**
      * Sets the time in ticks until the next arrow leaves the entity's body.
      *
      * @param ticks time until arrow leaves
      */
-    public void setArrowCooldown(int ticks);
+    void setArrowCooldown(int ticks);
 
     /**
      * Gets the amount of arrows in an entity's body.
      *
      * @return amount of arrows in body
      */
-    public int getArrowsInBody();
+    int getArrowsInBody();
 
     // Paper start
     /**
@@ -307,28 +298,28 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return ticks until bee stinger leaves
      */
-    public int getBeeStingerCooldown();
+    int getBeeStingerCooldown();
 
     /**
      * Sets the time in ticks until the next stinger leaves the entity's body.
      *
      * @param ticks time until bee stinger leaves
      */
-    public void setBeeStingerCooldown(int ticks);
+    void setBeeStingerCooldown(int ticks);
 
     /**
      * Gets the amount of bee stingers in an entity's body.
      *
      * @return amount of bee stingers in body
      */
-    public int getBeeStingersInBody();
+    int getBeeStingersInBody();
 
     /**
      * Set the amount of bee stingers in the entity's body.
      *
      * @param count amount of bee stingers in entity's body
      */
-    public void setBeeStingersInBody(int count);
+    void setBeeStingersInBody(int count);
     // Paper End - Stinger API
 
     /**
@@ -339,14 +330,14 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return maximum no damage ticks
      */
-    public int getMaximumNoDamageTicks();
+    int getMaximumNoDamageTicks();
 
     /**
      * Sets the living entity's current maximum no damage ticks.
      *
      * @param ticks maximum amount of no damage ticks
      */
-    public void setMaximumNoDamageTicks(int ticks);
+    void setMaximumNoDamageTicks(int ticks);
 
     /**
      * Returns the living entity's last damage taken in the current no damage
@@ -357,28 +348,28 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return damage taken since the last no damage ticks time period
      */
-    public double getLastDamage();
+    double getLastDamage();
 
     /**
      * Sets the damage dealt within the current no damage ticks time period.
      *
      * @param damage amount of damage
      */
-    public void setLastDamage(double damage);
+    void setLastDamage(double damage);
 
     /**
      * Returns the living entity's current no damage ticks.
      *
      * @return amount of no damage ticks
      */
-    public int getNoDamageTicks();
+    int getNoDamageTicks();
 
     /**
      * Sets the living entity's current no damage ticks.
      *
      * @param ticks amount of no damage ticks
      */
-    public void setNoDamageTicks(int ticks);
+    void setNoDamageTicks(int ticks);
 
     /**
      * Get the ticks that this entity has performed no action.
@@ -390,7 +381,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return amount of no action ticks
      */
-    public int getNoActionTicks();
+    int getNoActionTicks();
 
     /**
      * Set the ticks that this entity has performed no action.
@@ -402,7 +393,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @param ticks amount of no action ticks
      */
-    public void setNoActionTicks(int ticks);
+    void setNoActionTicks(int ticks);
 
     /**
      * Gets the player identified as the killer of the living entity.
@@ -411,8 +402,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return killer player, or null if none found
      */
-    @Nullable
-    public Player getKiller();
+    @Nullable Player getKiller();
 
     // Paper start
     /**
@@ -420,7 +410,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @param killer player
      */
-    public void setKiller(@Nullable Player killer);
+    void setKiller(@Nullable Player killer);
     // Paper end
 
     /**
@@ -429,7 +419,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @param effect PotionEffect to be added
      * @return whether the effect could be added
      */
-    public boolean addPotionEffect(@NonNull PotionEffect effect);
+    boolean addPotionEffect(@NonNull PotionEffect effect);
 
     /**
      * Adds the given {@link PotionEffect} to the living entity.
@@ -444,7 +434,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * now supported.
      */
     @Deprecated
-    public boolean addPotionEffect(@NonNull PotionEffect effect, boolean force);
+    boolean addPotionEffect(@NonNull PotionEffect effect, boolean force);
 
     /**
      * Attempts to add all of the given {@link PotionEffect} to the living
@@ -453,7 +443,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @param effects the effects to add
      * @return whether all of the effects could be added
      */
-    public boolean addPotionEffects(@NonNull Collection<PotionEffect> effects);
+    boolean addPotionEffects(@NonNull Collection<PotionEffect> effects);
 
     /**
      * Returns whether the living entity already has an existing effect of
@@ -462,7 +452,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @param type the potion type to check
      * @return whether the living entity has this potion effect active on them
      */
-    public boolean hasPotionEffect(@NonNull PotionEffectType type);
+    boolean hasPotionEffect(@NonNull PotionEffectType type);
 
     /**
      * Returns the active {@link PotionEffect} of the specified type.
@@ -472,15 +462,14 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @param type the potion type to check
      * @return the effect active on this entity, or null if not active.
      */
-    @Nullable
-    public PotionEffect getPotionEffect(@NonNull PotionEffectType type);
+    @Nullable PotionEffect getPotionEffect(@NonNull PotionEffectType type);
 
     /**
      * Removes any effects present of the given {@link PotionEffectType}.
      *
      * @param type the potion type to remove
      */
-    public void removePotionEffect(@NonNull PotionEffectType type);
+    void removePotionEffect(@NonNull PotionEffectType type);
 
     /**
      * Returns all currently active {@link PotionEffect}s on the living
@@ -488,8 +477,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return a collection of {@link PotionEffect}s
      */
-    @NonNull
-    public Collection<PotionEffect> getActivePotionEffects();
+    @NonNull Collection<PotionEffect> getActivePotionEffects();
 
     // Paper start - LivingEntity#clearActivePotionEffects();
     /**
@@ -509,7 +497,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @param other the entity to determine line of sight to
      * @return true if there is a line of sight, false if not
      */
-    public boolean hasLineOfSight(@NonNull Entity other);
+    boolean hasLineOfSight(@NonNull Entity other);
 
     // Paper start
     /**
@@ -521,7 +509,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @param location the location to determine line of sight to
      * @return true if there is a line of sight, false if not
      */
-    public boolean hasLineOfSight(@NonNull Location location);
+    boolean hasLineOfSight(@NonNull Location location);
     // Paper end
 
     /**
@@ -531,7 +519,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return true if the living entity is removed when away from players
      */
-    public boolean getRemoveWhenFarAway();
+    boolean getRemoveWhenFarAway();
 
     /**
      * Sets whether or not the living entity despawns when away from players
@@ -539,36 +527,35 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @param remove the removal status
      */
-    public void setRemoveWhenFarAway(boolean remove);
+    void setRemoveWhenFarAway(boolean remove);
 
     /**
      * Gets the inventory with the equipment worn by the living entity.
      *
      * @return the living entity's inventory
      */
-    @Nullable
-    public EntityEquipment getEquipment();
+    @Nullable EntityEquipment getEquipment();
 
     /**
      * Sets whether or not the living entity can pick up items.
      *
      * @param pickup whether or not the living entity can pick up items
      */
-    public void setCanPickupItems(boolean pickup);
+    void setCanPickupItems(boolean pickup);
 
     /**
      * Gets if the living entity can pick up items.
      *
      * @return whether or not the living entity can pick up items
      */
-    public boolean getCanPickupItems();
+    boolean getCanPickupItems();
 
     /**
      * Returns whether the entity is currently leashed.
      *
      * @return whether the entity is leashed
      */
-    public boolean isLeashed();
+    boolean isLeashed();
 
     /**
      * Gets the entity that is currently leading this entity.
@@ -576,8 +563,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @return the entity holding the leash
      * @throws IllegalStateException if not currently leashed
      */
-    @NonNull
-    public Entity getLeashHolder() throws IllegalStateException;
+    @NonNull Entity getLeashHolder() throws IllegalStateException;
 
     /**
      * Sets the leash on this entity to be held by the supplied entity.
@@ -589,13 +575,13 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @param holder the entity to leash this entity to, or null to unleash
      * @return whether the operation was successful
      */
-    public boolean setLeashHolder(@Nullable Entity holder);
+    boolean setLeashHolder(@Nullable Entity holder);
 
     /**
      * Checks to see if an entity is gliding, such as using an Elytra.
      * @return True if this entity is gliding.
      */
-    public boolean isGliding();
+    boolean isGliding();
 
     /**
      * Makes entity start or stop gliding. This will work even if an Elytra
@@ -603,14 +589,14 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * unless an event-cancelling mechanism is put in place.
      * @param gliding True if the entity is gliding.
      */
-    public void setGliding(boolean gliding);
+    void setGliding(boolean gliding);
 
     /**
      * Checks to see if an entity is swimming.
      *
      * @return True if this entity is swimming.
      */
-    public boolean isSwimming();
+    boolean isSwimming();
 
     /**
      * Makes entity start or stop swimming.
@@ -621,28 +607,28 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @deprecated This does nothing and is immediately reverted by the server, in the next tick <!-- Paper - future note: should wait a mojang input client/server side -->
      */
     @Deprecated // Paper
-    public void setSwimming(boolean swimming);
+    void setSwimming(boolean swimming);
 
     /**
      * Checks to see if an entity is currently using the Riptide enchantment.
      *
      * @return True if this entity is currently riptiding.
      */
-    public boolean isRiptiding();
+    boolean isRiptiding();
 
     /**
      * Returns whether this entity is slumbering.
      *
      * @return slumber state
      */
-    public boolean isSleeping();
+    boolean isSleeping();
 
     /**
      * Gets if the entity is climbing.
      *
      * @return if the entity is climbing
      */
-    public boolean isClimbing();
+    boolean isClimbing();
 
     /**
      * Sets whether an entity will have AI.
@@ -671,7 +657,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @param target entity to attack.
      */
-    public void attack(@NonNull Entity target);
+    void attack(@NonNull Entity target);
 
     /**
      * Makes this entity swing their main hand.
@@ -679,7 +665,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * This method does nothing if this entity does not have an animation for
      * swinging their main hand.
      */
-    public void swingMainHand();
+    void swingMainHand();
 
     /**
      * Makes this entity swing their off hand.
@@ -687,7 +673,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * This method does nothing if this entity does not have an animation for
      * swinging their off hand.
      */
-    public void swingOffHand();
+    void swingOffHand();
 
     /**
      * Makes this entity flash red as if they were damaged.
@@ -696,7 +682,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * entity, where 0 is in front of the player, 90 is to the right, 180 is
      * behind, and 270 is to the left
      */
-    public void playHurtAnimation(float yaw);
+    void playHurtAnimation(float yaw);
 
     /**
      * Set if this entity will be subject to collisions with other entities.
@@ -770,16 +756,14 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return the hurt sound, or null if the entity does not make any sound
      */
-    @Nullable
-    public Sound getHurtSound();
+    @Nullable Sound getHurtSound();
 
     /**
      * Get the {@link Sound} this entity will make on death.
      *
      * @return the death sound, or null if the entity does not make any sound
      */
-    @Nullable
-    public Sound getDeathSound();
+    @Nullable Sound getDeathSound();
 
     /**
      * Get the {@link Sound} this entity will make when falling from the given
@@ -791,8 +775,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @see #getFallDamageSoundSmall()
      * @see #getFallDamageSoundBig()
      */
-    @NonNull
-    public Sound getFallDamageSound(int fallHeight);
+    @NonNull Sound getFallDamageSound(int fallHeight);
 
     /**
      * Get the {@link Sound} this entity will make when falling from a small
@@ -800,8 +783,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return the fall damage sound
      */
-    @NonNull
-    public Sound getFallDamageSoundSmall();
+    @NonNull Sound getFallDamageSoundSmall();
 
     /**
      * Get the {@link Sound} this entity will make when falling from a large
@@ -809,8 +791,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return the fall damage sound
      */
-    @NonNull
-    public Sound getFallDamageSoundBig();
+    @NonNull Sound getFallDamageSoundBig();
 
     /**
      * Get the {@link Sound} this entity will make when drinking the given
@@ -819,8 +800,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @param itemStack the item stack being drank
      * @return the drinking sound
      */
-    @NonNull
-    public Sound getDrinkingSound(@NonNull ItemStack itemStack);
+    @NonNull Sound getDrinkingSound(@NonNull ItemStack itemStack);
 
     /**
      * Get the {@link Sound} this entity will make when eating the given
@@ -829,8 +809,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      * @param itemStack the item stack being eaten
      * @return the eating sound
      */
-    @NonNull
-    public Sound getEatingSound(@NonNull ItemStack itemStack);
+    @NonNull Sound getEatingSound(@NonNull ItemStack itemStack);
 
     /**
      * Returns true if this entity can breathe underwater and will not take
@@ -838,7 +817,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return <code>true</code> if the entity can breathe underwater
      */
-    public boolean canBreatheUnderwater();
+    boolean canBreatheUnderwater();
 
     /**
      * Get the category to which this entity belongs.
@@ -848,22 +827,21 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @return the entity category
      */
-    @NonNull
-    public EntityCategory getCategory();
+    @NonNull EntityCategory getCategory();
 
     /**
      * Sets whether the entity is invisible or not.
      *
      * @param invisible If the entity is invisible
      */
-    public void setInvisible(boolean invisible);
+    void setInvisible(boolean invisible);
 
     /**
      * Gets whether the entity is invisible or not.
      *
      * @return Whether the entity is invisible
      */
-    public boolean isInvisible();
+    boolean isInvisible();
 
     /**
      * Get the delay (in ticks) before blocking is effective for this entity

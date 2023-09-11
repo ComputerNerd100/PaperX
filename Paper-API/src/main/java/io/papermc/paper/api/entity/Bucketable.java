@@ -1,6 +1,7 @@
 package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.inventory.ItemStack;
+import io.papermc.paper.api.sound.Sound;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**

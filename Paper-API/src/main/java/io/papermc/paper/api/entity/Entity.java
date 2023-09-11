@@ -8,6 +8,7 @@ import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.metadata.Metadatable;
 import io.papermc.paper.api.persistance.PersistentDataHolder;
 import io.papermc.paper.api.util.vector.Vector;
+import net.kyori.adventure.sound.Sound;
 import net.kyori.adventure.text.event.HoverEvent;
 import net.kyori.adventure.text.event.HoverEventSource;
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -19,6 +20,7 @@ import org.jetbrains.annotations.Contract;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.function.UnaryOperator;
 
 /**
  * Represents a base entity in the world
@@ -809,8 +811,8 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
 
     @NonNull
     @Override
-    default net.kyori.adventure.text.event.HoverEvent<net.kyori.adventure.text.event.HoverEvent.ShowEntity> asHoverEvent(final @NonNull java.util.function.UnaryOperator<net.kyori.adventure.text.event.HoverEvent.ShowEntity> op) {
-        return net.kyori.adventure.text.event.HoverEvent.showEntity(op.apply(net.kyori.adventure.text.event.HoverEvent.ShowEntity.of(this.getType().getKey(), this.getUniqueId(), this.customName())));
+    default HoverEvent<HoverEvent.ShowEntity> asHoverEvent(final @NonNull UnaryOperator<HoverEvent.ShowEntity> op) {
+        return HoverEvent.showEntity(op.apply(HoverEvent.ShowEntity.of(this.getType().getKey(), this.getUniqueId(), this.customName())));
     }
 
     /**

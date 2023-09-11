@@ -1,6 +1,8 @@
 package io.papermc.paper.api.block.data.type;
 
 import io.papermc.paper.api.block.data.Powerable;
+import io.papermc.paper.api.sound.Instrument;
+import io.papermc.paper.api.sound.Note;
 import org.jetbrains.annotations.NotNull;
 
 /**

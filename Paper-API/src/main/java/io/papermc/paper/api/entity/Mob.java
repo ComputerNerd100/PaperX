@@ -3,6 +3,7 @@ package io.papermc.paper.api.entity;
 import io.papermc.paper.api.inventory.EntityEquipment;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.loot.Lootable;
+import io.papermc.paper.api.sound.Sound;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -119,15 +120,14 @@ public interface Mob extends LivingEntity, Lootable {
      *
      * @param target New LivingEntity to target, or null to clear the target
      */
-    public void setTarget(@Nullable LivingEntity target);
+    void setTarget(@Nullable LivingEntity target);
 
     /**
      * Gets the current target of this Mob
      *
      * @return Current target of this creature, or null if none exists
      */
-    @Nullable
-    public LivingEntity getTarget();
+    @Nullable LivingEntity getTarget();
 
     /**
      * Sets whether this mob is aware of its surroundings.
@@ -138,7 +138,7 @@ public interface Mob extends LivingEntity, Lootable {
      *
      * @param aware whether the mob is aware
      */
-    public void setAware(boolean aware);
+    void setAware(boolean aware);
 
     /**
      * Gets whether this mob is aware of its surroundings.
@@ -149,7 +149,7 @@ public interface Mob extends LivingEntity, Lootable {
      *
      * @return whether the mob is aware
      */
-    public boolean isAware();
+    boolean isAware();
 
     /**
      * Get the {@link Sound} this mob makes while ambiently existing. This sound
@@ -161,32 +161,27 @@ public interface Mob extends LivingEntity, Lootable {
      *
      * @return the ambient sound, or null if this entity is ambiently quiet
      */
-    @Nullable
-    public Sound getAmbientSound();
+    @Nullable Sound getAmbientSound();
 
-    // Paper start
     /**
      * Check if Mob is left-handed
      *
      * @return True if left-handed
      */
-    public boolean isLeftHanded();
+    boolean isLeftHanded();
 
     /**
      * Set if Mob is left-handed
      *
      * @param leftHanded True if left-handed
      */
-    public void setLeftHanded(boolean leftHanded);
-    // Paper end
+    void setLeftHanded(boolean leftHanded);
 
-    // Paper start
     /**
      * Gets the amount of experience the mob will possibly drop. This value is randomized and it can give different results
      *
      * @return the amount of experience the mob will possibly drop
      */
-    public int getPossibleExperienceReward();
-    // Paper end
+    int getPossibleExperienceReward();
 }
 
