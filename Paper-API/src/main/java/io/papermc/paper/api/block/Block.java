@@ -1,6 +1,7 @@
 package io.papermc.paper.api.block;
 
 import io.papermc.paper.api.block.data.BlockData;
+import io.papermc.paper.api.block.data.type.Stairs;
 import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
@@ -598,7 +599,7 @@ public interface Block extends Metadatable, Translatable {
     /**
      * Gets the approximate bounding box for this block.
      * <p>
-     * This isn't exact as some blocks {@link org.bukkit.block.data.type.Stairs}
+     * This isn't exact as some blocks {@link Stairs}
      * contain many bounding boxes to establish their complete form.
      *
      * Also, the box may not be exactly the same as the collision shape (such as
