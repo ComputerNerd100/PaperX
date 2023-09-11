@@ -1,5 +1,6 @@
 package io.papermc.paper.api.advancement;
 
+import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
