@@ -4,10 +4,12 @@ import io.papermc.paper.api.entity.EnderCrystal;
 import io.papermc.paper.api.entity.EnderDragon;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.math.Position;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Represents a dragon battle state for a world with an end environment.
@@ -28,7 +30,7 @@ public interface DragonBattle {
      *
      * @return the boss bar
      */
-    @NotNull BossBar getBossBar();
+    @NonNull BossBar getBossBar();
 
     /**
      * Get the location of the end portal.
@@ -78,7 +80,7 @@ public interface DragonBattle {
      *
      * @return the current respawn phase.
      */
-    @NotNull RespawnPhase getRespawnPhase();
+    @NonNull RespawnPhase getRespawnPhase();
 
     /**
      * Set the dragon's respawn phase.
@@ -91,7 +93,7 @@ public interface DragonBattle {
      *
      * @see #initiateRespawn()
      */
-    boolean setRespawnPhase(@NotNull RespawnPhase phase);
+    boolean setRespawnPhase(@NonNull RespawnPhase phase);
 
     /**
      * Reset the crystals located on the obsidian pillars (remove their beam
@@ -155,7 +157,7 @@ public interface DragonBattle {
      *
      * @param position position for the new gateway
      */
-    void spawnNewGateway(@NotNull Position position);
+    void spawnNewGateway(@NonNull Position position);
 
     /**
      * Gets the {@link EnderCrystal}s being used to respawn the dragon. If no respawn
@@ -163,12 +165,13 @@ public interface DragonBattle {
      *
      * @return the respawn crystals
      */
-    java.util.@NotNull @org.jetbrains.annotations.Unmodifiable List<EnderCrystal> getRespawnCrystals();
+    @NonNull @Unmodifiable List<EnderCrystal> getRespawnCrystals();
 
     /**
      * Gets the {@link EnderCrystal}s on top of the pillars that heal the dragon.
      *
      * @return the healing crystals
      */
-    java.util.@NotNull @org.jetbrains.annotations.Unmodifiable List<EnderCrystal> getHealingCrystals();
+    @NonNull @Unmodifiable List<EnderCrystal> getHealingCrystals();
+}
 // Paper end
