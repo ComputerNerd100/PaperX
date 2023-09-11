@@ -2,6 +2,7 @@ package io.papermc.paper.api.block;
 
 import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.block.data.type.Stairs;
+import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
