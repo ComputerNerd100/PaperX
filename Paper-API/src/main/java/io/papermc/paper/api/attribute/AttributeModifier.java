@@ -2,6 +2,7 @@ package io.papermc.paper.api.attribute;
 
 import com.google.common.base.Preconditions;
 import io.papermc.paper.api.inventory.EquipmentSlot;
+import io.papermc.paper.api.util.NumberConversions;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
