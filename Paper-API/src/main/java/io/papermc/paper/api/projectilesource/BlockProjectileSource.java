@@ -1,5 +1,6 @@
 package io.papermc.paper.api.projectilesource;
 
+import io.papermc.paper.api.block.Block;
 import org.jetbrains.annotations.NotNull;
 
 public interface BlockProjectileSource extends ProjectileSource {
@@ -10,5 +11,5 @@ public interface BlockProjectileSource extends ProjectileSource {
      * @return Block for the projectile source
      */
     @NotNull
-    public Block getBlock();
+    Block getBlock();
 }
