@@ -3,6 +3,7 @@ package io.papermc.paper.api.block.tilestate;
 import io.papermc.paper.api.block.color.Colorable;
 import io.papermc.paper.api.block.sign.Side;
 import io.papermc.paper.api.block.sign.SignSide;
+import io.papermc.paper.api.math.Position;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
