@@ -1,6 +1,7 @@
 package io.papermc.paper.api.block.tilestate;
 
 import io.papermc.paper.api.namespace.NamespacedKey;
+import io.papermc.paper.api.player.OfflinePlayer;
 import io.papermc.paper.api.profile.PlayerProfile;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
