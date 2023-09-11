@@ -1,6 +1,7 @@
 package io.papermc.paper.api.block.tilestate;
 
 
+import io.papermc.paper.api.math.Position;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
