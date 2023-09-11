@@ -43,7 +43,7 @@ public interface Skull extends TileState {
     void setPlayerProfile(@NonNull PlayerProfile profile);
 
     /**
-     * If the skull has an owner, per {@link #hasOwner()}, return the owners {@link com.destroystokyo.paper.profile.PlayerProfile}
+     * If the skull has an owner, per {@link #hasOwner()}, return the owners {@link PlayerProfile}
      * @return The profile of the owner, if set
      */
     @Nullable PlayerProfile getPlayerProfile();
