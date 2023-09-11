@@ -31,11 +31,11 @@ public interface Advancement extends Keyed {
      * Gets the formatted display name for this display. This
      * is part of the component that would be shown in chat when a player
      * completes the advancement. Will return the same as
-     * {@link io.papermc.paper.advancement.AdvancementDisplay#displayName()} when an
-     * {@link io.papermc.paper.advancement.AdvancementDisplay} is present.
+     * {@link AdvancementDisplay#displayName()} when an
+     * {@link AdvancementDisplay} is present.
      *
      * @return the display name
-     * @see io.papermc.paper.advancement.AdvancementDisplay#displayName()
+     * @see AdvancementDisplay#displayName()
      */
     @NotNull net.kyori.adventure.text.Component displayName();
 
