@@ -1,6 +1,7 @@
 package io.papermc.paper.api.boss;
 
 import io.papermc.paper.api.location.Location;
+import io.papermc.paper.api.math.Position;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -156,7 +157,7 @@ public interface DragonBattle {
      *
      * @param position position for the new gateway
      */
-    void spawnNewGateway(@NotNull io.papermc.paper.math.Position position);
+    void spawnNewGateway(@NotNull Position position);
 
     /**
      * Gets the {@link org.bukkit.entity.EnderCrystal}s being used to respawn the dragon. If no respawn
