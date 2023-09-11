@@ -1,5 +1,6 @@
 package io.papermc.paper.api.boss;
 
+import io.papermc.paper.api.location.Location;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
