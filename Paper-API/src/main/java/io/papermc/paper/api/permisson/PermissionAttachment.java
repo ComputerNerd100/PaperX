@@ -1,7 +1,7 @@
 package io.papermc.paper.api.permisson;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -16,7 +16,7 @@ public class PermissionAttachment {
     private final Permissible permissible;
     private final Plugin plugin;
 
-    public PermissionAttachment(@NotNull Plugin plugin, @NotNull Permissible permissible) {
+    public PermissionAttachment(@NonNull Plugin plugin, @NonNull Permissible permissible) {
         if (plugin == null) {
             throw new IllegalArgumentException("Plugin cannot be null");
         } else if (!plugin.isEnabled()) {
@@ -32,7 +32,7 @@ public class PermissionAttachment {
      *
      * @return Plugin responsible for this permission attachment
      */
-    @NotNull
+    @NonNull
     public Plugin getPlugin() {
         return plugin;
     }
@@ -63,7 +63,7 @@ public class PermissionAttachment {
      *
      * @return Permissible containing this attachment
      */
-    @NotNull
+    @NonNull
     public Permissible getPermissible() {
         return permissible;
     }
@@ -77,7 +77,7 @@ public class PermissionAttachment {
      *
      * @return Copy of all permissions and values expressed by this attachment
      */
-    @NotNull
+    @NonNull
     public Map<String, Boolean> getPermissions() {
         return new LinkedHashMap<String, Boolean>(permissions);
     }
@@ -88,7 +88,7 @@ public class PermissionAttachment {
      * @param name Name of the permission
      * @param value New value of the permission
      */
-    public void setPermission(@NotNull String name, boolean value) {
+    public void setPermission(@NonNull String name, boolean value) {
         permissions.put(name.toLowerCase(java.util.Locale.ENGLISH), value);
         permissible.recalculatePermissions();
     }
@@ -99,7 +99,7 @@ public class PermissionAttachment {
      * @param perm Permission to set
      * @param value New value of the permission
      */
-    public void setPermission(@NotNull Permission perm, boolean value) {
+    public void setPermission(@NonNull Permission perm, boolean value) {
         setPermission(perm.getName(), value);
     }
 
@@ -111,7 +111,7 @@ public class PermissionAttachment {
      *
      * @param name Name of the permission to remove
      */
-    public void unsetPermission(@NotNull String name) {
+    public void unsetPermission(@NonNull String name) {
         permissions.remove(name.toLowerCase(java.util.Locale.ENGLISH));
         permissible.recalculatePermissions();
     }
@@ -124,7 +124,7 @@ public class PermissionAttachment {
      *
      * @param perm Permission to remove
      */
-    public void unsetPermission(@NotNull Permission perm) {
+    public void unsetPermission(@NonNull Permission perm) {
         unsetPermission(perm.getName());
     }
 

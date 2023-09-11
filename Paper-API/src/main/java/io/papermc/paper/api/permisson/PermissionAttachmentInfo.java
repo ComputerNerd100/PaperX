@@ -1,7 +1,8 @@
 package io.papermc.paper.api.permisson;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 
 /**
  * Holds information on a permission and which {@link PermissionAttachment}
@@ -13,7 +14,7 @@ public class PermissionAttachmentInfo {
     private final PermissionAttachment attachment;
     private final boolean value;
 
-    public PermissionAttachmentInfo(@NotNull Permissible permissible, @NotNull String permission, @Nullable PermissionAttachment attachment, boolean value) {
+    public PermissionAttachmentInfo(@NonNull Permissible permissible, @NonNull String permission, @Nullable PermissionAttachment attachment, boolean value) {
         if (permissible == null) {
             throw new IllegalArgumentException("Permissible may not be null");
         } else if (permission == null) {
@@ -31,7 +32,7 @@ public class PermissionAttachmentInfo {
      *
      * @return Permissible this permission is for
      */
-    @NotNull
+    @NonNull
     public Permissible getPermissible() {
         return permissible;
     }
@@ -41,7 +42,7 @@ public class PermissionAttachmentInfo {
      *
      * @return Name of the permission
      */
-    @NotNull
+    @NonNull
     public String getPermission() {
         return permission;
     }

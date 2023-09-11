@@ -1,7 +1,9 @@
 package io.papermc.paper.api.permisson;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jetbrains.annotations.NonNull;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +20,7 @@ public enum PermissionDefault {
     private final String[] names;
     private static final Map<String, PermissionDefault> lookup = new HashMap<String, PermissionDefault>();
 
-    private PermissionDefault(/*@NotNull*/ String... names) {
+    private PermissionDefault(/*@NonNull*/ String... names) {
         this.names = names;
     }
 
@@ -51,7 +53,7 @@ public enum PermissionDefault {
      * @return Specified value, or null if not found
      */
     @Nullable
-    public static PermissionDefault getByName(@NotNull String name) {
+    public static PermissionDefault getByName(@NonNull String name) {
         return lookup.get(name.toLowerCase(java.util.Locale.ENGLISH).replaceAll("[^a-z!]", ""));
     }
 

@@ -1,6 +1,6 @@
 package io.papermc.paper.api.permisson;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a class which is to be notified when a {@link
@@ -14,6 +14,6 @@ public interface PermissionRemovedExecutor {
      *
      * @param attachment Attachment which was removed
      */
-    public void attachmentRemoved(@NotNull PermissionAttachment attachment);
+    public void attachmentRemoved(@NonNull PermissionAttachment attachment);
 }
 
