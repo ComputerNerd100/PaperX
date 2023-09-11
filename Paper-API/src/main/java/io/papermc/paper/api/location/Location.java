@@ -3,6 +3,7 @@ package io.papermc.paper.api.location;
 import com.google.common.base.Preconditions;
 import io.papermc.paper.api.annotation.Utility;
 import io.papermc.paper.api.block.Block;
+import io.papermc.paper.api.math.FinePosition;
 import io.papermc.paper.api.util.NumberConversions;
 import io.papermc.paper.api.util.vector.Vector;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class Location implements Cloneable, ConfigurationSerializable, FinePosition { // Paper
+public class Location implements Cloneable, ConfigurationSerializable, FinePosition {
     private Reference<World> world;
     private double x;
     private double y;
