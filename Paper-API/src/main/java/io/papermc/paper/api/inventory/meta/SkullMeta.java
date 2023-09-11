@@ -1,6 +1,7 @@
 package io.papermc.paper.api.inventory.meta;
 
 import io.papermc.paper.api.namespace.NamespacedKey;
+import io.papermc.paper.api.player.OfflinePlayer;
 import io.papermc.paper.api.profile.PlayerProfile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
