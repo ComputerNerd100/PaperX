@@ -3,6 +3,7 @@ package io.papermc.paper.api.block.tilestate;
 import io.papermc.paper.api.block.color.Colorable;
 import io.papermc.paper.api.block.sign.Side;
 import io.papermc.paper.api.block.sign.SignSide;
+import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.math.Position;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
@@ -37,7 +38,6 @@ public interface Sign extends TileState, Colorable {
     @NonNull
     public SignSide getSide(@NonNull Side side);
 
-    // Paper start - get side for player
     /**
      * Compute the side facing the specified entity.
      *
@@ -66,6 +66,5 @@ public interface Sign extends TileState, Colorable {
      * @return the side the coordinates are facing
      */
     @NonNull Side getInteractableSideFor(double x, double z);
-    // Paper end
 }
 

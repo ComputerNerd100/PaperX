@@ -1,5 +1,6 @@
 package io.papermc.paper.api.projectilesource;
 
+import io.papermc.paper.api.entity.Projectile;
 import io.papermc.paper.api.util.vector.Vector;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

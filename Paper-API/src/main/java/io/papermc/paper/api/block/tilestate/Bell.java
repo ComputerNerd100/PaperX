@@ -1,6 +1,7 @@
 package io.papermc.paper.api.block.tilestate;
 
 import io.papermc.paper.api.block.BlockFace;
+import io.papermc.paper.api.entity.Entity;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**

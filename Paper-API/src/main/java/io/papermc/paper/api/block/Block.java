@@ -1,6 +1,7 @@
 package io.papermc.paper.api.block;
 
 import io.papermc.paper.api.block.data.BlockData;
+import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;

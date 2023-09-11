@@ -3,6 +3,7 @@ package io.papermc.paper.api.block.tilestate;
 import io.papermc.paper.api.block.structure.Mirror;
 import io.papermc.paper.api.block.structure.StructureRotation;
 import io.papermc.paper.api.block.structure.UsageMode;
+import io.papermc.paper.api.entity.LivingEntity;
 import io.papermc.paper.api.util.vector.BlockVector;
 import org.checkerframework.checker.nullness.qual.NonNull;
 

@@ -1,6 +1,8 @@
 package io.papermc.paper.api.inventory;
 
 
+import io.papermc.paper.api.entity.Entity;
+import io.papermc.paper.api.entity.Mob;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -490,9 +492,9 @@ public interface EntityEquipment {
      *
      * @return the entity this EntityEquipment belongs to
      */
-    @NonNull // Paper
+    @NonNull
     Entity getHolder();
-    // Paper start
+
     /**
      * Gets the drop chance of specified slot.
      *
@@ -519,6 +521,5 @@ public interface EntityEquipment {
      * @throws UnsupportedOperationException when called on non-{@link Mob} entities
      */
     void setDropChance(@NonNull EquipmentSlot slot, float chance);
-    // Paper end
 }
 

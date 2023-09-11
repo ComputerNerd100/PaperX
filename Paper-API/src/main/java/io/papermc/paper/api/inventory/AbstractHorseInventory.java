@@ -1,5 +1,6 @@
 package io.papermc.paper.api.inventory;
 
+import io.papermc.paper.api.entity.AbstractHorse;
 import org.jetbrains.annotations.Nullable;
 
 /**

@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Represents a captured state of a command block.
  */
-public interface CommandBlock extends TileState, CommandBlockHolder { // Paper
+public interface CommandBlock extends TileState, CommandBlockHolder {
 
     /**
      * Gets the command that this CommandBlock will run when powered.

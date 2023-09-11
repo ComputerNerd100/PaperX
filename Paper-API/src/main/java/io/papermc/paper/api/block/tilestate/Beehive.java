@@ -1,5 +1,6 @@
 package io.papermc.paper.api.block.tilestate;
 
+import io.papermc.paper.api.entity.Bee;
 import io.papermc.paper.api.location.Location;
 import org.checkerframework.checker.nullness.qual.Nullable;
 

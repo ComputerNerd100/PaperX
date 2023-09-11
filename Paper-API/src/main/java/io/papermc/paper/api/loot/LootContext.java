@@ -1,6 +1,8 @@
 package io.papermc.paper.api.loot;
 
 import com.google.common.base.Preconditions;
+import io.papermc.paper.api.entity.Entity;
+import io.papermc.paper.api.entity.HumanEntity;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
 import org.jetbrains.annotations.NotNull;
@@ -150,7 +152,7 @@ public final class LootContext {
         }
 
         /**
-         * Set the {@link org.bukkit.entity.HumanEntity} that killed
+         * Set the {@link HumanEntity} that killed
          * {@link #getLootedEntity()}. This entity will be used to get the
          * looting level if {@link #lootingModifier(int)} is not set.
          *

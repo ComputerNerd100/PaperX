@@ -3,6 +3,9 @@ package io.papermc.paper.api.player;
 import io.papermc.paper.api.ban.BanEntry;
 import io.papermc.paper.api.ban.BanList;
 import io.papermc.paper.api.ban.ProfileBanList;
+import io.papermc.paper.api.entity.AnimalTamer;
+import io.papermc.paper.api.entity.EntityType;
+import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.permisson.ServerOperator;
@@ -115,7 +118,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return Ban Entry
      */
     @NonNull
-    public default BanEntry banPlayer(@Nullable String reason, @Nullable java.util.Date expires) {
+    public default BanEntry banPlayer(@Nullable String reason, @Nullable Date expires) {
         return banPlayer(reason, expires, null);
     }
 
@@ -127,11 +130,11 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return Ban Entry
      */
     @NonNull
-    public default BanEntry banPlayer(@Nullable String reason, @Nullable java.util.Date expires, @Nullable String source) {
+    public default BanEntry banPlayer(@Nullable String reason, @Nullable Date expires, @Nullable String source) {
         return banPlayer(reason, expires, source, true);
     }
     @NonNull
-    public default BanEntry banPlayer(@Nullable String reason, @Nullable java.util.Date expires, @Nullable String source, boolean kickIfOnline) {
+    public default BanEntry banPlayer(@Nullable String reason, @Nullable Date expires, @Nullable String source, boolean kickIfOnline) {
         BanEntry banEntry = Paper.getServer().getBanList(BanList.Type.NAME).addBan(getName(), reason, expires, source);
         if (kickIfOnline && isOnline()) {
             getPlayer().kickPlayer(reason);

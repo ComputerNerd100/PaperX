@@ -1,6 +1,7 @@
 package io.papermc.paper.api.block;
 
 import io.papermc.paper.api.block.data.BlockData;
+import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
@@ -8,6 +9,9 @@ import io.papermc.paper.api.metadata.Metadatable;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.Unmodifiable;
+
+import java.util.Collection;
 
 /**
  * Represents a captured state of a block, which will not change
@@ -218,7 +222,7 @@ public interface BlockState extends Metadatable {
      * @return an immutable list of dropped items for the block state
      */
     @NotNull
-    java.util.@org.jetbrains.annotations.Unmodifiable Collection<ItemStack> getDrops();
+    @Unmodifiable Collection<ItemStack> getDrops();
 
     /**
      * Returns an immutable list of items which would drop by destroying this block state
@@ -228,7 +232,7 @@ public interface BlockState extends Metadatable {
      * @return an immutable list of dropped items for the block state
      */
     @NotNull
-    java.util.@org.jetbrains.annotations.Unmodifiable Collection<ItemStack> getDrops(@Nullable ItemStack tool);
+    @Unmodifiable Collection<ItemStack> getDrops(@Nullable ItemStack tool);
 
     /**
      * Returns an immutable list of items which would drop by the entity destroying this
@@ -239,5 +243,6 @@ public interface BlockState extends Metadatable {
      * @return an immutable list of dropped items for the block state
      */
     @NotNull
-    java.util.@org.jetbrains.annotations.Unmodifiable Collection<ItemStack> getDrops(@NotNull ItemStack tool, @Nullable Entity entity);
+    @Unmodifiable
+    Collection<ItemStack> getDrops(@NotNull ItemStack tool, @Nullable Entity entity);
 }

@@ -2,6 +2,7 @@ package io.papermc.paper.api.inventory;
 
 import io.papermc.paper.api.Server;
 import io.papermc.paper.api.block.color.Color;
+import io.papermc.paper.api.entity.EntityType;
 import io.papermc.paper.api.inventory.meta.BookMeta;
 import io.papermc.paper.api.inventory.meta.ItemMeta;
 import io.papermc.paper.api.inventory.meta.SkullMeta;
@@ -12,6 +13,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.ApiStatus;
 
+import java.util.Random;
 import java.util.function.UnaryOperator;
 
 /**
@@ -190,7 +192,7 @@ public interface ItemFactory {
      * @return enchanted copy of the provided ItemStack
      * @throws IllegalArgumentException on bad arguments
      */
-    @NonNull ItemStack enchantWithLevels(@NonNull ItemStack itemStack, @org.jetbrains.annotations.Range(from = 1, to = 30) int levels, boolean allowTreasure, @NonNull java.util.Random random);
+    @NonNull ItemStack enchantWithLevels(@NonNull ItemStack itemStack, @org.jetbrains.annotations.Range(from = 1, to = 30) int levels, boolean allowTreasure, @NonNull Random random);
 
     /**
      * Creates a hover event for the given item.

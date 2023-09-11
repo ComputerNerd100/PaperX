@@ -1,6 +1,7 @@
 package io.papermc.paper.api.inventory.meta;
 
 import io.papermc.paper.api.block.color.DyeColor;
+import io.papermc.paper.api.entity.TropicalFish;
 import org.jetbrains.annotations.NotNull;
 
 /**

@@ -3,6 +3,9 @@ package io.papermc.paper.api.location;
 import com.google.common.base.Preconditions;
 import io.papermc.paper.api.annotation.Utility;
 import io.papermc.paper.api.block.Block;
+import io.papermc.paper.api.entity.Entity;
+import io.papermc.paper.api.entity.LivingEntity;
+import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.math.FinePosition;
 import io.papermc.paper.api.util.NumberConversions;
 import io.papermc.paper.api.util.vector.Vector;
@@ -744,7 +747,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     @NotNull
     public Collection<LivingEntity> getNearbyLivingEntities(double radius) {
-        return getNearbyEntitiesByType(org.bukkit.entity.LivingEntity.class, radius, radius, radius);
+        return getNearbyEntitiesByType(LivingEntity.class, radius, radius, radius);
     }
 
     /**
@@ -755,7 +758,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     @NotNull
     public Collection<LivingEntity> getNearbyLivingEntities(double xzRadius, double yRadius) {
-        return getNearbyEntitiesByType(org.bukkit.entity.LivingEntity.class, xzRadius, yRadius, xzRadius);
+        return getNearbyEntitiesByType(LivingEntity.class, xzRadius, yRadius, xzRadius);
     }
 
     /**
@@ -767,7 +770,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     @NotNull
     public Collection<LivingEntity> getNearbyLivingEntities(double xRadius, double yRadius, double zRadius) {
-        return getNearbyEntitiesByType(org.bukkit.entity.LivingEntity.class, xRadius, yRadius, zRadius);
+        return getNearbyEntitiesByType(LivingEntity.class, xRadius, yRadius, zRadius);
     }
 
     /**
@@ -778,7 +781,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     @NotNull
     public Collection<LivingEntity> getNearbyLivingEntities(double radius, @Nullable Predicate<LivingEntity> predicate) {
-        return getNearbyEntitiesByType(org.bukkit.entity.LivingEntity.class, radius, radius, radius, predicate);
+        return getNearbyEntitiesByType(LivingEntity.class, radius, radius, radius, predicate);
     }
 
     /**
@@ -790,7 +793,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     @NotNull
     public Collection<LivingEntity> getNearbyLivingEntities(double xzRadius, double yRadius, @Nullable Predicate<LivingEntity> predicate) {
-        return getNearbyEntitiesByType(org.bukkit.entity.LivingEntity.class, xzRadius, yRadius, xzRadius, predicate);
+        return getNearbyEntitiesByType(LivingEntity.class, xzRadius, yRadius, xzRadius, predicate);
     }
 
     /**
@@ -803,7 +806,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     @NotNull
     public Collection<LivingEntity> getNearbyLivingEntities(double xRadius, double yRadius, double zRadius, @Nullable Predicate<LivingEntity> predicate) {
-        return getNearbyEntitiesByType(org.bukkit.entity.LivingEntity.class, xRadius, yRadius, zRadius, predicate);
+        return getNearbyEntitiesByType(LivingEntity.class, xRadius, yRadius, zRadius, predicate);
     }
 
     /**
@@ -813,7 +816,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     @NotNull
     public Collection<Player> getNearbyPlayers(double radius) {
-        return getNearbyEntitiesByType(org.bukkit.entity.Player.class, radius, radius, radius);
+        return getNearbyEntitiesByType(Player.class, radius, radius, radius);
     }
 
     /**
@@ -824,7 +827,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     @NotNull
     public Collection<Player> getNearbyPlayers(double xzRadius, double yRadius) {
-        return getNearbyEntitiesByType(org.bukkit.entity.Player.class, xzRadius, yRadius, xzRadius);
+        return getNearbyEntitiesByType(Player.class, xzRadius, yRadius, xzRadius);
     }
 
     /**
@@ -836,7 +839,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     @NotNull
     public Collection<Player> getNearbyPlayers(double xRadius, double yRadius, double zRadius) {
-        return getNearbyEntitiesByType(org.bukkit.entity.Player.class, xRadius, yRadius, zRadius);
+        return getNearbyEntitiesByType(Player.class, xRadius, yRadius, zRadius);
     }
 
     /**
@@ -847,7 +850,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     @NotNull
     public Collection<Player> getNearbyPlayers(double radius, @Nullable Predicate<Player> predicate) {
-        return getNearbyEntitiesByType(org.bukkit.entity.Player.class, radius, radius, radius, predicate);
+        return getNearbyEntitiesByType(Player.class, radius, radius, radius, predicate);
     }
 
     /**
@@ -859,7 +862,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     @NotNull
     public Collection<Player> getNearbyPlayers(double xzRadius, double yRadius, @Nullable Predicate<Player> predicate) {
-        return getNearbyEntitiesByType(org.bukkit.entity.Player.class, xzRadius, yRadius, xzRadius, predicate);
+        return getNearbyEntitiesByType(Player.class, xzRadius, yRadius, xzRadius, predicate);
     }
 
     /**
@@ -872,7 +875,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     @NotNull
     public Collection<Player> getNearbyPlayers(double xRadius, double yRadius, double zRadius, @Nullable Predicate<Player> predicate) {
-        return getNearbyEntitiesByType(org.bukkit.entity.Player.class, xRadius, yRadius, zRadius, predicate);
+        return getNearbyEntitiesByType(Player.class, xRadius, yRadius, zRadius, predicate);
     }
 
     /**

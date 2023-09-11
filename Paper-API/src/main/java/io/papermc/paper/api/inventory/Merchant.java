@@ -1,5 +1,6 @@
 package io.papermc.paper.api.inventory;
 
+import io.papermc.paper.api.entity.HumanEntity;
 import io.papermc.paper.api.inventory.recipe.MerchantRecipe;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;

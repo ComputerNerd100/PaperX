@@ -1,5 +1,7 @@
 package io.papermc.paper.api.boss;
 
+import io.papermc.paper.api.entity.EnderCrystal;
+import io.papermc.paper.api.entity.EnderDragon;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.math.Position;
 import org.jetbrains.annotations.NotNull;
@@ -19,16 +21,14 @@ public interface DragonBattle {
      *
      * @return the ender dragon. null if dead
      */
-    @Nullable
-    public EnderDragon getEnderDragon();
+    @Nullable EnderDragon getEnderDragon();
 
     /**
      * Get the boss bar to be displayed for this dragon battle.
      *
      * @return the boss bar
      */
-    @NotNull
-    public BossBar getBossBar();
+    @NotNull BossBar getBossBar();
 
     /**
      * Get the location of the end portal.
@@ -37,8 +37,7 @@ public interface DragonBattle {
      *
      * @return the end portal location or null if not generated
      */
-    @Nullable
-    public Location getEndPortalLocation();
+    @Nullable Location getEndPortalLocation();
 
     /**
      * Generate the end portal.
@@ -47,20 +46,20 @@ public interface DragonBattle {
      *
      * @return true if generated, false if already present
      */
-    public boolean generateEndPortal(boolean withPortals);
+    boolean generateEndPortal(boolean withPortals);
 
     /**
      * Check whether the first dragon has been killed already.
      *
      * @return true if killed before, false otherwise
      */
-    public boolean hasBeenPreviouslyKilled();
+    boolean hasBeenPreviouslyKilled();
 
     /**
      * Try to initiate a respawn sequence to summon the dragon as though a player has
      * placed 4 end crystals on the portal.
      */
-    public void initiateRespawn();
+    void initiateRespawn();
 
     /**
      * Try to initiate a respawn sequence to summon the dragon.
@@ -72,15 +71,14 @@ public interface DragonBattle {
      *
      * @return true if the respawn was initiated, false otherwise.
      */
-    public boolean initiateRespawn(@Nullable Collection<EnderCrystal> enderCrystals);
+    boolean initiateRespawn(@Nullable Collection<EnderCrystal> enderCrystals);
 
     /**
      * Get this battle's current respawn phase.
      *
      * @return the current respawn phase.
      */
-    @NotNull
-    public RespawnPhase getRespawnPhase();
+    @NotNull RespawnPhase getRespawnPhase();
 
     /**
      * Set the dragon's respawn phase.
@@ -93,18 +91,18 @@ public interface DragonBattle {
      *
      * @see #initiateRespawn()
      */
-    public boolean setRespawnPhase(@NotNull RespawnPhase phase);
+    boolean setRespawnPhase(@NotNull RespawnPhase phase);
 
     /**
      * Reset the crystals located on the obsidian pillars (remove their beam
      * targets and invulnerability).
      */
-    public void resetCrystals();
+    void resetCrystals();
 
     /**
      * Represents a phase in the dragon respawn process.
      */
-    public enum RespawnPhase {
+    enum RespawnPhase {
 
         /**
          * The crystal beams are directed upwards into the sky.
@@ -132,7 +130,7 @@ public interface DragonBattle {
         /**
          * No respawn is in progress.
          */
-        NONE;
+        NONE
     }
     // Paper start
     /**
@@ -160,17 +158,17 @@ public interface DragonBattle {
     void spawnNewGateway(@NotNull Position position);
 
     /**
-     * Gets the {@link org.bukkit.entity.EnderCrystal}s being used to respawn the dragon. If no respawn
+     * Gets the {@link EnderCrystal}s being used to respawn the dragon. If no respawn
      * is ongoing, the list will be empty.
      *
      * @return the respawn crystals
      */
-    java.util.@NotNull @org.jetbrains.annotations.Unmodifiable List<org.bukkit.entity.EnderCrystal> getRespawnCrystals();
+    java.util.@NotNull @org.jetbrains.annotations.Unmodifiable List<EnderCrystal> getRespawnCrystals();
 
     /**
-     * Gets the {@link org.bukkit.entity.EnderCrystal}s on top of the pillars that heal the dragon.
+     * Gets the {@link EnderCrystal}s on top of the pillars that heal the dragon.
      *
      * @return the healing crystals
      */
-    java.util.@NotNull @org.jetbrains.annotations.Unmodifiable List<org.bukkit.entity.EnderCrystal> getHealingCrystals();
+    java.util.@NotNull @org.jetbrains.annotations.Unmodifiable List<EnderCrystal> getHealingCrystals();
 // Paper end

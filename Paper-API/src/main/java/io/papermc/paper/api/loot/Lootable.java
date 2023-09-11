@@ -1,11 +1,12 @@
 package io.papermc.paper.api.loot;
 
 import io.papermc.paper.api.block.container.Container;
+import io.papermc.paper.api.entity.Mob;
 import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents a {@link Container} or a
- * {@link org.bukkit.entity.Mob} that can have a loot table.
+ * {@link Mob} that can have a loot table.
  * <br>
  * Container loot will only generate upon opening, and only when the container
  * is <i>first</i> opened.
@@ -21,7 +22,7 @@ public interface Lootable {
      * clear a LootTable.
      *
      * @param table the Loot Table this {@link Container} or
-     * {@link org.bukkit.entity.Mob} will have.
+     * {@link Mob} will have.
      */
     void setLootTable(@Nullable LootTable table);
 
@@ -41,7 +42,7 @@ public interface Lootable {
     /**
      * Set the loot table and seed for a container or entity at the same time.
      *
-     * @param table the Loot Table this {@link Container} or {@link org.bukkit.entity.Mob} will have.
+     * @param table the Loot Table this {@link Container} or {@link Mob} will have.
      * @param seed the seed to used to generate loot. Default is 0.
      */
     default void setLootTable(@Nullable LootTable table, long seed) {

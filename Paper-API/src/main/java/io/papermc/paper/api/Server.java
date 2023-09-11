@@ -4,6 +4,10 @@ import io.papermc.paper.api.advancement.Advancement;
 import io.papermc.paper.api.ban.BanList;
 import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.boss.*;
+import io.papermc.paper.api.entity.Entity;
+import io.papermc.paper.api.entity.Player;
+import io.papermc.paper.api.entity.SpawnCategory;
+import io.papermc.paper.api.entity.ai.MobGoals;
 import io.papermc.paper.api.inventory.*;
 import io.papermc.paper.api.inventory.recipe.Recipe;
 import io.papermc.paper.api.location.Location;
@@ -228,7 +232,7 @@ public interface Server extends PluginMessageRecipient, ForwardingAudience { // 
 
     @NonNull Merchant createMerchant(@NonNull Component title);
 
-    int spawnLimit(@NonNull SpawnCategory);
+    int spawnLimit(@NonNull SpawnCategory spawnCategory);
 
     boolean isPrimaryThread();
 

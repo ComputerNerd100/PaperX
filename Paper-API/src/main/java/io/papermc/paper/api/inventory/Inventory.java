@@ -1,5 +1,6 @@
 package io.papermc.paper.api.inventory;
 
+import io.papermc.paper.api.entity.HumanEntity;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
 import org.jetbrains.annotations.Contract;
