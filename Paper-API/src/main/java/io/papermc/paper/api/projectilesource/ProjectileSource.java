@@ -1,7 +1,10 @@
 package io.papermc.paper.api.projectilesource;
 
+import io.papermc.paper.api.util.vector.Vector;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.function.Consumer;
 
 /**
  * Represents a valid source of a projectile.
@@ -47,7 +50,7 @@ public interface ProjectileSource {
      * @return the launched projectile
      */
     @NotNull
-    public <T extends Projectile> T launchProjectile(@NotNull Class<? extends T> projectile, @Nullable Vector velocity, @Nullable org.bukkit.util.Consumer<T> function);
+    public <T extends Projectile> T launchProjectile(@NotNull Class<? extends T> projectile, @Nullable Vector velocity, @Nullable Consumer<T> function);
     // Paper end
 }
 
