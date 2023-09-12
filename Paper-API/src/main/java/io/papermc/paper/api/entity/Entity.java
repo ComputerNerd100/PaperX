@@ -742,7 +742,6 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
     @NonNull
     Pose getPose();
 
-    // Paper start
     /**
      * Returns if the entity is in sneak mode
      *
@@ -795,7 +794,6 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      * @return whether the entity has a fixed {@link Pose}
      */
     boolean hasFixedPose();
-    // Paper end
 
     /**
      * Get the category of spawn to which this entity belongs.
@@ -991,7 +989,6 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      */
     boolean wouldCollideUsing(@NonNull BoundingBox boundingBox);
 
-    // Paper start - Folia schedulers
     /**
      * Returns the task scheduler for this entity. The entity scheduler can be used to schedule tasks
      * that are guaranteed to always execute on the tick thread that owns the entity.
@@ -1000,7 +997,6 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      * @see io.papermc.paper.threadedregions.scheduler.EntityScheduler
      */
     @NonNull EntityScheduler getScheduler();
-    // Paper end - Folia schedulers
 
     /**
      * Gets the string name of the entity used to track it in {@link org.bukkit.scoreboard.Scoreboard Scoreboards}.
