@@ -8,7 +8,7 @@ dependencies {
     api("net.kyori:adventure-text-serializer-plain:4.14.0")
 
     api("com.google.guava:guava:31.1-jre")
-
+    implementation("org.apache.commons:commons-lang3:3.13.0")
 }
 
 description = "Paper-Api"
