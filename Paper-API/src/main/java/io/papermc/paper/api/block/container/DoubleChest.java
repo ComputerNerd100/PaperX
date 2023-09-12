@@ -4,6 +4,7 @@ import io.papermc.paper.api.inventory.DoubleChestInventory;
 import io.papermc.paper.api.inventory.Inventory;
 import io.papermc.paper.api.inventory.InventoryHolder;
 import io.papermc.paper.api.location.Location;
+import io.papermc.paper.api.world.World;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 

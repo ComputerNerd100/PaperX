@@ -2,6 +2,7 @@ package io.papermc.paper.api.math;
 
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.util.vector.Vector;
+import io.papermc.paper.api.world.World;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;

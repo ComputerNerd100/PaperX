@@ -6,6 +6,8 @@ import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.metadata.Metadatable;
+import io.papermc.paper.api.world.Chunk;
+import io.papermc.paper.api.world.World;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

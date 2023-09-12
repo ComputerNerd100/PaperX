@@ -6,6 +6,7 @@ import io.papermc.paper.api.attribute.Attributable;
 import io.papermc.paper.api.entity.minecart.*;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
+import io.papermc.paper.api.world.World;
 import net.kyori.adventure.translation.Translatable;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;

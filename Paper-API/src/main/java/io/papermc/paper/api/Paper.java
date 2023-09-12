@@ -25,6 +25,11 @@ import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.permisson.Permissible;
 import io.papermc.paper.api.player.OfflinePlayer;
 import io.papermc.paper.api.profile.PlayerProfile;
+import io.papermc.paper.api.world.World;
+import io.papermc.paper.api.world.WorldBorder;
+import io.papermc.paper.api.world.WorldCreator;
+import io.papermc.paper.api.world.generator.ChunkGenerator;
+import io.papermc.paper.api.world.generator.structure.StructureType;
 import net.kyori.adventure.text.Component;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -1519,7 +1524,7 @@ public final class Paper {
     /**
      * Create a ChunkData for use in a generator.
      *
-     * See {@link ChunkGenerator#generateChunkData(org.bukkit.World, java.util.Random, int, int, org.bukkit.generator.ChunkGenerator.BiomeGrid)}
+     * See {@link ChunkGenerator#generateChunkData(World, Random, int, int, BiomeGrid)}
      *
      * @param world the world to create the ChunkData for
      * @return a new ChunkData for the world

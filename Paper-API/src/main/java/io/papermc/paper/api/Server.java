@@ -20,6 +20,11 @@ import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.player.OfflinePlayer;
 import io.papermc.paper.api.profile.PlayerProfile;
+import io.papermc.paper.api.world.World;
+import io.papermc.paper.api.world.WorldBorder;
+import io.papermc.paper.api.world.WorldCreator;
+import io.papermc.paper.api.world.generator.ChunkGenerator;
+import io.papermc.paper.api.world.generator.structure.StructureType;
 import net.kyori.adventure.audience.ForwardingAudience;
 import net.kyori.adventure.text.Component;
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -259,7 +264,7 @@ public interface Server extends PluginMessageRecipient, ForwardingAudience { // 
 
     void idleTimeout(int threshold);
 
-    @NonNull ChunkGenerator.ChunkData createChunkData(@NonNull World world);
+    ChunkGenerator.@NonNull ChunkData createChunkData(@NonNull World world);
 
     @NonNull BossBar createBossBar(@Nullable String title, @NonNull BarColor color, @NonNull BarStyle style, @NonNull BarFlag... flags);
 

@@ -456,7 +456,7 @@ public interface RegionAccessor extends Keyed {
      * @return the current moon phase at the current time in the world
      */
     @NotNull
-    io.papermc.paper.world.MoonPhase getMoonPhase();
+    MoonPhase getMoonPhase();
 
     /**
      * Get the world's key

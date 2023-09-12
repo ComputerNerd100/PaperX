@@ -28,6 +28,8 @@ import io.papermc.paper.api.sound.Instrument;
 import io.papermc.paper.api.sound.Note;
 import io.papermc.paper.api.sound.Sound;
 import io.papermc.paper.api.sound.SoundCategory;
+import io.papermc.paper.api.world.World;
+import io.papermc.paper.api.world.WorldBorder;
 import net.kyori.adventure.bossbar.BossBarViewer;
 import net.kyori.adventure.identity.Identified;
 import net.kyori.adventure.identity.Identity;
@@ -2157,7 +2159,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * Gets the view distance for this player
      *
      * @return the player's view distance
-     * @see org.bukkit.World#getViewDistance()
+     * @see World#getViewDistance()
      */
     int getViewDistance();
 
@@ -2165,7 +2167,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * Sets the view distance for this player
      *
      * @param viewDistance the player's view distance
-     * @see org.bukkit.World#setViewDistance(int)
+     * @see World#setViewDistance(int)
      */
     void setViewDistance(int viewDistance);
 

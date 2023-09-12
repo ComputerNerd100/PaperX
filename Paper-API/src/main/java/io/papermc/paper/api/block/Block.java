@@ -10,6 +10,9 @@ import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.metadata.Metadatable;
 import io.papermc.paper.api.sound.SoundGroup;
 import io.papermc.paper.api.util.vector.Vector;
+import io.papermc.paper.api.world.Chunk;
+import io.papermc.paper.api.world.RegionAccessor;
+import io.papermc.paper.api.world.World;
 import net.kyori.adventure.translation.Translatable;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -286,7 +289,7 @@ public interface Block extends Metadatable, Translatable {
      * Gets the computed biome at the location of this Block.
      *
      * @return computed biome at the location of this Block.
-     * @see org.bukkit.RegionAccessor#getComputedBiome(int, int, int)
+     * @see RegionAccessor#getComputedBiome(int, int, int)
      */
     @NotNull
     Biome getComputedBiome();
