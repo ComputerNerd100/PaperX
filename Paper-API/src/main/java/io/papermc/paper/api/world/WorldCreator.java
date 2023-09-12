@@ -5,6 +5,7 @@ import io.papermc.paper.api.command.CommandSender;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.world.generator.BiomeProvider;
 import io.papermc.paper.api.world.generator.ChunkGenerator;
+import net.kyori.adventure.util.TriState;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -510,13 +511,13 @@ public class WorldCreator {
         }
 
         if (output == null) {
-            output = Bukkit.getConsoleSender();
+            output = Paper.getConsoleSender();
         }
 
         if (name != null) {
             String[] split = name.split(":", 2);
             String id = (split.length > 1) ? split[1] : null;
-            Plugin plugin = Bukkit.getPluginManager().getPlugin(split[0]);
+            Plugin plugin = Paper.getPluginManager().getPlugin(split[0]);
 
             if (plugin == null) {
                 output.sendMessage("Could not set generator for world '" + world + "': Plugin '" + split[0] + "' does not exist");
@@ -555,13 +556,13 @@ public class WorldCreator {
         }
 
         if (output == null) {
-            output = Bukkit.getConsoleSender();
+            output = Paper.getConsoleSender();
         }
 
         if (name != null) {
             String[] split = name.split(":", 2);
             String id = (split.length > 1) ? split[1] : null;
-            Plugin plugin = Bukkit.getPluginManager().getPlugin(split[0]);
+            Plugin plugin = Paper.getPluginManager().getPlugin(split[0]);
 
             if (plugin == null) {
                 output.sendMessage("Could not set biome provider for world '" + world + "': Plugin '" + split[0] + "' does not exist");
@@ -583,7 +584,7 @@ public class WorldCreator {
      * @return the current tristate value
      */
     @NonNull
-    public net.kyori.adventure.util.TriState keepSpawnLoaded() {
+    public TriState keepSpawnLoaded() {
         return keepSpawnLoaded;
     }
 
@@ -595,7 +596,7 @@ public class WorldCreator {
      * @return This object, for chaining
      */
     @NonNull
-    public WorldCreator keepSpawnLoaded(@NonNull net.kyori.adventure.util.TriState keepSpawnLoaded) {
+    public WorldCreator keepSpawnLoaded(@NonNull TriState keepSpawnLoaded) {
         java.util.Objects.requireNonNull(keepSpawnLoaded, "keepSpawnLoaded");
         this.keepSpawnLoaded = keepSpawnLoaded;
         return this;
