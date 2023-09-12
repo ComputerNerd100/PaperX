@@ -5,6 +5,7 @@ import io.papermc.paper.api.block.color.Color;
 import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.util.NumberConversions;
+import io.papermc.paper.api.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
