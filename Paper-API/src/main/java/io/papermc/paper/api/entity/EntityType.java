@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Contract;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum EntityType implements Keyed, Translatable { // Paper - translatable
+public enum EntityType implements Keyed, Translatable {
 
     // These strings MUST match the strings in nms.EntityTypes and are case sensitive.
     /**
