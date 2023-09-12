@@ -8,9 +8,10 @@ import io.papermc.paper.api.command.CommandSender;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.metadata.Metadatable;
 import io.papermc.paper.api.persistance.PersistentDataHolder;
+import io.papermc.paper.api.sound.Sound;
 import io.papermc.paper.api.util.vector.Vector;
+import io.papermc.paper.api.world.Chunk;
 import io.papermc.paper.api.world.World;
-import net.kyori.adventure.sound.Sound;
 import net.kyori.adventure.text.event.HoverEvent;
 import net.kyori.adventure.text.event.HoverEventSource;
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -28,7 +29,7 @@ import java.util.function.UnaryOperator;
 /**
  * Represents a base entity in the world
  */
-public interface Entity extends Metadatable, CommandSender, Nameable, PersistentDataHolder, HoverEventSource<HoverEvent.ShowEntity>, Sound.Emitter {
+public interface Entity extends Metadatable, CommandSender, Nameable, PersistentDataHolder, HoverEventSource<HoverEvent.ShowEntity>, net.kyori.adventure.sound.Sound.Emitter {
 
     /**
      * Gets the entity's current position
