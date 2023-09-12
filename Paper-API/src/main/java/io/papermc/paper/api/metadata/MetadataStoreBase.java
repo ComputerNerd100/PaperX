@@ -10,6 +10,6 @@ public interface MetadataStoreBase<T> {
     boolean hasMetadata(@NonNull T subject, @NonNull String metadataKey);
     void removeMetadata(@NonNull T subject, @NonNull String metadataKey, @NonNull Plugin owningPlugin);
     void invalidateAll(@NonNull Plugin owningPlugin);
-    void removeAll(@NonNull PLugin owningPlugin);
+    void removeAll(@NonNull Plugin owningPlugin);
     String disambiguate(@NonNull Plugin owningPlugin, @NonNull String metadataKey);
 }
