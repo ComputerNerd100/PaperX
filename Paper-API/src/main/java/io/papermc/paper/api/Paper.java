@@ -8,6 +8,7 @@ import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.boss.*;
 import io.papermc.paper.api.command.CommandException;
 import io.papermc.paper.api.command.CommandSender;
+import io.papermc.paper.api.command.ConsoleCommandSender;
 import io.papermc.paper.api.entity.Boss;
 import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.entity.Player;
@@ -1194,7 +1195,7 @@ public final class Paper {
      * @return a command sender
      */
     @NonNull
-    public static CommandSender createCommandSender(final @NonNull java.util.function.Consumer<? super net.kyori.adventure.text.Component> feedback) {
+    public static CommandSender createCommandSender(final @NonNull Consumer<? super Component> feedback) {
         return server.createCommandSender(feedback);
     }
     // Paper end
