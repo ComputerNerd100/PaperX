@@ -1,5 +1,6 @@
 package io.papermc.paper.api.conversation;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
