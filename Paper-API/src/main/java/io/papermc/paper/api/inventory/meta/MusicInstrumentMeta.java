@@ -1,5 +1,6 @@
 package io.papermc.paper.api.inventory.meta;
 
+import io.papermc.paper.api.sound.MusicInstrument;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
