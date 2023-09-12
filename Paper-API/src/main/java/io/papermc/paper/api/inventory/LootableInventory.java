@@ -1,5 +1,6 @@
 package io.papermc.paper.api.inventory;
 
+import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.loot.Lootable;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
