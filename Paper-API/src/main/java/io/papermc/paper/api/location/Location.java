@@ -1140,7 +1140,6 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
         return pitch;
     }
 
-    // Paper - add Position
     @Override
     public double x() {
         return this.getX();
@@ -1160,5 +1159,4 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
     public @NotNull Location toLocation(@NotNull World world) {
         return new Location(world, this.x(), this.y(), this.z(), this.getYaw(), this.getPitch());
     }
-    // Paper end
 }
