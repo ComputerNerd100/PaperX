@@ -26,9 +26,9 @@ import io.papermc.paper.api.permisson.Permissible;
 import io.papermc.paper.api.player.OfflinePlayer;
 import io.papermc.paper.api.profile.PlayerProfile;
 import net.kyori.adventure.text.Component;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -54,7 +54,7 @@ public final class Paper {
      *
      * @return Server instance being ran
      */
-    @NotNull
+    @NonNull
     public static Server getServer() {
         return server;
     }
@@ -68,7 +68,7 @@ public final class Paper {
      *
      * @return plugins directory
      */
-    @NotNull
+    @NonNull
     public static File getPluginsFolder() {
         return server.getPluginsFolder();
     }
@@ -80,7 +80,7 @@ public final class Paper {
      *
      * @param server Server instance
      */
-    public static void setServer(@NotNull Server server) {
+    public static void setServer(@NonNull Server server) {
         if (Paper.server != null) {
             throw new UnsupportedOperationException("Cannot redefine singleton Server");
         }
@@ -93,7 +93,7 @@ public final class Paper {
      *
      * @return message describing the version server is running
      */
-    @NotNull
+    @NonNull
     public static String getVersionMessage() {
         final var manifest = JarManifests.manifest(Paper.getServer().getClass());
         final String gitBranch = manifest == null ? null : manifest.getMainAttributes().getValue("Git-Branch");
@@ -110,7 +110,7 @@ public final class Paper {
      *
      * @return name of this server implementation
      */
-    @NotNull
+    @NonNull
     public static String getName() {
         return server.getName();
     }
@@ -120,7 +120,7 @@ public final class Paper {
      *
      * @return version of this server implementation
      */
-    @NotNull
+    @NonNull
     public static String getVersion() {
         return server.getVersion();
     }
@@ -130,7 +130,7 @@ public final class Paper {
      *
      * @return version of Bukkit
      */
-    @NotNull
+    @NonNull
     public static String getPaperVersion() {
         return server.getPaperVersion();
     }
@@ -140,7 +140,7 @@ public final class Paper {
      *
      * @return version of game
      */
-    @NotNull
+    @NonNull
     public static String getMinecraftVersion() {
         return server.getMinecraftVersion();
     }
@@ -171,7 +171,7 @@ public final class Paper {
      *
      * @return a view of currently online players.
      */
-    @NotNull
+    @NonNull
     public static Collection<? extends Player> getOnlinePlayers() {
         return server.getOnlinePlayers();
     }
@@ -228,7 +228,7 @@ public final class Paper {
      * @return the IP string that this server is bound to, otherwise empty
      *     string
      */
-    @NotNull
+    @NonNull
     public static String getIp() {
         return server.getIp();
     }
@@ -238,7 +238,7 @@ public final class Paper {
      *
      * @return the value of level-type (e.g. DEFAULT, FLAT, DEFAULT_1_1)
      */
-    @NotNull
+    @NonNull
     public static String getWorldType() {
         return server.getWorldType();
     }
@@ -279,12 +279,12 @@ public final class Paper {
         return server.getAllowNether();
     }
 
-    @NotNull
+    @NonNull
     public static List<String> getInitialEnabledPacks() {
         return server.getInitialEnabledPacks();
     }
 
-    @NotNull
+    @NonNull
     public static List<String> getInitialDisabledPacks() {
         return server.getInitialDisabledPacks();
     }
@@ -294,7 +294,7 @@ public final class Paper {
      *
      * @return the server resource pack uri, otherwise empty string
      */
-    @NotNull
+    @NonNull
     public static String getResourcePack() {
         return server.getResourcePack();
     }
@@ -306,7 +306,7 @@ public final class Paper {
      * @return the SHA-1 digest of the server resource pack, otherwise empty
      *     string
      */
-    @NotNull
+    @NonNull
     public static String getResourcePackHash() {
         return server.getResourcePackHash();
     }
@@ -318,7 +318,7 @@ public final class Paper {
      * @return the custom prompt message to be shown when the server resource,
      *     otherwise empty string
      */
-    @NotNull
+    @NonNull
     public static String getResourcePackPrompt() {
         return server.getResourcePackPrompt();
     }
@@ -379,7 +379,7 @@ public final class Paper {
      *
      * @return a set containing all whitelisted players
      */
-    @NotNull
+    @NonNull
     public static Set<OfflinePlayer> getWhitelistedPlayers() {
         return server.getWhitelistedPlayers();
     }
@@ -400,7 +400,7 @@ public final class Paper {
      *
      * @return the name of the update folder
      */
-    @NotNull
+    @NonNull
     public static String getUpdateFolder() {
         return server.getUpdateFolder();
     }
@@ -411,7 +411,7 @@ public final class Paper {
      *
      * @return the update folder
      */
-    @NotNull
+    @NonNull
     public static File getUpdateFolderFile() {
         return server.getUpdateFolderFile();
     }
@@ -446,7 +446,7 @@ public final class Paper {
      * @param spawnCategory the category of spawn
      * @return the default ticks per {@link SpawnCategory} mobs spawn value
      */
-    public static int getTicksPerSpawns(@NotNull SpawnCategory spawnCategory) {
+    public static int getTicksPerSpawns(@NonNull SpawnCategory spawnCategory) {
         return server.getTicksPerSpawns(spawnCategory);
     }
 
@@ -459,7 +459,7 @@ public final class Paper {
      * @return a player if one was found, null otherwise
      */
     @Nullable
-    public static Player getPlayer(@NotNull String name) {
+    public static Player getPlayer(@NonNull String name) {
         return server.getPlayer(name);
     }
 
@@ -470,7 +470,7 @@ public final class Paper {
      * @return a player object if one was found, null otherwise
      */
     @Nullable
-    public static Player getPlayerExact(@NotNull String name) {
+    public static Player getPlayerExact(@NonNull String name) {
         return server.getPlayerExact(name);
     }
 
@@ -484,8 +484,8 @@ public final class Paper {
      * @param name the (partial) name to match
      * @return list of all possible players
      */
-    @NotNull
-    public static List<Player> matchPlayer(@NotNull String name) {
+    @NonNull
+    public static List<Player> matchPlayer(@NonNull String name) {
         return server.matchPlayer(name);
     }
 
@@ -496,7 +496,7 @@ public final class Paper {
      * @return a player object if one was found, null otherwise
      */
     @Nullable
-    public static Player getPlayer(@NotNull UUID id) {
+    public static Player getPlayer(@NonNull UUID id) {
         return server.getPlayer(id);
     }
 
@@ -509,7 +509,7 @@ public final class Paper {
      * @return A UUID, or null if that player name is not registered with Minecraft and the server is in online mode
      */
     @Nullable
-    public static UUID getPlayerUniqueId(@NotNull String playerName) {
+    public static UUID getPlayerUniqueId(@NonNull String playerName) {
         return server.getPlayerUniqueId(playerName);
     }
     // Paper end
@@ -519,7 +519,7 @@ public final class Paper {
      *
      * @return a plugin manager for this Server instance
      */
-    @NotNull
+    @NonNull
     public static PluginManager getPluginManager() {
         return server.getPluginManager();
     }
@@ -529,7 +529,7 @@ public final class Paper {
      *
      * @return a scheduling service for this server
      */
-    @NotNull
+    @NonNull
     public static PaperScheduler getScheduler() {
         return server.getScheduler();
     }
@@ -539,7 +539,7 @@ public final class Paper {
      *
      * @return s services manager
      */
-    @NotNull
+    @NonNull
     public static ServicesManager getServicesManager() {
         return server.getServicesManager();
     }
@@ -549,7 +549,7 @@ public final class Paper {
      *
      * @return a list of worlds
      */
-    @NotNull
+    @NonNull
     public static List<World> getWorlds() {
         return server.getWorlds();
     }
@@ -579,7 +579,7 @@ public final class Paper {
      * @return newly created or loaded world
      */
     @Nullable
-    public static World createWorld(@NotNull WorldCreator creator) {
+    public static World createWorld(@NonNull WorldCreator creator) {
         return server.createWorld(creator);
     }
 
@@ -593,7 +593,7 @@ public final class Paper {
      * @param save whether to save the chunks before unloading
      * @return true if successful, false otherwise
      */
-    public static boolean unloadWorld(@NotNull String name, boolean save) {
+    public static boolean unloadWorld(@NonNull String name, boolean save) {
         return server.unloadWorld(name, save);
     }
 
@@ -607,7 +607,7 @@ public final class Paper {
      * @param save whether to save the chunks before unloading
      * @return true if successful, false otherwise
      */
-    public static boolean unloadWorld(@NotNull World world, boolean save) {
+    public static boolean unloadWorld(@NonNull World world, boolean save) {
         return server.unloadWorld(world, save);
     }
 
@@ -618,7 +618,7 @@ public final class Paper {
      * @return a world with the given name, or null if none exists
      */
     @Nullable
-    public static World getWorld(@NotNull String name) {
+    public static World getWorld(@NonNull String name) {
         return server.getWorld(name);
     }
 
@@ -629,7 +629,7 @@ public final class Paper {
      * @return a world with the given Unique ID, or null if none exists
      */
     @Nullable
-    public static World getWorld(@NotNull UUID uid) {
+    public static World getWorld(@NonNull UUID uid) {
         return server.getWorld(uid);
     }
 
@@ -640,7 +640,7 @@ public final class Paper {
      * @return a world with the given NamespacedKey, or null if none exists
      */
     @Nullable
-    public static World getWorld(@NotNull NamespacedKey worldKey) {
+    public static World getWorld(@NonNull NamespacedKey worldKey) {
         return server.getWorld(worldKey);
     }
 
@@ -651,7 +651,7 @@ public final class Paper {
      *
      * @see Player#setWorldBorder(WorldBorder)
      */
-    @NotNull
+    @NonNull
     public static WorldBorder createWorldBorder() {
         return server.createWorldBorder();
     }
@@ -674,8 +674,8 @@ public final class Paper {
      * @param world the world the map will belong to
      * @return a newly created map view
      */
-    @NotNull
-    public static MapView createMap(@NotNull World world) {
+    @NonNull
+    public static MapView createMap(@NonNull World world) {
         return server.createMap(world);
     }
 
@@ -694,7 +694,7 @@ public final class Paper {
      *
      * @see World#locateNearestStructure(Location, StructureType, int, boolean)
      */
-    public static @Nullable ItemStack createExplorerMap(@NotNull World world, @NotNull Location location, @NotNull StructureType structureType, @NotNull MapCursor.Type mapIcon) {
+    public static @Nullable ItemStack createExplorerMap(@NonNull World world, @NonNull Location location, @NonNull StructureType structureType, @NonNull MapCursor.Type mapIcon) {
         return server.createExplorerMap(world, location, structureType, mapIcon);
     }
 
@@ -713,7 +713,7 @@ public final class Paper {
      *
      * @see World#locateNearestStructure(Location, StructureType, int, boolean)
      */
-    public static @Nullable ItemStack createExplorerMap(@NotNull World world, @NotNull Location location, @NotNull StructureType structureType, @NotNull MapCursor.Type mapIcon, int radius, boolean findUnexplored) {
+    public static @Nullable ItemStack createExplorerMap(@NonNull World world, @NonNull Location location, @NonNull StructureType structureType, @NonNull MapCursor.Type mapIcon, int radius, boolean findUnexplored) {
         return server.createExplorerMap(world, location, structureType, mapIcon, radius, findUnexplored);
     }
     // Paper end
@@ -756,7 +756,7 @@ public final class Paper {
      *
      * @return Logger associated with this server
      */
-    @NotNull
+    @NonNull
     public static Logger getLogger() {
         return server.getLogger();
     }
@@ -768,7 +768,7 @@ public final class Paper {
      * @return a plugin command if found, null otherwise
      */
     @Nullable
-    public static PluginCommand getPluginCommand(@NotNull String name) {
+    public static PluginCommand getPluginCommand(@NonNull String name) {
         return server.getPluginCommand(name);
     }
 
@@ -789,7 +789,7 @@ public final class Paper {
      * @throws CommandException thrown when the executor for the given command
      *     fails with an unhandled exception
      */
-    public static boolean dispatchCommand(@NotNull CommandSender sender, @NotNull String commandLine) throws CommandException {
+    public static boolean dispatchCommand(@NonNull CommandSender sender, @NonNull String commandLine) throws CommandException {
         return server.dispatchCommand(sender, commandLine);
     }
 
@@ -824,8 +824,8 @@ public final class Paper {
      * @param result the item to match against recipe results
      * @return a list of recipes with the given result
      */
-    @NotNull
-    public static List<Recipe> getRecipesFor(@NotNull ItemStack result) {
+    @NonNull
+    public static List<Recipe> getRecipesFor(@NonNull ItemStack result) {
         return server.getRecipesFor(result);
     }
 
@@ -836,7 +836,7 @@ public final class Paper {
      * @return the recipe for the given key or null.
      */
     @Nullable
-    public static Recipe getRecipe(@NotNull NamespacedKey recipeKey) {
+    public static Recipe getRecipe(@NonNull NamespacedKey recipeKey) {
         return server.getRecipe(recipeKey);
     }
 
@@ -861,7 +861,7 @@ public final class Paper {
      * @return the {@link Recipe} resulting from the given crafting matrix.
      */
     @Nullable
-    public static Recipe getCraftingRecipe(@NotNull ItemStack[] craftingMatrix, @NotNull World world) {
+    public static Recipe getCraftingRecipe(@NonNull ItemStack[] craftingMatrix, @NonNull World world) {
         return server.getCraftingRecipe(craftingMatrix, world);
     }
 
@@ -890,8 +890,8 @@ public final class Paper {
      * @return the {@link ItemStack} resulting from the given crafting matrix, if no recipe is found
      * an ItemStack of {@link Material#AIR} is returned.
      */
-    @NotNull
-    public static ItemStack craftItem(@NotNull ItemStack[] craftingMatrix, @NotNull World world, @NotNull Player player) {
+    @NonNull
+    public static ItemStack craftItem(@NonNull ItemStack[] craftingMatrix, @NonNull World world, @NonNull Player player) {
         return server.craftItem(craftingMatrix, world, player);
     }
 
@@ -900,7 +900,7 @@ public final class Paper {
      *
      * @return an iterator
      */
-    @NotNull
+    @NonNull
     public static Iterator<Recipe> recipeIterator() {
         return server.recipeIterator();
     }
@@ -929,7 +929,7 @@ public final class Paper {
      * @param key NamespacedKey of recipe to remove.
      * @return True if recipe was removed
      */
-    public static boolean removeRecipe(@NotNull NamespacedKey key) {
+    public static boolean removeRecipe(@NonNull NamespacedKey key) {
         return server.removeRecipe(key);
     }
 
@@ -945,7 +945,7 @@ public final class Paper {
      *                      Will only update if a recipe was actually removed
      * @return True if recipe was removed
      */
-    public static boolean removeRecipe(@NotNull NamespacedKey key, boolean resendRecipes) {
+    public static boolean removeRecipe(@NonNull NamespacedKey key, boolean resendRecipes) {
         return server.removeRecipe(key, resendRecipes);
     }
 
@@ -954,7 +954,7 @@ public final class Paper {
      *
      * @return a map of aliases to command names
      */
-    @NotNull
+    @NonNull
     public static Map<String, String[]> getCommandAliases() {
         return server.getCommandAliases();
     }
@@ -1039,7 +1039,7 @@ public final class Paper {
      * @param message the message
      * @return the number of players
      */
-    public static int broadcast(@NotNull Component message) {
+    public static int broadcast(@NonNull Component message) {
         return server.broadcast(message);
     }
     /**
@@ -1051,7 +1051,7 @@ public final class Paper {
      *     permissibles} must have to receive the broadcast
      * @return number of message recipients
      */
-    public static int broadcast(@NotNull Component message, @NotNull String permission) {
+    public static int broadcast(@NonNull Component message, @NonNull String permission) {
         return server.broadcast(message, permission);
     }
 
@@ -1069,7 +1069,7 @@ public final class Paper {
      * @see #getOfflinePlayer(java.util.UUID)
      */
     @Nullable
-    public static OfflinePlayer getOfflinePlayerIfCached(@NotNull String name) {
+    public static OfflinePlayer getOfflinePlayerIfCached(@NonNull String name) {
         return server.getOfflinePlayerIfCached(name);
     }
 
@@ -1083,8 +1083,8 @@ public final class Paper {
      * @param id the UUID of the player to retrieve
      * @return an offline player
      */
-    @NotNull
-    public static OfflinePlayer getOfflinePlayer(@NotNull UUID id) {
+    @NonNull
+    public static OfflinePlayer getOfflinePlayer(@NonNull UUID id) {
         return server.getOfflinePlayer(id);
     }
 
@@ -1094,7 +1094,7 @@ public final class Paper {
      *
      * @return a set containing banned IP addresses
      */
-    @NotNull
+    @NonNull
     public static Set<String> getIPBans() {
         return server.getIPBans();
     }
@@ -1104,7 +1104,7 @@ public final class Paper {
      *
      * @param address the IP address to ban
      */
-    public static void banIP(@NotNull InetAddress address) {
+    public static void banIP(@NonNull InetAddress address) {
         server.banIP(address);
     }
 
@@ -1113,7 +1113,7 @@ public final class Paper {
      *
      * @param address the IP address to unban
      */
-    public static void unbanIP(@NotNull InetAddress address) {
+    public static void unbanIP(@NonNull InetAddress address) {
         server.unbanIP(address);
     }
 
@@ -1122,7 +1122,7 @@ public final class Paper {
      *
      * @return a set containing banned players
      */
-    @NotNull
+    @NonNull
     public static Set<OfflinePlayer> getBannedPlayers() {
         return server.getBannedPlayers();
     }
@@ -1135,8 +1135,8 @@ public final class Paper {
      *
      * @return a ban list of the specified type
      */
-    @NotNull
-    public static <T extends BanList<?>> T getBanList(@NotNull BanList.Type type) {
+    @NonNull
+    public static <T extends BanList<?>> T getBanList(@NonNull BanList.Type type) {
         return server.getBanList(type);
     }
 
@@ -1145,7 +1145,7 @@ public final class Paper {
      *
      * @return a set containing player operators
      */
-    @NotNull
+    @NonNull
     public static Set<OfflinePlayer> getOperators() {
         return server.getOperators();
     }
@@ -1155,7 +1155,7 @@ public final class Paper {
      *
      * @return the default game mode
      */
-    @NotNull
+    @NonNull
     public static GameMode getDefaultGameMode() {
         return server.getDefaultGameMode();
     }
@@ -1165,7 +1165,7 @@ public final class Paper {
      *
      * @param mode the new game mode
      */
-    public static void setDefaultGameMode(@NotNull GameMode mode) {
+    public static void setDefaultGameMode(@NonNull GameMode mode) {
         server.setDefaultGameMode(mode);
     }
 
@@ -1175,7 +1175,7 @@ public final class Paper {
      *
      * @return a console command sender
      */
-    @NotNull
+    @NonNull
     public static ConsoleCommandSender getConsoleSender() {
         return server.getConsoleSender();
     }
@@ -1188,8 +1188,8 @@ public final class Paper {
      * @param feedback feedback listener
      * @return a command sender
      */
-    @NotNull
-    public static CommandSender createCommandSender(final @NotNull java.util.function.Consumer<? super net.kyori.adventure.text.Component> feedback) {
+    @NonNull
+    public static CommandSender createCommandSender(final @NonNull java.util.function.Consumer<? super net.kyori.adventure.text.Component> feedback) {
         return server.createCommandSender(feedback);
     }
     // Paper end
@@ -1199,7 +1199,7 @@ public final class Paper {
      *
      * @return folder that contains all worlds
      */
-    @NotNull
+    @NonNull
     public static File getWorldContainer() {
         return server.getWorldContainer();
     }
@@ -1211,7 +1211,7 @@ public final class Paper {
      *
      * @return an array containing all previous players
      */
-    @NotNull
+    @NonNull
     public static OfflinePlayer[] getOfflinePlayers() {
         return server.getOfflinePlayers();
     }
@@ -1221,7 +1221,7 @@ public final class Paper {
      *
      * @return messenger responsible for this server
      */
-    @NotNull
+    @NonNull
     public static Messenger getMessenger() {
         return server.getMessenger();
     }
@@ -1231,7 +1231,7 @@ public final class Paper {
      *
      * @return a help map for this server
      */
-    @NotNull
+    @NonNull
     public static HelpMap getHelpMap() {
         return server.getHelpMap();
     }
@@ -1257,8 +1257,8 @@ public final class Paper {
      *
      * @see InventoryType#isCreatable()
      */
-    @NotNull
-    public static Inventory createInventory(@Nullable InventoryHolder owner, @NotNull InventoryType type) {
+    @NonNull
+    public static Inventory createInventory(@Nullable InventoryHolder owner, @NonNull InventoryType type) {
         return server.createInventory(owner, type);
     }
 
@@ -1286,8 +1286,8 @@ public final class Paper {
      *
      * @see InventoryType#isCreatable()
      */
-    @NotNull
-    public static Inventory createInventory(@Nullable InventoryHolder owner, @NotNull InventoryType type, @NotNull Component title) {
+    @NonNull
+    public static Inventory createInventory(@Nullable InventoryHolder owner, @NonNull InventoryType type, @NonNull Component title) {
         return server.createInventory(owner, type, title);
     }
 
@@ -1300,7 +1300,7 @@ public final class Paper {
      * @return a new inventory
      * @throws IllegalArgumentException if the size is not a multiple of 9
      */
-    @NotNull
+    @NonNull
     public static Inventory createInventory(@Nullable InventoryHolder owner, int size) throws IllegalArgumentException {
         return server.createInventory(owner, size);
     }
@@ -1316,8 +1316,8 @@ public final class Paper {
      * @return a new inventory
      * @throws IllegalArgumentException if the size is not a multiple of 9
      */
-    @NotNull
-    public static Inventory createInventory(@Nullable InventoryHolder owner, int size, @NotNull Component title) throws IllegalArgumentException {
+    @NonNull
+    public static Inventory createInventory(@Nullable InventoryHolder owner, int size, @NonNull Component title) throws IllegalArgumentException {
         return server.createInventory(owner, size, title);
     }
 
@@ -1329,7 +1329,7 @@ public final class Paper {
      * when the merchant inventory is viewed
      * @return a new merchant
      */
-    public static @NotNull Merchant createMerchant(@Nullable Component title) {
+    public static @NonNull Merchant createMerchant(@Nullable Component title) {
         return server.createMerchant(title);
     }
 
@@ -1354,7 +1354,7 @@ public final class Paper {
      * @param spawnCategory the category spawn
      * @return the {@link SpawnCategory} spawn limit
      */
-    public static int getSpawnLimit(@NotNull SpawnCategory spawnCategory) {
+    public static int getSpawnLimit(@NonNull SpawnCategory spawnCategory) {
         return server.getSpawnLimit(spawnCategory);
     }
 
@@ -1379,7 +1379,7 @@ public final class Paper {
      *
      * @return the server's MOTD
      */
-    @NotNull public static Component motd() {
+    @NonNull public static Component motd() {
         return server.motd();
     }
 
@@ -1388,7 +1388,7 @@ public final class Paper {
      *
      * @param motd The message to be displayed
      */
-    public static void motd(final @NotNull Component motd) {
+    public static void motd(final @NonNull Component motd) {
         server.motd(motd);
     }
 
@@ -1406,7 +1406,7 @@ public final class Paper {
      *
      * @return the configured warning state
      */
-    @NotNull
+    @NonNull
     public static WarningState getWarningState() {
         return server.getWarningState();
     }
@@ -1417,7 +1417,7 @@ public final class Paper {
      * @return the item factory
      * @see ItemFactory
      */
-    @NotNull
+    @NonNull
     public static ItemFactory getItemFactory() {
         return server.getItemFactory();
     }
@@ -1429,7 +1429,7 @@ public final class Paper {
      *
      * @return the scoreboard manager or null if no worlds are loaded.
      */
-    @NotNull
+    @NonNull
     public static ScoreboardManager getScoreboardManager() {
         return server.getScoreboardManager();
     }
@@ -1441,8 +1441,8 @@ public final class Paper {
      * @return the criteria
      * @see Criteria Criteria for a list of constants
      */
-    @NotNull
-    public static Criteria getScoreboardCriteria(@NotNull String name) {
+    @NonNull
+    public static Criteria getScoreboardCriteria(@NonNull String name) {
         return server.getScoreboardCriteria(name);
     }
 
@@ -1472,8 +1472,8 @@ public final class Paper {
      * @throws Exception if the image does not meet current server server-icon
      *     specifications
      */
-    @NotNull
-    public static CachedServerIcon loadServerIcon(@NotNull File file) throws IllegalArgumentException, Exception {
+    @NonNull
+    public static CachedServerIcon loadServerIcon(@NonNull File file) throws IllegalArgumentException, Exception {
         return server.loadServerIcon(file);
     }
 
@@ -1490,8 +1490,8 @@ public final class Paper {
      * @throws Exception if the image does not meet current server
      *     server-icon specifications
      */
-    @NotNull
-    public static CachedServerIcon loadServerIcon(@NotNull BufferedImage image) throws IllegalArgumentException, Exception {
+    @NonNull
+    public static CachedServerIcon loadServerIcon(@NonNull BufferedImage image) throws IllegalArgumentException, Exception {
         return server.loadServerIcon(image);
     }
 
@@ -1525,8 +1525,8 @@ public final class Paper {
      * @return a new ChunkData for the world
      *
      */
-    @NotNull
-    public static ChunkGenerator.ChunkData createChunkData(@NotNull World world) {
+    @NonNull
+    public static ChunkGenerator.ChunkData createChunkData(@NonNull World world) {
         return server.createChunkData(world);
     }
 
@@ -1540,8 +1540,8 @@ public final class Paper {
      * @param flags an optional list of flags to set on the boss bar
      * @return the created boss bar
      */
-    @NotNull
-    public static BossBar createBossBar(@Nullable String title, @NotNull BarColor color, @NotNull BarStyle style, @NotNull BarFlag... flags) {
+    @NonNull
+    public static BossBar createBossBar(@Nullable String title, @NonNull BarColor color, @NonNull BarStyle style, @NonNull BarFlag... flags) {
         return server.createBossBar(title, color, style, flags);
     }
 
@@ -1559,8 +1559,8 @@ public final class Paper {
      * @param flags an optional list of flags to set on the boss bar
      * @return the created boss bar
      */
-    @NotNull
-    public static KeyedBossBar createBossBar(@NotNull NamespacedKey key, @Nullable String title, @NotNull BarColor color, @NotNull BarStyle style, @NotNull BarFlag... flags) {
+    @NonNull
+    public static KeyedBossBar createBossBar(@NonNull NamespacedKey key, @Nullable String title, @NonNull BarColor color, @NonNull BarStyle style, @NonNull BarFlag... flags) {
         return server.createBossBar(key, title, color, style, flags);
     }
 
@@ -1578,7 +1578,7 @@ public final class Paper {
      *
      * @return a bossbar iterator
      */
-    @NotNull
+    @NonNull
     public static Iterator<KeyedBossBar> getBossBars() {
         return server.getBossBars();
     }
@@ -1599,7 +1599,7 @@ public final class Paper {
      * @return bossbar or null if not exists
      */
     @Nullable
-    public static KeyedBossBar getBossBar(@NotNull NamespacedKey key) {
+    public static KeyedBossBar getBossBar(@NonNull NamespacedKey key) {
         return server.getBossBar(key);
     }
 
@@ -1618,7 +1618,7 @@ public final class Paper {
      * @param key unique bossbar key
      * @return true if removal succeeded or false
      */
-    public static boolean removeBossBar(@NotNull NamespacedKey key) {
+    public static boolean removeBossBar(@NonNull NamespacedKey key) {
         return server.removeBossBar(key);
     }
 
@@ -1629,7 +1629,7 @@ public final class Paper {
      * @return the entity with the given UUID, or null if it isn't found
      */
     @Nullable
-    public static Entity getEntity(@NotNull UUID uuid) {
+    public static Entity getEntity(@NonNull UUID uuid) {
         return server.getEntity(uuid);
     }
 
@@ -1637,7 +1637,7 @@ public final class Paper {
      * Gets the current server TPS
      * @return current server TPS (1m, 5m, 15m in Paper-Server)
      */
-    @NotNull
+    @NonNull
     public static double[] getTPS() {
         return server.getTPS();
     }
@@ -1647,7 +1647,7 @@ public final class Paper {
      *
      * @return A sample of the servers last tick times (in nanos)
      */
-    @NotNull
+    @NonNull
     public static long[] getTickTimes() {
         return server.getTickTimes();
     }
@@ -1668,7 +1668,7 @@ public final class Paper {
      * @return advancement or null if not exists
      */
     @Nullable
-    public static Advancement getAdvancement(@NotNull NamespacedKey key) {
+    public static Advancement getAdvancement(@NonNull NamespacedKey key) {
         return server.getAdvancement(key);
     }
 
@@ -1678,7 +1678,7 @@ public final class Paper {
      *
      * @return an advancement iterator
      */
-    @NotNull
+    @NonNull
     public static Iterator<Advancement> advancementIterator() {
         return server.advancementIterator();
     }
@@ -1690,8 +1690,8 @@ public final class Paper {
      * @param material the material
      * @return new data instance
      */
-    @NotNull
-    public static BlockData createBlockData(@NotNull Material material) {
+    @NonNull
+    public static BlockData createBlockData(@NonNull Material material) {
         return server.createBlockData(material);
     }
 
@@ -1703,8 +1703,8 @@ public final class Paper {
      * @param consumer consumer to run on new instance before returning
      * @return new data instance
      */
-    @NotNull
-    public static BlockData createBlockData(@NotNull Material material, @Nullable Consumer<BlockData> consumer) {
+    @NonNull
+    public static BlockData createBlockData(@NonNull Material material, @Nullable Consumer<BlockData> consumer) {
         return server.createBlockData(material, consumer);
     }
 
@@ -1716,8 +1716,8 @@ public final class Paper {
      * @return new data instance
      * @throws IllegalArgumentException if the specified data is not valid
      */
-    @NotNull
-    public static BlockData createBlockData(@NotNull String data) throws IllegalArgumentException {
+    @NonNull
+    public static BlockData createBlockData(@NonNull String data) throws IllegalArgumentException {
         return server.createBlockData(data);
     }
 
@@ -1731,7 +1731,7 @@ public final class Paper {
      * @return new data instance
      * @throws IllegalArgumentException if the specified data is not valid
      */
-    @NotNull
+    @NonNull
     @Contract("null, null -> fail")
     public static BlockData createBlockData(@Nullable Material material, @Nullable String data) throws IllegalArgumentException {
         return server.createBlockData(material, data);
@@ -1756,7 +1756,7 @@ public final class Paper {
      * @return the tag or null
      */
     @Nullable
-    public static <T extends Keyed> Tag<T> getTag(@NotNull String registry, @NotNull NamespacedKey tag, @NotNull Class<T> clazz) {
+    public static <T extends Keyed> Tag<T> getTag(@NonNull String registry, @NonNull NamespacedKey tag, @NonNull Class<T> clazz) {
         return server.getTag(registry, tag, clazz);
     }
 
@@ -1773,8 +1773,8 @@ public final class Paper {
      * @param clazz the class of the tag entries
      * @return all defined tags
      */
-    @NotNull
-    public static <T extends Keyed> Iterable<Tag<T>> getTags(@NotNull String registry, @NotNull Class<T> clazz) {
+    @NonNull
+    public static <T extends Keyed> Iterable<Tag<T>> getTags(@NonNull String registry, @NonNull Class<T> clazz) {
         return server.getTags(registry, clazz);
     }
 
@@ -1785,7 +1785,7 @@ public final class Paper {
      * @return the LootTable, or null if no LootTable is found with that name
      */
     @Nullable
-    public static LootTable getLootTable(@NotNull NamespacedKey key) {
+    public static LootTable getLootTable(@NonNull NamespacedKey key) {
         return server.getLootTable(key);
     }
 
@@ -1809,8 +1809,8 @@ public final class Paper {
      * @throws IllegalArgumentException if the selector is malformed in any way
      * or a parameter is null
      */
-    @NotNull
-    public static List<Entity> selectEntities(@NotNull CommandSender sender, @NotNull String selector) throws IllegalArgumentException {
+    @NonNull
+    public static List<Entity> selectEntities(@NonNull CommandSender sender, @NonNull String selector) throws IllegalArgumentException {
         return server.selectEntities(sender, selector);
     }
 
@@ -1819,7 +1819,7 @@ public final class Paper {
      *
      * @return the structure manager
      */
-    @NotNull
+    @NonNull
     public static StructureManager getStructureManager() {
         return server.getStructureManager();
     }
@@ -1837,7 +1837,7 @@ public final class Paper {
      * @return the corresponding registry or null if not present
      */
     @Nullable
-    public static <T extends Keyed> Registry<T> getRegistry(@NotNull Class<T> tClass) {
+    public static <T extends Keyed> Registry<T> getRegistry(@NonNull Class<T> tClass) {
         return server.getRegistry(tClass);
     }
 
@@ -1846,7 +1846,7 @@ public final class Paper {
      * @see UnsafeValues
      */
     @Deprecated
-    @NotNull
+    @NonNull
     public static UnsafeValues getUnsafe() {
         return server.getUnsafe();
     }
@@ -1856,7 +1856,7 @@ public final class Paper {
      *
      * @return the active command map
      */
-    @NotNull
+    @NonNull
     public static CommandMap getCommandMap() {
         return server.getCommandMap();
     }
@@ -1892,7 +1892,7 @@ public final class Paper {
      *
      * @return the default message
      */
-    @NotNull
+    @NonNull
     public static Component permissionMessage() {
         return server.permissionMessage();
     }
@@ -1906,8 +1906,8 @@ public final class Paper {
      * @param uuid UUID to create profile for
      * @return A PlayerProfile object
      */
-    @NotNull
-    public static PlayerProfile createProfile(@NotNull UUID uuid) {
+    @NonNull
+    public static PlayerProfile createProfile(@NonNull UUID uuid) {
         return server.createProfile(uuid);
     }
 
@@ -1925,8 +1925,8 @@ public final class Paper {
      * @param name Name to create profile for
      * @return A PlayerProfile object
      */
-    @NotNull
-    public static PlayerProfile createProfile(@NotNull String name) {
+    @NonNull
+    public static PlayerProfile createProfile(@NonNull String name) {
         return server.createProfile(name);
     }
 
@@ -1949,7 +1949,7 @@ public final class Paper {
      * @param name Name to create profile for
      * @return A PlayerProfile object
      */
-    @NotNull
+    @NonNull
     public static PlayerProfile createProfile(@Nullable UUID uuid, @Nullable String name) {
         return server.createProfile(uuid, name);
     }
@@ -1969,7 +1969,7 @@ public final class Paper {
      * @param name Name to create profile for
      * @return A PlayerProfile object
      */
-    @NotNull
+    @NonNull
     public static PlayerProfile createProfileExact(@Nullable UUID uuid, @Nullable String name) {
         return server.createProfileExact(uuid, name);
     }
@@ -1992,7 +1992,7 @@ public final class Paper {
      *
      * @return the mob goals manager
      */
-    @NotNull
+    @NonNull
     public static MobGoals getMobGoals() {
         return server.getMobGoals();
     }
@@ -2000,7 +2000,7 @@ public final class Paper {
     /**
      * @return the datapack manager
      */
-    @NotNull
+    @NonNull
     public static DatapackManager getDatapackManager() {
         return server.getDatapackManager();
     }
@@ -2010,7 +2010,7 @@ public final class Paper {
      *
      * @return the potion brewer
      */
-    public static @NotNull PotionBrewer getPotionBrewer() {
+    public static @NonNull PotionBrewer getPotionBrewer() {
         return server.getPotionBrewer();
     }
 
@@ -2026,7 +2026,7 @@ public final class Paper {
      * <p><b>If you do not need/want to make your plugin run on Folia, use {@link #getScheduler()} instead.</b></p>
      * @return the region task scheduler
      */
-    public static @NotNull RegionScheduler getRegionScheduler() {
+    public static @NonNull RegionScheduler getRegionScheduler() {
         return server.getRegionScheduler();
     }
 
@@ -2035,7 +2035,7 @@ public final class Paper {
      * that execute asynchronously from the server tick process.
      * @return the async task scheduler
      */
-    public static @NotNull AsyncScheduler getAsyncScheduler() {
+    public static @NonNull AsyncScheduler getAsyncScheduler() {
         return server.getAsyncScheduler();
     }
 
@@ -2049,7 +2049,7 @@ public final class Paper {
      * <p><b>If you do not need/want to make your plugin run on Folia, use {@link #getScheduler()} instead.</b></p>
      * @return the global region scheduler
      */
-    public static @NotNull GlobalRegionScheduler getGlobalRegionScheduler() {
+    public static @NonNull GlobalRegionScheduler getGlobalRegionScheduler() {
         return server.getGlobalRegionScheduler();
     }
 
@@ -2059,7 +2059,7 @@ public final class Paper {
      * @param world Specified world.
      * @param position Specified block position.
      */
-    public static boolean isOwnedByCurrentRegion(@NotNull World world, @NotNull Position position) {
+    public static boolean isOwnedByCurrentRegion(@NonNull World world, @NonNull Position position) {
         return server.isOwnedByCurrentRegion(world, position);
     }
 
@@ -2073,7 +2073,7 @@ public final class Paper {
      * @param squareRadiusChunks Specified square radius. Must be >= 0. Note that this parameter is <i>not</i> a <i>squared</i>
      *                           radius, but rather a <i>Chebyshev Distance</i>.
      */
-    public static boolean isOwnedByCurrentRegion(@NotNull World world, @NotNull Position position, int squareRadiusChunks) {
+    public static boolean isOwnedByCurrentRegion(@NonNull World world, @NonNull Position position, int squareRadiusChunks) {
         return server.isOwnedByCurrentRegion(world, position, squareRadiusChunks);
     }
 
@@ -2082,7 +2082,7 @@ public final class Paper {
      * owns the chunk at the specified world and block position as included in the specified location.
      * @param location Specified location, must have a non-null world.
      */
-    public static boolean isOwnedByCurrentRegion(@NotNull Location location) {
+    public static boolean isOwnedByCurrentRegion(@NonNull Location location) {
         return server.isOwnedByCurrentRegion(location);
     }
 
@@ -2096,7 +2096,7 @@ public final class Paper {
      * @param squareRadiusChunks Specified square radius. Must be >= 0. Note that this parameter is <i>not</i> a <i>squared</i>
      *                           radius, but rather a <i>Chebyshev Distance</i>.
      */
-    public static boolean isOwnedByCurrentRegion(@NotNull Location location, int squareRadiusChunks) {
+    public static boolean isOwnedByCurrentRegion(@NonNull Location location, int squareRadiusChunks) {
         return server.isOwnedByCurrentRegion(location, squareRadiusChunks);
     }
 
@@ -2105,7 +2105,7 @@ public final class Paper {
      * owns the chunk at the specified block position.
      * @param block Specified block position.
      */
-    public static boolean isOwnedByCurrentRegion(@NotNull Block block) {
+    public static boolean isOwnedByCurrentRegion(@NonNull Block block) {
         return server.isOwnedByCurrentRegion(block.getLocation());
     }
 
@@ -2116,7 +2116,7 @@ public final class Paper {
      * @param chunkX Specified x-coordinate of the chunk position.
      * @param chunkZ Specified z-coordinate of the chunk position.
      */
-    public static boolean isOwnedByCurrentRegion(@NotNull World world, int chunkX, int chunkZ) {
+    public static boolean isOwnedByCurrentRegion(@NonNull World world, int chunkX, int chunkZ) {
         return server.isOwnedByCurrentRegion(world, chunkX, chunkZ);
     }
 
@@ -2132,7 +2132,7 @@ public final class Paper {
      * @param squareRadiusChunks Specified square radius. Must be >= 0. Note that this parameter is <i>not</i> a <i>squared</i>
      *                           radius, but rather a <i>Chebyshev Distance</i>.
      */
-    public static boolean isOwnedByCurrentRegion(@NotNull World world, int chunkX, int chunkZ, int squareRadiusChunks) {
+    public static boolean isOwnedByCurrentRegion(@NonNull World world, int chunkX, int chunkZ, int squareRadiusChunks) {
         return server.isOwnedByCurrentRegion(world, chunkX, chunkZ, squareRadiusChunks);
     }
 
@@ -2143,7 +2143,7 @@ public final class Paper {
      * by the current region.
      * @param entity Specified entity.
      */
-    public static boolean isOwnedByCurrentRegion(@NotNull Entity entity) {
+    public static boolean isOwnedByCurrentRegion(@NonNull Entity entity) {
         return server.isOwnedByCurrentRegion(entity);
     }
 }
