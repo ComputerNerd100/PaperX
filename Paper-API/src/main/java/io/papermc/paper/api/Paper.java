@@ -26,6 +26,8 @@ import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.permisson.Permissible;
 import io.papermc.paper.api.player.OfflinePlayer;
 import io.papermc.paper.api.profile.PlayerProfile;
+import io.papermc.paper.api.scoreboard.Criteria;
+import io.papermc.paper.api.scoreboard.ScoreboardManager;
 import io.papermc.paper.api.world.World;
 import io.papermc.paper.api.world.WorldBorder;
 import io.papermc.paper.api.world.WorldCreator;
@@ -1531,8 +1533,7 @@ public final class Paper {
      * @return a new ChunkData for the world
      *
      */
-    @NonNull
-    public static ChunkGenerator.ChunkData createChunkData(@NonNull World world) {
+    public static ChunkGenerator.@NonNull ChunkData createChunkData(@NonNull World world) {
         return server.createChunkData(world);
     }
 

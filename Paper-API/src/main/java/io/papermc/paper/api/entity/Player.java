@@ -24,6 +24,8 @@ import io.papermc.paper.api.network.NetworkClient;
 import io.papermc.paper.api.particle.Particle;
 import io.papermc.paper.api.player.OfflinePlayer;
 import io.papermc.paper.api.profile.PlayerProfile;
+import io.papermc.paper.api.scoreboard.Scoreboard;
+import io.papermc.paper.api.scoreboard.ScoreboardManager;
 import io.papermc.paper.api.sound.Instrument;
 import io.papermc.paper.api.sound.Note;
 import io.papermc.paper.api.sound.Sound;
@@ -1521,7 +1523,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @param scoreboard New Scoreboard for the player
      * @throws IllegalArgumentException if scoreboard is null
      * @throws IllegalArgumentException if scoreboard was not created by the
-     *     {@link org.bukkit.scoreboard.ScoreboardManager scoreboard manager}
+     *     {@link ScoreboardManager scoreboard manager}
      * @throws IllegalStateException if this is a player that is not logged
      *     yet or has logged out
      */
