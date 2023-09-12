@@ -1,5 +1,6 @@
 package io.papermc.paper.api.player;
 
+import io.papermc.paper.api.Paper;
 import io.papermc.paper.api.ban.BanEntry;
 import io.papermc.paper.api.ban.BanList;
 import io.papermc.paper.api.ban.ProfileBanList;

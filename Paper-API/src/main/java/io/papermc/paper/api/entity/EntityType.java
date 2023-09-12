@@ -1,6 +1,7 @@
 package io.papermc.paper.api.entity;
 
 import com.google.common.base.Preconditions;
+import io.papermc.paper.api.Paper;
 import io.papermc.paper.api.attribute.Attributable;
 import io.papermc.paper.api.entity.minecart.*;
 import io.papermc.paper.api.namespace.Keyed;

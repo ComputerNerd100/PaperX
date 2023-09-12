@@ -1,6 +1,7 @@
 package io.papermc.paper.api.location;
 
 import com.google.common.base.Preconditions;
+import io.papermc.paper.api.Paper;
 import io.papermc.paper.api.annotation.Utility;
 import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.entity.Entity;
@@ -92,7 +93,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @throws IllegalArgumentException when world is unloaded
      * @see #isWorldLoaded()
      */
-    @Nullable // Paper
+    @Nullable
     public World getWorld() {
         if (this.world == null) {
             return null;

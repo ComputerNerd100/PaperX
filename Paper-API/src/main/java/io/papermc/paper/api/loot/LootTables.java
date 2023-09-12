@@ -1,5 +1,6 @@
 package io.papermc.paper.api.loot;
 
+import io.papermc.paper.api.Paper;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import org.jetbrains.annotations.NotNull;

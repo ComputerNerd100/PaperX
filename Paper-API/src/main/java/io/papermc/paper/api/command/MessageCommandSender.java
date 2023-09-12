@@ -1,5 +1,6 @@
 package io.papermc.paper.api.command;
 
+import io.papermc.paper.api.Paper;
 import io.papermc.paper.api.Server;
 import io.papermc.paper.api.permisson.Permission;
 import io.papermc.paper.api.permisson.PermissionAttachment;
@@ -41,7 +42,7 @@ public interface MessageCommandSender extends CommandSender {
     }
 
     @Override
-    default net.kyori.adventure.text.@org.jetbrains.annotations.NonNull Component name() {
+    default net.kyori.adventure.text.@NonNull Component name() {
         throw new UnsupportedOperationException();
     }
 

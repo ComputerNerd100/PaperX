@@ -1,5 +1,6 @@
 package io.papermc.paper.api.permisson;
 
+import io.papermc.paper.api.Paper;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 

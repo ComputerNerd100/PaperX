@@ -1,6 +1,7 @@
 package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.ClientOption;
+import io.papermc.paper.api.Paper;
 import io.papermc.paper.api.advancement.Advancement;
 import io.papermc.paper.api.advancement.AdvancementProgress;
 import io.papermc.paper.api.ban.BanEntry;

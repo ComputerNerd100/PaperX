@@ -3,6 +3,7 @@ package io.papermc.paper.api.material;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
+import io.papermc.paper.api.Paper;
 import io.papermc.paper.api.attribute.Attribute;
 import io.papermc.paper.api.attribute.AttributeModifier;
 import io.papermc.paper.api.block.Block;
