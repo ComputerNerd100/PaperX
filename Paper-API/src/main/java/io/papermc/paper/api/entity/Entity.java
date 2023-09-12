@@ -21,6 +21,7 @@ import org.jetbrains.annotations.Contract;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.UnaryOperator;
 
 /**
@@ -192,7 +193,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      * @return A future that will be completed with the result of the teleport
      */
     @NonNull
-    public default java.util.concurrent.CompletableFuture<Boolean> teleportAsync(@NonNull Location loc) {
+    default CompletableFuture<Boolean> teleportAsync(@NonNull Location loc) {
         return teleportAsync(loc, TeleportCause.PLUGIN);
     }
     /**
@@ -202,7 +203,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      * @return A future that will be completed with the result of the teleport
      */
     @NonNull
-    public default java.util.concurrent.CompletableFuture<Boolean> teleportAsync(@NonNull Location loc, @NonNull TeleportCause cause) {
+    default CompletableFuture<Boolean> teleportAsync(@NonNull Location loc, @NonNull TeleportCause cause) {
         java.util.concurrent.CompletableFuture<Boolean> future = new java.util.concurrent.CompletableFuture<>();
         loc.getWorld().getChunkAtAsyncUrgently(loc).thenAccept((chunk) -> future.complete(teleport(loc, cause))).exceptionally(ex -> {
             future.completeExceptionally(ex);
@@ -996,7 +997,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      * @return the task scheduler for this entity.
      * @see io.papermc.paper.threadedregions.scheduler.EntityScheduler
      */
-    @NonNull io.papermc.paper.threadedregions.scheduler.EntityScheduler getScheduler();
+    @NonNull EntityScheduler getScheduler();
     // Paper end - Folia schedulers
 
     /**
