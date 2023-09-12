@@ -13,6 +13,7 @@ import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.block.sign.Side;
 import io.papermc.paper.api.block.tilestate.Sign;
 import io.papermc.paper.api.block.tilestate.TileState;
+import io.papermc.paper.api.conversation.Conversable;
 import io.papermc.paper.api.inventory.EquipmentSlot;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
@@ -26,6 +27,7 @@ import io.papermc.paper.api.sound.Instrument;
 import io.papermc.paper.api.sound.Note;
 import io.papermc.paper.api.sound.Sound;
 import io.papermc.paper.api.sound.SoundCategory;
+import net.kyori.adventure.bossbar.BossBarViewer;
 import net.kyori.adventure.identity.Identified;
 import net.kyori.adventure.identity.Identity;
 import net.kyori.adventure.text.Component;
@@ -41,14 +43,13 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 import java.util.function.UnaryOperator;
 
 /**
  * Represents a player, connected or not
  */
-public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginMessageRecipient, Identified, net.kyori.adventure.bossbar.BossBarViewer, NetworkClient {
+public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginMessageRecipient, Identified, BossBarViewer, NetworkClient {
 
     @Override
     default @NonNull Identity identity() {
@@ -828,7 +829,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @return Ban Entry
      */
     @Nullable
-    default BanEntry banPlayerFull(@Nullable String reason, @Nullable java.util.Date expires) {
+    default BanEntry banPlayerFull(@Nullable String reason, @Nullable Date expires) {
         return banPlayerFull(reason, expires, null);
     }
 
@@ -841,14 +842,14 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @return Ban Entry
      */
     @Nullable
-    default BanEntry banPlayerFull(@Nullable String reason, @Nullable java.util.Date expires, @Nullable String source) {
+    default BanEntry banPlayerFull(@Nullable String reason, @Nullable Date expires, @Nullable String source) {
         banPlayer(reason, expires, source);
         return banPlayerIP(reason, expires, source, true);
     }
 
     /**
      * Permanently Bans the IP address currently used by the player.
-     * Does not ban the Profile, use {@link #banPlayerFull(String, java.util.Date, String)}
+     * Does not ban the Profile, use {@link #banPlayerFull(String, Date, String)}
      *
      * @param reason Reason for ban
      * @param kickPlayer Whether or not to kick the player afterwards
@@ -861,7 +862,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
 
     /**
      * Permanently Bans the IP address currently used by the player.
-     * Does not ban the Profile, use {@link #banPlayerFull(String, java.util.Date, String)}
+     * Does not ban the Profile, use {@link #banPlayerFull(String, Date, String)}
      * @param reason Reason for ban
      * @param source Source of ban, or null for default
      * @param kickPlayer Whether or not to kick the player afterwards
@@ -874,20 +875,20 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
 
     /**
      * Bans the IP address currently used by the player.
-     * Does not ban the Profile, use {@link #banPlayerFull(String, java.util.Date, String)}
+     * Does not ban the Profile, use {@link #banPlayerFull(String, Date, String)}
      * @param reason Reason for Ban
      * @param expires When to expire the ban
      * @param kickPlayer Whether or not to kick the player afterwards
      * @return Ban Entry
      */
     @Nullable
-    default BanEntry banPlayerIP(@Nullable String reason, @Nullable java.util.Date expires, boolean kickPlayer) {
+    default BanEntry banPlayerIP(@Nullable String reason, @Nullable Date expires, boolean kickPlayer) {
         return banPlayerIP(reason, expires, null, kickPlayer);
     }
 
     /**
      * Permanently Bans the IP address currently used by the player.
-     * Does not ban the Profile, use {@link #banPlayerFull(String, java.util.Date, String)}
+     * Does not ban the Profile, use {@link #banPlayerFull(String, Date, String)}
      *
      * @param reason Reason for ban
      * @return Ban Entry
@@ -899,7 +900,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
 
     /**
      * Permanently Bans the IP address currently used by the player.
-     * Does not ban the Profile, use {@link #banPlayerFull(String, java.util.Date, String)}
+     * Does not ban the Profile, use {@link #banPlayerFull(String, Date, String)}
      * @param reason Reason for ban
      * @param source Source of ban, or null for default
      * @return Ban Entry
@@ -911,32 +912,32 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
 
     /**
      * Bans the IP address currently used by the player.
-     * Does not ban the Profile, use {@link #banPlayerFull(String, java.util.Date, String)}
+     * Does not ban the Profile, use {@link #banPlayerFull(String, Date, String)}
      * @param reason Reason for Ban
      * @param expires When to expire the ban
      * @return Ban Entry
      */
     @Nullable
-    default BanEntry banPlayerIP(@Nullable String reason, @Nullable java.util.Date expires) {
+    default BanEntry banPlayerIP(@Nullable String reason, @Nullable Date expires) {
         return banPlayerIP(reason, expires, null);
     }
 
     /**
      * Bans the IP address currently used by the player.
-     * Does not ban the Profile, use {@link #banPlayerFull(String, java.util.Date, String)}
+     * Does not ban the Profile, use {@link #banPlayerFull(String, Date, String)}
      * @param reason Reason for Ban
      * @param expires When to expire the ban
      * @param source Source of the ban or null for default
      * @return Ban Entry
      */
     @Nullable
-    default BanEntry banPlayerIP(@Nullable String reason, @Nullable java.util.Date expires, @Nullable String source) {
+    default BanEntry banPlayerIP(@Nullable String reason, @Nullable Date expires, @Nullable String source) {
         return banPlayerIP(reason, expires, source, true);
     }
 
     /**
      * Bans the IP address currently used by the player.
-     * Does not ban the Profile, use {@link #banPlayerFull(String, java.util.Date, String)}
+     * Does not ban the Profile, use {@link #banPlayerFull(String, Date, String)}
      * @param reason Reason for Ban
      * @param expires When to expire the ban
      * @param source Source of the ban or null for default
@@ -944,7 +945,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @return Ban Entry
      */
     @Nullable
-    default BanEntry banPlayerIP(@Nullable String reason, @Nullable java.util.Date expires, @Nullable String source, boolean kickPlayer) {
+    default BanEntry banPlayerIP(@Nullable String reason, @Nullable Date expires, @Nullable String source, boolean kickPlayer) {
         BanEntry banEntry = Paper.getServer().getBanList(BanList.Type.IP).addBan(getAddress().getAddress().getHostAddress(), reason, expires, source);
         if (kickPlayer && isOnline()) {
             getPlayer().kickPlayer(reason);
