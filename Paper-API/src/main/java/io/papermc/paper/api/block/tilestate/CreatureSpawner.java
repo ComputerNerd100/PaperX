@@ -1,10 +1,11 @@
 package io.papermc.paper.api.block.tilestate;
 
 
+import io.papermc.paper.api.entity.EntityType;
 import io.papermc.paper.api.inventory.ItemStack;
+import io.papermc.paper.api.material.Material;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents a captured state of a creature spawner.
@@ -31,7 +32,7 @@ public interface CreatureSpawner extends TileState {
      *
      * @param creatureType The creature type's name or null to clear.
      * @deprecated magic value, use
-     * {@link #setSpawnedType(org.bukkit.entity.EntityType)}.
+     * {@link #setSpawnedType(EntityType)}.
      */
     @Deprecated
     void setCreatureTypeByName(@Nullable String creatureType);
@@ -223,7 +224,7 @@ public interface CreatureSpawner extends TileState {
      * {@link #setSpawnCount(int)} does not dictate the amount of items in the stack spawned, but rather how many
      * stacks should be spawned.
      *
-     * @param itemStack The item to spawn. Must not {@link org.bukkit.Material#isAir be air}.
+     * @param itemStack The item to spawn. Must not {@link Material#isAir be air}.
      * @see #setSpawnedType(EntityType)
      */
     void setSpawnedItem(@NonNull ItemStack itemStack);
