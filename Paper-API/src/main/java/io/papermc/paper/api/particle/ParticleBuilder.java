@@ -2,6 +2,7 @@ package io.papermc.paper.api.particle;
 
 import com.google.common.collect.Lists;
 import io.papermc.paper.api.block.color.Color;
+import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.util.NumberConversions;
 import org.jetbrains.annotations.NotNull;
