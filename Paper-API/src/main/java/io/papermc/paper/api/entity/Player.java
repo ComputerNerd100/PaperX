@@ -60,7 +60,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * <p>
      * <b>This currently only returns bossbars shown to the player via
      * {@link #showBossBar(net.kyori.adventure.bossbar.BossBar)} and does not contain bukkit
-     * {@link org.bukkit.boss.BossBar} instances shown to the player.</b>
+     * {@link io.papermc.paper.api.boss.BossBar} instances shown to the player.</b>
      *
      * @return an unmodifiable view of all known currently active bossbars
      * @since 4.14.0
