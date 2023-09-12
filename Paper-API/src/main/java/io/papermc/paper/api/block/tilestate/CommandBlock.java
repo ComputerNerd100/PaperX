@@ -1,5 +1,6 @@
 package io.papermc.paper.api.block.tilestate;
 
+import io.papermc.paper.api.command.CommandBlockHolder;
 import net.kyori.adventure.text.Component;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;

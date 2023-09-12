@@ -120,12 +120,5 @@ public interface MessageCommandSender extends CommandSender {
     default Set<PermissionAttachmentInfo> getEffectivePermissions() {
         throw new UnsupportedOperationException();
     }
-
-    @NonNull
-    @Override
-    default Spigot spigot() {
-        throw new UnsupportedOperationException();
-    }
-
 }
 

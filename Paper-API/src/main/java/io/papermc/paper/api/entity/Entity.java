@@ -4,6 +4,7 @@ import io.papermc.paper.api.Nameable;
 import io.papermc.paper.api.Server;
 import io.papermc.paper.api.block.BlockFace;
 import io.papermc.paper.api.block.PistonMoveReaction;
+import io.papermc.paper.api.command.CommandSender;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.metadata.Metadatable;
 import io.papermc.paper.api.persistance.PersistentDataHolder;

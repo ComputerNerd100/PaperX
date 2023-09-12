@@ -1,10 +1,11 @@
 package io.papermc.paper.api.entity.minecart;
 
+import io.papermc.paper.api.command.CommandBlockHolder;
 import io.papermc.paper.api.entity.Minecart;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-public interface CommandMinecart extends Minecart, CommandBlockHolder { 
+public interface CommandMinecart extends Minecart, CommandBlockHolder {
 
     /**
      * Gets the command that this CommandMinecart will run when activated.
