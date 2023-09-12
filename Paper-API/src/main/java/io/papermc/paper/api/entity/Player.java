@@ -279,20 +279,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
     boolean performCommand(@NonNull String command);
 
     /**
-     * Returns true if the entity is supported by a block.
-     *
-     * This value is a state updated by the client after each movement.
-     *
-     * @return True if entity is on ground.
-     * @deprecated This value is controlled only by the client and is therefore
-     * unreliable and vulnerable to spoofing and/or desync depending on the
-     * context/time which it is accessed
-     */
-    @Override
-    @Deprecated
-    boolean isOnGround();
-
-    /**
      * Returns if the player is in sneak mode
      *
      * @return true if player is in sneak mode
@@ -638,31 +624,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
     void sendBlockChanges(@NonNull Collection<BlockState> blocks);
 
     /**
-     * Send a multi-block change. This fakes a block change packet for a user
-     * at multiple locations. This will not actually change the world in any
-     * way.
-     * <p>
-     * This method may send multiple packets to the client depending on the
-     * blocks in the collection. A packet must be sent for each chunk section
-     * modified, meaning one packet for each 16x16x16 block area. Even if only
-     * one block is changed in two different chunk sections, two packets will
-     * be sent.
-     * <p>
-     * Additionally, this method cannot guarantee the functionality of changes
-     * being sent to the player in chunks not loaded by the client. It is the
-     * responsibility of the caller to ensure that the client is within range
-     * of the changed blocks or to handle any side effects caused as a result.
-     *
-     * @param blocks the block states to send to the player
-     * @param suppressLightUpdates whether or not light updates should be
-     * suppressed when updating the blocks on the client
-     * @deprecated suppressLightUpdates is not functional in versions greater
-     * than 1.19.4
-     */
-    @Deprecated
-    void sendBlockChanges(@NonNull Collection<BlockState> blocks, boolean suppressLightUpdates);
-
-    /**
      * Send block damage. This fakes block break progress at a certain location
      * sourced by this player. This will not actually change the block's break
      * progress in any way.
@@ -673,7 +634,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      */
     void sendBlockDamage(@NonNull Location loc, float progress);
 
-    // Paper start
     /**
      * Send multiple block changes. This fakes a multi block change packet for each
      * chunk section that a block change occurs. This will not actually change the world in any way.
@@ -681,20 +641,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @param blockChanges A map of the positions you want to change to their new block data
      */
     void sendMultiBlockChange(@NonNull Map<? extends Position, BlockData> blockChanges);
-
-    /**
-     * Send multiple block changes. This fakes a multi block change packet for each
-     * chunk section that a block change occurs. This will not actually change the world in any way.
-     *
-     * @param blockChanges A map of the positions you want to change to their new block data
-     * @param suppressLightUpdates Whether to suppress light updates or not
-     * @deprecated suppressLightUpdates is no longer available in 1.20+, use {@link #sendMultiBlockChange(Map)}
-     */
-    @Deprecated
-    default void sendMultiBlockChange(@NonNull Map<? extends Position, BlockData> blockChanges, boolean suppressLightUpdates) {
-        this.sendMultiBlockChange(blockChanges);
-    }
-    // Paper end
 
     /**
      * Send block damage. This fakes block break progress at a certain location
@@ -806,7 +752,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @param reason Reason for ban
      * @return Ban Entry
      */
-    // For reference, Bukkit defines this as nullable, while they impl isn't, we'll follow API.
     @Nullable
     default BanEntry banPlayerFull(@Nullable String reason) {
         return banPlayerFull(reason, null, null);
@@ -1086,7 +1031,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      */
     void resetPlayerWeather();
 
-    // Paper start
     /**
      * Gives the player the amount of experience specified.
      *
@@ -1133,7 +1077,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @return the remaining experience
      */
     int applyMending(int amount);
-    // Paper end
 
     /**
      * Gives the player the amount of experience levels specified. Levels can
@@ -1236,7 +1179,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      */
     void setAllowFlight(boolean flight);
 
-    // Paper start - flying fall damage
     /**
      * Allows you to enable fall damage while {@link #getAllowFlight()} is {@code true}
      *
@@ -1250,16 +1192,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @return A tristate of whether fall damage is enabled, not set, or disabled when {@link #getAllowFlight()} is {@code true}
      */
     @NonNull net.kyori.adventure.util.TriState hasFlyingFallDamage();
-    // Paper end
-
-    /**
-     * Hides a player from this player
-     *
-     * @param player Player to hide
-     * @deprecated see {@link #hidePlayer(Plugin, Player)}
-     */
-    @Deprecated
-    void hidePlayer(@NonNull Player player);
 
     /**
      * Hides a player from this player
@@ -1268,15 +1200,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @param player Player to hide
      */
     void hidePlayer(@NonNull Plugin plugin, @NonNull Player player);
-
-    /**
-     * Allows this player to see a player that was previously hidden
-     *
-     * @param player Player to show
-     * @deprecated see {@link #showPlayer(Plugin, Player)}
-     */
-    @Deprecated
-    void showPlayer(@NonNull Player player);
 
     /**
      * Allows this player to see a player that was previously hidden. If
@@ -1405,78 +1328,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
     float getWalkSpeed();
 
     /**
-     * Request that the player's client download and switch texture packs.
-     * <p>
-     * The player's client will download the new texture pack asynchronously
-     * in the background, and will automatically switch to it once the
-     * download is complete. If the client has downloaded and cached the same
-     * texture pack in the past, it will perform a file size check against
-     * the response content to determine if the texture pack has changed and
-     * needs to be downloaded again. When this request is sent for the very
-     * first time from a given server, the client will first display a
-     * confirmation GUI to the player before proceeding with the download.
-     * <p>
-     * Notes:
-     * <ul>
-     * <li>Players can disable server textures on their client, in which
-     *     case this method will have no affect on them. Use the
-     *     {@link PlayerResourcePackStatusEvent} to figure out whether or not
-     *     the player loaded the pack!
-     * <li>There is no concept of resetting texture packs back to default
-     *     within Minecraft, so players will have to relog to do so or you
-     *     have to send an empty pack.
-     * <li>The request is send with "null" as the hash. This might result
-     *     in newer versions not loading the pack correctly.
-     * </ul>
-     *
-     * @param url The URL from which the client will download the texture
-     *     pack. The string must contain only US-ASCII characters and should
-     *     be encoded as per RFC 1738.
-     * @throws IllegalArgumentException Thrown if the URL is null.
-     * @throws IllegalArgumentException Thrown if the URL is too long.
-     * @deprecated Minecraft no longer uses textures packs. Instead you
-     *     should use {@link #setResourcePack(String)}.
-     */
-    @Deprecated
-    void setTexturePack(@NonNull String url);
-
-    /**
-     * Request that the player's client download and switch resource packs.
-     * <p>
-     * The player's client will download the new resource pack asynchronously
-     * in the background, and will automatically switch to it once the
-     * download is complete. If the client has downloaded and cached the same
-     * resource pack in the past, it will perform a file size check against
-     * the response content to determine if the resource pack has changed and
-     * needs to be downloaded again. When this request is sent for the very
-     * first time from a given server, the client will first display a
-     * confirmation GUI to the player before proceeding with the download.
-     * <p>
-     * Notes:
-     * <ul>
-     * <li>Players can disable server resources on their client, in which
-     *     case this method will have no affect on them. Use the
-     *     {@link PlayerResourcePackStatusEvent} to figure out whether or not
-     *     the player loaded the pack!
-     * <li>There is no concept of resetting resource packs back to default
-     *     within Minecraft, so players will have to relog to do so or you
-     *     have to send an empty pack.
-     * <li>The request is send with empty string as the hash. This might result
-     *     in newer versions not loading the pack correctly.
-     * </ul>
-     *
-     * @param url The URL from which the client will download the resource
-     *     pack. The string must contain only US-ASCII characters and should
-     *     be encoded as per RFC 1738.
-     * @throws IllegalArgumentException Thrown if the URL is null.
-     * @throws IllegalArgumentException Thrown if the URL is too long. The
-     *     length restriction is an implementation specific arbitrary value.
-     * @deprecated use {@link #setResourcePack(String, String)}
-     */
-    @Deprecated // Paper
-    void setResourcePack(@NonNull String url);
-
-    /**
      * Request that the player's client download and switch resource packs.
      * <p>
      * The player's client will download the new resource pack asynchronously
@@ -1549,53 +1400,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      *     pack correctly.
      * </ul>
      *
-     * @deprecated in favour of {@link #setResourcePack(String, byte[], Component, boolean)}
-     * @param url The URL from which the client will download the resource
-     *     pack. The string must contain only US-ASCII characters and should
-     *     be encoded as per RFC 1738.
-     * @param hash The sha1 hash sum of the resource pack file which is used
-     *     to apply a cached version of the pack directly without downloading
-     *     if it is available. Hast to be 20 bytes long!
-     * @param prompt The optional custom prompt message to be shown to client.
-     * @throws IllegalArgumentException Thrown if the URL is null.
-     * @throws IllegalArgumentException Thrown if the URL is too long. The
-     *     length restriction is an implementation specific arbitrary value.
-     * @throws IllegalArgumentException Thrown if the hash is not 20 bytes
-     *     long.
-     */
-    @Deprecated // Paper
-    void setResourcePack(@NonNull String url, @Nullable byte[] hash, @Nullable String prompt);
-
-    // Paper start
-    /**
-     * Request that the player's client download and switch resource packs.
-     * <p>
-     * The player's client will download the new resource pack asynchronously
-     * in the background, and will automatically switch to it once the
-     * download is complete. If the client has downloaded and cached a
-     * resource pack with the same hash in the past it will not download but
-     * directly apply the cached pack. If the hash is null and the client has
-     * downloaded and cached the same resource pack in the past, it will
-     * perform a file size check against the response content to determine if
-     * the resource pack has changed and needs to be downloaded again. When
-     * this request is sent for the very first time from a given server, the
-     * client will first display a confirmation GUI to the player before
-     * proceeding with the download.
-     * <p>
-     * Notes:
-     * <ul>
-     * <li>Players can disable server resources on their client, in which
-     *     case this method will have no affect on them. Use the
-     *     {@link PlayerResourcePackStatusEvent} to figure out whether or not
-     *     the player loaded the pack!
-     * <li>There is no concept of resetting resource packs back to default
-     *     within Minecraft, so players will have to relog to do so or you
-     *     have to send an empty pack.
-     * <li>The request is sent with empty string as the hash when the hash is
-     *     not provided. This might result in newer versions not loading the
-     *     pack correctly.
-     * </ul>
-     *
      * @param url The URL from which the client will download the resource
      *     pack. The string must contain only US-ASCII characters and should
      *     be encoded as per RFC 1738.
@@ -1612,7 +1416,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
     default void setResourcePack(@NonNull String url, byte @Nullable [] hash, net.kyori.adventure.text.@Nullable Component prompt) {
         this.setResourcePack(url, hash, prompt, false);
     }
-    // Paper end
 
     /**
      * Request that the player's client download and switch resource packs.
@@ -1703,56 +1506,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @throws IllegalArgumentException Thrown if the hash is not 20 bytes
      *     long.
      */
-    @Deprecated // Paper
-    void setResourcePack(@NonNull String url, @Nullable byte[] hash, @Nullable String prompt, boolean force);
-
-    // Paper start
-    /**
-     * Request that the player's client download and switch resource packs.
-     * <p>
-     * The player's client will download the new resource pack asynchronously
-     * in the background, and will automatically switch to it once the
-     * download is complete. If the client has downloaded and cached a
-     * resource pack with the same hash in the past it will not download but
-     * directly apply the cached pack. If the hash is null and the client has
-     * downloaded and cached the same resource pack in the past, it will
-     * perform a file size check against the response content to determine if
-     * the resource pack has changed and needs to be downloaded again. When
-     * this request is sent for the very first time from a given server, the
-     * client will first display a confirmation GUI to the player before
-     * proceeding with the download.
-     * <p>
-     * Notes:
-     * <ul>
-     * <li>Players can disable server resources on their client, in which
-     *     case this method will have no affect on them. Use the
-     *     {@link PlayerResourcePackStatusEvent} to figure out whether or not
-     *     the player loaded the pack!
-     * <li>There is no concept of resetting resource packs back to default
-     *     within Minecraft, so players will have to relog to do so or you
-     *     have to send an empty pack.
-     * <li>The request is sent with empty string as the hash when the hash is
-     *     not provided. This might result in newer versions not loading the
-     *     pack correctly.
-     * </ul>
-     *
-     * @param url The URL from which the client will download the resource
-     *     pack. The string must contain only US-ASCII characters and should
-     *     be encoded as per RFC 1738.
-     * @param hash The sha1 hash sum of the resource pack file which is used
-     *     to apply a cached version of the pack directly without downloading
-     *     if it is available. Hast to be 20 bytes long!
-     * @param prompt The optional custom prompt message to be shown to client.
-     * @param force If true, the client will be disconnected from the server
-     *     when it declines to use the resource pack.
-     * @throws IllegalArgumentException Thrown if the URL is null.
-     * @throws IllegalArgumentException Thrown if the URL is too long. The
-     *     length restriction is an implementation specific arbitrary value.
-     * @throws IllegalArgumentException Thrown if the hash is not 20 bytes
-     *     long.
-     */
     void setResourcePack(@NonNull String url, byte @Nullable [] hash, net.kyori.adventure.text.@Nullable Component prompt, boolean force);
-    // Paper end
 
     /**
      * Gets the Scoreboard displayed to this player
@@ -2101,14 +1855,13 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      */
     int getClientViewDistance();
 
-    // Paper start
     /**
      * Gets the player's current locale.
      *
      * @return the player's locale
      */
     @NonNull java.util.Locale locale();
-    // Paper end
+
     /**
      * Gets the player's estimated ping in milliseconds.
      *
@@ -2124,23 +1877,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      */
     int getPing();
 
-    /**
-     * Gets the player's current locale.
-     *
-     * The value of the locale String is not defined properly.
-     * <br>
-     * The vanilla Minecraft client will use lowercase language / country pairs
-     * separated by an underscore, but custom resource packs may use any format
-     * they wish.
-     *
-     * @return the player's locale
-     * @deprecated in favour of {@link #locale()}
-     */
-    @NonNull
-    @Deprecated // Paper
-    String getLocale();
-
-    // Paper start
     /**
      * Get whether the player can affect mob spawning
      *
@@ -2186,30 +1922,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
     void setSimulationDistance(int simulationDistance);
 
     /**
-     * Gets the no-ticking view distance for this player.
-     * <p>
-     * No-tick view distance is the view distance where chunks will load, however the chunks and their entities will not
-     * be set to tick.
-     * </p>
-     * @return The no-tick view distance for this player.
-     * @deprecated Use {@link #getViewDistance()}
-     */
-    @Deprecated
-    int getNoTickViewDistance();
-
-    /**
-     * Sets the no-ticking view distance for this player.
-     * <p>
-     * No-tick view distance is the view distance where chunks will load, however the chunks and their entities will not
-     * be set to tick.
-     * </p>
-     * @param viewDistance view distance in [2, 32] or -1
-     * @deprecated Use {@link #setViewDistance(int)}
-     */
-    @Deprecated
-    void setNoTickViewDistance(int viewDistance);
-
-    /**
      * Gets the sending view distance for this player.
      * <p>
      * Sending view distance is the view distance where chunks will load in for players.
@@ -2226,7 +1938,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @param viewDistance view distance in [2, 32] or -1
      */
     void setSendViewDistance(int viewDistance);
-    // Paper end
 
     /**
      * Update the list of commands sent to the client.
@@ -2242,17 +1953,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @param book The book to open for this player
      */
     void openBook(@NonNull ItemStack book);
-
-    /**
-     * Open a Sign for editing by the Player.
-     *
-     * The Sign must be in the same world as the player.
-     *
-     * @param sign The sign to edit
-     * @deprecated use {@link #openSign(Sign, Side)}
-     */
-    @Deprecated
-    void openSign(@NonNull Sign sign);
 
     /**
      * Open a Sign for editing by the Player.
@@ -2279,7 +1979,6 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      */
     boolean isAllowingServerListings();
 
-    // Paper start
     @NonNull
     @Override
     default HoverEvent<HoverEvent.ShowEntity> asHoverEvent(final @NonNull UnaryOperator<HoverEvent.ShowEntity> op) {
@@ -2381,22 +2080,13 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      *     length restriction is an implementation specific arbitrary value.
      */
     void setResourcePack(@NonNull String url, @NonNull String hash, boolean required, @Nullable net.kyori.adventure.text.Component resourcePackPrompt);
+
     /**
      * @return the most recent resource pack status received from the player,
      *         or null if no status has ever been received from this player.
      */
     @Nullable
     PlayerResourcePackStatusEvent.Status getResourcePackStatus();
-
-    /**
-     * @return the most recent resource pack hash received from the player,
-     *         or null if no hash has ever been received from this player.
-     *
-     * @deprecated This is no longer sent from the client and will always be null
-     */
-    @Nullable
-    @Deprecated
-    String getResourcePackHash();
 
     /**
      * @return true if the last resource pack status received from this player
@@ -2520,9 +2210,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      */
     @ApiStatus.Experimental
     void lookAt(@NonNull Entity entity, @NonNull LookAnchor playerAnchor, @NonNull LookAnchor entityAnchor);
-    // Paper end - Teleport API
 
-    // Paper start
     /**
      * Displays elder guardian effect with a sound
      *
