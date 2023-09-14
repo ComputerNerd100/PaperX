@@ -9,6 +9,7 @@ import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.metadata.Metadatable;
 import io.papermc.paper.api.persistance.PersistentDataHolder;
 import io.papermc.paper.api.sound.Sound;
+import io.papermc.paper.api.threadedregion.scheduler.EntityScheduler;
 import io.papermc.paper.api.util.vector.Vector;
 import io.papermc.paper.api.world.Chunk;
 import io.papermc.paper.api.world.World;
@@ -994,7 +995,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      * that are guaranteed to always execute on the tick thread that owns the entity.
      * <p><b>If you do not need/want to make your plugin run on Folia, use {@link Server#getScheduler()} instead.</b></p>
      * @return the task scheduler for this entity.
-     * @see io.papermc.paper.threadedregions.scheduler.EntityScheduler
+     * @see EntityScheduler
      */
     @NonNull EntityScheduler getScheduler();
 
