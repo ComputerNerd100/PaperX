@@ -11,6 +11,7 @@ import io.papermc.paper.api.persistance.PersistentDataHolder;
 import io.papermc.paper.api.scoreboard.Scoreboard;
 import io.papermc.paper.api.sound.Sound;
 import io.papermc.paper.api.threadedregion.scheduler.EntityScheduler;
+import io.papermc.paper.api.util.BoundingBox;
 import io.papermc.paper.api.util.vector.Vector;
 import io.papermc.paper.api.world.Chunk;
 import io.papermc.paper.api.world.World;

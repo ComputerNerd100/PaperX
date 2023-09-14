@@ -11,6 +11,7 @@ import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.material.TreeType;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
+import io.papermc.paper.api.util.BoundingBox;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

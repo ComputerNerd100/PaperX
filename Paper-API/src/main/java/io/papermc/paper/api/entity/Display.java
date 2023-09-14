@@ -2,6 +2,7 @@ package io.papermc.paper.api.entity;
 
 import com.google.common.base.Preconditions;
 import io.papermc.paper.api.block.color.Color;
+import io.papermc.paper.api.util.Transformation;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Matrix4f;

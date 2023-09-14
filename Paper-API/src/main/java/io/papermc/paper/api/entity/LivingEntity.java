@@ -11,6 +11,8 @@ import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.projectilesource.ProjectileSource;
 import io.papermc.paper.api.sound.Sound;
+import io.papermc.paper.api.util.RayTraceResult;
+import io.papermc.paper.api.util.fluid.FluidCollisionMode;
 import io.papermc.paper.api.util.vector.Vector;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
