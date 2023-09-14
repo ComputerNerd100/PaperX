@@ -1,7 +1,7 @@
 package io.papermc.paper.api.attribute;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents an object which may contain attributes.
@@ -15,7 +15,7 @@ public interface Attributable {
      * @return the attribute instance or null if not applicable to this object
      */
     @Nullable
-    AttributeInstance getAttribute(@NotNull Attribute attribute);
+    AttributeInstance getAttribute(@NonNull Attribute attribute);
 
     // Paper start
     /**
@@ -24,6 +24,6 @@ public interface Attributable {
      *
      * @param attribute the generic attribute to register
      */
-    void registerAttribute(@NotNull Attribute attribute);
+    void registerAttribute(@NonNull Attribute attribute);
     // Paper end
 }

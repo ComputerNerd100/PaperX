@@ -3,7 +3,7 @@ package io.papermc.paper.api.attribute;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Types of attributes which may be present on an {@link Attributable}.
@@ -65,19 +65,17 @@ public enum Attribute implements Keyed, net.kyori.adventure.translation.Translat
 
     private final NamespacedKey key;
 
-    private Attribute(String key) {
+    Attribute(String key) {
         this.key = NamespacedKey.minecraft(key);
     }
 
-    @NotNull
+    @NonNull
     @Override
     public NamespacedKey getKey() {
         return key;
     }
-    // Paper start
     @Override
-    public @NotNull String translationKey() {
+    public @NonNull String translationKey() {
         return "attribute.name." + this.key.getKey();
     }
-    // Paper end
 }

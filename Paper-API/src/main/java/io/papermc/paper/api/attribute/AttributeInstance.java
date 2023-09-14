@@ -1,6 +1,6 @@
 package io.papermc.paper.api.attribute;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Collection;
 
@@ -15,7 +15,7 @@ public interface AttributeInstance {
      *
      * @return the attribute
      */
-    @NotNull
+    @NonNull
     Attribute getAttribute();
 
     /**
@@ -37,7 +37,7 @@ public interface AttributeInstance {
      *
      * @return a copied collection of all modifiers
      */
-    @NotNull
+    @NonNull
     Collection<AttributeModifier> getModifiers();
 
     /**
@@ -45,7 +45,7 @@ public interface AttributeInstance {
      *
      * @param modifier to add
      */
-    void addModifier(@NotNull AttributeModifier modifier);
+    void addModifier(@NonNull AttributeModifier modifier);
 
     // Paper start - Transient modifier API
     /**
@@ -54,7 +54,7 @@ public interface AttributeInstance {
      *
      * @param modifier to add
      */
-    void addTransientModifier(@NotNull AttributeModifier modifier);
+    void addTransientModifier(@NonNull AttributeModifier modifier);
     // Paper end
 
     /**
@@ -62,7 +62,7 @@ public interface AttributeInstance {
      *
      * @param modifier to remove
      */
-    void removeModifier(@NotNull AttributeModifier modifier);
+    void removeModifier(@NonNull AttributeModifier modifier);
 
     /**
      * Get the value of this instance after all associated modifiers have been

@@ -3,8 +3,8 @@ package io.papermc.paper.api.attribute;
 import com.google.common.base.Preconditions;
 import io.papermc.paper.api.inventory.EquipmentSlot;
 import io.papermc.paper.api.util.NumberConversions;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,15 +22,15 @@ public class AttributeModifier implements ConfigurationSerializable {
     private final Operation operation;
     private final EquipmentSlot slot;
 
-    public AttributeModifier(@NotNull String name, double amount, @NotNull Operation operation) {
+    public AttributeModifier(@NonNull String name, double amount, @NonNull Operation operation) {
         this(UUID.randomUUID(), name, amount, operation);
     }
 
-    public AttributeModifier(@NotNull UUID uuid, @NotNull String name, double amount, @NotNull Operation operation) {
+    public AttributeModifier(@NonNull UUID uuid, @NonNull String name, double amount, @NonNull Operation operation) {
         this(uuid, name, amount, operation, null);
     }
 
-    public AttributeModifier(@NotNull UUID uuid, @NotNull String name, double amount, @NotNull Operation operation, @Nullable EquipmentSlot slot) {
+    public AttributeModifier(@NonNull UUID uuid, @NonNull String name, double amount, @NonNull Operation operation, @Nullable EquipmentSlot slot) {
         Preconditions.checkArgument(uuid != null, "UUID cannot be null");
         Preconditions.checkArgument(name != null, "Name cannot be null");
         Preconditions.checkArgument(operation != null, "Operation cannot be null");
@@ -46,7 +46,7 @@ public class AttributeModifier implements ConfigurationSerializable {
      *
      * @return unique id
      */
-    @NotNull
+    @NonNull
     public UUID getUniqueId() {
         return uuid;
     }
@@ -56,7 +56,7 @@ public class AttributeModifier implements ConfigurationSerializable {
      *
      * @return name
      */
-    @NotNull
+    @NonNull
     public String getName() {
         return name;
     }
@@ -75,7 +75,7 @@ public class AttributeModifier implements ConfigurationSerializable {
      *
      * @return operation
      */
-    @NotNull
+    @NonNull
     public Operation getOperation() {
         return operation;
     }
@@ -91,7 +91,7 @@ public class AttributeModifier implements ConfigurationSerializable {
         return slot;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public Map<String, Object> serialize() {
         Map<String, Object> data = new HashMap<String, Object>();
@@ -137,8 +137,8 @@ public class AttributeModifier implements ConfigurationSerializable {
                 + "}";
     }
 
-    @NotNull
-    public static AttributeModifier deserialize(@NotNull Map<String, Object> args) {
+    @NonNull
+    public static AttributeModifier deserialize(@NonNull Map<String, Object> args) {
         if (args.containsKey("slot")) {
             return new AttributeModifier(UUID.fromString((String) args.get("uuid")), (String) args.get("name"), NumberConversions.toDouble(args.get("amount")), Operation.values()[NumberConversions.toInt(args.get("operation"))], EquipmentSlot.valueOf((args.get("slot").toString().toUpperCase())));
         }
