@@ -5,6 +5,7 @@ import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.block.data.BlockData;
 
 import io.papermc.paper.api.boss.DragonBattle;
+import io.papermc.paper.api.effect.Effect;
 import io.papermc.paper.api.entity.*;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
