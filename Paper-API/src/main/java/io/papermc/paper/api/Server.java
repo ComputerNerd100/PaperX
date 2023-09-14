@@ -25,6 +25,7 @@ import io.papermc.paper.api.scoreboard.ScoreboardManager;
 import io.papermc.paper.api.structure.StructureManager;
 import io.papermc.paper.api.tag.Tag;
 import io.papermc.paper.api.unsafe.UnsafeValues;
+import io.papermc.paper.api.util.CachedServerIcon;
 import io.papermc.paper.api.util.game.GameMode;
 import io.papermc.paper.api.world.World;
 import io.papermc.paper.api.world.WorldBorder;
