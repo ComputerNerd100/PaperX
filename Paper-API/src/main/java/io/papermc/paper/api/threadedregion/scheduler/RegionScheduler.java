@@ -1,5 +1,8 @@
 package io.papermc.paper.api.threadedregion.scheduler;
 
+import io.papermc.paper.api.entity.Entity;
+import io.papermc.paper.api.location.Location;
+import io.papermc.paper.api.world.World;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
