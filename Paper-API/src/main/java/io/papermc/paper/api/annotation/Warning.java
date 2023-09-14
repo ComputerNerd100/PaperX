@@ -1,8 +1,9 @@
 package io.papermc.paper.api.annotation;
 
 import com.google.common.collect.ImmutableMap;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -83,7 +84,7 @@ public @interface Warning {
          * @return {@link #DEFAULT} if not found, or the respective
          *     WarningState
          */
-        @NotNull
+        @NonNull
         public static WarningState value(@Nullable final String value) {
             if (value == null) {
                 return DEFAULT;
