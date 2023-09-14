@@ -2,7 +2,7 @@ package io.papermc.paper.api.block.data.type;
 
 import io.papermc.paper.api.block.BlockFace;
 import io.papermc.paper.api.block.data.AnaloguePowerable;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Set;
 
@@ -18,8 +18,8 @@ public interface RedstoneWire extends AnaloguePowerable {
      * @param face to check
      * @return connection type
      */
-    @NotNull
-    Connection getFace(@NotNull BlockFace face);
+    @NonNull
+    Connection getFace(@NonNull BlockFace face);
 
     /**
      * Sets the type of connection on the specified face.
@@ -27,14 +27,14 @@ public interface RedstoneWire extends AnaloguePowerable {
      * @param face to set
      * @param connection the connection type
      */
-    void setFace(@NotNull BlockFace face, @NotNull Connection connection);
+    void setFace(@NonNull BlockFace face, @NonNull Connection connection);
 
     /**
      * Gets all of this faces which may be set on this block.
      *
      * @return all allowed faces
      */
-    @NotNull
+    @NonNull
     Set<BlockFace> getAllowedFaces();
 
     /**

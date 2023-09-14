@@ -2,7 +2,7 @@ package io.papermc.paper.api.block.data.type;
 
 import io.papermc.paper.api.block.data.Directional;
 import io.papermc.paper.api.block.data.Powerable;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'attachment' denotes how the bell is attached to its block.
@@ -14,7 +14,7 @@ public interface Bell extends Directional, Powerable {
      *
      * @return the 'attachment' value
      */
-    @NotNull
+    @NonNull
     Attachment getAttachment();
 
     /**
@@ -22,7 +22,7 @@ public interface Bell extends Directional, Powerable {
      *
      * @param attachment the new 'attachment' value
      */
-    void setAttachment(@NotNull Attachment attachment);
+    void setAttachment(@NonNull Attachment attachment);
 
     /**
      * What the bell is attached to.

@@ -1,7 +1,7 @@
 package io.papermc.paper.api.block.data.type;
 
 import io.papermc.paper.api.block.data.Directional;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Set;
 
@@ -35,7 +35,7 @@ public interface ChiseledBookshelf extends Directional {
      *
      * @return set of all occupied slots
      */
-    @NotNull
+    @NonNull
     Set<Integer> getOccupiedSlots();
 
     /**

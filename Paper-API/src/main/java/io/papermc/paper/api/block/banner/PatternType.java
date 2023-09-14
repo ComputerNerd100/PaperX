@@ -1,8 +1,8 @@
 package io.papermc.paper.api.block.banner;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -59,7 +59,7 @@ public enum PatternType {
         }
     }
 
-    private PatternType(/*@NotNull*/ String key) {
+    private PatternType(/*@NonNull*/ String key) {
         this.identifier = key;
     }
 
@@ -69,7 +69,7 @@ public enum PatternType {
      *
      * @return the pattern's identifier
      */
-    @NotNull
+    @NonNull
     public String getIdentifier() {
         return identifier;
     }

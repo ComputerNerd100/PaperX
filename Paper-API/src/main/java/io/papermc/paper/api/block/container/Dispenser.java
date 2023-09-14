@@ -1,7 +1,6 @@
 package io.papermc.paper.api.block.container;
 
 import io.papermc.paper.api.Nameable;
-import io.papermc.paper.api.block.container.Container;
 import io.papermc.paper.api.inventory.LootableBlockInventory;
 import io.papermc.paper.api.projectilesource.BlockProjectileSource;
 import org.checkerframework.checker.nullness.qual.Nullable;

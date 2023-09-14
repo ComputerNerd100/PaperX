@@ -3,6 +3,7 @@ package io.papermc.paper.api.block.tilestate;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.player.OfflinePlayer;
 import io.papermc.paper.api.profile.PlayerProfile;
+import io.papermc.paper.api.sound.Instrument;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -53,7 +54,7 @@ public interface Skull extends TileState {
      * Gets the sound to play if the skull is placed on a note block.
      * <br>
      * <strong>Note:</strong> This only works for player heads. For other heads,
-     * see {@link org.bukkit.Instrument}.
+     * see {@link Instrument}.
      *
      * @return the key of the sound, or null
      */
@@ -64,7 +65,7 @@ public interface Skull extends TileState {
      * Sets the sound to play if the skull is placed on a note block.
      * <br>
      * <strong>Note:</strong> This only works for player heads. For other heads,
-     * see {@link org.bukkit.Instrument}.
+     * see {@link Instrument}.
      *
      * @param noteBlockSound the key of the sound to be played, or null
      *

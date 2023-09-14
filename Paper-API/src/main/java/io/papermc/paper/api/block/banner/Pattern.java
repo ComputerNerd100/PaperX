@@ -2,7 +2,7 @@ package io.papermc.paper.api.block.banner;
 
 import com.google.common.collect.ImmutableMap;
 import io.papermc.paper.api.block.color.DyeColor;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -22,7 +22,7 @@ public class Pattern implements ConfigurationSerializable {
      * @param color   the pattern color
      * @param pattern the pattern type
      */
-    public Pattern(@NotNull DyeColor color, @NotNull PatternType pattern) {
+    public Pattern(@NonNull DyeColor color, @NonNull PatternType pattern) {
         this.color = color;
         this.pattern = pattern;
     }
@@ -32,12 +32,12 @@ public class Pattern implements ConfigurationSerializable {
      *
      * @param map the map to deserialize from
      */
-    public Pattern(@NotNull Map<String, Object> map) {
+    public Pattern(@NonNull Map<String, Object> map) {
         color = DyeColor.legacyValueOf(getString(map, COLOR));
         pattern = PatternType.getByIdentifier(getString(map, PATTERN));
     }
 
-    private static String getString(@NotNull Map<?, ?> map, @NotNull Object key) {
+    private static String getString(@NonNull Map<?, ?> map, @NonNull Object key) {
         Object str = map.get(key);
         if (str instanceof String) {
             return (String) str;
@@ -45,7 +45,7 @@ public class Pattern implements ConfigurationSerializable {
         throw new NoSuchElementException(map + " does not contain " + key);
     }
 
-    @NotNull
+    @NonNull
     @Override
     public Map<String, Object> serialize() {
         return ImmutableMap.<String, Object>of(
@@ -59,7 +59,7 @@ public class Pattern implements ConfigurationSerializable {
      *
      * @return the color of the pattern
      */
-    @NotNull
+    @NonNull
     public DyeColor getColor() {
         return color;
     }
@@ -69,7 +69,7 @@ public class Pattern implements ConfigurationSerializable {
      *
      * @return the pattern type
      */
-    @NotNull
+    @NonNull
     public PatternType getPattern() {
         return pattern;
     }

@@ -4,7 +4,6 @@ import io.papermc.paper.api.command.CommandBlockHolder;
 import net.kyori.adventure.text.Component;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents a captured state of a command block.

@@ -2,7 +2,7 @@ package io.papermc.paper.api.block.data.type;
 
 import io.papermc.paper.api.block.data.Directional;
 import io.papermc.paper.api.block.data.Waterlogged;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'type' represents which part of a double chest this block is, or if it is a
@@ -15,7 +15,7 @@ public interface Chest extends Directional, Waterlogged {
      *
      * @return the 'type' value
      */
-    @NotNull
+    @NonNull
     Type getType();
 
     /**
@@ -23,7 +23,7 @@ public interface Chest extends Directional, Waterlogged {
      *
      * @param type the new 'type' value
      */
-    void setType(@NotNull Type type);
+    void setType(@NonNull Type type);
 
     /**
      * Type of this chest block.

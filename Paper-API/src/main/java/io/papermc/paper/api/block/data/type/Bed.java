@@ -2,7 +2,7 @@ package io.papermc.paper.api.block.data.type;
 
 import io.papermc.paper.api.block.data.Bisected;
 import io.papermc.paper.api.block.data.Directional;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Similar to {@link Bisected}, 'part' denotes which half of the bed this block
@@ -18,7 +18,7 @@ public interface Bed extends Directional {
      *
      * @return the 'part' value
      */
-    @NotNull
+    @NonNull
     Part getPart();
 
     /**
@@ -26,7 +26,7 @@ public interface Bed extends Directional {
      *
      * @param part the new 'part' value
      */
-    void setPart(@NotNull Part part);
+    void setPart(@NonNull Part part);
 
     /**
      * Gets the value of the 'occupied' property.

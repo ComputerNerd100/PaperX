@@ -3,7 +3,7 @@ package io.papermc.paper.api.block.data.type;
 import io.papermc.paper.api.block.data.Powerable;
 import io.papermc.paper.api.sound.Instrument;
 import io.papermc.paper.api.sound.Note;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'instrument' is the type of sound made when this note block is activated.
@@ -17,7 +17,7 @@ public interface NoteBlock extends Powerable {
      *
      * @return the 'instrument' value
      */
-    @NotNull
+    @NonNull
     Instrument getInstrument();
 
     /**
@@ -25,14 +25,14 @@ public interface NoteBlock extends Powerable {
      *
      * @param instrument the new 'instrument' value
      */
-    void setInstrument(@NotNull Instrument instrument);
+    void setInstrument(@NonNull Instrument instrument);
 
     /**
      * Gets the value of the 'note' property.
      *
      * @return the 'note' value
      */
-    @NotNull
+    @NonNull
     Note getNote();
 
     /**
@@ -40,5 +40,5 @@ public interface NoteBlock extends Powerable {
      *
      * @param note the new 'note' value
      */
-    void setNote(@NotNull Note note);
+    void setNote(@NonNull Note note);
 }

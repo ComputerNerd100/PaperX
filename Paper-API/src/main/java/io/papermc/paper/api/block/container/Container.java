@@ -3,7 +3,7 @@ package io.papermc.paper.api.block.container;
 import io.papermc.paper.api.block.tilestate.LockableTileState;
 import io.papermc.paper.api.inventory.BlockInventoryHolder;
 import io.papermc.paper.api.inventory.Inventory;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a captured state of a container block.
@@ -21,7 +21,7 @@ public interface Container extends LockableTileState, BlockInventoryHolder {
      *
      * @return the inventory
      */
-    @NotNull
+    @NonNull
     @Override
     Inventory getInventory();
 
@@ -35,6 +35,6 @@ public interface Container extends LockableTileState, BlockInventoryHolder {
      *
      * @return the captured inventory snapshot
      */
-    @NotNull
+    @NonNull
     Inventory getSnapshotInventory();
 }

@@ -1,7 +1,7 @@
 package io.papermc.paper.api.block.data.type;
 
 import io.papermc.paper.api.block.data.Waterlogged;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'type' represents what state the slab is in - either top, bottom, or a double
@@ -14,7 +14,7 @@ public interface Slab extends Waterlogged {
      *
      * @return the 'type' value
      */
-    @NotNull
+    @NonNull
     Type getType();
 
     /**
@@ -22,7 +22,7 @@ public interface Slab extends Waterlogged {
      *
      * @param type the new 'type' value
      */
-    void setType(@NotNull Type type);
+    void setType(@NonNull Type type);
 
     /**
      * The type of the slab.

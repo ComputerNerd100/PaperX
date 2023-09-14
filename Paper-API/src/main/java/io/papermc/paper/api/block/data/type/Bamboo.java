@@ -2,7 +2,7 @@ package io.papermc.paper.api.block.data.type;
 
 
 import io.papermc.paper.api.block.data.Ageable;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'leaves' represents the size of the leaves on this bamboo block.
@@ -14,7 +14,7 @@ public interface Bamboo extends Ageable, Sapling {
      *
      * @return the 'leaves' value
      */
-    @NotNull
+    @NonNull
     Leaves getLeaves();
 
     /**
@@ -22,7 +22,7 @@ public interface Bamboo extends Ageable, Sapling {
      *
      * @param leaves the new 'leaves' value
      */
-    void setLeaves(@NotNull Leaves leaves);
+    void setLeaves(@NonNull Leaves leaves);
 
     /**
      * Bamboo leaf size.

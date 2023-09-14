@@ -3,7 +3,7 @@ package io.papermc.paper.api.block.container;
 import io.papermc.paper.api.inventory.FurnaceInventory;
 import io.papermc.paper.api.inventory.recipe.CookingRecipe;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Map;
 
@@ -73,7 +73,7 @@ public interface Furnace extends Container {
      *
      * @return An immutable map with the recipes used and the times used
      */
-    @NotNull
+    @NonNull
     Map<CookingRecipe<?>, Integer> getRecipesUsed();
 
     // Paper start
@@ -103,7 +103,7 @@ public interface Furnace extends Container {
      * @param furnaceRecipe the recipe to query the count for
      * @return the count or 0 if none found
      */
-    int getRecipeUsedCount(@NotNull NamespacedKey furnaceRecipe);
+    int getRecipeUsedCount(@NonNull NamespacedKey furnaceRecipe);
 
     /**
      * Checks if the recipe has a used count present on this furnace.
@@ -111,7 +111,7 @@ public interface Furnace extends Container {
      * @param furnaceRecipe the recipe to check if a count exists for
      * @return true if there is a positive count, else false
      */
-    boolean hasRecipeUsedCount(@NotNull NamespacedKey furnaceRecipe);
+    boolean hasRecipeUsedCount(@NonNull NamespacedKey furnaceRecipe);
 
     /**
      * Sets the number of times a recipe has been used. This is used
@@ -120,21 +120,21 @@ public interface Furnace extends Container {
      * @param furnaceRecipe the recipe to set the count for
      * @param count the count, a non-positive number will remove the recipe
      */
-    void setRecipeUsedCount(@NotNull CookingRecipe<?> furnaceRecipe, int count);
+    void setRecipeUsedCount(@NonNull CookingRecipe<?> furnaceRecipe, int count);
 
     /**
      * Sets all recipes used by this furnace.
      *
      * @param recipesUsed the recipes used
      */
-    void setRecipesUsed(@NotNull Map<CookingRecipe<?>, Integer> recipesUsed);
+    void setRecipesUsed(@NonNull Map<CookingRecipe<?>, Integer> recipesUsed);
     // Paper end
 
-    @NotNull
+    @NonNull
     @Override
     FurnaceInventory getInventory();
 
-    @NotNull
+    @NonNull
     @Override
     FurnaceInventory getSnapshotInventory();
 }

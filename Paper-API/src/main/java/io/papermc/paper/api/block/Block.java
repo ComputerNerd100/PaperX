@@ -19,9 +19,9 @@ import io.papermc.paper.api.world.Chunk;
 import io.papermc.paper.api.world.RegionAccessor;
 import io.papermc.paper.api.world.World;
 import net.kyori.adventure.translation.Translatable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 
@@ -40,7 +40,7 @@ public interface Block extends Metadatable, Translatable {
      *
      * @return block specific data
      */
-    @NotNull
+    @NonNull
     BlockData getBlockData();
 
     /**
@@ -51,7 +51,7 @@ public interface Block extends Metadatable, Translatable {
      * @param modZ Z-coordinate offset
      * @return Block at the given offsets
      */
-    @NotNull
+    @NonNull
     Block getRelative(int modX, int modY, int modZ);
 
     /**
@@ -63,8 +63,8 @@ public interface Block extends Metadatable, Translatable {
      * @return Block at the given face
      * @see #getRelative(BlockFace, int)
      */
-    @NotNull
-    Block getRelative(@NotNull BlockFace face);
+    @NonNull
+    Block getRelative(@NonNull BlockFace face);
 
     /**
      * Gets the block at the given distance of the given face
@@ -82,15 +82,15 @@ public interface Block extends Metadatable, Translatable {
      * @param distance Distance to get the block at
      * @return Block at the given face
      */
-    @NotNull
-    Block getRelative(@NotNull BlockFace face, int distance);
+    @NonNull
+    Block getRelative(@NonNull BlockFace face, int distance);
 
     /**
      * Gets the type of this block
      *
      * @return block type
      */
-    @NotNull
+    @NonNull
     Material getType();
 
     /**
@@ -124,7 +124,7 @@ public interface Block extends Metadatable, Translatable {
      *
      * @return World containing this block
      */
-    @NotNull
+    @NonNull
     World getWorld();
 
     /**
@@ -155,14 +155,14 @@ public interface Block extends Metadatable, Translatable {
      * @param itemStack The (tool) itemstack
      * @return whether the block will drop items
      */
-    boolean isValidTool(@NotNull ItemStack itemStack);
+    boolean isValidTool(@NonNull ItemStack itemStack);
 
     /**
      * Gets the Location of the block
      *
      * @return Location of block
      */
-    @NotNull
+    @NonNull
     Location getLocation();
 
     /**
@@ -183,7 +183,7 @@ public interface Block extends Metadatable, Translatable {
      *
      * @return Containing Chunk
      */
-    @NotNull
+    @NonNull
     Chunk getChunk();
 
     /**
@@ -191,7 +191,7 @@ public interface Block extends Metadatable, Translatable {
      *
      * @param data new block specific data
      */
-    void setBlockData(@NotNull BlockData data);
+    void setBlockData(@NonNull BlockData data);
 
     /**
      * Sets the complete data for this block
@@ -212,14 +212,14 @@ public interface Block extends Metadatable, Translatable {
      * @param data new block specific data
      * @param applyPhysics false to cancel physics from the changed block
      */
-    void setBlockData(@NotNull BlockData data, boolean applyPhysics);
+    void setBlockData(@NonNull BlockData data, boolean applyPhysics);
 
     /**
      * Sets the type of this block
      *
      * @param type Material to change this block to
      */
-    void setType(@NotNull Material type);
+    void setType(@NonNull Material type);
 
     /**
      * Sets the type of this block
@@ -240,7 +240,7 @@ public interface Block extends Metadatable, Translatable {
      * @param type Material to change this block to
      * @param applyPhysics False to cancel physics on the changed block.
      */
-    void setType(@NotNull Material type, boolean applyPhysics);
+    void setType(@NonNull Material type, boolean applyPhysics);
 
     /**
      * Gets the face relation of this block compared to the given block.
@@ -259,7 +259,7 @@ public interface Block extends Metadatable, Translatable {
      * @return BlockFace of this block which has the requested block, or null
      */
     @Nullable
-    BlockFace getFace(@NotNull Block block);
+    BlockFace getFace(@NonNull Block block);
 
     /**
      * Captures the current state of this block. You may then cast that state
@@ -270,7 +270,7 @@ public interface Block extends Metadatable, Translatable {
      *
      * @return BlockState with the current state of this block.
      */
-    @NotNull
+    @NonNull
     BlockState getState();
 
     /**
@@ -278,7 +278,7 @@ public interface Block extends Metadatable, Translatable {
      * @param useSnapshot if this block is a TE, should we create a fully copy of the TileEntity
      * @return BlockState with the current state of this block
      */
-    @NotNull
+    @NonNull
     BlockState getState(boolean useSnapshot);
 
     /**
@@ -287,7 +287,7 @@ public interface Block extends Metadatable, Translatable {
      * @return Biome type containing this block
      * @see #getComputedBiome()
      */
-    @NotNull
+    @NonNull
     Biome getBiome();
 
     /**
@@ -296,7 +296,7 @@ public interface Block extends Metadatable, Translatable {
      * @return computed biome at the location of this Block.
      * @see RegionAccessor#getComputedBiome(int, int, int)
      */
-    @NotNull
+    @NonNull
     Biome getComputedBiome();
 
     /**
@@ -304,7 +304,7 @@ public interface Block extends Metadatable, Translatable {
      *
      * @param bio new Biome type for this block
      */
-    void setBiome(@NotNull Biome bio);
+    void setBiome(@NonNull Biome bio);
 
     /**
      * Returns true if the block is being powered by Redstone.
@@ -326,7 +326,7 @@ public interface Block extends Metadatable, Translatable {
      * @param face The block face
      * @return True if the block face is powered.
      */
-    boolean isBlockFacePowered(@NotNull BlockFace face);
+    boolean isBlockFacePowered(@NonNull BlockFace face);
 
     /**
      * Returns true if the block face is being indirectly powered by Redstone.
@@ -334,7 +334,7 @@ public interface Block extends Metadatable, Translatable {
      * @param face The block face
      * @return True if the block face is indirectly powered.
      */
-    boolean isBlockFaceIndirectlyPowered(@NotNull BlockFace face);
+    boolean isBlockFaceIndirectlyPowered(@NonNull BlockFace face);
 
     /**
      * Returns the redstone power being provided to this block face
@@ -343,7 +343,7 @@ public interface Block extends Metadatable, Translatable {
      *     block itself
      * @return The power level.
      */
-    int getBlockPower(@NotNull BlockFace face);
+    int getBlockPower(@NonNull BlockFace face);
 
     /**
      * Returns the redstone power being provided to this block
@@ -435,7 +435,7 @@ public interface Block extends Metadatable, Translatable {
      *
      * @return reaction
      */
-    @NotNull
+    @NonNull
     PistonMoveReaction getPistonMoveReaction();
 
     /**
@@ -484,7 +484,7 @@ public interface Block extends Metadatable, Translatable {
      * @return true if the block was destroyed
      * @see #breakNaturally(ItemStack, boolean, boolean) to trigger exp drops
      */
-    default boolean breakNaturally(@NotNull ItemStack tool, boolean triggerEffect) {
+    default boolean breakNaturally(@NonNull ItemStack tool, boolean triggerEffect) {
         return this.breakNaturally(tool, triggerEffect, false);
     }
 
@@ -497,7 +497,7 @@ public interface Block extends Metadatable, Translatable {
      * @param dropExperience drop exp if the block normally does so
      * @return true if the block was destroyed
      */
-    boolean breakNaturally(@NotNull ItemStack tool, boolean triggerEffect, boolean dropExperience);
+    boolean breakNaturally(@NonNull ItemStack tool, boolean triggerEffect, boolean dropExperience);
 
     /**
      * Causes the block to be ticked, this is different from {@link Block#randomTick()},
@@ -521,14 +521,14 @@ public interface Block extends Metadatable, Translatable {
      *
      * @return true if the block was bonemealed, false otherwise
      */
-    boolean applyBoneMeal(@NotNull BlockFace face);
+    boolean applyBoneMeal(@NonNull BlockFace face);
 
     /**
      * Returns a list of items which would drop by destroying this block
      *
      * @return a list of dropped items for this type of block
      */
-    @NotNull
+    @NonNull
     Collection<ItemStack> getDrops();
 
     /**
@@ -538,7 +538,7 @@ public interface Block extends Metadatable, Translatable {
      * @param tool The tool or item in hand used for digging
      * @return a list of dropped items for this type of block
      */
-    @NotNull
+    @NonNull
     Collection<ItemStack> getDrops(@Nullable ItemStack tool);
 
     /**
@@ -549,8 +549,8 @@ public interface Block extends Metadatable, Translatable {
      * @param entity the entity destroying the block
      * @return a list of dropped items for this type of block
      */
-    @NotNull
-    Collection<ItemStack> getDrops(@NotNull ItemStack tool, @Nullable Entity entity);
+    @NonNull
+    Collection<ItemStack> getDrops(@NonNull ItemStack tool, @Nullable Entity entity);
 
     /**
      * Returns if the given item is a preferred choice to break this Block.
@@ -561,7 +561,7 @@ public interface Block extends Metadatable, Translatable {
      * @param tool The tool or item used for breaking this block
      * @return true if the tool is preferred for breaking this block.
      */
-    boolean isPreferredTool(@NotNull ItemStack tool);
+    boolean isPreferredTool(@NonNull ItemStack tool);
 
     /**
      * Gets the speed at which the given player would break this block, taking
@@ -577,7 +577,7 @@ public interface Block extends Metadatable, Translatable {
      * @param player player breaking the block
      * @return the speed at which the player breaks this block
      */
-    float getBreakSpeed(@NotNull Player player);
+    float getBreakSpeed(@NonNull Player player);
 
     /**
      * Checks if this block is passable.
@@ -604,7 +604,7 @@ public interface Block extends Metadatable, Translatable {
      * @return the ray trace hit result, or <code>null</code> if there is no hit
      */
     @Nullable
-    RayTraceResult rayTrace(@NotNull Location start, @NotNull Vector direction, double maxDistance, @NotNull FluidCollisionMode fluidCollisionMode);
+    RayTraceResult rayTrace(@NonNull Location start, @NonNull Vector direction, double maxDistance, @NonNull FluidCollisionMode fluidCollisionMode);
 
     /**
      * Gets the approximate bounding box for this block.
@@ -620,7 +620,7 @@ public interface Block extends Metadatable, Translatable {
      *
      * @return the approximate bounding box of the block
      */
-    @NotNull
+    @NonNull
     BoundingBox getBoundingBox();
 
     /**
@@ -629,7 +629,7 @@ public interface Block extends Metadatable, Translatable {
      * @return a {@link VoxelShape} representing the collision shape of this
      * block.
      */
-    @NotNull
+    @NonNull
     VoxelShape getCollisionShape();
 
     /**
@@ -639,14 +639,14 @@ public interface Block extends Metadatable, Translatable {
      * @param data the block data to check
      * @return <code>true</code> if the block data can be placed here
      */
-    boolean canPlace(@NotNull BlockData data);
+    boolean canPlace(@NonNull BlockData data);
 
     /**
      * Gets the {@link SoundGroup} for this block.
      *
      * @return the sound group for this block
      */
-    @NotNull SoundGroup getBlockSoundGroup();
+    @NonNull SoundGroup getBlockSoundGroup();
 
     /**
      * Gets the speed at which this block will be destroyed by a given {@link ItemStack}
@@ -656,7 +656,7 @@ public interface Block extends Metadatable, Translatable {
      * @param itemStack {@link ItemStack} used to mine this Block
      * @return the speed that this Block will be mined by the given {@link ItemStack}
      */
-    default float getDestroySpeed(final @NotNull ItemStack itemStack) {
+    default float getDestroySpeed(final @NonNull ItemStack itemStack) {
         return this.getBlockData().getDestroySpeed(itemStack);
     }
 
@@ -669,7 +669,7 @@ public interface Block extends Metadatable, Translatable {
      * @param considerEnchants true to look at enchants on the itemstack
      * @return the speed that this Block will be mined by the given {@link ItemStack}
      */
-    default float getDestroySpeed(@NotNull ItemStack itemStack, boolean considerEnchants) {
+    default float getDestroySpeed(@NonNull ItemStack itemStack, boolean considerEnchants) {
         return this.getBlockData().getDestroySpeed(itemStack, considerEnchants);
     }
 }

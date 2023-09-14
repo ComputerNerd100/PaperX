@@ -1,6 +1,6 @@
 package io.papermc.paper.api.block.data.type;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'tilt' indicates how far the leaf is tilted.
@@ -12,7 +12,7 @@ public interface BigDripleaf extends Dripleaf {
      *
      * @return the 'tilt' value
      */
-    @NotNull
+    @NonNull
     Tilt getTilt();
 
     /**
@@ -20,7 +20,7 @@ public interface BigDripleaf extends Dripleaf {
      *
      * @param tilt the new 'tilt' value
      */
-    void setTilt(@NotNull Tilt tilt);
+    void setTilt(@NonNull Tilt tilt);
 
     /**
      * The tilt of a leaf.

@@ -3,7 +3,7 @@ package io.papermc.paper.api.block.data.type;
 import io.papermc.paper.api.block.data.Bisected;
 import io.papermc.paper.api.block.data.Directional;
 import io.papermc.paper.api.block.data.Waterlogged;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'shape' represents the texture and bounding box shape of these stairs.
@@ -15,7 +15,7 @@ public interface Stairs extends Bisected, Directional, Waterlogged {
      *
      * @return the 'shape' value
      */
-    @NotNull
+    @NonNull
     Shape getShape();
 
     /**
@@ -23,7 +23,7 @@ public interface Stairs extends Bisected, Directional, Waterlogged {
      *
      * @param shape the new 'shape' value
      */
-    void setShape(@NotNull Shape shape);
+    void setShape(@NonNull Shape shape);
 
     /**
      * The shape of a stair block - used for constructing corners.

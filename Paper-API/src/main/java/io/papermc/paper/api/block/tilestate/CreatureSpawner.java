@@ -228,5 +228,4 @@ public interface CreatureSpawner extends TileState {
      * @see #setSpawnedType(EntityType)
      */
     void setSpawnedItem(@NonNull ItemStack itemStack);
-    // Paper end
 }

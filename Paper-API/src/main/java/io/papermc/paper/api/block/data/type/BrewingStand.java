@@ -1,7 +1,7 @@
 package io.papermc.paper.api.block.data.type;
 
 import io.papermc.paper.api.block.data.BlockData;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Set;
 
@@ -34,7 +34,7 @@ public interface BrewingStand extends BlockData {
      *
      * @return set of all bottles
      */
-    @NotNull
+    @NonNull
     Set<Integer> getBottles();
 
     /**

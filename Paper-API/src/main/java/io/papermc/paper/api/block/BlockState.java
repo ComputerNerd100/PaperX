@@ -8,8 +8,8 @@ import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.metadata.Metadatable;
 import io.papermc.paper.api.world.Chunk;
 import io.papermc.paper.api.world.World;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
 
@@ -32,7 +32,7 @@ public interface BlockState extends Metadatable {
      * @return the block represented by this block state
      * @throws IllegalStateException if this block state is not placed
      */
-    @NotNull
+    @NonNull
     Block getBlock();
 
     /**
@@ -40,7 +40,7 @@ public interface BlockState extends Metadatable {
      *
      * @return block specific data
      */
-    @NotNull
+    @NonNull
     BlockData getBlockData();
 
     /**
@@ -48,7 +48,7 @@ public interface BlockState extends Metadatable {
      *
      * @return block type
      */
-    @NotNull
+    @NonNull
     Material getType();
 
     /**
@@ -65,7 +65,7 @@ public interface BlockState extends Metadatable {
      * @return the world containing the block represented by this block state
      * @throws IllegalStateException if this block state is not placed
      */
-    @NotNull
+    @NonNull
     World getWorld();
 
     /**
@@ -96,7 +96,7 @@ public interface BlockState extends Metadatable {
      *
      * @return the location
      */
-    @NotNull
+    @NonNull
     Location getLocation();
 
     /**
@@ -120,7 +120,7 @@ public interface BlockState extends Metadatable {
      * @return the containing Chunk
      * @throws IllegalStateException if this block state is not placed
      */
-    @NotNull
+    @NonNull
     Chunk getChunk();
 
     /**
@@ -128,14 +128,14 @@ public interface BlockState extends Metadatable {
      *
      * @param data New block specific data
      */
-    void setBlockData(@NotNull BlockData data);
+    void setBlockData(@NonNull BlockData data);
 
     /**
      * Sets the type of this block state.
      *
      * @param type Material to change this block state to
      */
-    void setType(@NotNull Material type);
+    void setType(@NonNull Material type);
 
     /**
      * Attempts to update the block represented by this state, setting it to
@@ -223,7 +223,7 @@ public interface BlockState extends Metadatable {
      *
      * @return an immutable list of dropped items for the block state
      */
-    @NotNull
+    @NonNull
     @Unmodifiable Collection<ItemStack> getDrops();
 
     /**
@@ -233,7 +233,7 @@ public interface BlockState extends Metadatable {
      * @param tool The tool or item in hand used for digging
      * @return an immutable list of dropped items for the block state
      */
-    @NotNull
+    @NonNull
     @Unmodifiable Collection<ItemStack> getDrops(@Nullable ItemStack tool);
 
     /**
@@ -244,7 +244,7 @@ public interface BlockState extends Metadatable {
      * @param entity the entity destroying the block
      * @return an immutable list of dropped items for the block state
      */
-    @NotNull
+    @NonNull
     @Unmodifiable
-    Collection<ItemStack> getDrops(@NotNull ItemStack tool, @Nullable Entity entity);
+    Collection<ItemStack> getDrops(@NonNull ItemStack tool, @Nullable Entity entity);
 }

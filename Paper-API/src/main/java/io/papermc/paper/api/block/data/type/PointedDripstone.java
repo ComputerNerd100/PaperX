@@ -2,7 +2,7 @@ package io.papermc.paper.api.block.data.type;
 
 import io.papermc.paper.api.block.BlockFace;
 import io.papermc.paper.api.block.data.Waterlogged;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Set;
 
@@ -22,7 +22,7 @@ public interface PointedDripstone extends Waterlogged {
      *
      * @return the 'vertical_direction' value
      */
-    @NotNull
+    @NonNull
     BlockFace getVerticalDirection();
 
     /**
@@ -30,14 +30,14 @@ public interface PointedDripstone extends Waterlogged {
      *
      * @param direction the new 'vertical_direction' value
      */
-    void setVerticalDirection(@NotNull BlockFace direction);
+    void setVerticalDirection(@NonNull BlockFace direction);
 
     /**
      * Gets the faces which are applicable to this block.
      *
      * @return the allowed 'vertical_direction' values
      */
-    @NotNull
+    @NonNull
     Set<BlockFace> getVerticalDirections();
 
     /**
@@ -45,7 +45,7 @@ public interface PointedDripstone extends Waterlogged {
      *
      * @return the 'thickness' value
      */
-    @NotNull
+    @NonNull
     Thickness getThickness();
 
     /**
@@ -53,7 +53,7 @@ public interface PointedDripstone extends Waterlogged {
      *
      * @param thickness the new 'thickness' value
      */
-    void setThickness(@NotNull Thickness thickness);
+    void setThickness(@NonNull Thickness thickness);
 
     /**
      * Represents the thickness of the dripstone, corresponding to its position

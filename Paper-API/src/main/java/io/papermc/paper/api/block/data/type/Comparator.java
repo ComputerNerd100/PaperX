@@ -2,7 +2,7 @@ package io.papermc.paper.api.block.data.type;
 
 import io.papermc.paper.api.block.data.Directional;
 import io.papermc.paper.api.block.data.Powerable;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'mode' indicates what mode this comparator will operate in.
@@ -14,7 +14,7 @@ public interface Comparator extends Directional, Powerable {
      *
      * @return the 'mode' value
      */
-    @NotNull
+    @NonNull
     Mode getMode();
 
     /**
@@ -22,7 +22,7 @@ public interface Comparator extends Directional, Powerable {
      *
      * @param mode the new 'mode' value
      */
-    void setMode(@NotNull Mode mode);
+    void setMode(@NonNull Mode mode);
 
     /**
      * The mode in which a comparator will operate in.

@@ -1,7 +1,7 @@
 package io.papermc.paper.api.block.container;
 
 import io.papermc.paper.api.inventory.BrewerInventory;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a captured state of a brewing stand.
@@ -36,11 +36,11 @@ public interface BrewingStand extends Container {
      */
     void setFuelLevel(int level);
 
-    @NotNull
+    @NonNull
     @Override
     BrewerInventory getInventory();
 
-    @NotNull
+    @NonNull
     @Override
     BrewerInventory getSnapshotInventory();
 }

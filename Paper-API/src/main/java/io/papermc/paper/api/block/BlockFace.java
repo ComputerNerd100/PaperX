@@ -1,7 +1,7 @@
 package io.papermc.paper.api.block;
 
 import io.papermc.paper.api.util.vector.Vector;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents the face of a block
@@ -75,7 +75,7 @@ public enum BlockFace {
      *
      * @return the normal vector
      */
-    @NotNull
+    @NonNull
     public Vector getDirection() {
         Vector direction = new Vector(modX, modY, modZ);
         if (modX != 0 || modY != 0 || modZ != 0) {
@@ -104,7 +104,7 @@ public enum BlockFace {
         }
     }
 
-    @NotNull
+    @NonNull
     public BlockFace getOppositeFace() {
         switch (this) {
             case NORTH:

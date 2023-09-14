@@ -4,7 +4,7 @@ import io.papermc.paper.api.block.tilestate.TileState;
 import io.papermc.paper.api.inventory.BlockInventoryHolder;
 import io.papermc.paper.api.inventory.ChiseledBookshelfInventory;
 import io.papermc.paper.api.util.vector.Vector;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a captured state of a chiseled bookshelf.
@@ -29,7 +29,7 @@ public interface ChiseledBookshelf extends TileState, BlockInventoryHolder {
      * @return inventory
      * @see Container#getInventory()
      */
-    @NotNull
+    @NonNull
     @Override
     ChiseledBookshelfInventory getInventory();
 
@@ -37,7 +37,7 @@ public interface ChiseledBookshelf extends TileState, BlockInventoryHolder {
      * @return snapshot inventory
      * @see Container#getSnapshotInventory()
      */
-    @NotNull
+    @NonNull
     ChiseledBookshelfInventory getSnapshotInventory();
 
     /**
@@ -50,6 +50,6 @@ public interface ChiseledBookshelf extends TileState, BlockInventoryHolder {
      * @param position a vector relative to this block
      * @return the slot under the given vector or -1
      */
-    int getSlot(@NotNull Vector position);
+    int getSlot(@NonNull Vector position);
 }
 

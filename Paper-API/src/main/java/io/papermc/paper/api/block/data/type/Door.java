@@ -4,7 +4,7 @@ import io.papermc.paper.api.block.data.Bisected;
 import io.papermc.paper.api.block.data.Directional;
 import io.papermc.paper.api.block.data.Openable;
 import io.papermc.paper.api.block.data.Powerable;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'hinge' indicates which hinge this door is attached to and will rotate around
@@ -17,7 +17,7 @@ public interface Door extends Bisected, Directional, Openable, Powerable {
      *
      * @return the 'hinge' value
      */
-    @NotNull
+    @NonNull
     Hinge getHinge();
 
     /**
@@ -25,7 +25,7 @@ public interface Door extends Bisected, Directional, Openable, Powerable {
      *
      * @param hinge the new 'hinge' value
      */
-    void setHinge(@NotNull Hinge hinge);
+    void setHinge(@NonNull Hinge hinge);
 
     /**
      * The hinge of a door.

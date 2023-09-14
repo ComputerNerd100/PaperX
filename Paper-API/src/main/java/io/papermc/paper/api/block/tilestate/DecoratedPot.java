@@ -1,6 +1,7 @@
 package io.papermc.paper.api.block.tilestate;
 
 import io.papermc.paper.api.material.Material;
+import io.papermc.paper.api.tag.Tag;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.NotNull;
@@ -42,17 +43,6 @@ public interface DecoratedPot extends TileState {
      */
     @NonNull
     public Map<Side, Material> getSherds();
-
-    /**
-     * Gets the sherds on this decorated pot. For faces without a specific sherd,
-     * {@link Material#BRICK} is used in its place.
-     *
-     * @return the sherds
-     * @deprecated in favor of {@link #getSherds()}
-     */
-    @Deprecated
-    @NonNull
-    public List<Material> getShards();
 
     /**
      * A side on a decorated pot. Sides are relative to the facing state of a

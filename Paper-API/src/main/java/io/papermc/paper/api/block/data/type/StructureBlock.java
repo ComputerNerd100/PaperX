@@ -1,7 +1,7 @@
 package io.papermc.paper.api.block.data.type;
 
 import io.papermc.paper.api.block.data.BlockData;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'mode' represents the different modes in which this structure block may
@@ -14,7 +14,7 @@ public interface StructureBlock extends BlockData {
      *
      * @return the 'mode' value
      */
-    @NotNull
+    @NonNull
     Mode getMode();
 
     /**
@@ -22,7 +22,7 @@ public interface StructureBlock extends BlockData {
      *
      * @param mode the new 'mode' value
      */
-    void setMode(@NotNull Mode mode);
+    void setMode(@NonNull Mode mode);
 
     /**
      * Operating mode of a structure block.

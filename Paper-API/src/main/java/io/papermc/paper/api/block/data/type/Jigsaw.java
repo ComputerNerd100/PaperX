@@ -1,7 +1,7 @@
 package io.papermc.paper.api.block.data.type;
 
 import io.papermc.paper.api.block.data.BlockData;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * 'orientation' is the direction the block is facing.
@@ -13,7 +13,7 @@ public interface Jigsaw extends BlockData {
      *
      * @return the 'orientation' value
      */
-    @NotNull
+    @NonNull
     Orientation getOrientation();
 
     /**
@@ -21,7 +21,7 @@ public interface Jigsaw extends BlockData {
      *
      * @param orientation the new 'orientation' value
      */
-    void setOrientation(@NotNull Orientation orientation);
+    void setOrientation(@NonNull Orientation orientation);
 
     /**
      * The directions the Jigsaw can be oriented.

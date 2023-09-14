@@ -1,8 +1,9 @@
 package io.papermc.paper.api.block.color;
 
 import com.google.common.collect.ImmutableMap;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 
 import java.util.Map;
 
@@ -82,7 +83,7 @@ public enum DyeColor {
     private static final Map<Color, DyeColor> BY_COLOR;
     private static final Map<Color, DyeColor> BY_FIREWORK;
 
-    private DyeColor(final int woolData, final int dyeData, /*@NotNull*/ Color color, /*@NotNull*/ Color firework) {
+    private DyeColor(final int woolData, final int dyeData, /*@NonNull*/ Color color, /*@NonNull*/ Color firework) {
         this.woolData = (byte) woolData;
         this.dyeData = (byte) dyeData;
         this.color = color;
@@ -118,7 +119,7 @@ public enum DyeColor {
      *
      * @return The {@link Color} that this dye represents
      */
-    @NotNull
+    @NonNull
     public Color getColor() {
         return color;
     }
@@ -128,7 +129,7 @@ public enum DyeColor {
      *
      * @return The {@link Color} that this dye represents
      */
-    @NotNull
+    @NonNull
     public Color getFireworkColor() {
         return firework;
     }
@@ -179,7 +180,7 @@ public enum DyeColor {
      *     it doesn't exist
      */
     @Nullable
-    public static DyeColor getByColor(@NotNull final Color color) {
+    public static DyeColor getByColor(@NonNull final Color color) {
         return BY_COLOR.get(color);
     }
 
@@ -191,7 +192,7 @@ public enum DyeColor {
      *     it doesn't exist
      */
     @Nullable
-    public static DyeColor getByFireworkColor(@NotNull final Color color) {
+    public static DyeColor getByFireworkColor(@NonNull final Color color) {
         return BY_FIREWORK.get(color);
     }
 
@@ -203,7 +204,7 @@ public enum DyeColor {
      * @deprecated legacy use only
      */
     @Deprecated
-    @NotNull
+    @NonNull
     public static DyeColor legacyValueOf(@Nullable String name) {
         return "SILVER".equals(name) ? DyeColor.LIGHT_GRAY : DyeColor.valueOf(name);
     }

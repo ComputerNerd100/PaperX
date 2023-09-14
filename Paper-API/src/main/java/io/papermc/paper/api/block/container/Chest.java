@@ -3,12 +3,12 @@ package io.papermc.paper.api.block.container;
 import io.papermc.paper.api.block.tilestate.Lidded;
 import io.papermc.paper.api.inventory.Inventory;
 import io.papermc.paper.api.inventory.LootableBlockInventory;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a captured state of a chest.
  */
-public interface Chest extends Container, LootableBlockInventory, Lidded { // Paper
+public interface Chest extends Container, LootableBlockInventory, Lidded { 
 
     /**
      * Gets the inventory of the chest block represented by this block state.
@@ -24,6 +24,6 @@ public interface Chest extends Container, LootableBlockInventory, Lidded { // Pa
      *
      * @return the inventory
      */
-    @NotNull
+    @NonNull
     Inventory getBlockInventory();
 }

@@ -24,7 +24,7 @@ public interface SculkSensor extends TileState {
      * @param lastVibrationFrequency frequency between 0-15.
      */
     void setLastVibrationFrequency(int lastVibrationFrequency);
-    // Paper start
+
     /**
      * Gets the range this sensor listens to events at.
      *
@@ -38,5 +38,4 @@ public interface SculkSensor extends TileState {
      * @param range the range (must be greater than 0)
      */
     void setListenerRange(int range);
-    // Paper end
 }
