@@ -2,6 +2,7 @@ package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.sound.Sound;
+import io.papermc.paper.api.util.Raid;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
