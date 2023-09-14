@@ -35,6 +35,7 @@ import io.papermc.paper.api.tag.Tag;
 import io.papermc.paper.api.threadedregion.scheduler.AsyncScheduler;
 import io.papermc.paper.api.threadedregion.scheduler.GlobalRegionScheduler;
 import io.papermc.paper.api.threadedregion.scheduler.RegionScheduler;
+import io.papermc.paper.api.unsafe.UnsafeValues;
 import io.papermc.paper.api.util.JarManifests;
 import io.papermc.paper.api.world.World;
 import io.papermc.paper.api.world.WorldBorder;
