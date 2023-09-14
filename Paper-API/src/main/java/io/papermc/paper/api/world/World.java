@@ -1,8 +1,6 @@
 package io.papermc.paper.api.world;
 
-import com.google.gson.internal.bind.TreeTypeAdapter;
 import io.papermc.paper.api.Paper;
-import io.papermc.paper.api.block.Biome;
 import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.block.data.BlockData;
 

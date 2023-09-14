@@ -1,6 +1,6 @@
 package io.papermc.paper.api.world.generator;
 
-import io.papermc.paper.api.block.Biome;
+import io.papermc.paper.api.world.Biome;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.List;

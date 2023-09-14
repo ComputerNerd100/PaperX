@@ -1,7 +1,7 @@
 package io.papermc.paper.api.world.generator;
 
 import io.papermc.paper.api.Paper;
-import io.papermc.paper.api.block.Biome;
+import io.papermc.paper.api.world.Biome;
 import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.location.Location;
@@ -14,8 +14,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import static io.papermc.paper.api.world.World.Environment.*;
 
 /**
  * A chunk generator is responsible for the initial shaping of an entire

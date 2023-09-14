@@ -1,6 +1,5 @@
 package io.papermc.paper.api.world;
 
-import io.papermc.paper.api.block.Biome;
 import io.papermc.paper.api.block.BlockState;
 import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.entity.Entity;

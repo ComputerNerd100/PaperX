@@ -10,6 +10,7 @@ import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.metadata.Metadatable;
 import io.papermc.paper.api.sound.SoundGroup;
 import io.papermc.paper.api.util.vector.Vector;
+import io.papermc.paper.api.world.Biome;
 import io.papermc.paper.api.world.Chunk;
 import io.papermc.paper.api.world.RegionAccessor;
 import io.papermc.paper.api.world.World;
