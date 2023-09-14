@@ -1,8 +1,10 @@
 package io.papermc.paper.api.advancement;
 
 import io.papermc.paper.api.namespace.Keyed;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import net.kyori.adventure.text.Component;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.Collection;
 
@@ -12,10 +14,9 @@ public interface Advancement extends Keyed {
      *
      * @return a unmodifiable copy of all criteria
      */
-    @NotNull
+    @NonNull
     Collection<String> getCriteria();
 
-    // Paper start
     /**
      * Get the display info of this advancement.
      * <p>
@@ -37,7 +38,7 @@ public interface Advancement extends Keyed {
      * @return the display name
      * @see AdvancementDisplay#displayName()
      */
-    @NotNull net.kyori.adventure.text.Component displayName();
+    @NonNull Component displayName();
 
     /**
      * Gets the parent advancement, if any.
@@ -52,8 +53,8 @@ public interface Advancement extends Keyed {
      *
      * @return the children advancements
      */
-    @NotNull
-    @org.jetbrains.annotations.Unmodifiable
+    @NonNull
+    @Unmodifiable
     Collection<Advancement> getChildren();
 
     /**
@@ -61,7 +62,6 @@ public interface Advancement extends Keyed {
      *
      * @return the root advancement
      */
-    @NotNull
+    @NonNull
     Advancement getRoot();
-    // Paper end
 }

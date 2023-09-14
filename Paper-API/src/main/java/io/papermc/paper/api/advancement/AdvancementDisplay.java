@@ -7,8 +7,8 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.translation.Translatable;
 import net.kyori.adventure.util.Index;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Describes the display of an advancement.
@@ -26,7 +26,7 @@ public interface AdvancementDisplay {
      *
      * @return the frame type
      */
-    @NotNull
+    @NonNull
     Frame frame();
 
     /**
@@ -34,7 +34,7 @@ public interface AdvancementDisplay {
      *
      * @return the title
      */
-    @NotNull
+    @NonNull
     Component title();
 
     /**
@@ -42,7 +42,7 @@ public interface AdvancementDisplay {
      *
      * @return the description
      */
-    @NotNull
+    @NonNull
     Component description();
 
     /**
@@ -50,7 +50,7 @@ public interface AdvancementDisplay {
      *
      * @return a copy of the icon
      */
-    @NotNull
+    @NonNull
     ItemStack icon();
 
     /**
@@ -102,7 +102,7 @@ public interface AdvancementDisplay {
      * @return the display name
      * @see Advancement#displayName()
      */
-    @NotNull Component displayName();
+    @NonNull Component displayName();
 
     /**
      * Defines how the {@link #icon()} appears in the advancements screen and
@@ -145,7 +145,7 @@ public interface AdvancementDisplay {
          *
          * @return the text color
          */
-        @NotNull
+        @NonNull
         public TextColor color() {
             return this.color;
         }
@@ -158,7 +158,7 @@ public interface AdvancementDisplay {
          * @return the toast message key
          */
         @Override
-        @NotNull
+        @NonNull
         public String translationKey() {
             return "advancements.toast." + this.name;
         }

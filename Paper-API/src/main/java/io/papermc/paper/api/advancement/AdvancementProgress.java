@@ -1,7 +1,7 @@
 package io.papermc.paper.api.advancement;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Collection;
 import java.util.Date;
@@ -17,7 +17,7 @@ public interface AdvancementProgress {
      *
      * @return the relevant advancement
      */
-    @NotNull
+    @NonNull
     Advancement getAdvancement();
 
     /**
@@ -34,7 +34,7 @@ public interface AdvancementProgress {
      * @return true if awarded, false if criteria does not exist or already
      * awarded.
      */
-    boolean awardCriteria(@NotNull String criteria);
+    boolean awardCriteria(@NonNull String criteria);
 
     /**
      * Mark the specified criteria as uncompleted.
@@ -42,7 +42,7 @@ public interface AdvancementProgress {
      * @param criteria the criteria to mark
      * @return true if removed, false if criteria does not exist or not awarded
      */
-    boolean revokeCriteria(@NotNull String criteria);
+    boolean revokeCriteria(@NonNull String criteria);
 
     /**
      * Get the date the specified criteria was awarded.
@@ -51,14 +51,14 @@ public interface AdvancementProgress {
      * @return date awarded or null if unawarded or criteria does not exist
      */
     @Nullable
-    Date getDateAwarded(@NotNull String criteria);
+    Date getDateAwarded(@NonNull String criteria);
 
     /**
      * Get the criteria which have not been awarded.
      *
      * @return unmodifiable copy of criteria remaining
      */
-    @NotNull
+    @NonNull
     Collection<String> getRemainingCriteria();
 
     /**
@@ -66,6 +66,6 @@ public interface AdvancementProgress {
      *
      * @return unmodifiable copy of criteria awarded
      */
-    @NotNull
+    @NonNull
     Collection<String> getAwardedCriteria();
 }
