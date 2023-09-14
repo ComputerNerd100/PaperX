@@ -1,6 +1,7 @@
 package io.papermc.paper.api.inventory.meta;
 
 import io.papermc.paper.api.block.color.Color;
+import io.papermc.paper.api.map.MapView;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
