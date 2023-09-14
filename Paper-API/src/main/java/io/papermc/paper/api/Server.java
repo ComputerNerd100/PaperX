@@ -8,6 +8,7 @@ import io.papermc.paper.api.boss.*;
 import io.papermc.paper.api.command.CommandException;
 import io.papermc.paper.api.command.CommandSender;
 import io.papermc.paper.api.command.ConsoleCommandSender;
+import io.papermc.paper.api.datapack.DatapackManager;
 import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.entity.SpawnCategory;
