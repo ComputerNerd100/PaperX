@@ -19,6 +19,8 @@ import io.papermc.paper.api.sound.SoundCategory;
 import io.papermc.paper.api.util.BoundingBox;
 import io.papermc.paper.api.util.RayTraceResult;
 import io.papermc.paper.api.util.fluid.FluidCollisionMode;
+import io.papermc.paper.api.util.game.GameEvent;
+import io.papermc.paper.api.util.game.GameRule;
 import io.papermc.paper.api.world.generator.BiomeProvider;
 import io.papermc.paper.api.world.generator.BlockPopulator;
 import io.papermc.paper.api.world.generator.ChunkGenerator;
