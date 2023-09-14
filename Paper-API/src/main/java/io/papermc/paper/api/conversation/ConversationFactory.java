@@ -1,5 +1,6 @@
 package io.papermc.paper.api.conversation;
 
+import io.papermc.paper.api.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
