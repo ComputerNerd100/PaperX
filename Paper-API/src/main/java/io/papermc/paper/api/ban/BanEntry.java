@@ -47,17 +47,6 @@ import java.util.Date;
 public interface BanEntry<T> {
 
     /**
-     * Gets the target involved. This may be in the form of an IP or a player
-     * name.
-     *
-     * @return the target name or IP address
-     * @deprecated See {@link #getBanTarget()}
-     */
-    @Deprecated
-    @NotNull
-    String getTarget();
-
-    /**
      * Gets the target involved.
      *
      * @return the target profile or IP address
