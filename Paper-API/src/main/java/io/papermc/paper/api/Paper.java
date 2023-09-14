@@ -31,6 +31,7 @@ import io.papermc.paper.api.profile.PlayerProfile;
 import io.papermc.paper.api.registry.Registry;
 import io.papermc.paper.api.scoreboard.Criteria;
 import io.papermc.paper.api.scoreboard.ScoreboardManager;
+import io.papermc.paper.api.tag.Tag;
 import io.papermc.paper.api.threadedregion.scheduler.AsyncScheduler;
 import io.papermc.paper.api.threadedregion.scheduler.GlobalRegionScheduler;
 import io.papermc.paper.api.threadedregion.scheduler.RegionScheduler;
@@ -117,7 +118,7 @@ public final class Paper {
         if ("master".equals(gitBranch) || "main".equals(gitBranch)) {
             branchMsg = "";  // Don't show branch on main/master
         }
-        return "This server is running " + getName() + " version " + getVersion() + " (Implementing API version " + getBukkitVersion() + ") (Git: " + gitCommit + branchMsg + ")";
+        return "This server is running " + getName() + " version " + getVersion() + " (Implementing API version " + getPaperVersion() + ") (Git: " + gitCommit + branchMsg + ")";
     }
 
     /**
