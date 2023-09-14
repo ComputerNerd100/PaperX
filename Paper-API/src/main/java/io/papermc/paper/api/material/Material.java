@@ -5648,7 +5648,7 @@ public enum Material implements Keyed, Translatable {
             }
 
             Material match = BY_NAME.get(name);
-            return Bukkit.getUnsafe().fromLegacy(match);
+            return Paper.getUnsafe().fromLegacy(match);
         }
 
         return BY_NAME.get(name);
