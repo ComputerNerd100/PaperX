@@ -9,6 +9,7 @@ import io.papermc.paper.api.attribute.AttributeModifier;
 import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.block.data.*;
 import io.papermc.paper.api.block.data.type.*;
+import io.papermc.paper.api.inventory.CreativeCategory;
 import io.papermc.paper.api.inventory.EquipmentSlot;
 import io.papermc.paper.api.inventory.ItemRarity;
 import io.papermc.paper.api.namespace.Keyed;
