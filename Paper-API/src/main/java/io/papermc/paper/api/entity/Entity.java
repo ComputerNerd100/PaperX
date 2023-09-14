@@ -8,6 +8,7 @@ import io.papermc.paper.api.command.CommandSender;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.metadata.Metadatable;
 import io.papermc.paper.api.persistance.PersistentDataHolder;
+import io.papermc.paper.api.scoreboard.Scoreboard;
 import io.papermc.paper.api.sound.Sound;
 import io.papermc.paper.api.threadedregion.scheduler.EntityScheduler;
 import io.papermc.paper.api.util.vector.Vector;
@@ -1000,7 +1001,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
     @NonNull EntityScheduler getScheduler();
 
     /**
-     * Gets the string name of the entity used to track it in {@link org.bukkit.scoreboard.Scoreboard Scoreboards}.
+     * Gets the string name of the entity used to track it in {@link Scoreboard Scoreboards}.
      *
      * @return the scoreboard entry name
      * @see Scoreboard#getScores(String)
