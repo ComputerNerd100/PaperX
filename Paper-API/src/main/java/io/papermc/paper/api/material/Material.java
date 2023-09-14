@@ -4378,20 +4378,6 @@ public enum Material implements Keyed, Translatable {
         return Bukkit.getUnsafe().getItemRarity(this);
     }
 
-    /**
-     * Returns an immutable multimap of attributes for the slot.
-     * {@link #isItem()} must be true for this material.
-     *
-     * @param equipmentSlot the slot to get the attributes for
-     * @throws IllegalArgumentException if {@link #isItem()} is false
-     * @return an immutable multimap of attributes
-     * @deprecated use {@link #getDefaultAttributeModifiers(EquipmentSlot)}
-     */
-    @NotNull
-    @Deprecated
-    public Multimap<Attribute, AttributeModifier> getItemAttributes(@NotNull EquipmentSlot equipmentSlot) {
-        return Bukkit.getUnsafe().getItemAttributes(this, equipmentSlot);
-    }
 
     /**
      * Checks if this material is collidable.
