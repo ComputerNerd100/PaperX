@@ -2,6 +2,7 @@ package io.papermc.paper.api;
 
 import com.google.common.collect.ImmutableList;
 import io.papermc.paper.api.advancement.Advancement;
+import io.papermc.paper.api.annotation.Warning;
 import io.papermc.paper.api.ban.BanList;
 import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.block.data.BlockData;
@@ -1424,8 +1425,7 @@ public final class Paper {
      *
      * @return the configured warning state
      */
-    @NonNull
-    public static WarningState getWarningState() {
+    public static Warning.@NonNull WarningState getWarningState() {
         return server.getWarningState();
     }
 
