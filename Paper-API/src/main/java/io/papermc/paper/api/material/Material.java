@@ -4070,7 +4070,7 @@ public enum Material implements Keyed, Translatable {
     @Deprecated
     LEGACY_COOKIE(357),
     /**
-     * @see org.bukkit.map.MapView
+     * @see io.papermc.paper.api.map.MapView
      */
     @Deprecated
     LEGACY_MAP(358, MaterialData.class),
