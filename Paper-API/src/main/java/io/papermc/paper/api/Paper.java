@@ -19,6 +19,8 @@ import io.papermc.paper.api.inventory.meta.ItemMeta;
 import io.papermc.paper.api.inventory.recipe.Recipe;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.loot.LootTable;
+import io.papermc.paper.api.map.MapCursor;
+import io.papermc.paper.api.map.MapView;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.math.Position;
 import io.papermc.paper.api.namespace.Keyed;
@@ -706,7 +708,7 @@ public final class Paper {
      *
      * @see World#locateNearestStructure(Location, StructureType, int, boolean)
      */
-    public static @Nullable ItemStack createExplorerMap(@NonNull World world, @NonNull Location location, @NonNull StructureType structureType, @NonNull MapCursor.Type mapIcon) {
+    public static @Nullable ItemStack createExplorerMap(@NonNull World world, @NonNull Location location, @NonNull StructureType structureType, MapCursor.@NonNull Type mapIcon) {
         return server.createExplorerMap(world, location, structureType, mapIcon);
     }
 
@@ -725,7 +727,7 @@ public final class Paper {
      *
      * @see World#locateNearestStructure(Location, StructureType, int, boolean)
      */
-    public static @Nullable ItemStack createExplorerMap(@NonNull World world, @NonNull Location location, @NonNull StructureType structureType, @NonNull MapCursor.Type mapIcon, int radius, boolean findUnexplored) {
+    public static @Nullable ItemStack createExplorerMap(@NonNull World world, @NonNull Location location, @NonNull StructureType structureType, MapCursor.@NonNull Type mapIcon, int radius, boolean findUnexplored) {
         return server.createExplorerMap(world, location, structureType, mapIcon, radius, findUnexplored);
     }
     // Paper end
