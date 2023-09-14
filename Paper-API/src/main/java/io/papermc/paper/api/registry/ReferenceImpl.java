@@ -2,16 +2,16 @@ package io.papermc.paper.api.registry;
 
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
-record ReferenceImpl<T extends Keyed>(@NotNull Registry<T> registry, @NotNull NamespacedKey key) implements Reference<T> {
-    ReferenceImpl(@NotNull Registry<T> registry, @NotNull NamespacedKey key) {
+record ReferenceImpl<T extends Keyed>(@NonNull Registry<T> registry, @NonNull NamespacedKey key) implements Reference<T> {
+    ReferenceImpl(@NonNull Registry<T> registry, @NonNull NamespacedKey key) {
         this.registry = registry;
         this.key = key;
     }
 
-    public @NotNull T value() {
+    public @NonNull T value() {
         T value = this.registry.get(this.key);
         return value;
     }
@@ -20,15 +20,15 @@ record ReferenceImpl<T extends Keyed>(@NotNull Registry<T> registry, @NotNull Na
         return this.registry.get(this.key);
     }
 
-    public @NotNull NamespacedKey getKey() {
+    public @NonNull NamespacedKey getKey() {
         return this.key;
     }
 
-    public @NotNull Registry<T> registry() {
+    public @NonNull Registry<T> registry() {
         return this.registry;
     }
 
-    public @NotNull NamespacedKey key() {
+    public @NonNull NamespacedKey key() {
         return this.key;
     }
 }

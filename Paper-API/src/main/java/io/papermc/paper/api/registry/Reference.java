@@ -2,8 +2,8 @@ package io.papermc.paper.api.registry;
 
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a reference to a server-backed registry value that may
@@ -19,7 +19,7 @@ public interface Reference<T extends Keyed> extends Keyed {
      * @return the value
      * @throws java.util.NoSuchElementException if there is no value with this key
      */
-    @NotNull T value();
+    @NonNull T value();
 
     /**
      * Gets the value from the registry with the key.
@@ -36,7 +36,7 @@ public interface Reference<T extends Keyed> extends Keyed {
      * @param <T> the type of the value
      * @return a reference
      */
-    static <T extends Keyed> @NotNull Reference<T> create(@NotNull Registry<T> registry, @NotNull NamespacedKey key) {
+    static <T extends Keyed> @NonNull Reference<T> create(@NonNull Registry<T> registry, @NonNull NamespacedKey key) {
         return new ReferenceImpl<>(registry, key);
     }
 }
