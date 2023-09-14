@@ -4361,9 +4361,9 @@ public enum Material implements Keyed, Translatable {
     @Override
     public @NotNull String translationKey() {
         if (this.isItem()) {
-            return Bukkit.getUnsafe().getItemTranslationKey(this);
+            return Paper.getUnsafe().getItemTranslationKey(this);
         } else {
-            return Bukkit.getUnsafe().getBlockTranslationKey(this);
+            return Paper.getUnsafe().getBlockTranslationKey(this);
         }
     }
 
@@ -4375,7 +4375,7 @@ public enum Material implements Keyed, Translatable {
      */
     @NotNull
     public ItemRarity getItemRarity() {
-        return Bukkit.getUnsafe().getItemRarity(this);
+        return Paper.getUnsafe().getItemRarity(this);
     }
 
 
@@ -4386,7 +4386,7 @@ public enum Material implements Keyed, Translatable {
      * @throws IllegalArgumentException if {@link #isBlock()} is false
      */
     public boolean isCollidable() {
-        return Bukkit.getUnsafe().isCollidable(this);
+        return Paper.getUnsafe().isCollidable(this);
     }
     // Paper end
 
