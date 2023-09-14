@@ -15,6 +15,7 @@ import io.papermc.paper.api.inventory.*;
 import io.papermc.paper.api.inventory.recipe.Recipe;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.loot.LootTable;
+import io.papermc.paper.api.map.MapView;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
