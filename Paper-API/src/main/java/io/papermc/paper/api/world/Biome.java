@@ -1,4 +1,4 @@
-package io.papermc.paper.api.block;
+package io.papermc.paper.api.world;
 
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
