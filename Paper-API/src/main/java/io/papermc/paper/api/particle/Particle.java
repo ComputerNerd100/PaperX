@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import io.papermc.paper.api.block.color.Color;
 import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.inventory.ItemStack;
+import io.papermc.paper.api.util.Vibration;
 import org.jetbrains.annotations.NotNull;
 
 public enum Particle {
