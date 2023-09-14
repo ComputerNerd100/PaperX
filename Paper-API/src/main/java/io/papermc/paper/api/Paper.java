@@ -39,6 +39,7 @@ import io.papermc.paper.api.threadedregion.scheduler.RegionScheduler;
 import io.papermc.paper.api.unsafe.UnsafeValues;
 import io.papermc.paper.api.util.CachedServerIcon;
 import io.papermc.paper.api.util.JarManifests;
+import io.papermc.paper.api.util.game.GameMode;
 import io.papermc.paper.api.world.World;
 import io.papermc.paper.api.world.WorldBorder;
 import io.papermc.paper.api.world.WorldCreator;
@@ -681,7 +682,6 @@ public final class Paper {
      * @param id the id of the map to get
      * @return a map view if it exists, or null otherwise
      */
-    //@Deprecated // Paper - Not a magic value
     @Nullable
     public static MapView getMap(int id) {
         return server.getMap(id);
@@ -1155,7 +1155,7 @@ public final class Paper {
      * @return a ban list of the specified type
      */
     @NonNull
-    public static <T extends BanList<?>> T getBanList(@NonNull BanList.Type type) {
+    public static <T extends BanList<?>> T getBanList(BanList.@NonNull Type type) {
         return server.getBanList(type);
     }
 
