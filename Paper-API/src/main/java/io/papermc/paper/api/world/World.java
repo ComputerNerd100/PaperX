@@ -18,6 +18,7 @@ import io.papermc.paper.api.persistance.PersistentDataHolder;
 import io.papermc.paper.api.sound.Sound;
 import io.papermc.paper.api.sound.SoundCategory;
 import io.papermc.paper.api.util.BoundingBox;
+import io.papermc.paper.api.util.Difficulty;
 import io.papermc.paper.api.util.RayTraceResult;
 import io.papermc.paper.api.util.fluid.FluidCollisionMode;
 import io.papermc.paper.api.util.game.GameEvent;
