@@ -1,6 +1,7 @@
 package io.papermc.paper.api.util;
 
 import io.papermc.paper.api.Paper;
+import io.papermc.paper.api.annotation.MinecraftExperimental;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import org.jetbrains.annotations.ApiStatus;
