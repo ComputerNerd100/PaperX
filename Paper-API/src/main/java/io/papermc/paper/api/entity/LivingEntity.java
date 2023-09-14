@@ -14,6 +14,7 @@ import io.papermc.paper.api.sound.Sound;
 import io.papermc.paper.api.util.RayTraceResult;
 import io.papermc.paper.api.util.fluid.FluidCollisionMode;
 import io.papermc.paper.api.util.vector.Vector;
+import io.papermc.paper.api.world.World;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -172,7 +173,7 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
      *
      * @param maxDistance the maximum distance to scan
      * @return block that the living entity has targeted
-     * @see #getTargetBlockExact(int, org.bukkit.FluidCollisionMode)
+     * @see #getTargetBlockExact(int, FluidCollisionMode)
      */
     @Nullable Block getTargetBlockExact(int maxDistance);
 
