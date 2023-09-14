@@ -383,7 +383,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @return This vector.
      */
     @NotNull
-    Vector normalizeZeros() {
+    public Vector normalizeZeros() {
         if (x == -0.0D) x = 0.0D;
         if (y == -0.0D) y = 0.0D;
         if (z == -0.0D) z = 0.0D;
