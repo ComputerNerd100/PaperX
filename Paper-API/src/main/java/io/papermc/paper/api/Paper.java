@@ -34,6 +34,7 @@ import io.papermc.paper.api.scoreboard.ScoreboardManager;
 import io.papermc.paper.api.threadedregion.scheduler.AsyncScheduler;
 import io.papermc.paper.api.threadedregion.scheduler.GlobalRegionScheduler;
 import io.papermc.paper.api.threadedregion.scheduler.RegionScheduler;
+import io.papermc.paper.api.util.JarManifests;
 import io.papermc.paper.api.world.World;
 import io.papermc.paper.api.world.WorldBorder;
 import io.papermc.paper.api.world.WorldCreator;
