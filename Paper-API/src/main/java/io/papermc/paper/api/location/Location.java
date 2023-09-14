@@ -11,6 +11,7 @@ import io.papermc.paper.api.math.FinePosition;
 import io.papermc.paper.api.util.NumberConversions;
 import io.papermc.paper.api.util.vector.Vector;
 import io.papermc.paper.api.world.Chunk;
+import io.papermc.paper.api.world.HeightMap;
 import io.papermc.paper.api.world.World;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.NotNull;
