@@ -1,4 +1,4 @@
-package io.papermc.paper.api.threadedregion.scheduler;
+package io.papermc.paper.api.scheduler.threadedregion;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

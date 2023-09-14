@@ -1,4 +1,4 @@
-package io.papermc.paper.api.threadedregion.scheduler;
+package io.papermc.paper.api.scheduler.threadedregion;
 
 import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.location.Location;
