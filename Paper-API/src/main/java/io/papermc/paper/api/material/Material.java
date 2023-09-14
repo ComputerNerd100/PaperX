@@ -10878,7 +10878,7 @@ public enum Material implements Keyed, Translatable {
      */
     @Nullable
     public CreativeCategory getCreativeCategory() {
-        return Bukkit.getUnsafe().getCreativeCategory(this);
+        return Paper.getUnsafe().getCreativeCategory(this);
     }
 
 
@@ -10891,7 +10891,7 @@ public enum Material implements Keyed, Translatable {
      */
     @Nullable
     public String getBlockTranslationKey() {
-        return Bukkit.getUnsafe().getBlockTranslationKey(this);
+        return Paper.getUnsafe().getBlockTranslationKey(this);
     }
 
     /**
@@ -10903,7 +10903,7 @@ public enum Material implements Keyed, Translatable {
      */
     @Nullable
     public String getItemTranslationKey() {
-        return Bukkit.getUnsafe().getItemTranslationKey(this);
+        return Paper.getUnsafe().getItemTranslationKey(this);
     }
 
     /**
@@ -10913,7 +10913,7 @@ public enum Material implements Keyed, Translatable {
      * @return true if this material can be used in this World.
      */
     public boolean isEnabledByFeature(@NotNull World world) {
-        return Bukkit.getDataPackManager().isEnabledByFeature(this, world);
+        return Paper.getDataPackManager().isEnabledByFeature(this, world);
     }
 }
 
