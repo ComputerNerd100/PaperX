@@ -1,12 +1,12 @@
 package io.papermc.paper.api.ban;
 
 import io.papermc.paper.api.profile.PlayerProfile;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Date;
 
-public interface ProfileBanList extends BanList<PlayerProfile> { // Paper
+public interface ProfileBanList extends BanList<PlayerProfile> { 
 
     /**
      * {@inheritDoc}
@@ -20,6 +20,6 @@ public interface ProfileBanList extends BanList<PlayerProfile> { // Paper
      *     (updated) previous ban
      * @throws IllegalArgumentException if ProfilePlayer has an invalid UUID
      */
-    @Nullable BanEntry<PlayerProfile> addBan(@NotNull PlayerProfile target, @Nullable String reason, @Nullable Date expires, @Nullable String source);
+    @Nullable BanEntry<PlayerProfile> addBan(@NonNull PlayerProfile target, @Nullable String reason, @Nullable Date expires, @Nullable String source);
 }
 

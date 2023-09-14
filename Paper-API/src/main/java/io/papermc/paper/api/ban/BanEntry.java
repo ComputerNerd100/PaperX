@@ -1,7 +1,7 @@
 package io.papermc.paper.api.ban;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Date;
 
@@ -51,7 +51,7 @@ public interface BanEntry<T> {
      *
      * @return the target profile or IP address
      */
-    @NotNull
+    @NonNull
     T getBanTarget();
 
     /**
@@ -59,7 +59,7 @@ public interface BanEntry<T> {
      *
      * @return the creation date
      */
-    @NotNull
+    @NonNull
     Date getCreated();
 
     /**
@@ -68,7 +68,7 @@ public interface BanEntry<T> {
      * @param created the new created date, cannot be null
      * @see #save() saving changes
      */
-    void setCreated(@NotNull Date created);
+    void setCreated(@NonNull Date created);
 
     /**
      * Gets the source of this ban.
@@ -78,7 +78,7 @@ public interface BanEntry<T> {
      *
      * @return the source of the ban
      */
-    @NotNull
+    @NonNull
     String getSource();
 
     /**
@@ -90,7 +90,7 @@ public interface BanEntry<T> {
      * @param source the new source where null values become empty strings
      * @see #save() saving changes
      */
-    void setSource(@NotNull String source);
+    void setSource(@NonNull String source);
 
     /**
      * Gets the date this ban expires on, or null for no defined end date.

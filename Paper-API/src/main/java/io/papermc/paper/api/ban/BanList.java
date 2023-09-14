@@ -1,7 +1,7 @@
 package io.papermc.paper.api.ban;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -44,7 +44,7 @@ public interface BanList<T> {
      * @return the corresponding entry, or null if none found
      */
     @Nullable
-    public BanEntry<T> getBanEntry(@NotNull T target);
+    public BanEntry<T> getBanEntry(@NonNull T target);
 
     /**
      * Adds a ban to this list. If a previous ban exists, this will
@@ -59,7 +59,7 @@ public interface BanList<T> {
      *     (updated) previous ban
      */
     @Nullable
-    public BanEntry<T> addBan(@NotNull T target, @Nullable String reason, @Nullable Date expires, @Nullable String source);
+    public BanEntry<T> addBan(@NonNull T target, @Nullable String reason, @Nullable Date expires, @Nullable String source);
 
     /**
      * Adds a ban to this list. If a previous ban exists, this will
@@ -74,7 +74,7 @@ public interface BanList<T> {
      *     (updated) previous ban
      */
     @Nullable
-    public BanEntry<T> addBan(@NotNull T target, @Nullable String reason, @Nullable Instant expires, @Nullable String source);
+    public BanEntry<T> addBan(@NonNull T target, @Nullable String reason, @Nullable Instant expires, @Nullable String source);
 
     /**
      * Adds a ban to this list. If a previous ban exists, this will
@@ -89,14 +89,14 @@ public interface BanList<T> {
      *     (updated) previous ban
      */
     @Nullable
-    public BanEntry<T> addBan(@NotNull T target, @Nullable String reason, @Nullable Duration duration, @Nullable String source);
+    public BanEntry<T> addBan(@NonNull T target, @Nullable String reason, @Nullable Duration duration, @Nullable String source);
 
     /**
      * Gets a set containing every {@link BanEntry} in this list.
      *
      * @return an immutable set containing every entry tracked by this list
      */
-    @NotNull
+    @NonNull
     public <E extends BanEntry<? super T>> Set<E> getEntries(); // Paper
 
     /**
@@ -110,7 +110,7 @@ public interface BanList<T> {
      * @return true if a {@link BanEntry} exists for the target, indicating an
      *     active ban status, false otherwise
      */
-    public boolean isBanned(@NotNull T target);
+    public boolean isBanned(@NonNull T target);
 
     /**
      * Removes the specified target from this list, therefore indicating a
@@ -121,6 +121,6 @@ public interface BanList<T> {
      *
      * @param target the target to remove from this list
      */
-    public void pardon(@NotNull T target);
+    public void pardon(@NonNull T target);
 
 }
