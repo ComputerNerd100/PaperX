@@ -5,6 +5,8 @@ import com.google.common.collect.ImmutableMap;
 import io.papermc.paper.api.Paper;
 import io.papermc.paper.api.advancement.Advancement;
 import io.papermc.paper.api.attribute.Attribute;
+import io.papermc.paper.api.util.fluid.Fluid;
+import io.papermc.paper.api.util.game.GameEvent;
 import io.papermc.paper.api.world.Biome;
 import io.papermc.paper.api.boss.KeyedBossBar;
 import io.papermc.paper.api.entity.EntityType;
