@@ -11,6 +11,7 @@ import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.permisson.ServerOperator;
 import io.papermc.paper.api.profile.PlayerProfile;
+import io.papermc.paper.api.util.Statistic;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -35,7 +36,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      *
      * @return true if they are online
      */
-    public boolean isOnline();
+    boolean isOnline();
 
     // Paper start
     /**
@@ -46,7 +47,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      *
      * @return true if this player instance is connected
      */
-    public boolean isConnected();
+    boolean isConnected();
     // Paper end
 
     /**
@@ -58,8 +59,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return Player name or null if we have not seen a name for this player yet
      */
     @Override
-    @Nullable
-    public String getName();
+    @Nullable String getName();
 
     /**
      * Returns the UUID of this player
@@ -67,8 +67,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return Player UUID
      */
     @Override
-    @NonNull
-    public UUID getUniqueId();
+    @NonNull UUID getUniqueId();
 
     /**
      * Gets a copy of the player's profile.
@@ -87,7 +86,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      *
      * @return true if banned, otherwise false
      */
-    public boolean isBanned();
+    boolean isBanned();
     // Paper start
 
     /**
@@ -97,7 +96,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return Ban Entry
      */
     @NonNull
-    public default BanEntry banPlayer(@Nullable String reason) {
+    default BanEntry banPlayer(@Nullable String reason) {
         return banPlayer(reason, null, null);
     }
 
@@ -108,7 +107,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return Ban Entry
      */
     @NonNull
-    public default BanEntry banPlayer(@Nullable String reason, @Nullable String source) {
+    default BanEntry banPlayer(@Nullable String reason, @Nullable String source) {
         return banPlayer(reason, null, source);
     }
 
@@ -119,7 +118,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return Ban Entry
      */
     @NonNull
-    public default BanEntry banPlayer(@Nullable String reason, @Nullable Date expires) {
+    default BanEntry banPlayer(@Nullable String reason, @Nullable Date expires) {
         return banPlayer(reason, expires, null);
     }
 
@@ -131,11 +130,11 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return Ban Entry
      */
     @NonNull
-    public default BanEntry banPlayer(@Nullable String reason, @Nullable Date expires, @Nullable String source) {
+    default BanEntry banPlayer(@Nullable String reason, @Nullable Date expires, @Nullable String source) {
         return banPlayer(reason, expires, source, true);
     }
     @NonNull
-    public default BanEntry banPlayer(@Nullable String reason, @Nullable Date expires, @Nullable String source, boolean kickIfOnline) {
+    default BanEntry banPlayer(@Nullable String reason, @Nullable Date expires, @Nullable String source, boolean kickIfOnline) {
         BanEntry banEntry = Paper.getServer().getBanList(BanList.Type.NAME).addBan(getName(), reason, expires, source);
         if (kickIfOnline && isOnline()) {
             getPlayer().kickPlayer(reason);
@@ -155,8 +154,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return the entry for the newly created ban, or the entry for the
      *     (updated) previous ban
      */
-    @Nullable
-    public <E extends BanEntry<? super PlayerProfile>> E ban(@Nullable String reason, @Nullable Date expires, @Nullable String source); // Paper - fix ban list API
+    @Nullable <E extends BanEntry<? super PlayerProfile>> E ban(@Nullable String reason, @Nullable Date expires, @Nullable String source); // Paper - fix ban list API
 
     /**
      * Adds this user to the {@link ProfileBanList}. If a previous ban exists, this will
@@ -169,8 +167,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return the entry for the newly created ban, or the entry for the
      *     (updated) previous ban
      */
-    @Nullable
-    public <E extends BanEntry<? super PlayerProfile>> E ban(@Nullable String reason, @Nullable Instant expires, @Nullable String source); // Paper - fix ban list API
+    @Nullable <E extends BanEntry<? super PlayerProfile>> E ban(@Nullable String reason, @Nullable Instant expires, @Nullable String source); // Paper - fix ban list API
 
     /**
      * Adds this user to the {@link ProfileBanList}. If a previous ban exists, this will
@@ -183,22 +180,21 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return the entry for the newly created ban, or the entry for the
      *     (updated) previous ban
      */
-    @Nullable
-    public <E extends BanEntry<? super PlayerProfile>> E ban(@Nullable String reason, @Nullable Duration duration, @Nullable String source); // Paper - fix ban list API
+    @Nullable <E extends BanEntry<? super PlayerProfile>> E ban(@Nullable String reason, @Nullable Duration duration, @Nullable String source); // Paper - fix ban list API
 
     /**
      * Checks if this player is whitelisted or not
      *
      * @return true if whitelisted
      */
-    public boolean isWhitelisted();
+    boolean isWhitelisted();
 
     /**
      * Sets if this player is whitelisted or not
      *
      * @param value true if whitelisted
      */
-    public void setWhitelisted(boolean value);
+    void setWhitelisted(boolean value);
 
     /**
      * Gets a {@link Player} object that this represents, if there is one
@@ -208,8 +204,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      *
      * @return Online player
      */
-    @Nullable
-    public Player getPlayer();
+    @Nullable Player getPlayer();
 
     /**
      * Gets the first date and time that this player was witnessed on this
@@ -221,7 +216,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      *
      * @return Date of first log-in for this player, or 0
      */
-    public long getFirstPlayed();
+    long getFirstPlayed();
 
     /**
      * Gets the last date and time that this player was witnessed on this
@@ -235,14 +230,14 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @deprecated The API contract is ambiguous and the implementation may or may not return the correct value given this API ambiguity. It is instead recommended use {@link #getLastLogin()} or {@link #getLastSeen()} depending on your needs.
      */
     @Deprecated
-    public long getLastPlayed();
+    long getLastPlayed();
 
     /**
      * Checks if this player has played on this server before.
      *
      * @return True if the player has played before, otherwise false
      */
-    public boolean hasPlayedBefore();
+    boolean hasPlayedBefore();
 
     /**
      * Gets the Location where the player will spawn at their bed, null if
@@ -250,8 +245,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      *
      * @return Bed Spawn Location if bed exists, otherwise null.
      */
-    @Nullable
-    public Location getBedSpawnLocation();
+    @Nullable Location getBedSpawnLocation();
     // Paper start
     /**
      * Gets the last date and time that this player logged into the server.
@@ -262,7 +256,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      *
      * @return last login time
      */
-    public long getLastLogin();
+    long getLastLogin();
 
     /**
      * Gets the last date and time that this player was seen on the server.
@@ -274,7 +268,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      *
      * @return last seen time
      */
-    public long getLastSeen();
+    long getLastSeen();
     // Paper end
 
     /**
@@ -288,7 +282,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the statistic requires an
      *     additional parameter
      */
-    public void incrementStatistic(@NonNull Statistic statistic) throws IllegalArgumentException;
+    void incrementStatistic(@NonNull Statistic statistic) throws IllegalArgumentException;
 
     /**
      * Decrements the given statistic for this player.
@@ -301,7 +295,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the statistic requires an
      *     additional parameter
      */
-    public void decrementStatistic(@NonNull Statistic statistic) throws IllegalArgumentException;
+    void decrementStatistic(@NonNull Statistic statistic) throws IllegalArgumentException;
 
     /**
      * Increments the given statistic for this player.
@@ -313,7 +307,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the statistic requires an
      *     additional parameter
      */
-    public void incrementStatistic(@NonNull Statistic statistic, int amount) throws IllegalArgumentException;
+    void incrementStatistic(@NonNull Statistic statistic, int amount) throws IllegalArgumentException;
 
     /**
      * Decrements the given statistic for this player.
@@ -325,7 +319,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the statistic requires an
      *     additional parameter
      */
-    public void decrementStatistic(@NonNull Statistic statistic, int amount) throws IllegalArgumentException;
+    void decrementStatistic(@NonNull Statistic statistic, int amount) throws IllegalArgumentException;
 
     /**
      * Sets the given statistic for this player.
@@ -337,7 +331,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the statistic requires an
      *     additional parameter
      */
-    public void setStatistic(@NonNull Statistic statistic, int newValue) throws IllegalArgumentException;
+    void setStatistic(@NonNull Statistic statistic, int newValue) throws IllegalArgumentException;
 
     /**
      * Gets the value of the given statistic for this player.
@@ -348,7 +342,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the statistic requires an
      *     additional parameter
      */
-    public int getStatistic(@NonNull Statistic statistic) throws IllegalArgumentException;
+    int getStatistic(@NonNull Statistic statistic) throws IllegalArgumentException;
 
     /**
      * Increments the given statistic for this player for the given material.
@@ -363,7 +357,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the given parameter is not valid
      *     for the statistic
      */
-    public void incrementStatistic(@NonNull Statistic statistic, @NonNull Material material) throws IllegalArgumentException;
+    void incrementStatistic(@NonNull Statistic statistic, @NonNull Material material) throws IllegalArgumentException;
 
     /**
      * Decrements the given statistic for this player for the given material.
@@ -378,7 +372,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the given parameter is not valid
      *     for the statistic
      */
-    public void decrementStatistic(@NonNull Statistic statistic, @NonNull Material material) throws IllegalArgumentException;
+    void decrementStatistic(@NonNull Statistic statistic, @NonNull Material material) throws IllegalArgumentException;
 
     /**
      * Gets the value of the given statistic for this player.
@@ -391,7 +385,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the given parameter is not valid
      *     for the statistic
      */
-    public int getStatistic(@NonNull Statistic statistic, @NonNull Material material) throws IllegalArgumentException;
+    int getStatistic(@NonNull Statistic statistic, @NonNull Material material) throws IllegalArgumentException;
 
     /**
      * Increments the given statistic for this player for the given material.
@@ -405,7 +399,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the given parameter is not valid
      *     for the statistic
      */
-    public void incrementStatistic(@NonNull Statistic statistic, @NonNull Material material, int amount) throws IllegalArgumentException;
+    void incrementStatistic(@NonNull Statistic statistic, @NonNull Material material, int amount) throws IllegalArgumentException;
 
     /**
      * Decrements the given statistic for this player for the given material.
@@ -419,7 +413,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the given parameter is not valid
      *     for the statistic
      */
-    public void decrementStatistic(@NonNull Statistic statistic, @NonNull Material material, int amount) throws IllegalArgumentException;
+    void decrementStatistic(@NonNull Statistic statistic, @NonNull Material material, int amount) throws IllegalArgumentException;
 
     /**
      * Sets the given statistic for this player for the given material.
@@ -433,7 +427,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the given parameter is not valid
      *     for the statistic
      */
-    public void setStatistic(@NonNull Statistic statistic, @NonNull Material material, int newValue) throws IllegalArgumentException;
+    void setStatistic(@NonNull Statistic statistic, @NonNull Material material, int newValue) throws IllegalArgumentException;
 
     /**
      * Increments the given statistic for this player for the given entity.
@@ -448,7 +442,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the given parameter is not valid
      *     for the statistic
      */
-    public void incrementStatistic(@NonNull Statistic statistic, @NonNull EntityType entityType) throws IllegalArgumentException;
+    void incrementStatistic(@NonNull Statistic statistic, @NonNull EntityType entityType) throws IllegalArgumentException;
 
     /**
      * Decrements the given statistic for this player for the given entity.
@@ -463,7 +457,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the given parameter is not valid
      *     for the statistic
      */
-    public void decrementStatistic(@NonNull Statistic statistic, @NonNull EntityType entityType) throws IllegalArgumentException;
+    void decrementStatistic(@NonNull Statistic statistic, @NonNull EntityType entityType) throws IllegalArgumentException;
 
     /**
      * Gets the value of the given statistic for this player.
@@ -476,7 +470,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the given parameter is not valid
      *     for the statistic
      */
-    public int getStatistic(@NonNull Statistic statistic, @NonNull EntityType entityType) throws IllegalArgumentException;
+    int getStatistic(@NonNull Statistic statistic, @NonNull EntityType entityType) throws IllegalArgumentException;
 
     /**
      * Increments the given statistic for this player for the given entity.
@@ -490,7 +484,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the given parameter is not valid
      *     for the statistic
      */
-    public void incrementStatistic(@NonNull Statistic statistic, @NonNull EntityType entityType, int amount) throws IllegalArgumentException;
+    void incrementStatistic(@NonNull Statistic statistic, @NonNull EntityType entityType, int amount) throws IllegalArgumentException;
 
     /**
      * Decrements the given statistic for this player for the given entity.
@@ -504,7 +498,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the given parameter is not valid
      *     for the statistic
      */
-    public void decrementStatistic(@NonNull Statistic statistic, @NonNull EntityType entityType, int amount);
+    void decrementStatistic(@NonNull Statistic statistic, @NonNull EntityType entityType, int amount);
 
     /**
      * Sets the given statistic for this player for the given entity.
@@ -518,14 +512,13 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @throws IllegalArgumentException if the given parameter is not valid
      *     for the statistic
      */
-    public void setStatistic(@NonNull Statistic statistic, @NonNull EntityType entityType, int newValue);
+    void setStatistic(@NonNull Statistic statistic, @NonNull EntityType entityType, int newValue);
 
     /**
      * Gets the player's last death location.
      *
      * @return the last death location if it exists, otherwise null.
      */
-    @Nullable
-    public Location getLastDeathLocation();
+    @Nullable Location getLastDeathLocation();
 }
 
