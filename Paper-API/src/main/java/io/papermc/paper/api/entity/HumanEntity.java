@@ -7,6 +7,7 @@ import io.papermc.paper.api.inventory.meta.FireworkMeta;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.namespace.NamespacedKey;
+import io.papermc.paper.api.util.game.GameMode;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
