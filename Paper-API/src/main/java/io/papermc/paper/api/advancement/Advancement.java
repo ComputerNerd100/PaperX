@@ -1,6 +1,6 @@
 package io.papermc.paper.api.advancement;
 
-import net.kyori.adventure.key.Keyed;
+import io.papermc.paper.api.namespace.Keyed;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
