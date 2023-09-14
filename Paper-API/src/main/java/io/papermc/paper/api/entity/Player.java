@@ -2,6 +2,7 @@ package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.ClientOption;
 import io.papermc.paper.api.Paper;
+import io.papermc.paper.api.Server;
 import io.papermc.paper.api.advancement.Advancement;
 import io.papermc.paper.api.advancement.AdvancementProgress;
 import io.papermc.paper.api.ban.BanEntry;
@@ -15,9 +16,11 @@ import io.papermc.paper.api.block.sign.Side;
 import io.papermc.paper.api.block.tilestate.Sign;
 import io.papermc.paper.api.block.tilestate.TileState;
 import io.papermc.paper.api.conversation.Conversable;
+import io.papermc.paper.api.effect.Effect;
 import io.papermc.paper.api.inventory.EquipmentSlot;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
+import io.papermc.paper.api.map.MapView;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.math.Position;
 import io.papermc.paper.api.network.NetworkClient;
@@ -30,6 +33,8 @@ import io.papermc.paper.api.sound.Instrument;
 import io.papermc.paper.api.sound.Note;
 import io.papermc.paper.api.sound.Sound;
 import io.papermc.paper.api.sound.SoundCategory;
+import io.papermc.paper.api.util.game.GameMode;
+import io.papermc.paper.api.world.WeatherType;
 import io.papermc.paper.api.world.World;
 import io.papermc.paper.api.world.WorldBorder;
 import net.kyori.adventure.bossbar.BossBarViewer;
@@ -37,6 +42,7 @@ import net.kyori.adventure.identity.Identified;
 import net.kyori.adventure.identity.Identity;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.HoverEvent;
+import net.kyori.adventure.util.TriState;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.ApiStatus;
@@ -1186,14 +1192,14 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      *
      * @param flyingFallDamage Enables fall damage when {@link #getAllowFlight()} is {@code true}
      */
-    void setFlyingFallDamage(@NonNull net.kyori.adventure.util.TriState flyingFallDamage);
+    void setFlyingFallDamage(@NonNull TriState flyingFallDamage);
 
     /**
      * Allows you to get if fall damage is enabled while {@link #getAllowFlight()} is {@code true}
      *
      * @return A tristate of whether fall damage is enabled, not set, or disabled when {@link #getAllowFlight()} is {@code true}
      */
-    @NonNull net.kyori.adventure.util.TriState hasFlyingFallDamage();
+    @NonNull TriState hasFlyingFallDamage();
 
     /**
      * Hides a player from this player
@@ -2081,7 +2087,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @throws IllegalArgumentException Thrown if the URL is too long. The
      *     length restriction is an implementation specific arbitrary value.
      */
-    void setResourcePack(@NonNull String url, @NonNull String hash, boolean required, @Nullable net.kyori.adventure.text.Component resourcePackPrompt);
+    void setResourcePack(@NonNull String url, @NonNull String hash, boolean required, @Nullable Component resourcePackPrompt);
 
     /**
      * @return the most recent resource pack status received from the player,
