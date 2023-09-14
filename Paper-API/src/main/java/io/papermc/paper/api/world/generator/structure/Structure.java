@@ -2,6 +2,7 @@ package io.papermc.paper.api.world.generator.structure;
 
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
+import io.papermc.paper.api.registry.Registry;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**

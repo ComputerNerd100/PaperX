@@ -3,6 +3,7 @@ package io.papermc.paper.api.inventory.meta.trim;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
+import io.papermc.paper.api.registry.Registry;
 
 /**
  * Represents a pattern that may be used in an {@link ArmorTrim}.
