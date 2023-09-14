@@ -22,6 +22,7 @@ import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.player.OfflinePlayer;
 import io.papermc.paper.api.profile.PlayerProfile;
 import io.papermc.paper.api.scoreboard.ScoreboardManager;
+import io.papermc.paper.api.structure.StructureManager;
 import io.papermc.paper.api.tag.Tag;
 import io.papermc.paper.api.unsafe.UnsafeValues;
 import io.papermc.paper.api.util.game.GameMode;
