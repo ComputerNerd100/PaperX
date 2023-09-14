@@ -6,6 +6,7 @@ import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
+import io.papermc.paper.api.world.HeightMap;
 import io.papermc.paper.api.world.World;
 import io.papermc.paper.api.world.WorldCreator;
 import org.checkerframework.checker.nullness.qual.NonNull;
