@@ -1,6 +1,7 @@
 package io.papermc.paper.api.inventory.meta;
 
 
+import io.papermc.paper.api.effect.FireworkEffect;
 import io.papermc.paper.api.material.Material;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
