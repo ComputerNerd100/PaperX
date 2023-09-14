@@ -13,6 +13,7 @@ import io.papermc.paper.api.inventory.EquipmentSlot;
 import io.papermc.paper.api.inventory.ItemRarity;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
+import io.papermc.paper.api.world.World;
 import net.kyori.adventure.translation.Translatable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -10868,7 +10869,7 @@ public enum Material implements Keyed, Translatable {
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot slot) {
         Preconditions.checkArgument(isItem(), "The Material is not an item!");
 
-        return Bukkit.getUnsafe().getDefaultAttributeModifiers(this, slot);
+        return Paper.getUnsafe().getDefaultAttributeModifiers(this, slot);
     }
 
     /**
