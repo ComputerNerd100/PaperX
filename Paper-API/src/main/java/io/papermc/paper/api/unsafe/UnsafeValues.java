@@ -17,6 +17,7 @@ import io.papermc.paper.api.inventory.ItemRarity;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.namespace.NamespacedKey;
+import io.papermc.paper.api.util.FeatureFlag;
 import io.papermc.paper.api.util.Statistic;
 import io.papermc.paper.api.util.VersionFetcher;
 import io.papermc.paper.api.world.RegionAccessor;
