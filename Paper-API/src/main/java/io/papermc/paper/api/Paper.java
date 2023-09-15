@@ -735,7 +735,6 @@ public final class Paper {
     public static @Nullable ItemStack createExplorerMap(@NonNull World world, @NonNull Location location, @NonNull StructureType structureType, MapCursor.@NonNull Type mapIcon, int radius, boolean findUnexplored) {
         return server.createExplorerMap(world, location, structureType, mapIcon, radius, findUnexplored);
     }
-    // Paper end
 
     /**
      * Reloads the server, refreshing settings and plugin information.
