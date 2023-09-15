@@ -9,8 +9,6 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-import java.util.UUID;
-
 public interface CommandSender extends Audience, Permissible {
 
     /**
