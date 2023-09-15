@@ -40,7 +40,7 @@ public interface Cancellable {
      * @param cancelled - the new state
      * @return the previous state
      */
-    default boolean setCancelled(boolean cancelled) {
+    default boolean cancelled(boolean cancelled) {
         return cancellationState().getAndSet(cancelled);
     }
 

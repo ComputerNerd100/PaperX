@@ -11,6 +11,6 @@ public interface Event {
      * Gets the type of the event.
      * @return the type of the event
      */
-    @NonNull Class<? extends Event> getEventType();
+    @NonNull Class<? extends Event> eventType();
 
 }
