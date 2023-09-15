@@ -1,6 +1,6 @@
 package io.papermc.paper.api.persistance;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * This interface represents the context in which the {@link PersistentDataType} can
@@ -12,6 +12,6 @@ public interface PersistentDataAdapterContext {
      *
      * @return the fresh container instance
      */
-    @NotNull
+    @NonNull
     PersistentDataContainer newPersistentDataContainer();
 }

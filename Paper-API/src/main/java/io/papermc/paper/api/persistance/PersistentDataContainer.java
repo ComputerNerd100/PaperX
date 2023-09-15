@@ -1,8 +1,8 @@
 package io.papermc.paper.api.persistance;
 
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Set;
 
@@ -33,7 +33,7 @@ public interface PersistentDataContainer {
      * @throws IllegalArgumentException if no suitable adapter will be found for
      * the {@link PersistentDataType#getPrimitiveType()}
      */
-    <T, Z> void set(@NotNull NamespacedKey key, @NotNull PersistentDataType<T, Z> type, @NotNull Z value);
+    <T, Z> void set(@NonNull NamespacedKey key, @NonNull PersistentDataType<T, Z> type, @NonNull Z value);
 
     /**
      * Returns if the persistent metadata provider has metadata registered
@@ -64,7 +64,7 @@ public interface PersistentDataContainer {
      * @throws NullPointerException if the type to cast the found object to is
      * null
      */
-    <T, Z> boolean has(@NotNull NamespacedKey key, @NotNull PersistentDataType<T, Z> type);
+    <T, Z> boolean has(@NonNull NamespacedKey key, @NonNull PersistentDataType<T, Z> type);
 
     /**
      * Returns the metadata value that is stored on the
@@ -88,7 +88,7 @@ public interface PersistentDataContainer {
      * PersistentDataType#getPrimitiveType()}
      */
     @Nullable
-    <T, Z> Z get(@NotNull NamespacedKey key, @NotNull PersistentDataType<T, Z> type);
+    <T, Z> Z get(@NonNull NamespacedKey key, @NonNull PersistentDataType<T, Z> type);
 
     /**
      * Returns the metadata value that is stored on the
@@ -113,8 +113,8 @@ public interface PersistentDataContainer {
      * @throws IllegalArgumentException if no suitable adapter will be found for
      * the {@link PersistentDataType#getPrimitiveType()}
      */
-    @NotNull
-    <T, Z> Z getOrDefault(@NotNull NamespacedKey key, @NotNull PersistentDataType<T, Z> type, @NotNull Z defaultValue);
+    @NonNull
+    <T, Z> Z getOrDefault(@NonNull NamespacedKey key, @NonNull PersistentDataType<T, Z> type, @NonNull Z defaultValue);
 
     /**
      * Get a set of keys present on this {@link PersistentDataContainer}
@@ -125,7 +125,7 @@ public interface PersistentDataContainer {
      *
      * @return the key set
      */
-    @NotNull
+    @NonNull
     Set<NamespacedKey> getKeys();
 
     /**
@@ -135,7 +135,7 @@ public interface PersistentDataContainer {
      *
      * @throws NullPointerException if the provided key is null
      */
-    void remove(@NotNull NamespacedKey key);
+    void remove(@NonNull NamespacedKey key);
 
     /**
      * Returns if the container instance is empty, therefore has no entries
@@ -150,7 +150,7 @@ public interface PersistentDataContainer {
      *
      * @return the tag context
      */
-    @NotNull
+    @NonNull
     PersistentDataAdapterContext getAdapterContext();
 
     // Paper start
@@ -164,7 +164,7 @@ public interface PersistentDataContainer {
      *
      * @throws NullPointerException if the key to look up is null
      */
-    boolean has(@NotNull NamespacedKey key);
+    boolean has(@NonNull NamespacedKey key);
 
     /**
      * Serialize this {@link PersistentDataContainer} instance to a
@@ -173,7 +173,7 @@ public interface PersistentDataContainer {
      * @return a binary representation of this container
      * @throws java.io.IOException if we fail to write this container to a byte array
      */
-    byte @NotNull [] serializeToBytes() throws java.io.IOException;
+    byte @NonNull [] serializeToBytes() throws java.io.IOException;
 
     /**
      * Read values from a serialised byte array into this
@@ -184,7 +184,7 @@ public interface PersistentDataContainer {
      *              will be cleared before reading
      * @throws java.io.IOException if the byte array has an invalid format
      */
-    void readFromBytes(byte @NotNull [] bytes, boolean clear) throws java.io.IOException;
+    void readFromBytes(byte @NonNull [] bytes, boolean clear) throws java.io.IOException;
 
     /**
      * Read values from a serialised byte array into this
@@ -195,7 +195,7 @@ public interface PersistentDataContainer {
      * @param bytes the byte array to read from
      * @throws java.io.IOException if the byte array has an invalid format
      */
-    default void readFromBytes(byte @NotNull [] bytes) throws java.io.IOException {
+    default void readFromBytes(byte @NonNull [] bytes) throws java.io.IOException {
         this.readFromBytes(bytes, true);
     }
     // Paper end

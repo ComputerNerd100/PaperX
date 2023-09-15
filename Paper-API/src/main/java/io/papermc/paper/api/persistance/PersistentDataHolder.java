@@ -1,6 +1,6 @@
 package io.papermc.paper.api.persistance;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * The {@link PersistentDataHolder} interface defines an object that can store
@@ -17,7 +17,7 @@ public interface PersistentDataHolder {
      *
      * @return the persistent metadata container
      */
-    @NotNull
+    @NonNull
     PersistentDataContainer getPersistentDataContainer();
 
 }
