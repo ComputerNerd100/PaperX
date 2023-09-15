@@ -140,16 +140,7 @@ public enum InventoryType {
     /**
      * Pseudo jukebox inventory with 1 slot of undefined type.
      */
-    JUKEBOX(1, "Jukebox", false),
-    /**
-     * The new smithing inventory, with 3 CRAFTING slots and 1 RESULT slot.
-     *
-     * @deprecated use {@link #SMITHING}
-     */
-    @Deprecated(forRemoval = true) // Paper
-            SMITHING_NEW(4, "Upgrade Gear"),
-    ;
-
+    JUKEBOX(1, "Jukebox", false);
     private final int size;
     private final String title;
     private final boolean isCreatable;
@@ -179,12 +170,6 @@ public enum InventoryType {
 
     public int getDefaultSize() {
         return size;
-    }
-
-    @NotNull
-    @Deprecated // Paper
-    public String getDefaultTitle() {
-        return title;
     }
 
     /**
