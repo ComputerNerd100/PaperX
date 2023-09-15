@@ -1,7 +1,7 @@
 package io.papermc.paper.api.profile;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.net.URL;
 
@@ -87,7 +87,7 @@ public interface PlayerTextures {
      *
      * @return the model of the player's skin
      */
-    @NotNull
+    @NonNull
     SkinModel getSkinModel();
 
     /**

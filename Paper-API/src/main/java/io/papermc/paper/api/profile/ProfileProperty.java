@@ -1,8 +1,8 @@
 package io.papermc.paper.api.profile;
 
 import com.google.common.base.Preconditions;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Objects;
 
@@ -14,20 +14,20 @@ public class ProfileProperty {
     private final String value;
     private final String signature;
 
-    public ProfileProperty(@NotNull String name, @NotNull String value) {
+    public ProfileProperty(@NonNull String name, @NonNull String value) {
         this(name, value, null);
     }
 
-    public ProfileProperty(@NotNull String name, @NotNull String value, @Nullable String signature) {
-        this.name = Preconditions.checkNotNull(name, "ProfileProperty name can not be null");
-        this.value = Preconditions.checkNotNull(value, "ProfileProperty value can not be null");
+    public ProfileProperty(@NonNull String name, @NonNull String value, @Nullable String signature) {
+        this.name = Preconditions.checkNonNull(name, "ProfileProperty name can not be null");
+        this.value = Preconditions.checkNonNull(value, "ProfileProperty value can not be null");
         this.signature = signature;
     }
 
     /**
      * @return The property name, ie "textures"
      */
-    @NotNull
+    @NonNull
     public String getName() {
         return name;
     }
@@ -35,7 +35,7 @@ public class ProfileProperty {
     /**
      * @return The property value, likely to be base64 encoded
      */
-    @NotNull
+    @NonNull
     public String getValue() {
         return value;
     }

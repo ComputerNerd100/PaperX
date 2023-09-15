@@ -1,7 +1,7 @@
 package io.papermc.paper.api.profile;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Collection;
 import java.util.Set;
@@ -30,7 +30,7 @@ public interface PlayerProfile {
      *
      * @return the textures, not <code>null</code>
      */
-    @NotNull
+    @NonNull
     PlayerTextures getTextures();
 
     /**
@@ -45,7 +45,7 @@ public interface PlayerProfile {
      * @return A Mutable set of this players properties, such as textures.
      * Values specified here are subject to implementation details.
      */
-    @NotNull Set<ProfileProperty> getProperties();
+    @NonNull Set<ProfileProperty> getProperties();
 
     /**
      * Check if the Profile has the specified property
@@ -58,13 +58,13 @@ public interface PlayerProfile {
      * Sets a property. If the property already exists, the previous one will be replaced
      * @param property Property to set.
      */
-    void setProperty(@NotNull ProfileProperty property);
+    void setProperty(@NonNull ProfileProperty property);
 
     /**
      * Sets multiple properties. If any of the set properties already exist, it will be replaced
      * @param properties The properties to set
      */
-    void setProperties(@NotNull Collection<ProfileProperty> properties);
+    void setProperties(@NonNull Collection<ProfileProperty> properties);
 
     /**
      * Removes a specific property from this profile
@@ -78,7 +78,7 @@ public interface PlayerProfile {
      * @param property The property to remove
      * @return If a property was removed
      */
-    default boolean removeProperty(@NotNull ProfileProperty property) {
+    default boolean removeProperty(@NonNull ProfileProperty property) {
         return removeProperty(property.getName());
     }
 
@@ -87,7 +87,7 @@ public interface PlayerProfile {
      * @param properties The properties to remove
      * @return If any property was removed
      */
-    default boolean removeProperties(@NotNull Collection<ProfileProperty> properties) {
+    default boolean removeProperties(@NonNull Collection<ProfileProperty> properties) {
         boolean removed = false;
         for (ProfileProperty property : properties) {
             if (removeProperty(property)) {
@@ -192,7 +192,7 @@ public interface PlayerProfile {
      * }, runnable -> Bukkit.getScheduler().runTask(plugin, runnable));
      * </pre>
      */
-    @NotNull CompletableFuture<PlayerProfile> update();
+    @NonNull CompletableFuture<PlayerProfile> update();
 
     /**
      * Whether this Profile has textures associated to it
