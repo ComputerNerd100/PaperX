@@ -10,7 +10,6 @@ import net.kyori.adventure.text.event.HoverEventSource;
 import net.kyori.adventure.translation.Translatable;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Range;
 
 import java.util.List;
@@ -242,7 +241,7 @@ public interface  ItemStack extends Cloneable, ConfigurationSerializable, Transl
      */
     ItemStack enchantWithLevels(final @Range(from = 1, to = 30) int levels, final boolean allowTreasure, final @NonNull Random random);
     @Override
-    @NotNull HoverEvent<HoverEvent.ShowItem> asHoverEvent(@NotNull UnaryOperator<HoverEvent.ShowItem> op);
+    @NonNull HoverEvent<HoverEvent.ShowItem> asHoverEvent(@NonNull UnaryOperator<HoverEvent.ShowItem> op);
 
     /**
      * Get the formatted display name of the {@link ItemStack}.
@@ -371,7 +370,7 @@ public interface  ItemStack extends Cloneable, ConfigurationSerializable, Transl
      * for the material of this itemstack.
      */
     @Override
-    @NotNull String translationKey();
+    @NonNull String translationKey();
 
     /**
      * Gets the item rarity of the itemstack. The rarity can change based on enchantements.

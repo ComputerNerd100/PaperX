@@ -3,8 +3,9 @@ package io.papermc.paper.api.inventory.meta;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.player.OfflinePlayer;
 import io.papermc.paper.api.profile.PlayerProfile;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import io.papermc.paper.api.sound.Instrument;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a skull that can have an owner.
@@ -18,7 +19,6 @@ public interface SkullMeta extends ItemMeta {
      */
     boolean hasOwner();
 
-    // Paper start
     /**
      * Sets this skull to use the supplied Player Profile, which can include textures already prefilled.
      * @param profile The profile to set this Skull to use, or null to clear owner
@@ -30,7 +30,6 @@ public interface SkullMeta extends ItemMeta {
      * @return The profile of the owner, if set
      */
     @Nullable PlayerProfile getPlayerProfile();
-    // Paper end
 
     /**
      * Gets the owner of the skull.
@@ -55,7 +54,7 @@ public interface SkullMeta extends ItemMeta {
      * Sets the sound to play if the skull is placed on a note block.
      * <br>
      * <strong>Note:</strong> This only works for player heads. For other heads,
-     * see {@link org.bukkit.Instrument}.
+     * see {@link Instrument}.
      *
      * @param noteBlockSound the key of the sound to be played, or null
      */
@@ -65,7 +64,7 @@ public interface SkullMeta extends ItemMeta {
      * Gets the sound to play if the skull is placed on a note block.
      * <br>
      * <strong>Note:</strong> This only works for player heads. For other heads,
-     * see {@link org.bukkit.Instrument}.
+     * see {@link Instrument}.
      *
      * @return the key of the sound, or null
      */
@@ -73,7 +72,7 @@ public interface SkullMeta extends ItemMeta {
     NamespacedKey getNoteBlockSound();
 
     @Override
-    @NotNull
+    @NonNull
     SkullMeta clone();
 }
 

@@ -2,7 +2,7 @@ package io.papermc.paper.api.inventory;
 
 
 import io.papermc.paper.api.block.Block;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a block inventory holder - either a BlockState, or a regular
@@ -17,6 +17,6 @@ public interface BlockInventoryHolder extends InventoryHolder {
      * @throws IllegalStateException if the holder is a block state and is not
      * placed
      */
-    @NotNull
+    @NonNull
     Block getBlock();
 }

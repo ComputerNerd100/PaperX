@@ -1,5 +1,6 @@
 package io.papermc.paper.api.inventory;
 
+import io.papermc.paper.api.entity.Llama;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**

@@ -2,7 +2,8 @@ package io.papermc.paper.api.inventory;
 
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.jetbrains.annotations.NonNull;
 
 public enum ItemRarity {
 
@@ -21,7 +22,7 @@ public enum ItemRarity {
      * Gets the color formatting associated with the rarity.
      * @return
      */
-    @NotNull
+    @NonNull
     public TextColor getColor() {
         return color;
     }

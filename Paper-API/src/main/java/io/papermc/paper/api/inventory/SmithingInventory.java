@@ -1,7 +1,7 @@
 package io.papermc.paper.api.inventory;
 
 import io.papermc.paper.api.inventory.recipe.Recipe;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Interface to the inventory of a Smithing table.

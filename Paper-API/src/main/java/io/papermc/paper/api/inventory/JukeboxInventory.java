@@ -1,6 +1,7 @@
 package io.papermc.paper.api.inventory;
 
 import io.papermc.paper.api.block.tilestate.Jukebox;
+import io.papermc.paper.api.tag.Tag;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**

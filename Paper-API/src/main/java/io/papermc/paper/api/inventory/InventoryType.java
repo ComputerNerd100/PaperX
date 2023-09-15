@@ -1,6 +1,7 @@
 package io.papermc.paper.api.inventory;
 
-import org.jetbrains.annotations.NotNull;
+import io.papermc.paper.api.Paper;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents the different kinds of inventories available in Bukkit.
@@ -153,15 +154,15 @@ public enum InventoryType {
      *
      * @return the inventory's default title
      */
-    public net.kyori.adventure.text.@NotNull Component defaultTitle() {
+    public net.kyori.adventure.text.@NonNull Component defaultTitle() {
         return defaultTitleComponent;
     }
     // Paper end
-    private InventoryType(int defaultSize, /*@NotNull*/ String defaultTitle) {
+    private InventoryType(int defaultSize, /*@NonNull*/ String defaultTitle) {
         this(defaultSize, defaultTitle, true);
     }
 
-    private InventoryType(int defaultSize, /*@NotNull*/ String defaultTitle, boolean isCreatable) {
+    private InventoryType(int defaultSize, /*@NonNull*/ String defaultTitle, boolean isCreatable) {
         size = defaultSize;
         title = defaultTitle;
         this.isCreatable = isCreatable;

@@ -3,8 +3,8 @@ package io.papermc.paper.api.inventory.meta;
 import io.papermc.paper.api.block.color.Color;
 import io.papermc.paper.api.inventory.ItemFactory;
 import io.papermc.paper.api.material.Material;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents leather armor ({@link Material#LEATHER_BOOTS}, {@link
@@ -19,7 +19,7 @@ public interface LeatherArmorMeta extends ItemMeta {
      *
      * @return the color of the armor, never null
      */
-    @NotNull
+    @NonNull
     Color getColor();
 
     /**
@@ -31,6 +31,6 @@ public interface LeatherArmorMeta extends ItemMeta {
     void setColor(@Nullable Color color);
 
     @Override
-    @NotNull
+    @NonNull
     LeatherArmorMeta clone();
 }

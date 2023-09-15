@@ -2,7 +2,6 @@ package io.papermc.paper.api.inventory;
 
 import io.papermc.paper.api.entity.Entity;
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents an Inventory that can generate loot, such as Minecarts inside of Mineshafts

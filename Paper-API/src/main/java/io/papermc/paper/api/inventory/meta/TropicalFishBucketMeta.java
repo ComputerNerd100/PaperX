@@ -2,7 +2,7 @@ package io.papermc.paper.api.inventory.meta;
 
 import io.papermc.paper.api.block.color.DyeColor;
 import io.papermc.paper.api.entity.TropicalFish;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a bucket of tropical fish.
@@ -17,7 +17,7 @@ public interface TropicalFishBucketMeta extends ItemMeta {
      *
      * @return pattern color
      */
-    @NotNull
+    @NonNull
     DyeColor getPatternColor();
 
     /**
@@ -28,7 +28,7 @@ public interface TropicalFishBucketMeta extends ItemMeta {
      *
      * @param color pattern color
      */
-    void setPatternColor(@NotNull DyeColor color);
+    void setPatternColor(@NonNull DyeColor color);
 
     /**
      * Gets the color of the fish's body.
@@ -38,7 +38,7 @@ public interface TropicalFishBucketMeta extends ItemMeta {
      *
      * @return pattern color
      */
-    @NotNull
+    @NonNull
     DyeColor getBodyColor();
 
     /**
@@ -49,7 +49,7 @@ public interface TropicalFishBucketMeta extends ItemMeta {
      *
      * @param color body color
      */
-    void setBodyColor(@NotNull DyeColor color);
+    void setBodyColor(@NonNull DyeColor color);
 
     /**
      * Gets the fish's pattern.
@@ -59,8 +59,7 @@ public interface TropicalFishBucketMeta extends ItemMeta {
      *
      * @return pattern
      */
-    @NotNull
-    TropicalFish.Pattern getPattern();
+    TropicalFish.@NonNull Pattern getPattern();
 
     /**
      * Sets the fish's pattern.
@@ -70,7 +69,7 @@ public interface TropicalFishBucketMeta extends ItemMeta {
      *
      * @param pattern new pattern
      */
-    void setPattern(@NotNull TropicalFish.Pattern pattern);
+    void setPattern(TropicalFish.@NonNull Pattern pattern);
 
     /**
      * Checks for existence of a variant tag indicating a specific fish will be
@@ -81,7 +80,7 @@ public interface TropicalFishBucketMeta extends ItemMeta {
     boolean hasVariant();
 
     @Override
-    @NotNull
+    @NonNull
     TropicalFishBucketMeta clone();
 }
 

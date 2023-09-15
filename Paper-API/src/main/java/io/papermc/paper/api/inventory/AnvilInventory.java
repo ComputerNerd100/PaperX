@@ -1,6 +1,6 @@
 package io.papermc.paper.api.inventory;
 
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Interface to the inventory of an Anvil.

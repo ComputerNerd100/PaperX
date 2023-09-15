@@ -1,6 +1,5 @@
 package io.papermc.paper.api.inventory.recipe;
 
-import com.google.common.base.Preconditions;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.namespace.Keyed;

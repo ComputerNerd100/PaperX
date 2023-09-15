@@ -1,8 +1,8 @@
 package io.papermc.paper.api.inventory.meta;
 
 import io.papermc.paper.api.block.color.Color;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.List;
 
@@ -16,14 +16,14 @@ public interface PotionMeta extends ItemMeta {
      *
      * @param data PotionData to set the base potion state to
      */
-    void setBasePotionData(@NotNull PotionData data);
+    void setBasePotionData(@NonNull PotionData data);
 
     /**
      * Returns the potion data about the base potion
      *
      * @return a PotionData object
      */
-    @NotNull
+    @NonNull
     PotionData getBasePotionData();
 
     /**
@@ -42,7 +42,7 @@ public interface PotionMeta extends ItemMeta {
      *
      * @return the immutable list of custom potion effects
      */
-    @NotNull
+    @NonNull
     List<PotionEffect> getCustomEffects();
 
     /**
@@ -53,7 +53,7 @@ public interface PotionMeta extends ItemMeta {
      * overwritten
      * @return true if the potion meta changed as a result of this call
      */
-    boolean addCustomEffect(@NotNull PotionEffect effect, boolean overwrite);
+    boolean addCustomEffect(@NonNull PotionEffect effect, boolean overwrite);
 
     /**
      * Removes a custom potion effect from this potion.
@@ -61,7 +61,7 @@ public interface PotionMeta extends ItemMeta {
      * @param type the potion effect type to remove
      * @return true if the potion meta changed as a result of this call
      */
-    boolean removeCustomEffect(@NotNull PotionEffectType type);
+    boolean removeCustomEffect(@NonNull PotionEffectType type);
 
     /**
      * Checks for a specific custom potion effect type on this potion.
@@ -69,7 +69,7 @@ public interface PotionMeta extends ItemMeta {
      * @param type the potion effect type to check for
      * @return true if the potion has this effect
      */
-    boolean hasCustomEffect(@NotNull PotionEffectType type);
+    boolean hasCustomEffect(@NonNull PotionEffectType type);
 
     /**
      * Removes all custom potion effects from this potion.
