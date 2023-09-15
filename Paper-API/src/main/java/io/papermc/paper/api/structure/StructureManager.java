@@ -1,8 +1,8 @@
 package io.papermc.paper.api.structure;
 
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +26,7 @@ public interface StructureManager {
      * @return an unmodifiable shallow copy of the currently registered
      * structures
      */
-    @NotNull
+    @NonNull
     Map<NamespacedKey, Structure> getStructures();
 
     /**
@@ -37,7 +37,7 @@ public interface StructureManager {
      * <code>null</code> if there is none registered for that key.
      */
     @Nullable
-    Structure getStructure(@NotNull NamespacedKey structureKey);
+    Structure getStructure(@NonNull NamespacedKey structureKey);
 
     /**
      * Registers the given structure. See {@link #getStructures()}.
@@ -48,7 +48,7 @@ public interface StructureManager {
      * structure could not be found.
      */
     @Nullable
-    Structure registerStructure(@NotNull NamespacedKey structureKey, @NotNull Structure structure);
+    Structure registerStructure(@NonNull NamespacedKey structureKey, @NonNull Structure structure);
 
     /**
      * Unregisters a structure. Unregisters the specified structure. If the
@@ -61,7 +61,7 @@ public interface StructureManager {
      * <code>null</code> if there was none
      */
     @Nullable
-    Structure unregisterStructure(@NotNull NamespacedKey structureKey);
+    Structure unregisterStructure(@NonNull NamespacedKey structureKey);
 
     /**
      * Loads a structure for the specified key and optionally {@link
@@ -81,7 +81,7 @@ public interface StructureManager {
      * the specified key
      */
     @Nullable
-    Structure loadStructure(@NotNull NamespacedKey structureKey, boolean register);
+    Structure loadStructure(@NonNull NamespacedKey structureKey, boolean register);
 
     /**
      * Loads the structure for the specified key and automatically registers it.
@@ -92,7 +92,7 @@ public interface StructureManager {
      * structure could not be found.
      */
     @Nullable
-    Structure loadStructure(@NotNull NamespacedKey structureKey);
+    Structure loadStructure(@NonNull NamespacedKey structureKey);
 
     /**
      * Saves the currently {@link #getStructures() registered structure} for the
@@ -101,7 +101,7 @@ public interface StructureManager {
      *
      * @param structureKey The key for which to save the structure for
      */
-    void saveStructure(@NotNull NamespacedKey structureKey);
+    void saveStructure(@NonNull NamespacedKey structureKey);
 
     /**
      * Saves a structure with a given key to the primary world folder.
@@ -109,7 +109,7 @@ public interface StructureManager {
      * @param structureKey The key for which to save the structure for
      * @param structure The structure to save for this structureKey
      */
-    void saveStructure(@NotNull NamespacedKey structureKey, @NotNull Structure structure) throws IOException;
+    void saveStructure(@NonNull NamespacedKey structureKey, @NonNull Structure structure) throws IOException;
 
     /**
      * Unregisters the specified structure and deletes its {@link
@@ -121,7 +121,7 @@ public interface StructureManager {
      * @param structureKey The key of the structure to remove
      * @throws IOException If the file could not be removed for some reason.
      */
-    void deleteStructure(@NotNull NamespacedKey structureKey) throws IOException;
+    void deleteStructure(@NonNull NamespacedKey structureKey) throws IOException;
 
     /**
      * Deletes the {@link #getStructureFile(NamespacedKey) structure file} for
@@ -135,7 +135,7 @@ public interface StructureManager {
      * it is currently loaded.
      * @throws IOException If the file could not be removed for some reason.
      */
-    void deleteStructure(@NotNull NamespacedKey structureKey, boolean unregister) throws IOException;
+    void deleteStructure(@NonNull NamespacedKey structureKey, boolean unregister) throws IOException;
 
     /**
      * Gets the location where a structure file would exist in the primary world
@@ -146,8 +146,8 @@ public interface StructureManager {
      * @param structureKey The key to build the filepath from.
      * @return The location where a file with this key would be.
      */
-    @NotNull
-    File getStructureFile(@NotNull NamespacedKey structureKey);
+    @NonNull
+    File getStructureFile(@NonNull NamespacedKey structureKey);
 
     /**
      * Reads a Structure from disk.
@@ -156,8 +156,8 @@ public interface StructureManager {
      * @return The read structure
      * @throws IOException when the given file can not be read from
      */
-    @NotNull
-    Structure loadStructure(@NotNull File file) throws IOException;
+    @NonNull
+    Structure loadStructure(@NonNull File file) throws IOException;
 
     /**
      * Reads a Structure from a stream.
@@ -165,8 +165,8 @@ public interface StructureManager {
      * @param inputStream The file of the structure
      * @return The read Structure
      */
-    @NotNull
-    Structure loadStructure(@NotNull InputStream inputStream) throws IOException;
+    @NonNull
+    Structure loadStructure(@NonNull InputStream inputStream) throws IOException;
 
     /**
      * Save a structure to a file. This will overwrite a file if it already
@@ -176,7 +176,7 @@ public interface StructureManager {
      * @param structure the Structure to save.
      * @throws IOException when the given file can not be written to.
      */
-    void saveStructure(@NotNull File file, @NotNull Structure structure) throws IOException;
+    void saveStructure(@NonNull File file, @NonNull Structure structure) throws IOException;
 
     /**
      * Save a structure to a stream.
@@ -185,14 +185,14 @@ public interface StructureManager {
      * @param structure the Structure to save.
      * @throws IOException when the given file can not be written to.
      */
-    void saveStructure(@NotNull OutputStream outputStream, @NotNull Structure structure) throws IOException;
+    void saveStructure(@NonNull OutputStream outputStream, @NonNull Structure structure) throws IOException;
 
     /**
      * Creates a new empty structure.
      *
      * @return an empty structure.
      */
-    @NotNull
+    @NonNull
     Structure createStructure();
 
     /**
@@ -201,7 +201,7 @@ public interface StructureManager {
      * @param structure The structure to copy
      * @return a copy of the structure
      */
-    @NotNull
-    Structure copy(@NotNull Structure structure);
+    @NonNull
+    Structure copy(@NonNull Structure structure);
 }
 

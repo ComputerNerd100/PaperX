@@ -10,7 +10,7 @@ import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.persistance.PersistentDataHolder;
 import io.papermc.paper.api.util.vector.BlockVector;
 import io.papermc.paper.api.world.RegionAccessor;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.List;
 import java.util.Random;
@@ -39,7 +39,7 @@ public interface Structure extends PersistentDataHolder {
      * @return A new vector that represents the size of the structure along each
      * axis.
      */
-    @NotNull
+    @NonNull
     BlockVector getSize();
 
     /**
@@ -47,7 +47,7 @@ public interface Structure extends PersistentDataHolder {
      *
      * @return a list of available variants of this structure.
      */
-    @NotNull
+    @NonNull
     List<Palette> getPalettes();
 
     /**
@@ -65,7 +65,7 @@ public interface Structure extends PersistentDataHolder {
      *
      * @return a list of Entities included in the Structure.
      */
-    @NotNull
+    @NonNull
     List<Entity> getEntities();
 
     /**
@@ -91,7 +91,7 @@ public interface Structure extends PersistentDataHolder {
      * @param random The randomizer used for setting the structure's
      * {@link LootTable}s and integrity.
      */
-    void place(@NotNull Location location, boolean includeEntities, @NotNull StructureRotation structureRotation, @NotNull Mirror mirror, int palette, float integrity, @NotNull Random random);
+    void place(@NonNull Location location, boolean includeEntities, @NonNull StructureRotation structureRotation, @NonNull Mirror mirror, int palette, float integrity, @NonNull Random random);
 
     /**
      * Place a structure in the world.
@@ -110,7 +110,7 @@ public interface Structure extends PersistentDataHolder {
      * @param random The randomizer used for setting the structure's
      * {@link LootTable}s and integrity.
      */
-    void place(@NotNull RegionAccessor regionAccessor, @NotNull BlockVector location, boolean includeEntities, @NotNull StructureRotation structureRotation, @NotNull Mirror mirror, int palette, float integrity, @NotNull Random random);
+    void place(@NonNull RegionAccessor regionAccessor, @NonNull BlockVector location, boolean includeEntities, @NonNull StructureRotation structureRotation, @NonNull Mirror mirror, int palette, float integrity, @NonNull Random random);
 
     /**
      * Fills the structure from an area in a world. The origin and size will be
@@ -128,7 +128,7 @@ public interface Structure extends PersistentDataHolder {
      * @param includeEntities true if entities should be included in the saved
      * structure.
      */
-    void fill(@NotNull Location corner1, @NotNull Location corner2, boolean includeEntities);
+    void fill(@NonNull Location corner1, @NonNull Location corner2, boolean includeEntities);
 
     /**
      * Fills the Structure from an area in a world, starting at the specified
@@ -147,6 +147,6 @@ public interface Structure extends PersistentDataHolder {
      * structure.
      * @throws IllegalArgumentException Thrown if size is smaller than 1x1x1
      */
-    void fill(@NotNull Location origin, @NotNull BlockVector size, boolean includeEntities);
+    void fill(@NonNull Location origin, @NonNull BlockVector size, boolean includeEntities);
 }
 

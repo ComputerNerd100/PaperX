@@ -1,7 +1,7 @@
 package io.papermc.paper.api.structure;
 
 import io.papermc.paper.api.block.BlockState;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public interface Palette {
      *
      * @return The blocks in this palette
      */
-    @NotNull
+    @NonNull
     List<BlockState> getBlocks();
 
     /**
