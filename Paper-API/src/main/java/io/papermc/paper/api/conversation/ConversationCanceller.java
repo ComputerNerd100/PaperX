@@ -1,7 +1,6 @@
 package io.papermc.paper.api.conversation;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.jetbrains.annotations.NonNull;
 
 /**
  * A ConversationCanceller is a class that cancels an active {@link
