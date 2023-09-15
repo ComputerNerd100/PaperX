@@ -24,8 +24,8 @@ import io.papermc.paper.api.world.RegionAccessor;
 import io.papermc.paper.api.world.World;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.flattener.ComponentFlattener;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * This interface provides value conversions that may be specific to a
@@ -106,7 +106,7 @@ public interface UnsafeValues {
     String getTranslationKey(ItemStack itemStack);
 
     @Nullable
-    FeatureFlag getFeatureFlag(@NotNull NamespacedKey key);
+    FeatureFlag getFeatureFlag(@NonNull NamespacedKey key);
     /**
      * Server name to report to timings v2
      * @return name
@@ -142,7 +142,7 @@ public interface UnsafeValues {
     /**
      * Just don't use it.
      */
-    @NotNull String getMainLevelName();
+    @NonNull String getMainLevelName();
 
     /**
      * Gets the item rarity of a material. The material <b>MUST</b> be an item.
@@ -169,7 +169,7 @@ public interface UnsafeValues {
      * @param repairMaterial the repair material
      * @return true if valid repair, false if not
      */
-    boolean isValidRepairItemStack(@NotNull ItemStack itemToBeRepaired, @NotNull ItemStack repairMaterial);
+    boolean isValidRepairItemStack(@NonNull ItemStack itemToBeRepaired, @NonNull ItemStack repairMaterial);
 
     /**
      * Returns an immutable multimap of attributes for the material and slot.
@@ -180,7 +180,7 @@ public interface UnsafeValues {
      * @throws IllegalArgumentException if {@link Material#isItem()} is false
      * @return an immutable multimap of attributes
      */
-    @NotNull Multimap<Attribute, AttributeModifier> getItemAttributes(@NotNull Material material, @NotNull EquipmentSlot equipmentSlot);
+    @NonNull Multimap<Attribute, AttributeModifier> getItemAttributes(@NonNull Material material, @NonNull EquipmentSlot equipmentSlot);
 
     /**
      * Returns the server's protocol version.
@@ -195,7 +195,7 @@ public interface UnsafeValues {
      * @param entityKey the entity's key
      * @return true if it has default attributes
      */
-    boolean hasDefaultEntityAttributes(@NotNull NamespacedKey entityKey);
+    boolean hasDefaultEntityAttributes(@NonNull NamespacedKey entityKey);
 
     /**
      * Gets the default attributes for the entity represented by the namespaced key.
@@ -204,7 +204,7 @@ public interface UnsafeValues {
      * @return an unmodifiable instance of Attributable for reading default attributes.
      * @throws IllegalArgumentException if the entity does not exist of have default attributes (use {@link #hasDefaultEntityAttributes(NamespacedKey)} first)
      */
-    @NotNull Attributable getDefaultEntityAttributes(@NotNull NamespacedKey entityKey);
+    @NonNull Attributable getDefaultEntityAttributes(@NonNull NamespacedKey entityKey);
 
     /**
      * Checks if this material is collidable.
@@ -213,7 +213,7 @@ public interface UnsafeValues {
      * @return true if collidable
      * @throws IllegalArgumentException if {@link Material#isBlock()} is false
      */
-    boolean isCollidable(@NotNull Material material);
+    boolean isCollidable(@NonNull Material material);
 
     /**
      * Gets the {@link NamespacedKey} for the biome at the given location.
@@ -224,7 +224,7 @@ public interface UnsafeValues {
      * @param z Z-coordinate of the block
      * @return the biome's {@link NamespacedKey}
      */
-    @NotNull
+    @NonNull
     NamespacedKey getBiomeKey(RegionAccessor accessor, int x, int y, int z);
 
     /**
@@ -242,6 +242,6 @@ public interface UnsafeValues {
      */
     void setBiomeKey(RegionAccessor accessor, int x, int y, int z, NamespacedKey biomeKey);
 
-    String getStatisticCriteriaKey(@NotNull Statistic statistic);
+    String getStatisticCriteriaKey(@NonNull Statistic statistic);
 }
 
