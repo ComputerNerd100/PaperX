@@ -1,7 +1,7 @@
 package io.papermc.paper.api.projectilesource;
 
 import io.papermc.paper.api.block.Block;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public interface BlockProjectileSource extends ProjectileSource {
 
@@ -10,6 +10,6 @@ public interface BlockProjectileSource extends ProjectileSource {
      *
      * @return Block for the projectile source
      */
-    @NotNull
+    @NonNull
     Block getBlock();
 }

@@ -2,8 +2,8 @@ package io.papermc.paper.api.projectilesource;
 
 import io.papermc.paper.api.entity.Projectile;
 import io.papermc.paper.api.util.vector.Vector;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.function.Consumer;
 
@@ -19,8 +19,8 @@ public interface ProjectileSource {
      * @param projectile class of the projectile to launch
      * @return the launched projectile
      */
-    @NotNull
-    public <T extends Projectile> T launchProjectile(@NotNull Class<? extends T> projectile);
+    @NonNull
+    public <T extends Projectile> T launchProjectile(@NonNull Class<? extends T> projectile);
 
     /**
      * Launches a {@link Projectile} from the ProjectileSource with an
@@ -31,8 +31,8 @@ public interface ProjectileSource {
      * @param velocity the velocity with which to launch
      * @return the launched projectile
      */
-    @NotNull
-    public <T extends Projectile> T launchProjectile(@NotNull Class<? extends T> projectile, @Nullable Vector velocity);
+    @NonNull
+    public <T extends Projectile> T launchProjectile(@NonNull Class<? extends T> projectile, @Nullable Vector velocity);
 
     // Paper start
     /**
@@ -50,8 +50,8 @@ public interface ProjectileSource {
      * @param function the function to be run before the entity is spawned
      * @return the launched projectile
      */
-    @NotNull
-    public <T extends Projectile> T launchProjectile(@NotNull Class<? extends T> projectile, @Nullable Vector velocity, @Nullable Consumer<T> function);
+    @NonNull
+    public <T extends Projectile> T launchProjectile(@NonNull Class<? extends T> projectile, @Nullable Vector velocity, @Nullable Consumer<T> function);
     // Paper end
 }
 
