@@ -1,5 +1,6 @@
 package io.papermc.paper.api.map;
 
+import io.papermc.paper.api.inventory.meta.MapMeta;
 import io.papermc.paper.api.world.World;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
