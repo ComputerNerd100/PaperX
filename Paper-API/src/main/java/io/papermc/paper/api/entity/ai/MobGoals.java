@@ -1,8 +1,8 @@
 package io.papermc.paper.api.entity.ai;
 
 import io.papermc.paper.api.entity.Mob;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Collection;
 
@@ -11,40 +11,40 @@ import java.util.Collection;
  */
 public interface MobGoals {
 
-    <T extends Mob> void addGoal(@NotNull T mob, int priority, @NotNull Goal<T> goal);
+    <T extends Mob> void addGoal(@NonNull T mob, int priority, @NonNull Goal<T> goal);
 
-    <T extends Mob> void removeGoal(@NotNull T mob, @NotNull Goal<T> goal);
+    <T extends Mob> void removeGoal(@NonNull T mob, @NonNull Goal<T> goal);
 
-    <T extends Mob> void removeAllGoals(@NotNull T mob);
+    <T extends Mob> void removeAllGoals(@NonNull T mob);
 
-    <T extends Mob> void removeAllGoals(@NotNull T mob, @NotNull GoalType type);
+    <T extends Mob> void removeAllGoals(@NonNull T mob, @NonNull GoalType type);
 
-    <T extends Mob> void removeGoal(@NotNull T mob, @NotNull GoalKey<T> key);
+    <T extends Mob> void removeGoal(@NonNull T mob, @NonNull GoalKey<T> key);
 
-    <T extends Mob> boolean hasGoal(@NotNull T mob, @NotNull GoalKey<T> key);
+    <T extends Mob> boolean hasGoal(@NonNull T mob, @NonNull GoalKey<T> key);
 
     @Nullable
-    <T extends Mob> Goal<T> getGoal(@NotNull T mob, @NotNull GoalKey<T> key);
+    <T extends Mob> Goal<T> getGoal(@NonNull T mob, @NonNull GoalKey<T> key);
 
-    @NotNull
-    <T extends Mob> Collection<Goal<T>> getGoals(@NotNull T mob, @NotNull GoalKey<T> key);
+    @NonNull
+    <T extends Mob> Collection<Goal<T>> getGoals(@NonNull T mob, @NonNull GoalKey<T> key);
 
-    @NotNull
-    <T extends Mob> Collection<Goal<T>> getAllGoals(@NotNull T mob);
+    @NonNull
+    <T extends Mob> Collection<Goal<T>> getAllGoals(@NonNull T mob);
 
-    @NotNull
-    <T extends Mob> Collection<Goal<T>> getAllGoals(@NotNull T mob, @NotNull GoalType type);
+    @NonNull
+    <T extends Mob> Collection<Goal<T>> getAllGoals(@NonNull T mob, @NonNull GoalType type);
 
-    @NotNull
-    <T extends Mob> Collection<Goal<T>> getAllGoalsWithout(@NotNull T mob, @NotNull GoalType type);
+    @NonNull
+    <T extends Mob> Collection<Goal<T>> getAllGoalsWithout(@NonNull T mob, @NonNull GoalType type);
 
-    @NotNull
-    <T extends Mob> Collection<Goal<T>> getRunningGoals(@NotNull T mob);
+    @NonNull
+    <T extends Mob> Collection<Goal<T>> getRunningGoals(@NonNull T mob);
 
-    @NotNull
-    <T extends Mob> Collection<Goal<T>> getRunningGoals(@NotNull T mob, @NotNull GoalType type);
+    @NonNull
+    <T extends Mob> Collection<Goal<T>> getRunningGoals(@NonNull T mob, @NonNull GoalType type);
 
-    @NotNull
-    <T extends Mob> Collection<Goal<T>> getRunningGoalsWithout(@NotNull T mob, @NotNull GoalType type);
+    @NonNull
+    <T extends Mob> Collection<Goal<T>> getRunningGoalsWithout(@NonNull T mob, @NonNull GoalType type);
 }
 

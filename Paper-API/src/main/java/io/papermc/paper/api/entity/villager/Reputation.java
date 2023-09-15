@@ -2,7 +2,7 @@ package io.papermc.paper.api.entity.villager;
 
 import com.google.common.base.Preconditions;
 import io.papermc.paper.api.entity.Villager;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -12,15 +12,15 @@ import java.util.Map;
  */
 public final class Reputation {
 
-    @NotNull
+    @NonNull
     private final Map<ReputationType, Integer> reputation;
 
     public Reputation() {
         this(new EnumMap<>(ReputationType.class));
     }
 
-    public Reputation(@NotNull Map<ReputationType, Integer> reputation) {
-        Preconditions.checkNotNull(reputation, "reputation cannot be null");
+    public Reputation(@NonNull Map<ReputationType, Integer> reputation) {
+        Preconditions.checkNonNull(reputation, "reputation cannot be null");
         this.reputation = reputation;
     }
 
@@ -30,8 +30,8 @@ public final class Reputation {
      * @param type The {@link ReputationType type} of reputation to get.
      * @return The value of the {@link ReputationType type}.
      */
-    public int getReputation(@NotNull ReputationType type) {
-        Preconditions.checkNotNull(type, "the reputation type cannot be null");
+    public int getReputation(@NonNull ReputationType type) {
+        Preconditions.checkNonNull(type, "the reputation type cannot be null");
         return this.reputation.getOrDefault(type, 0);
     }
 
@@ -41,8 +41,8 @@ public final class Reputation {
      * @param type The {@link ReputationType type} of reputation to set.
      * @param value The value of the {@link ReputationType type}.
      */
-    public void setReputation(@NotNull ReputationType type, int value) {
-        Preconditions.checkNotNull(type, "the reputation type cannot be null");
+    public void setReputation(@NonNull ReputationType type, int value) {
+        Preconditions.checkNonNull(type, "the reputation type cannot be null");
         this.reputation.put(type, value);
     }
 
@@ -52,7 +52,7 @@ public final class Reputation {
      * @param type The {@link ReputationType type} to check
      * @return If there is a value for this {@link ReputationType type} set.
      */
-    public boolean hasReputationSet(@NotNull ReputationType type) {
+    public boolean hasReputationSet(@NonNull ReputationType type) {
         return this.reputation.containsKey(type);
     }
 

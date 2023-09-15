@@ -4,8 +4,8 @@ import io.papermc.paper.api.entity.LivingEntity;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.*;
 
@@ -26,7 +26,7 @@ public final class MemoryKey<T> implements Keyed {
         MEMORY_KEYS.put(namespacedKey, this);
     }
 
-    @NotNull
+    @NonNull
     @Override
     public NamespacedKey getKey() {
         return namespacedKey;
@@ -37,7 +37,7 @@ public final class MemoryKey<T> implements Keyed {
      *
      * @return the class of value objects
      */
-    @NotNull
+    @NonNull
     public Class<T> getMemoryClass() {
         return tClass;
     }
@@ -78,7 +78,7 @@ public final class MemoryKey<T> implements Keyed {
      * available under that key
      */
     @Nullable
-    public static MemoryKey getByKey(@NotNull NamespacedKey namespacedKey) {
+    public static MemoryKey getByKey(@NonNull NamespacedKey namespacedKey) {
         return MEMORY_KEYS.get(namespacedKey);
     }
 
@@ -87,7 +87,7 @@ public final class MemoryKey<T> implements Keyed {
      *
      * @return the memoryKeys
      */
-    @NotNull
+    @NonNull
     public static Set<MemoryKey> values() {
         return new HashSet<>(MEMORY_KEYS.values());
     }
