@@ -257,8 +257,8 @@ public final class GameRule<T> implements net.kyori.adventure.translation.Transl
     private final Class<T> type;
 
     private GameRule(@NonNull String name, @NonNull Class<T> clazz) {
-        Preconditions.checkNonNull(name, "GameRule name cannot be null");
-        Preconditions.checkNonNull(clazz, "GameRule type cannot be null");
+        Preconditions.checkNotNull(name, "GameRule name cannot be null");
+        Preconditions.checkNotNull(clazz, "GameRule type cannot be null");
         Preconditions.checkArgument(clazz == Boolean.class || clazz == Integer.class, "Must be of type Boolean or Integer. Found %s ", clazz.getName());
         this.name = name;
         this.type = clazz;
@@ -311,7 +311,7 @@ public final class GameRule<T> implements net.kyori.adventure.translation.Transl
      */
     @Nullable
     public static GameRule<?> getByName(@NonNull String rule) {
-        Preconditions.checkNonNull(rule, "Rule cannot be null");
+        Preconditions.checkNotNull(rule, "Rule cannot be null");
         return gameRules.get(rule);
     }
 

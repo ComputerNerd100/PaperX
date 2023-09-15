@@ -546,7 +546,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     public boolean isGenerated() {
         World world = this.getWorld();
-        Preconditions.checkNonNull(world, "Location has no world!");
+        Preconditions.checkNotNull(world, "Location has no world!");
         return world.isChunkGenerated(locToBlock(x) >> 4, locToBlock(z) >> 4);
     }
 

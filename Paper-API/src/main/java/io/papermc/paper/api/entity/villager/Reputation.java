@@ -20,7 +20,7 @@ public final class Reputation {
     }
 
     public Reputation(@NonNull Map<ReputationType, Integer> reputation) {
-        Preconditions.checkNonNull(reputation, "reputation cannot be null");
+        Preconditions.checkNotNull(reputation, "reputation cannot be null");
         this.reputation = reputation;
     }
 
@@ -31,7 +31,7 @@ public final class Reputation {
      * @return The value of the {@link ReputationType type}.
      */
     public int getReputation(@NonNull ReputationType type) {
-        Preconditions.checkNonNull(type, "the reputation type cannot be null");
+        Preconditions.checkNotNull(type, "the reputation type cannot be null");
         return this.reputation.getOrDefault(type, 0);
     }
 
@@ -42,7 +42,7 @@ public final class Reputation {
      * @param value The value of the {@link ReputationType type}.
      */
     public void setReputation(@NonNull ReputationType type, int value) {
-        Preconditions.checkNonNull(type, "the reputation type cannot be null");
+        Preconditions.checkNotNull(type, "the reputation type cannot be null");
         this.reputation.put(type, value);
     }
 

@@ -19,8 +19,8 @@ public class ProfileProperty {
     }
 
     public ProfileProperty(@NonNull String name, @NonNull String value, @Nullable String signature) {
-        this.name = Preconditions.checkNonNull(name, "ProfileProperty name can not be null");
-        this.value = Preconditions.checkNonNull(value, "ProfileProperty value can not be null");
+        this.name = Preconditions.checkNotNull(name, "ProfileProperty name can not be null");
+        this.value = Preconditions.checkNotNull(value, "ProfileProperty value can not be null");
         this.signature = signature;
     }
 
