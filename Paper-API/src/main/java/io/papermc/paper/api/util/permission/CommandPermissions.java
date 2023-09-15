@@ -2,7 +2,7 @@ package io.papermc.paper.api.util.permission;
 
 import io.papermc.paper.api.permisson.Permission;
 import io.papermc.paper.api.permisson.PermissionDefault;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public final class CommandPermissions {
     private static final String ROOT = "bukkit.command";
@@ -11,8 +11,8 @@ public final class CommandPermissions {
     private CommandPermissions() {
     }
 
-    @NotNull
-    public static Permission registerPermissions(@NotNull Permission parent) {
+    @NonNull
+    public static Permission registerPermissions(@NonNull Permission parent) {
         Permission commands = DefaultPermissions.registerPermission(ROOT, "Gives the user the ability to use all CraftBukkit commands", parent);
 
         DefaultPermissions.registerPermission(PREFIX + "help", "Allows the user to view the vanilla help menu", PermissionDefault.TRUE, commands);

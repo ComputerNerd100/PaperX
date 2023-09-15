@@ -1,7 +1,7 @@
 package io.papermc.paper.api.util;
 
 import com.google.common.base.Preconditions;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.joml.AxisAngle4f;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
@@ -13,16 +13,16 @@ import java.util.Objects;
  */
 public class Transformation {
 
-    @NotNull
+    @NonNull
     private final Vector3f translation;
-    @NotNull
+    @NonNull
     private final Quaternionf leftRotation;
-    @NotNull
+    @NonNull
     private final Vector3f scale;
-    @NotNull
+    @NonNull
     private final Quaternionf rightRotation;
 
-    public Transformation(@NotNull Vector3f translation, @NotNull AxisAngle4f leftRotation, @NotNull Vector3f scale, @NotNull AxisAngle4f rightRotation) {
+    public Transformation(@NonNull Vector3f translation, @NonNull AxisAngle4f leftRotation, @NonNull Vector3f scale, @NonNull AxisAngle4f rightRotation) {
         Preconditions.checkArgument(translation != null, "translation cannot be null");
         Preconditions.checkArgument(leftRotation != null, "leftRotation cannot be null");
         Preconditions.checkArgument(scale != null, "scale cannot be null");
@@ -34,7 +34,7 @@ public class Transformation {
         this.rightRotation = new Quaternionf(rightRotation);
     }
 
-    public Transformation(@NotNull Vector3f translation, @NotNull Quaternionf leftRotation, @NotNull Vector3f scale, @NotNull Quaternionf rightRotation) {
+    public Transformation(@NonNull Vector3f translation, @NonNull Quaternionf leftRotation, @NonNull Vector3f scale, @NonNull Quaternionf rightRotation) {
         Preconditions.checkArgument(translation != null, "translation cannot be null");
         Preconditions.checkArgument(leftRotation != null, "leftRotation cannot be null");
         Preconditions.checkArgument(scale != null, "scale cannot be null");
@@ -51,7 +51,7 @@ public class Transformation {
      *
      * @return translation component
      */
-    @NotNull
+    @NonNull
     public Vector3f getTranslation() {
         return this.translation;
     }
@@ -61,7 +61,7 @@ public class Transformation {
      *
      * @return left rotation component
      */
-    @NotNull
+    @NonNull
     public Quaternionf getLeftRotation() {
         return this.leftRotation;
     }
@@ -71,7 +71,7 @@ public class Transformation {
      *
      * @return scale component
      */
-    @NotNull
+    @NonNull
     public Vector3f getScale() {
         return this.scale;
     }
@@ -81,7 +81,7 @@ public class Transformation {
      *
      * @return right rotation component
      */
-    @NotNull
+    @NonNull
     public Quaternionf getRightRotation() {
         return this.rightRotation;
     }

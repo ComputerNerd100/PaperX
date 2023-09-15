@@ -2,8 +2,8 @@ package io.papermc.paper.api.util.game;
 
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -122,7 +122,7 @@ public final class GameEvent implements Keyed {
         GAME_EVENTS.put(key, this);
     }
 
-    @NotNull
+    @NonNull
     @Override
     public NamespacedKey getKey() {
         return key;
@@ -135,7 +135,7 @@ public final class GameEvent implements Keyed {
      * @return the event or null
      */
     @Nullable
-    public static GameEvent getByKey(@NotNull NamespacedKey namespacedKey) {
+    public static GameEvent getByKey(@NonNull NamespacedKey namespacedKey) {
         return GAME_EVENTS.get(namespacedKey);
     }
 
@@ -144,7 +144,7 @@ public final class GameEvent implements Keyed {
      *
      * @return the memoryKeys
      */
-    @NotNull
+    @NonNull
     public static Collection<GameEvent> values() {
         return Collections.unmodifiableCollection(GAME_EVENTS.values());
     }

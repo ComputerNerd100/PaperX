@@ -5,8 +5,8 @@ import io.papermc.paper.api.command.CommandSender;
 import io.papermc.paper.api.entity.Entity;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.flattener.ComponentFlattener;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.io.IOException;
 
@@ -43,7 +43,7 @@ public final class PaperComponents {
      * @return the resolved component
      * @throws IOException if a syntax error tripped during resolving
      */
-    public static @NotNull Component resolveWithContext(@NotNull Component input, @Nullable CommandSender context, @Nullable Entity scoreboardSubject) throws IOException {
+    public static @NonNull Component resolveWithContext(@NonNull Component input, @Nullable CommandSender context, @Nullable Entity scoreboardSubject) throws IOException {
         return resolveWithContext(input, context, scoreboardSubject, true);
     }
 
@@ -74,7 +74,7 @@ public final class PaperComponents {
      * @return the resolved component
      * @throws IOException if a syntax error tripped during resolving
      */
-    public static @NotNull Component resolveWithContext(@NotNull Component input, @Nullable CommandSender context, @Nullable Entity scoreboardSubject, boolean bypassPermissions) throws IOException {
+    public static @NonNull Component resolveWithContext(@NonNull Component input, @Nullable CommandSender context, @Nullable Entity scoreboardSubject, boolean bypassPermissions) throws IOException {
         return Paper.getUnsafe().resolveWithContext(input, context, scoreboardSubject, bypassPermissions);
     }
 
@@ -83,7 +83,7 @@ public final class PaperComponents {
      *
      * @return a component flattener
      */
-    public static @NotNull ComponentFlattener flattener() {
+    public static @NonNull ComponentFlattener flattener() {
         return Paper.getUnsafe().componentFlattener();
     }
 }

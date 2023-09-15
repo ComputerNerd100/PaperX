@@ -2,7 +2,7 @@ package io.papermc.paper.api.util.permission;
 
 import io.papermc.paper.api.permisson.Permission;
 import io.papermc.paper.api.permisson.PermissionDefault;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public final class BroadcastPermissions {
     private static final String ROOT = "bukkit.broadcast";
@@ -10,8 +10,8 @@ public final class BroadcastPermissions {
 
     private BroadcastPermissions() {}
 
-    @NotNull
-    public static Permission registerPermissions(@NotNull Permission parent) {
+    @NonNull
+    public static Permission registerPermissions(@NonNull Permission parent) {
         Permission broadcasts = DefaultPermissions.registerPermission(ROOT, "Allows the user to receive all broadcast messages", parent);
 
         DefaultPermissions.registerPermission(PREFIX + "admin", "Allows the user to receive administrative broadcasts", PermissionDefault.OP, broadcasts);

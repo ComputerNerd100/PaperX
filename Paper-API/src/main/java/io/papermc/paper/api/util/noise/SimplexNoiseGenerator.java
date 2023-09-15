@@ -1,7 +1,7 @@
 package io.papermc.paper.api.util.noise;
 
 import io.papermc.paper.api.world.World;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Random;
 
@@ -55,7 +55,7 @@ public class SimplexNoiseGenerator extends PerlinNoiseGenerator {
      *
      * @param world World to construct this generator for
      */
-    public SimplexNoiseGenerator(@NotNull World world) {
+    public SimplexNoiseGenerator(@NonNull World world) {
         this(new Random(world.getSeed()));
     }
 
@@ -73,20 +73,20 @@ public class SimplexNoiseGenerator extends PerlinNoiseGenerator {
      *
      * @param rand Random to construct with
      */
-    public SimplexNoiseGenerator(@NotNull Random rand) {
+    public SimplexNoiseGenerator(@NonNull Random rand) {
         super(rand);
         offsetW = rand.nextDouble() * 256;
     }
 
-    protected static double dot(@NotNull int[] g, double x, double y) {
+    protected static double dot(@NonNull int[] g, double x, double y) {
         return g[0] * x + g[1] * y;
     }
 
-    protected static double dot(@NotNull int[] g, double x, double y, double z) {
+    protected static double dot(@NonNull int[] g, double x, double y, double z) {
         return g[0] * x + g[1] * y + g[2] * z;
     }
 
-    protected static double dot(@NotNull int[] g, double x, double y, double z, double w) {
+    protected static double dot(@NonNull int[] g, double x, double y, double z, double w) {
         return g[0] * x + g[1] * y + g[2] * z + g[3] * w;
     }
 
@@ -516,7 +516,7 @@ public class SimplexNoiseGenerator extends PerlinNoiseGenerator {
      *
      * @return Singleton
      */
-    @NotNull
+    @NonNull
     public static SimplexNoiseGenerator getInstance() {
         return instance;
     }

@@ -3,8 +3,8 @@ package io.papermc.paper.api.util.game;
 
 import com.google.common.collect.Maps;
 import io.papermc.paper.api.entity.HumanEntity;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Map;
 
@@ -41,7 +41,7 @@ public enum GameMode implements net.kyori.adventure.translation.Translatable { /
     private final String translationKey;
 
     @Override
-    public @NotNull String translationKey() {
+    public @NonNull String translationKey() {
         return this.translationKey;
     }
 

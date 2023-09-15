@@ -2,7 +2,7 @@ package io.papermc.paper.api.util.fluid;
 
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Locale;
 
@@ -40,7 +40,7 @@ public enum Fluid implements Keyed {
         this.key = NamespacedKey.minecraft(this.name().toLowerCase(Locale.ROOT));
     }
 
-    @NotNull
+    @NonNull
     @Override
     public NamespacedKey getKey() {
         return key;

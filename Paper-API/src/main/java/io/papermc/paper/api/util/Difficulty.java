@@ -1,14 +1,15 @@
 package io.papermc.paper.api.util;
 
 import com.google.common.collect.Maps;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Map;
 
 /**
  * Represents the various difficulty levels that are available.
  */
-public enum Difficulty implements net.kyori.adventure.translation.Translatable { // Paper - Adventure translations
+public enum Difficulty implements net.kyori.adventure.translation.Translatable {
     /**
      * Players regain health over time, hostile mobs don't spawn, the hunger
      * bar does not deplete.
@@ -52,12 +53,10 @@ public enum Difficulty implements net.kyori.adventure.translation.Translatable {
         return value;
     }
 
-    // Paper start
     @Override
-    public @org.jetbrains.annotations.NotNull String translationKey() {
+    public @NonNull String translationKey() {
         return "options.difficulty." + this.name().toLowerCase(java.util.Locale.ENGLISH);
     }
-    // Paper end
     /**
      * Gets the Difficulty represented by the specified value
      *

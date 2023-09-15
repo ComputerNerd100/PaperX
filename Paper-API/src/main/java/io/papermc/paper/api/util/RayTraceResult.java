@@ -5,8 +5,8 @@ import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.block.BlockFace;
 import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.util.vector.Vector;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Objects;
 
@@ -25,7 +25,7 @@ public class RayTraceResult {
     private final BlockFace hitBlockFace;
     private final Entity hitEntity;
 
-    private RayTraceResult(@NotNull Vector hitPosition, @Nullable Block hitBlock, @Nullable BlockFace hitBlockFace, @Nullable Entity hitEntity) {
+    private RayTraceResult(@NonNull Vector hitPosition, @Nullable Block hitBlock, @Nullable BlockFace hitBlockFace, @Nullable Entity hitEntity) {
         Preconditions.checkArgument(hitPosition != null, "Hit position is null!");
         this.hitPosition = hitPosition.clone();
         this.hitBlock = hitBlock;
@@ -38,7 +38,7 @@ public class RayTraceResult {
      *
      * @param hitPosition the hit position
      */
-    public RayTraceResult(@NotNull Vector hitPosition) {
+    public RayTraceResult(@NonNull Vector hitPosition) {
         this(hitPosition, null, null, null);
     }
 
@@ -48,7 +48,7 @@ public class RayTraceResult {
      * @param hitPosition the hit position
      * @param hitBlockFace the hit block face
      */
-    public RayTraceResult(@NotNull Vector hitPosition, @Nullable BlockFace hitBlockFace) {
+    public RayTraceResult(@NonNull Vector hitPosition, @Nullable BlockFace hitBlockFace) {
         this(hitPosition, null, hitBlockFace, null);
     }
 
@@ -59,7 +59,7 @@ public class RayTraceResult {
      * @param hitBlock the hit block
      * @param hitBlockFace the hit block face
      */
-    public RayTraceResult(@NotNull Vector hitPosition, @Nullable Block hitBlock, @Nullable BlockFace hitBlockFace) {
+    public RayTraceResult(@NonNull Vector hitPosition, @Nullable Block hitBlock, @Nullable BlockFace hitBlockFace) {
         this(hitPosition, hitBlock, hitBlockFace, null);
     }
 
@@ -69,7 +69,7 @@ public class RayTraceResult {
      * @param hitPosition the hit position
      * @param hitEntity the hit entity
      */
-    public RayTraceResult(@NotNull Vector hitPosition, @Nullable Entity hitEntity) {
+    public RayTraceResult(@NonNull Vector hitPosition, @Nullable Entity hitEntity) {
         this(hitPosition, null, null, hitEntity);
     }
 
@@ -80,7 +80,7 @@ public class RayTraceResult {
      * @param hitEntity the hit entity
      * @param hitBlockFace the hit block face
      */
-    public RayTraceResult(@NotNull Vector hitPosition, @Nullable Entity hitEntity, @Nullable BlockFace hitBlockFace) {
+    public RayTraceResult(@NonNull Vector hitPosition, @Nullable Entity hitEntity, @Nullable BlockFace hitBlockFace) {
         this(hitPosition, null, hitBlockFace, hitEntity);
     }
 
@@ -89,7 +89,7 @@ public class RayTraceResult {
      *
      * @return a copy of the exact hit position
      */
-    @NotNull
+    @NonNull
     public Vector getHitPosition() {
         return hitPosition.clone();
     }

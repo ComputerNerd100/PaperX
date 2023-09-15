@@ -1,6 +1,6 @@
 package io.papermc.paper.api.util;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * EulerAngle is used to represent 3 angles, one for each
@@ -65,7 +65,7 @@ public class EulerAngle {
      * @param x the angle in radians
      * @return the resultant EulerAngle
      */
-    @NotNull
+    @NonNull
     public EulerAngle setX(double x) {
         return new EulerAngle(x, y, z);
     }
@@ -77,7 +77,7 @@ public class EulerAngle {
      * @param y the angle in radians
      * @return the resultant EulerAngle
      */
-    @NotNull
+    @NonNull
     public EulerAngle setY(double y) {
         return new EulerAngle(x, y, z);
     }
@@ -89,7 +89,7 @@ public class EulerAngle {
      * @param z the angle in radians
      * @return the resultant EulerAngle
      */
-    @NotNull
+    @NonNull
     public EulerAngle setZ(double z) {
         return new EulerAngle(x, y, z);
     }
@@ -103,7 +103,7 @@ public class EulerAngle {
      * @param z the angle to add to the z axis in radians
      * @return the resultant EulerAngle
      */
-    @NotNull
+    @NonNull
     public EulerAngle add(double x, double y, double z) {
         return new EulerAngle(
                 this.x + x,
@@ -121,7 +121,7 @@ public class EulerAngle {
      * @param z the angle to subtract to the z axis in radians
      * @return the resultant EulerAngle
      */
-    @NotNull
+    @NonNull
     public EulerAngle subtract(double x, double y, double z) {
         return add(-x, -y, -z);
     }

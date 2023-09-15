@@ -1,7 +1,6 @@
 package io.papermc.paper.api.util;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.util.function.Function;
@@ -48,12 +47,12 @@ public final class TransformingRandomAccessList<F, T> extends AbstractList<T> im
     }
 
     @Override
-    public @NotNull Iterator<T> iterator() {
+    public @NonNull Iterator<T> iterator() {
         return this.listIterator();
     }
 
     @Override
-    public @NotNull ListIterator<T> listIterator(int index) {
+    public @NonNull ListIterator<T> listIterator(int index) {
         return new TransformedListIterator<F, T>(this.fromList.listIterator(index)) {
             @Override
             T transform(F from) {

@@ -1,6 +1,6 @@
 package io.papermc.paper.api.util;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * An enum to specify a rotation based orientation, like that on a clock.
@@ -50,7 +50,7 @@ public enum Rotation {
      *
      * @return the relative rotation
      */
-    @NotNull
+    @NonNull
     public Rotation rotateClockwise() {
         return rotations[(this.ordinal() + 1) & 0x7];
     }
@@ -60,7 +60,7 @@ public enum Rotation {
      *
      * @return the relative rotation
      */
-    @NotNull
+    @NonNull
     public Rotation rotateCounterClockwise() {
         return rotations[(this.ordinal() - 1) & 0x7];
     }

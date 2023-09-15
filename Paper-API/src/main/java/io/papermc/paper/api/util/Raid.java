@@ -2,7 +2,7 @@ package io.papermc.paper.api.util;
 
 import io.papermc.paper.api.entity.Raider;
 import io.papermc.paper.api.location.Location;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.List;
 import java.util.Set;
@@ -50,7 +50,7 @@ public interface Raid {
      *
      * @return location
      */
-    @NotNull
+    @NonNull
     Location getLocation();
 
     /**
@@ -61,7 +61,7 @@ public interface Raid {
      *
      * @return Raids status
      */
-    @NotNull
+    @NonNull
     RaidStatus getStatus();
 
     /**
@@ -100,7 +100,7 @@ public interface Raid {
      *
      * @return a set of unique ids
      */
-    @NotNull
+    @NonNull
     Set<UUID> getHeroes();
 
     /**
@@ -108,7 +108,7 @@ public interface Raid {
      *
      * @return a list of current raiders
      */
-    @NotNull
+    @NonNull
     List<Raider> getRaiders();
 
     /**

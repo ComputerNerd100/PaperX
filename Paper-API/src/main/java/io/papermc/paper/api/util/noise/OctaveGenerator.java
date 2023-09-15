@@ -1,18 +1,18 @@
 package io.papermc.paper.api.util.noise;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Creates noise using unbiased octaves
  */
 public abstract class OctaveGenerator {
-    @NotNull
+    @NonNull
     protected final NoiseGenerator[] octaves;
     protected double xScale = 1;
     protected double yScale = 1;
     protected double zScale = 1;
 
-    protected OctaveGenerator(@NotNull NoiseGenerator[] octaves) {
+    protected OctaveGenerator(@NonNull NoiseGenerator[] octaves) {
         this.octaves = octaves;
     }
 
@@ -89,7 +89,7 @@ public abstract class OctaveGenerator {
      *
      * @return Clone of the individual octaves
      */
-    @NotNull
+    @NonNull
     public NoiseGenerator[] getOctaves() {
         return octaves.clone();
     }

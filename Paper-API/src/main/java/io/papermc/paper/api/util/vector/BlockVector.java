@@ -1,6 +1,6 @@
 package io.papermc.paper.api.util.vector;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Map;
 
@@ -26,7 +26,7 @@ public class BlockVector extends Vector {
      *
      * @param vec The other vector.
      */
-    public BlockVector(@NotNull Vector vec) {
+    public BlockVector(@NonNull Vector vec) {
         this.x = vec.getX();
         this.y = vec.getY();
         this.z = vec.getZ();
@@ -108,8 +108,8 @@ public class BlockVector extends Vector {
         return (BlockVector) super.clone();
     }
 
-    @NotNull
-    public static BlockVector deserialize(@NotNull Map<String, Object> args) {
+    @NonNull
+    public static BlockVector deserialize(@NonNull Map<String, Object> args) {
         double x = 0;
         double y = 0;
         double z = 0;

@@ -2,7 +2,7 @@ package io.papermc.paper.api.util;
 
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Locale;
 
@@ -104,7 +104,7 @@ public enum Statistic implements Keyed {
         this(Type.UNTYPED);
     }
 
-    private Statistic(/*@NotNull*/ Type type) {
+    private Statistic(/*@NonNull*/ Type type) {
         this.type = type;
         this.key = NamespacedKey.minecraft(name().toLowerCase(Locale.ROOT));
     }
@@ -114,7 +114,7 @@ public enum Statistic implements Keyed {
      *
      * @return the type of this statistic
      */
-    @NotNull
+    @NonNull
     public Type getType() {
         return type;
     }
@@ -146,7 +146,7 @@ public enum Statistic implements Keyed {
         return type == Type.BLOCK;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public NamespacedKey getKey() {
         return key;

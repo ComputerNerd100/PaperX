@@ -1,7 +1,7 @@
 package io.papermc.paper.api.util.noise;
 
 import io.papermc.paper.api.world.World;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Random;
 
@@ -47,7 +47,7 @@ public class PerlinNoiseGenerator extends NoiseGenerator {
      *
      * @param world World to construct this generator for
      */
-    public PerlinNoiseGenerator(@NotNull World world) {
+    public PerlinNoiseGenerator(@NonNull World world) {
         this(new Random(world.getSeed()));
     }
 
@@ -65,7 +65,7 @@ public class PerlinNoiseGenerator extends NoiseGenerator {
      *
      * @param rand Random to construct with
      */
-    public PerlinNoiseGenerator(@NotNull Random rand) {
+    public PerlinNoiseGenerator(@NonNull Random rand) {
         offsetX = rand.nextDouble() * 256;
         offsetY = rand.nextDouble() * 256;
         offsetZ = rand.nextDouble() * 256;
@@ -125,7 +125,7 @@ public class PerlinNoiseGenerator extends NoiseGenerator {
      *
      * @return Singleton
      */
-    @NotNull
+    @NonNull
     public static PerlinNoiseGenerator getInstance() {
         return instance;
     }

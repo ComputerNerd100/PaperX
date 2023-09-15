@@ -3,7 +3,7 @@ package io.papermc.paper.api.util;
 import io.papermc.paper.api.Paper;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public interface VersionFetcher {
     /**
@@ -23,8 +23,8 @@ public interface VersionFetcher {
      * @param serverVersion the current version of the server (will match {@link Paper#getVersion()})
      * @return the message to show when requesting a version
      */
-    @NotNull
-    Component getVersionMessage(@NotNull String serverVersion);
+    @NonNull
+    Component getVersionMessage(@NonNull String serverVersion);
 
     class DummyVersionFetcher implements VersionFetcher {
 
@@ -33,9 +33,9 @@ public interface VersionFetcher {
             return -1;
         }
 
-        @NotNull
+        @NonNull
         @Override
-        public Component getVersionMessage(@NotNull String serverVersion) {
+        public Component getVersionMessage(@NonNull String serverVersion) {
             Paper.getLogger().warning("Version provider has not been set, cannot check for updates!");
             Paper.getLogger().info("Override the default implementation of org.bukkit.UnsafeValues#getVersionFetcher()");
             new Throwable().printStackTrace();

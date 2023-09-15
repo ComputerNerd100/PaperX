@@ -4,8 +4,8 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashMap;
 
@@ -85,7 +85,7 @@ public enum Art implements Keyed {
         return id;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public NamespacedKey getKey() {
         return key;
@@ -113,7 +113,7 @@ public enum Art implements Keyed {
      * @return The painting
      */
     @Nullable
-    public static Art getByName(@NotNull String name) {
+    public static Art getByName(@NonNull String name) {
         Preconditions.checkArgument(name != null, "Name cannot be null");
 
         return BY_NAME.get(name.toLowerCase(java.util.Locale.ENGLISH));

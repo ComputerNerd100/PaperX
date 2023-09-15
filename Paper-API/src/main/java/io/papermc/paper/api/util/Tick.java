@@ -1,7 +1,7 @@
 package io.papermc.paper.api.util;
 
 import net.kyori.adventure.util.Ticks;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
@@ -24,7 +24,7 @@ public final class Tick implements TemporalUnit {
      * Gets the instance of the tick temporal unit.
      * @return the tick instance
      */
-    public static @NotNull Tick tick() {
+    public static @NonNull Tick tick() {
         return INSTANCE;
     }
 
@@ -44,7 +44,7 @@ public final class Tick implements TemporalUnit {
      * @param ticks the amount of ticks
      * @return the duration
      */
-    public static @NotNull Duration of(long ticks) {
+    public static @NonNull Duration of(long ticks) {
         return Duration.of(ticks, INSTANCE);
     }
 
@@ -55,13 +55,13 @@ public final class Tick implements TemporalUnit {
      * @return the number of whole ticks in this duration
      * @throws ArithmeticException if the duration is zero or an overflow occurs
      */
-    public int fromDuration(@NotNull Duration duration) {
+    public int fromDuration(@NonNull Duration duration) {
         Objects.requireNonNull(duration, "duration cannot be null");
         return Math.toIntExact(Math.floorDiv(duration.toMillis(), this.milliseconds));
     }
 
     @Override
-    public @NotNull Duration getDuration() {
+    public @NonNull Duration getDuration() {
         return Duration.ofMillis(this.milliseconds);
     }
 
@@ -84,12 +84,12 @@ public final class Tick implements TemporalUnit {
 
     @SuppressWarnings("unchecked") // following ChronoUnit#addTo
     @Override
-    public <R extends Temporal> @NotNull R addTo(@NotNull R temporal, long amount) {
+    public <R extends Temporal> @NonNull R addTo(@NonNull R temporal, long amount) {
         return (R) temporal.plus(getDuration().multipliedBy(amount));
     }
 
     @Override
-    public long between(@NotNull Temporal start, @NotNull Temporal end) {
+    public long between(@NonNull Temporal start, @NonNull Temporal end) {
         return start.until(end, ChronoUnit.MILLIS) / this.milliseconds;
     }
 }

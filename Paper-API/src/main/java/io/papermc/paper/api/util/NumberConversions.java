@@ -1,7 +1,7 @@
 package io.papermc.paper.api.util;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Utils for casting number types to other number types
@@ -113,13 +113,13 @@ public final class NumberConversions {
         return Math.abs(f) <= Float.MAX_VALUE;
     }
 
-    public static void checkFinite(double d, @NotNull String message) {
+    public static void checkFinite(double d, @NonNull String message) {
         if (!isFinite(d)) {
             throw new IllegalArgumentException(message);
         }
     }
 
-    public static void checkFinite(float d, @NotNull String message) {
+    public static void checkFinite(float d, @NonNull String message) {
         if (!isFinite(d)) {
             throw new IllegalArgumentException(message);
         }

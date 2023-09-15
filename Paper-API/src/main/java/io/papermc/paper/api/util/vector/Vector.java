@@ -5,7 +5,7 @@ import com.google.common.primitives.Doubles;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.util.NumberConversions;
 import io.papermc.paper.api.world.World;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.joml.RoundingMode;
 import org.joml.Vector3d;
 import org.joml.Vector3f;
@@ -89,8 +89,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param vec The other vector
      * @return the same vector
      */
-    @NotNull
-    public Vector add(@NotNull Vector vec) {
+    @NonNull
+    public Vector add(@NonNull Vector vec) {
         x += vec.x;
         y += vec.y;
         z += vec.z;
@@ -103,8 +103,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param vec The other vector
      * @return the same vector
      */
-    @NotNull
-    public Vector subtract(@NotNull Vector vec) {
+    @NonNull
+    public Vector subtract(@NonNull Vector vec) {
         x -= vec.x;
         y -= vec.y;
         z -= vec.z;
@@ -117,8 +117,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param vec The other vector
      * @return the same vector
      */
-    @NotNull
-    public Vector multiply(@NotNull Vector vec) {
+    @NonNull
+    public Vector multiply(@NonNull Vector vec) {
         x *= vec.x;
         y *= vec.y;
         z *= vec.z;
@@ -131,8 +131,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param vec The other vector
      * @return the same vector
      */
-    @NotNull
-    public Vector divide(@NotNull Vector vec) {
+    @NonNull
+    public Vector divide(@NonNull Vector vec) {
         x /= vec.x;
         y /= vec.y;
         z /= vec.z;
@@ -145,8 +145,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param vec The other vector
      * @return the same vector
      */
-    @NotNull
-    public Vector copy(@NotNull Vector vec) {
+    @NonNull
+    public Vector copy(@NonNull Vector vec) {
         x = vec.x;
         y = vec.y;
         z = vec.z;
@@ -185,7 +185,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param o The other vector
      * @return the distance
      */
-    public double distance(@NotNull Vector o) {
+    public double distance(@NonNull Vector o) {
         return Math.sqrt(NumberConversions.square(x - o.x) + NumberConversions.square(y - o.y) + NumberConversions.square(z - o.z));
     }
 
@@ -195,7 +195,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param o The other vector
      * @return the distance
      */
-    public double distanceSquared(@NotNull Vector o) {
+    public double distanceSquared(@NonNull Vector o) {
         return NumberConversions.square(x - o.x) + NumberConversions.square(y - o.y) + NumberConversions.square(z - o.z);
     }
 
@@ -205,7 +205,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param other The other vector
      * @return angle in radians
      */
-    public float angle(@NotNull Vector other) {
+    public float angle(@NonNull Vector other) {
         double dot = Doubles.constrainToRange(dot(other) / (length() * other.length()), -1.0, 1.0);
 
         return (float) Math.acos(dot);
@@ -217,8 +217,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param other The other vector
      * @return this same vector (now a midpoint)
      */
-    @NotNull
-    public Vector midpoint(@NotNull Vector other) {
+    @NonNull
+    public Vector midpoint(@NonNull Vector other) {
         x = (x + other.x) / 2;
         y = (y + other.y) / 2;
         z = (z + other.z) / 2;
@@ -231,8 +231,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param other The other vector
      * @return a new midpoint vector
      */
-    @NotNull
-    public Vector getMidpoint(@NotNull Vector other) {
+    @NonNull
+    public Vector getMidpoint(@NonNull Vector other) {
         double x = (this.x + other.x) / 2;
         double y = (this.y + other.y) / 2;
         double z = (this.z + other.z) / 2;
@@ -246,7 +246,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param m The factor
      * @return the same vector
      */
-    @NotNull
+    @NonNull
     public Vector multiply(int m) {
         x *= m;
         y *= m;
@@ -261,7 +261,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param m The factor
      * @return the same vector
      */
-    @NotNull
+    @NonNull
     public Vector multiply(double m) {
         x *= m;
         y *= m;
@@ -276,7 +276,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param m The factor
      * @return the same vector
      */
-    @NotNull
+    @NonNull
     public Vector multiply(float m) {
         x *= m;
         y *= m;
@@ -291,7 +291,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param other The other vector
      * @return dot product
      */
-    public double dot(@NotNull Vector other) {
+    public double dot(@NonNull Vector other) {
         return x * other.x + y * other.y + z * other.z;
     }
 
@@ -307,8 +307,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param o The other vector
      * @return the same vector
      */
-    @NotNull
-    public Vector crossProduct(@NotNull Vector o) {
+    @NonNull
+    public Vector crossProduct(@NonNull Vector o) {
         double newX = y * o.z - o.y * z;
         double newY = z * o.x - o.z * x;
         double newZ = x * o.y - o.x * y;
@@ -331,8 +331,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param o The other vector
      * @return a new vector
      */
-    @NotNull
-    public Vector getCrossProduct(@NotNull Vector o) {
+    @NonNull
+    public Vector getCrossProduct(@NonNull Vector o) {
         double x = this.y * o.z - o.y * this.z;
         double y = this.z * o.x - o.z * this.x;
         double z = this.x * o.y - o.x * this.y;
@@ -344,7 +344,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      *
      * @return the same vector
      */
-    @NotNull
+    @NonNull
     public Vector normalize() {
         double length = length();
 
@@ -360,7 +360,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      *
      * @return the same vector
      */
-    @NotNull
+    @NonNull
     public Vector zero() {
         x = 0;
         y = 0;
@@ -382,7 +382,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      *
      * @return This vector.
      */
-    @NotNull
+    @NonNull
     public Vector normalizeZeros() {
         if (x == -0.0D) x = 0.0D;
         if (y == -0.0D) y = 0.0D;
@@ -400,7 +400,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param max Maximum vector
      * @return whether this vector is in the AABB
      */
-    public boolean isInAABB(@NotNull Vector min, @NotNull Vector max) {
+    public boolean isInAABB(@NonNull Vector min, @NonNull Vector max) {
         return x >= min.x && x <= max.x && y >= min.y && y <= max.y && z >= min.z && z <= max.z;
     }
 
@@ -411,7 +411,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param radius Sphere radius
      * @return whether this vector is in the sphere
      */
-    public boolean isInSphere(@NotNull Vector origin, double radius) {
+    public boolean isInSphere(@NonNull Vector origin, double radius) {
         return (NumberConversions.square(origin.x - x) + NumberConversions.square(origin.y - y) + NumberConversions.square(origin.z - z)) <= NumberConversions.square(radius);
     }
 
@@ -436,7 +436,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * in radians
      * @return the same vector
      */
-    @NotNull
+    @NonNull
     public Vector rotateAroundX(double angle) {
         double angleCos = Math.cos(angle);
         double angleSin = Math.sin(angle);
@@ -458,7 +458,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * in radians
      * @return the same vector
      */
-    @NotNull
+    @NonNull
     public Vector rotateAroundY(double angle) {
         double angleCos = Math.cos(angle);
         double angleSin = Math.sin(angle);
@@ -480,7 +480,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * in radians
      * @return the same vector
      */
-    @NotNull
+    @NonNull
     public Vector rotateAroundZ(double angle) {
         double angleCos = Math.cos(angle);
         double angleSin = Math.sin(angle);
@@ -511,8 +511,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @throws IllegalArgumentException if the provided axis vector instance is
      * null
      */
-    @NotNull
-    public Vector rotateAroundAxis(@NotNull Vector axis, double angle) throws IllegalArgumentException {
+    @NonNull
+    public Vector rotateAroundAxis(@NonNull Vector axis, double angle) throws IllegalArgumentException {
         Preconditions.checkArgument(axis != null, "The provided axis vector was null");
 
         return rotateAroundNonUnitAxis(axis.isNormalized() ? axis : axis.clone().normalize(), angle);
@@ -538,8 +538,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @throws IllegalArgumentException if the provided axis vector instance is
      * null
      */
-    @NotNull
-    public Vector rotateAroundNonUnitAxis(@NotNull Vector axis, double angle) throws IllegalArgumentException {
+    @NonNull
+    public Vector rotateAroundNonUnitAxis(@NonNull Vector axis, double angle) throws IllegalArgumentException {
         Preconditions.checkArgument(axis != null, "The provided axis vector was null");
 
         double x = getX(), y = getY(), z = getZ();
@@ -625,7 +625,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param x The new X component.
      * @return This vector.
      */
-    @NotNull
+    @NonNull
     public Vector setX(int x) {
         this.x = x;
         return this;
@@ -637,7 +637,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param x The new X component.
      * @return This vector.
      */
-    @NotNull
+    @NonNull
     public Vector setX(double x) {
         this.x = x;
         return this;
@@ -649,7 +649,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param x The new X component.
      * @return This vector.
      */
-    @NotNull
+    @NonNull
     public Vector setX(float x) {
         this.x = x;
         return this;
@@ -661,7 +661,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param y The new Y component.
      * @return This vector.
      */
-    @NotNull
+    @NonNull
     public Vector setY(int y) {
         this.y = y;
         return this;
@@ -673,7 +673,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param y The new Y component.
      * @return This vector.
      */
-    @NotNull
+    @NonNull
     public Vector setY(double y) {
         this.y = y;
         return this;
@@ -685,7 +685,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param y The new Y component.
      * @return This vector.
      */
-    @NotNull
+    @NonNull
     public Vector setY(float y) {
         this.y = y;
         return this;
@@ -697,7 +697,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param z The new Z component.
      * @return This vector.
      */
-    @NotNull
+    @NonNull
     public Vector setZ(int z) {
         this.z = z;
         return this;
@@ -709,7 +709,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param z The new Z component.
      * @return This vector.
      */
-    @NotNull
+    @NonNull
     public Vector setZ(double z) {
         this.z = z;
         return this;
@@ -721,7 +721,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param z The new Z component.
      * @return This vector.
      */
-    @NotNull
+    @NonNull
     public Vector setZ(float z) {
         this.z = z;
         return this;
@@ -765,7 +765,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      *
      * @return vector
      */
-    @NotNull
+    @NonNull
     @Override
     public Vector clone() {
         try {
@@ -789,8 +789,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param world The world to link the location to.
      * @return the location
      */
-    @NotNull
-    public Location toLocation(@NotNull World world) {
+    @NonNull
+    public Location toLocation(@NonNull World world) {
         return new Location(world, x, y, z);
     }
 
@@ -802,8 +802,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param pitch The desired pitch.
      * @return the location
      */
-    @NotNull
-    public Location toLocation(@NotNull World world, float yaw, float pitch) {
+    @NonNull
+    public Location toLocation(@NonNull World world, float yaw, float pitch) {
         return new Location(world, x, y, z, yaw, pitch);
     }
 
@@ -812,7 +812,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      *
      * @return A block vector.
      */
-    @NotNull
+    @NonNull
     public BlockVector toBlockVector() {
         return new BlockVector(x, y, z);
     }
@@ -822,7 +822,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      *
      * @return the JOML vector
      */
-    @NotNull
+    @NonNull
     public Vector3f toVector3f() {
         return new Vector3f((float) x, (float) y, (float) z);
     }
@@ -832,7 +832,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      *
      * @return the JOML vector
      */
-    @NotNull
+    @NonNull
     public Vector3d toVector3d() {
         return new Vector3d(x, y, z);
     }
@@ -843,7 +843,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param roundingMode the {@link RoundingMode} to use for this vector's components
      * @return the JOML vector
      */
-    @NotNull
+    @NonNull
     public Vector3i toVector3i(int roundingMode) {
         return new Vector3i(x, y, z, roundingMode);
     }
@@ -854,7 +854,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @return the JOML vector
      * @see #toVector3i(int)
      */
-    @NotNull
+    @NonNull
     public Vector3i toVector3i() {
         return toVector3i(RoundingMode.FLOOR);
     }
@@ -886,8 +886,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param v2 The second vector.
      * @return minimum
      */
-    @NotNull
-    public static Vector getMinimum(@NotNull Vector v1, @NotNull Vector v2) {
+    @NonNull
+    public static Vector getMinimum(@NonNull Vector v1, @NonNull Vector v2) {
         return new Vector(Math.min(v1.x, v2.x), Math.min(v1.y, v2.y), Math.min(v1.z, v2.z));
     }
 
@@ -898,8 +898,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param v2 The second vector.
      * @return maximum
      */
-    @NotNull
-    public static Vector getMaximum(@NotNull Vector v1, @NotNull Vector v2) {
+    @NonNull
+    public static Vector getMaximum(@NonNull Vector v1, @NonNull Vector v2) {
         return new Vector(Math.max(v1.x, v2.x), Math.max(v1.y, v2.y), Math.max(v1.z, v2.z));
     }
 
@@ -909,7 +909,7 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      *
      * @return A random vector.
      */
-    @NotNull
+    @NonNull
     public static Vector getRandom() {
         return new Vector(random.nextDouble(), random.nextDouble(), random.nextDouble());
     }
@@ -920,8 +920,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param vector the vector to match
      * @return the new vector
      */
-    @NotNull
-    public static Vector fromJOML(@NotNull Vector3f vector) {
+    @NonNull
+    public static Vector fromJOML(@NonNull Vector3f vector) {
         return new Vector(vector.x(), vector.y(), vector.z());
     }
 
@@ -931,8 +931,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param vector the vector to match
      * @return the new vector
      */
-    @NotNull
-    public static Vector fromJOML(@NotNull Vector3d vector) {
+    @NonNull
+    public static Vector fromJOML(@NonNull Vector3d vector) {
         return new Vector(vector.x(), vector.y(), vector.z());
     }
 
@@ -942,13 +942,13 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      * @param vector the vector to match
      * @return the new vector
      */
-    @NotNull
-    public static Vector fromJOML(@NotNull Vector3i vector) {
+    @NonNull
+    public static Vector fromJOML(@NonNull Vector3i vector) {
         return new Vector(vector.x(), vector.y(), vector.z());
     }
 
     @Override
-    @NotNull
+    @NonNull
     public Map<String, Object> serialize() {
         Map<String, Object> result = new LinkedHashMap<String, Object>();
 
@@ -959,8 +959,8 @@ public class Vector implements Cloneable, ConfigurationSerializable {
         return result;
     }
 
-    @NotNull
-    public static Vector deserialize(@NotNull Map<String, Object> args) {
+    @NonNull
+    public static Vector deserialize(@NonNull Map<String, Object> args) {
         double x = 0;
         double y = 0;
         double z = 0;

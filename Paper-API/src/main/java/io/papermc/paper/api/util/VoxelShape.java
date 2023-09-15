@@ -1,6 +1,6 @@
 package io.papermc.paper.api.util;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Collection;
 
@@ -18,7 +18,7 @@ public interface VoxelShape {
      *
      * @return shape converted to bounding boxes
      */
-    @NotNull
+    @NonNull
     public Collection<BoundingBox> getBoundingBoxes();
 
     /**
@@ -27,6 +27,6 @@ public interface VoxelShape {
      * @param other bounding box to test
      * @return true if other overlaps this, false otherwise
      */
-    public boolean overlaps(@NotNull BoundingBox other);
+    public boolean overlaps(@NonNull BoundingBox other);
 }
 

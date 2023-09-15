@@ -3,8 +3,8 @@ package io.papermc.paper.api.util.permission;
 import io.papermc.paper.api.Paper;
 import io.papermc.paper.api.permisson.Permission;
 import io.papermc.paper.api.permisson.PermissionDefault;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Map;
 
@@ -14,13 +14,13 @@ public final class DefaultPermissions {
 
     private DefaultPermissions() {}
 
-    @NotNull
-    public static Permission registerPermission(@NotNull Permission perm) {
+    @NonNull
+    public static Permission registerPermission(@NonNull Permission perm) {
         return registerPermission(perm, true);
     }
 
-    @NotNull
-    public static Permission registerPermission(@NotNull Permission perm, boolean withLegacy) {
+    @NonNull
+    public static Permission registerPermission(@NonNull Permission perm, boolean withLegacy) {
         Permission result = perm;
 
         try {
@@ -39,46 +39,46 @@ public final class DefaultPermissions {
         return result;
     }
 
-    @NotNull
-    public static Permission registerPermission(@NotNull Permission perm, @NotNull Permission parent) {
+    @NonNull
+    public static Permission registerPermission(@NonNull Permission perm, @NonNull Permission parent) {
         parent.getChildren().put(perm.getName(), true);
         return registerPermission(perm);
     }
 
-    @NotNull
-    public static Permission registerPermission(@NotNull String name, @Nullable String desc) {
+    @NonNull
+    public static Permission registerPermission(@NonNull String name, @Nullable String desc) {
         Permission perm = registerPermission(new Permission(name, desc));
         return perm;
     }
 
-    @NotNull
-    public static Permission registerPermission(@NotNull String name, @Nullable String desc, @NotNull Permission parent) {
+    @NonNull
+    public static Permission registerPermission(@NonNull String name, @Nullable String desc, @NonNull Permission parent) {
         Permission perm = registerPermission(name, desc);
         parent.getChildren().put(perm.getName(), true);
         return perm;
     }
 
-    @NotNull
-    public static Permission registerPermission(@NotNull String name, @Nullable String desc, @Nullable PermissionDefault def) {
+    @NonNull
+    public static Permission registerPermission(@NonNull String name, @Nullable String desc, @Nullable PermissionDefault def) {
         Permission perm = registerPermission(new Permission(name, desc, def));
         return perm;
     }
 
-    @NotNull
-    public static Permission registerPermission(@NotNull String name, @Nullable String desc, @Nullable PermissionDefault def, @NotNull Permission parent) {
+    @NonNull
+    public static Permission registerPermission(@NonNull String name, @Nullable String desc, @Nullable PermissionDefault def, @NonNull Permission parent) {
         Permission perm = registerPermission(name, desc, def);
         parent.getChildren().put(perm.getName(), true);
         return perm;
     }
 
-    @NotNull
-    public static Permission registerPermission(@NotNull String name, @Nullable String desc, @Nullable PermissionDefault def, @Nullable Map<String, Boolean> children) {
+    @NonNull
+    public static Permission registerPermission(@NonNull String name, @Nullable String desc, @Nullable PermissionDefault def, @Nullable Map<String, Boolean> children) {
         Permission perm = registerPermission(new Permission(name, desc, def, children));
         return perm;
     }
 
-    @NotNull
-    public static Permission registerPermission(@NotNull String name, @Nullable String desc, @Nullable PermissionDefault def, @Nullable Map<String, Boolean> children, @NotNull Permission parent) {
+    @NonNull
+    public static Permission registerPermission(@NonNull String name, @Nullable String desc, @Nullable PermissionDefault def, @Nullable Map<String, Boolean> children, @NonNull Permission parent) {
         Permission perm = registerPermission(name, desc, def, children);
         parent.getChildren().put(perm.getName(), true);
         return perm;

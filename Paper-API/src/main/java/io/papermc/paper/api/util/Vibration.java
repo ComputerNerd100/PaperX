@@ -3,7 +3,7 @@ package io.papermc.paper.api.util;
 import io.papermc.paper.api.block.Block;
 import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.location.Location;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a vibration from a Skulk sensor.
@@ -14,7 +14,7 @@ public class Vibration {
     private final Destination destination;
     private final int arrivalTime;
 
-    public Vibration(@NotNull Destination destination, @NotNull int arrivalTime) {
+    public Vibration(@NonNull Destination destination, @NonNull int arrivalTime) {
         this.destination = destination;
         this.arrivalTime = arrivalTime;
         this.origin = new Location(null, 0, 0, 0); // Dummy origin because getter expects null
@@ -25,7 +25,7 @@ public class Vibration {
      *
      * @return destination
      */
-    @NotNull
+    @NonNull
     public Destination getDestination() {
         return destination;
     }
@@ -45,11 +45,11 @@ public class Vibration {
 
             private final Entity entity;
 
-            public EntityDestination(@NotNull Entity entity) {
+            public EntityDestination(@NonNull Entity entity) {
                 this.entity = entity;
             }
 
-            @NotNull
+            @NonNull
             public Entity getEntity() {
                 return entity;
             }
@@ -59,20 +59,20 @@ public class Vibration {
 
             private final Location block;
 
-            public BlockDestination(@NotNull Location block) {
+            public BlockDestination(@NonNull Location block) {
                 this.block = block;
             }
 
-            public BlockDestination(@NotNull Block block) {
+            public BlockDestination(@NonNull Block block) {
                 this(block.getLocation());
             }
 
-            @NotNull
+            @NonNull
             public Location getLocation() {
                 return block;
             }
 
-            @NotNull
+            @NonNull
             public Block getBlock() {
                 return block.getBlock();
             }

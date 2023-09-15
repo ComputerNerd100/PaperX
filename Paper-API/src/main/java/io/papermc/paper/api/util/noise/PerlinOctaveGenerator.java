@@ -1,7 +1,7 @@
 package io.papermc.paper.api.util.noise;
 
 import io.papermc.paper.api.world.World;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Random;
 
@@ -16,7 +16,7 @@ public class PerlinOctaveGenerator extends OctaveGenerator {
      * @param world World to construct this generator for
      * @param octaves Amount of octaves to create
      */
-    public PerlinOctaveGenerator(@NotNull World world, int octaves) {
+    public PerlinOctaveGenerator(@NonNull World world, int octaves) {
         this(new Random(world.getSeed()), octaves);
     }
 
@@ -36,12 +36,12 @@ public class PerlinOctaveGenerator extends OctaveGenerator {
      * @param rand Random object to construct this generator for
      * @param octaves Amount of octaves to create
      */
-    public PerlinOctaveGenerator(@NotNull Random rand, int octaves) {
+    public PerlinOctaveGenerator(@NonNull Random rand, int octaves) {
         super(createOctaves(rand, octaves));
     }
 
-    @NotNull
-    private static NoiseGenerator[] createOctaves(@NotNull Random rand, int octaves) {
+    @NonNull
+    private static NoiseGenerator[] createOctaves(@NonNull Random rand, int octaves) {
         NoiseGenerator[] result = new NoiseGenerator[octaves];
 
         for (int i = 0; i < octaves; i++) {

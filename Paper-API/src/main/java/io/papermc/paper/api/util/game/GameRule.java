@@ -1,8 +1,8 @@
 package io.papermc.paper.api.util.game;
 
 import com.google.common.base.Preconditions;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -256,9 +256,9 @@ public final class GameRule<T> implements net.kyori.adventure.translation.Transl
     private final String name;
     private final Class<T> type;
 
-    private GameRule(@NotNull String name, @NotNull Class<T> clazz) {
-        Preconditions.checkNotNull(name, "GameRule name cannot be null");
-        Preconditions.checkNotNull(clazz, "GameRule type cannot be null");
+    private GameRule(@NonNull String name, @NonNull Class<T> clazz) {
+        Preconditions.checkNonNull(name, "GameRule name cannot be null");
+        Preconditions.checkNonNull(clazz, "GameRule type cannot be null");
         Preconditions.checkArgument(clazz == Boolean.class || clazz == Integer.class, "Must be of type Boolean or Integer. Found %s ", clazz.getName());
         this.name = name;
         this.type = clazz;
@@ -270,7 +270,7 @@ public final class GameRule<T> implements net.kyori.adventure.translation.Transl
      *
      * @return the name of this GameRule
      */
-    @NotNull
+    @NonNull
     public String getName() {
         return name;
     }
@@ -280,7 +280,7 @@ public final class GameRule<T> implements net.kyori.adventure.translation.Transl
      *
      * @return the rule type; Integer or Boolean
      */
-    @NotNull
+    @NonNull
     public Class<T> getType() {
         return type;
     }
@@ -310,8 +310,8 @@ public final class GameRule<T> implements net.kyori.adventure.translation.Transl
      * name
      */
     @Nullable
-    public static GameRule<?> getByName(@NotNull String rule) {
-        Preconditions.checkNotNull(rule, "Rule cannot be null");
+    public static GameRule<?> getByName(@NonNull String rule) {
+        Preconditions.checkNonNull(rule, "Rule cannot be null");
         return gameRules.get(rule);
     }
 
@@ -320,13 +320,13 @@ public final class GameRule<T> implements net.kyori.adventure.translation.Transl
      *
      * @return an immutable collection containing all registered GameRules.
      */
-    @NotNull
+    @NonNull
     public static GameRule<?>[] values() {
         return gameRules.values().toArray(new GameRule<?>[gameRules.size()]);
     }
 
     @Override
-    public @NotNull String translationKey() {
+    public @NonNull String translationKey() {
         return "gamerule." + this.name;
     }
 }
