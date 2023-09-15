@@ -157,19 +157,8 @@ public interface Scoreboard {
      * @return registered Team
      * @throws IllegalArgumentException if team by that name already exists
      */
-    @NotNull
-    Team registerNewTeam(@NotNull String name);
-
-    /**
-     * Gets all players tracked by this Scoreboard
-     *
-     * @return immutable set of all tracked players
-     * @see #getEntries()
-     * @deprecated Scoreboards can contain entries that aren't players
-     */
-    @Deprecated
-    @NotNull
-    Set<OfflinePlayer> getPlayers();
+    @NonNull
+    Team registerNewTeam(@NonNull String name);
 
     /**
      * Gets all entries tracked by this Scoreboard
