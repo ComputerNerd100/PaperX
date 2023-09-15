@@ -1,8 +1,8 @@
 package io.papermc.paper.api.map;
 
 import com.google.common.base.Preconditions;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -17,17 +17,17 @@ public final class MapPalette {
     // Internal mechanisms
     private MapPalette() {}
 
-    @NotNull
+    @NonNull
     private static Color c(int r, int g, int b) {
         return new Color(r, g, b);
     }
 
-    @NotNull
+    @NonNull
     private static Color c(int r, int g, int b, int a) {
         return new Color(r, g, b, a);
     }
 
-    private static double getDistance(@NotNull Color c1, @NotNull Color c2) {
+    private static double getDistance(@NonNull Color c1, @NonNull Color c2) {
         double rmean = (c1.getRed() + c2.getRed()) / 2.0;
         double r = c1.getRed() - c2.getRed();
         double g = c1.getGreen() - c2.getGreen();
@@ -38,7 +38,7 @@ public final class MapPalette {
         return weightR * r * r + weightG * g * g + weightB * b * b;
     }
 
-    @NotNull
+    @NonNull
     static final Color[] colors = {
             c(0, 0, 0, 0), c(0, 0, 0, 0), c(0, 0, 0, 0), c(0, 0, 0, 0),
             c(89, 125, 39), c(109, 153, 48), c(127, 178, 56), c(67, 94, 29),
@@ -182,7 +182,7 @@ public final class MapPalette {
      * @param image The image to resize.
      * @return The resized image.
      */
-    @NotNull
+    @NonNull
     public static BufferedImage resizeImage(@Nullable Image image) {
         BufferedImage result = new BufferedImage(128, 128, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = result.createGraphics();
@@ -199,8 +199,8 @@ public final class MapPalette {
      * @deprecated Magic value
      */
     @Deprecated
-    @NotNull
-    public static byte[] imageToBytes(@NotNull Image image) {
+    @NonNull
+    public static byte[] imageToBytes(@NonNull Image image) {
         BufferedImage temp = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = temp.createGraphics();
         graphics.drawImage(image, 0, 0, null);
@@ -240,7 +240,7 @@ public final class MapPalette {
      * @deprecated Magic value
      */
     @Deprecated
-    public static byte matchColor(@NotNull Color color) {
+    public static byte matchColor(@NonNull Color color) {
         if (color.getAlpha() < 128) return 0;
 
         if (mapColorCache != null && mapColorCache.isCached()) {
@@ -270,7 +270,7 @@ public final class MapPalette {
      * @deprecated Magic value
      */
     @Deprecated
-    @NotNull
+    @NonNull
     public static Color getColor(byte index) {
         // Minecraft has 143 colors, some of which have negative byte representations
         return colors[index >= 0 ? index : index + 256];
@@ -283,7 +283,7 @@ public final class MapPalette {
      *
      * @param mapColorCache The map color cache to set
      */
-    public static void setMapColorCache(@NotNull MapColorCache mapColorCache) {
+    public static void setMapColorCache(@NonNull MapColorCache mapColorCache) {
         Preconditions.checkState(MapPalette.mapColorCache == null, "Map color cache already set");
 
         MapPalette.mapColorCache = mapColorCache;
@@ -313,7 +313,7 @@ public final class MapPalette {
          * @deprecated Magic value
          */
         @Deprecated
-        byte matchColor(@NotNull Color color);
+        byte matchColor(@NonNull Color color);
     }
 }
 
