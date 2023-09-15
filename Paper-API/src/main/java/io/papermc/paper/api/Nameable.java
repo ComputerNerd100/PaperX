@@ -1,6 +1,8 @@
 package io.papermc.paper.api;
 
-import org.jetbrains.annotations.Nullable;
+
+import net.kyori.adventure.text.Component;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a block, entity, or other object that may receive a custom name.
@@ -13,7 +15,8 @@ public interface Nameable {
      *
      * @return the custom name
      */
-    net.kyori.adventure.text.@Nullable Component customName();
+    @Nullable
+    Component customName();
 
     /**
      * Sets the custom name.
@@ -26,5 +29,5 @@ public interface Nameable {
      *
      * @param customName the custom name to set
      */
-    void customName(final net.kyori.adventure.text.@Nullable Component customName);
+    void customName(final @Nullable Component customName);
 }

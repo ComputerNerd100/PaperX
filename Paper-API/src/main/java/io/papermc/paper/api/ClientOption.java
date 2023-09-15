@@ -3,7 +3,7 @@ package io.papermc.paper.api;
 import io.papermc.paper.api.inventory.MainHand;
 import net.kyori.adventure.translation.Translatable;
 import net.kyori.adventure.util.Index;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public final class ClientOption<T> {
 
@@ -18,11 +18,11 @@ public final class ClientOption<T> {
 
     private final Class<T> type;
 
-    private ClientOption(@NotNull Class<T> type) {
+    private ClientOption(@NonNull Class<T> type) {
         this.type = type;
     }
 
-    @NotNull
+    @NonNull
     public Class<T> getType() {
         return type;
     }
@@ -41,7 +41,7 @@ public final class ClientOption<T> {
         }
 
         @Override
-        public @NotNull String translationKey() {
+        public @NonNull String translationKey() {
             if (this == UNKNOWN) {
                 throw new UnsupportedOperationException(this.name + " doesn't have a translation key");
             }
