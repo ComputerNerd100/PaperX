@@ -19,7 +19,7 @@ public enum PermissionDefault {
     private final String[] names;
     private static final Map<String, PermissionDefault> lookup = new HashMap<String, PermissionDefault>();
 
-    private PermissionDefault(/*@NonNull*/ String... names) {
+    PermissionDefault(/*@NonNull*/ String... names) {
         this.names = names;
     }
 

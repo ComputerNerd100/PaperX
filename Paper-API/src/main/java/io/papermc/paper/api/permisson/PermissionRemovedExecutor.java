@@ -14,6 +14,6 @@ public interface PermissionRemovedExecutor {
      *
      * @param attachment Attachment which was removed
      */
-    public void attachmentRemoved(@NonNull PermissionAttachment attachment);
+    void attachmentRemoved(@NonNull PermissionAttachment attachment);
 }
 
