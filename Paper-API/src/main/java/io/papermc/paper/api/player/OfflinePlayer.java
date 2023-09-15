@@ -38,7 +38,6 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      */
     boolean isOnline();
 
-    // Paper start
     /**
      * Checks whether the connection to this player is still valid. This will return
      * true as long as this specific instance of the player is still connected. This
@@ -48,7 +47,6 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return true if this player instance is connected
      */
     boolean isConnected();
-    // Paper end
 
     /**
      * Returns the name of this player
@@ -79,7 +77,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return the player's profile
      */
     @NonNull
-    PlayerProfile getPlayerProfile(); // Paper
+    PlayerProfile getPlayerProfile();
 
     /**
      * Checks if this player has had their profile banned.
@@ -87,7 +85,6 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return true if banned, otherwise false
      */
     boolean isBanned();
-    // Paper start
 
     /**
      * Permanently Bans this player from the server
@@ -141,7 +138,6 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
         }
         return banEntry;
     }
-    // Paper end
 
     /**
      * Adds this user to the {@link ProfileBanList}. If a previous ban exists, this will
@@ -233,7 +229,7 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return Bed Spawn Location if bed exists, otherwise null.
      */
     @Nullable Location getBedSpawnLocation();
-    // Paper start
+
     /**
      * Gets the last date and time that this player logged into the server.
      * <p>
@@ -256,7 +252,6 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      * @return last seen time
      */
     long getLastSeen();
-    // Paper end
 
     /**
      * Increments the given statistic for this player.
