@@ -6,8 +6,8 @@ import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.util.NumberConversions;
 import io.papermc.paper.api.world.World;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Collection;
 import java.util.List;
@@ -29,7 +29,7 @@ public class ParticleBuilder {
     private Object data;
     private boolean force = true;
 
-    public ParticleBuilder(@NotNull Particle particle) {
+    public ParticleBuilder(@NonNull Particle particle) {
         this.particle = particle;
     }
 
@@ -39,7 +39,7 @@ public class ParticleBuilder {
      *
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder spawn() {
         if (this.location == null) {
             throw new IllegalStateException("Please specify location for this particle");
@@ -54,7 +54,7 @@ public class ParticleBuilder {
     /**
      * @return The particle going to be sent
      */
-    @NotNull
+    @NonNull
     public Particle particle() {
         return particle;
     }
@@ -65,8 +65,8 @@ public class ParticleBuilder {
      * @param particle The particle
      * @return a reference to this object.
      */
-    @NotNull
-    public ParticleBuilder particle(@NotNull Particle particle) {
+    @NonNull
+    public ParticleBuilder particle(@NonNull Particle particle) {
         this.particle = particle;
         return this;
     }
@@ -99,7 +99,7 @@ public class ParticleBuilder {
      *
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder allPlayers() {
         this.receivers = null;
         return this;
@@ -110,7 +110,7 @@ public class ParticleBuilder {
      * world
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder receivers(@Nullable List<Player> receivers) {
         // Had to keep this as we first made API List<> and not Collection, but removing this may break plugins compiled on older jars
         // TODO: deprecate?
@@ -123,7 +123,7 @@ public class ParticleBuilder {
      * world
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder receivers(@Nullable Collection<Player> receivers) {
         this.receivers = receivers != null ? Lists.newArrayList(receivers) : null;
         return this;
@@ -134,7 +134,7 @@ public class ParticleBuilder {
      * world
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder receivers(@Nullable Player... receivers) {
         this.receivers = receivers != null ? Lists.newArrayList(receivers) : null;
         return this;
@@ -148,7 +148,7 @@ public class ParticleBuilder {
      * @param radius amount to add on all axis
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder receivers(int radius) {
         return receivers(radius, radius);
     }
@@ -162,7 +162,7 @@ public class ParticleBuilder {
      * @param byDistance true to use a spherical radius, false to use a cuboid
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder receivers(int radius, boolean byDistance) {
         if (!byDistance) {
             return receivers(radius, radius, radius);
@@ -193,7 +193,7 @@ public class ParticleBuilder {
      * @param yRadius amount to add on the y axis
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder receivers(int xzRadius, int yRadius) {
         return receivers(xzRadius, yRadius, xzRadius);
     }
@@ -208,7 +208,7 @@ public class ParticleBuilder {
      * @param byDistance true to use a cylinder shape, false to use cuboid
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder receivers(int xzRadius, int yRadius, boolean byDistance) {
         if (!byDistance) {
             return receivers(xzRadius, yRadius, xzRadius);
@@ -241,7 +241,7 @@ public class ParticleBuilder {
      * @param zRadius amount to add on the z axis
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder receivers(int xRadius, int yRadius, int zRadius) {
         if (location == null) {
             throw new IllegalStateException("Please set location first");
@@ -263,7 +263,7 @@ public class ParticleBuilder {
      * @param source The player who is considered the source
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder source(@Nullable Player source) {
         this.source = source;
         return this;
@@ -283,8 +283,8 @@ public class ParticleBuilder {
      * @param location The location of the particle
      * @return a reference to this object.
      */
-    @NotNull
-    public ParticleBuilder location(@NotNull Location location) {
+    @NonNull
+    public ParticleBuilder location(@NonNull Location location) {
         this.location = location.clone();
         return this;
     }
@@ -298,8 +298,8 @@ public class ParticleBuilder {
      * @param z Z location
      * @return a reference to this object.
      */
-    @NotNull
-    public ParticleBuilder location(@NotNull World world, double x, double y, double z) {
+    @NonNull
+    public ParticleBuilder location(@NonNull World world, double x, double y, double z) {
         this.location = new Location(world, x, y, z);
         return this;
     }
@@ -317,7 +317,7 @@ public class ParticleBuilder {
      * @param count Number of particles
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder count(int count) {
         this.count = count;
         return this;
@@ -358,7 +358,7 @@ public class ParticleBuilder {
      * @param offsetZ Particle offset Z
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder offset(double offsetX, double offsetY, double offsetZ) {
         this.offsetX = offsetX;
         this.offsetY = offsetY;
@@ -381,7 +381,7 @@ public class ParticleBuilder {
      * @param extra the extra particle data
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder extra(double extra) {
         this.extra = extra;
         return this;
@@ -406,7 +406,7 @@ public class ParticleBuilder {
      * @param <T> The Particle data type
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public <T> ParticleBuilder data(@Nullable T data) {
         this.data = data;
         return this;
@@ -427,7 +427,7 @@ public class ParticleBuilder {
      * @param force true to force, false for normal
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder force(boolean force) {
         this.force = force;
         return this;
@@ -439,7 +439,7 @@ public class ParticleBuilder {
      * @param color the new particle color
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder color(@Nullable Color color) {
         return color(color, 1);
     }
@@ -451,7 +451,7 @@ public class ParticleBuilder {
      * @param size the size of the particle
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder color(@Nullable Color color, float size) {
         if (particle != Particle.REDSTONE && color != null) {
             throw new IllegalStateException("Color may only be set on REDSTONE");
@@ -477,7 +477,7 @@ public class ParticleBuilder {
      * @param b blue color component
      * @return a reference to this object.
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder color(int r, int g, int b) {
         return color(Color.fromRGB(r, g, b));
     }

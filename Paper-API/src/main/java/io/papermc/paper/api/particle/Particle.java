@@ -5,7 +5,7 @@ import io.papermc.paper.api.block.color.Color;
 import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.util.Vibration;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public enum Particle {
     EXPLOSION_NORMAL,
@@ -150,7 +150,7 @@ public enum Particle {
         dataType = Void.class;
     }
 
-    Particle(/*@NotNull*/ Class<?> data) {
+    Particle(/*@NonNull*/ Class<?> data) {
         dataType = data;
     }
 
@@ -158,7 +158,7 @@ public enum Particle {
      * Returns the required data type for the particle
      * @return the required data type
      */
-    @NotNull
+    @NonNull
     public Class<?> getDataType() {
         return dataType;
     }
@@ -168,7 +168,7 @@ public enum Particle {
      *
      * @return a {@link ParticleBuilder} for the particle
      */
-    @NotNull
+    @NonNull
     public ParticleBuilder builder() {
         return new ParticleBuilder(this);
     }
@@ -181,7 +181,7 @@ public enum Particle {
         private final Color color;
         private final float size;
 
-        public DustOptions(@NotNull Color color, float size) {
+        public DustOptions(@NonNull Color color, float size) {
             Preconditions.checkArgument(color != null, "color");
             this.color = color;
             this.size = size;
@@ -192,7 +192,7 @@ public enum Particle {
          *
          * @return particle color
          */
-        @NotNull
+        @NonNull
         public Color getColor() {
             return color;
         }
@@ -214,7 +214,7 @@ public enum Particle {
 
         private final Color toColor;
 
-        public DustTransition(@NotNull Color fromColor, @NotNull Color toColor, float size) {
+        public DustTransition(@NonNull Color fromColor, @NonNull Color toColor, float size) {
             super(fromColor, size);
 
             Preconditions.checkArgument(toColor != null, "toColor");
@@ -226,7 +226,7 @@ public enum Particle {
          *
          * @return final particle color
          */
-        @NotNull
+        @NonNull
         public Color getToColor() {
             return toColor;
         }
