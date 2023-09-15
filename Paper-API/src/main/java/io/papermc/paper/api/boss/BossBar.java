@@ -1,8 +1,8 @@
 package io.papermc.paper.api.boss;
 
 import io.papermc.paper.api.entity.Player;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public interface BossBar {
      *
      * @return the title of the bar
      */
-    @NotNull
+    @NonNull
     String getTitle();
 
     /**
@@ -28,7 +28,7 @@ public interface BossBar {
      *
      * @return the color of the bar
      */
-    @NotNull
+    @NonNull
     BarColor getColor();
 
     /**
@@ -36,14 +36,14 @@ public interface BossBar {
      *
      * @param color the color of the bar
      */
-    void setColor(@NotNull BarColor color);
+    void setColor(@NonNull BarColor color);
 
     /**
      * Returns the style of this boss bar
      *
      * @return the style of the bar
      */
-    @NotNull
+    @NonNull
     BarStyle getStyle();
 
     /**
@@ -51,21 +51,21 @@ public interface BossBar {
      *
      * @param style the style of the bar
      */
-    void setStyle(@NotNull BarStyle style);
+    void setStyle(@NonNull BarStyle style);
 
     /**
      * Remove an existing flag on this boss bar
      *
      * @param flag the existing flag to remove
      */
-    void removeFlag(@NotNull BarFlag flag);
+    void removeFlag(@NonNull BarFlag flag);
 
     /**
      * Add an optional flag to this boss bar
      *
      * @param flag an optional flag to set on the boss bar
      */
-    void addFlag(@NotNull BarFlag flag);
+    void addFlag(@NonNull BarFlag flag);
 
     /**
      * Returns whether this boss bar as the passed flag set
@@ -73,7 +73,7 @@ public interface BossBar {
      * @param flag the flag to check
      * @return whether it has the flag
      */
-    boolean hasFlag(@NotNull BarFlag flag);
+    boolean hasFlag(@NonNull BarFlag flag);
 
     /**
      * Sets the progress of the bar. Values should be between 0.0 (empty) and
@@ -95,7 +95,7 @@ public interface BossBar {
      *
      * @param player the player to add
      */
-    void addPlayer(@NotNull Player player);
+    void addPlayer(@NonNull Player player);
 
     /**
      * Removes the player from this boss bar causing it to be removed from their
@@ -103,7 +103,7 @@ public interface BossBar {
      *
      * @param player the player to remove
      */
-    void removePlayer(@NotNull Player player);
+    void removePlayer(@NonNull Player player);
 
     /**
      * Removes all players from this boss bar
@@ -117,7 +117,7 @@ public interface BossBar {
      *
      * @return a immutable list of players
      */
-    @NotNull
+    @NonNull
     List<Player> getPlayers();
 
     /**
