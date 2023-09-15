@@ -16,8 +16,8 @@ import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.world.World;
 import net.kyori.adventure.translation.Translatable;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.lang.reflect.Constructor;
 import java.util.Locale;
@@ -4314,15 +4314,15 @@ public enum Material implements Keyed, Translatable {
         this(id, stack, durability, MaterialData.class);
     }
 
-    private Material(final int id, /*@NotNull*/ final Class<?> data) {
+    private Material(final int id, /*@NonNull*/ final Class<?> data) {
         this(id, 64, data);
     }
 
-    private Material(final int id, final int stack, /*@NotNull*/ final Class<?> data) {
+    private Material(final int id, final int stack, /*@NonNull*/ final Class<?> data) {
         this(id, stack, 0, data);
     }
 
-    private Material(final int id, final int stack, final int durability, /*@NotNull*/ final Class<?> data) {
+    private Material(final int id, final int stack, final int durability, /*@NonNull*/ final Class<?> data) {
         this.id = id;
         this.durability = (short) durability;
         this.maxStack = stack;
@@ -4359,7 +4359,7 @@ public enum Material implements Keyed, Translatable {
     }
 
     @Override
-    public @NotNull String translationKey() {
+    public @NonNull String translationKey() {
         if (this.isItem()) {
             return Paper.getUnsafe().getItemTranslationKey(this);
         } else {
@@ -4373,7 +4373,7 @@ public enum Material implements Keyed, Translatable {
      *
      * @return the item rarity
      */
-    @NotNull
+    @NonNull
     public ItemRarity getItemRarity() {
         return Paper.getUnsafe().getItemRarity(this);
     }
@@ -4412,7 +4412,7 @@ public enum Material implements Keyed, Translatable {
         return legacy;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public NamespacedKey getKey() {
         Preconditions.checkArgument(!legacy, "Cannot get key of Legacy Material");
@@ -4443,7 +4443,7 @@ public enum Material implements Keyed, Translatable {
      *
      * @return new data instance
      */
-    @NotNull
+    @NonNull
     public BlockData createBlockData() {
         return Paper.createBlockData(this);
     }
@@ -4455,7 +4455,7 @@ public enum Material implements Keyed, Translatable {
      * @param consumer consumer to run on new instance before returning
      * @return new data instance
      */
-    @NotNull
+    @NonNull
     public BlockData createBlockData(@Nullable Consumer<BlockData> consumer) {
         return Paper.createBlockData(this, consumer);
     }
@@ -4469,7 +4469,7 @@ public enum Material implements Keyed, Translatable {
      * @return new data instance
      * @throws IllegalArgumentException if the specified data is not valid
      */
-    @NotNull
+    @NonNull
     public BlockData createBlockData(@Nullable String data) throws IllegalArgumentException {
         return Paper.createBlockData(this, data);
     }
@@ -4483,7 +4483,7 @@ public enum Material implements Keyed, Translatable {
      * @deprecated Magic value
      */
     @Deprecated
-    @NotNull
+    @NonNull
     public MaterialData getNewData(final byte raw) {
         Preconditions.checkArgument(legacy, "Cannot get new data of Modern Material");
         try {
@@ -5621,7 +5621,7 @@ public enum Material implements Keyed, Translatable {
      * @return Material if found, or null
      */
     @Nullable
-    public static Material getMaterial(@NotNull final String name) {
+    public static Material getMaterial(@NonNull final String name) {
         return getMaterial(name, false);
     }
 
@@ -5641,7 +5641,7 @@ public enum Material implements Keyed, Translatable {
      * @return Material if found, or null
      */
     @Nullable
-    public static Material getMaterial(@NotNull String name, boolean legacyName) {
+    public static Material getMaterial(@NonNull String name, boolean legacyName) {
         if (legacyName) {
             if (!name.startsWith(LEGACY_PREFIX)) {
                 name = LEGACY_PREFIX + name;
@@ -5665,7 +5665,7 @@ public enum Material implements Keyed, Translatable {
      * @return Material if found, or null
      */
     @Nullable
-    public static Material matchMaterial(@NotNull final String name) {
+    public static Material matchMaterial(@NonNull final String name) {
         return matchMaterial(name, false);
     }
 
@@ -5682,7 +5682,7 @@ public enum Material implements Keyed, Translatable {
      * @return Material if found, or null
      */
     @Nullable
-    public static Material matchMaterial(@NotNull final String name, boolean legacyName) {
+    public static Material matchMaterial(@NonNull final String name, boolean legacyName) {
         Preconditions.checkArgument(name != null, "Name cannot be null");
 
         String filtered = name;
@@ -10788,7 +10788,7 @@ public enum Material implements Keyed, Translatable {
      *
      * @return the best EquipmentSlot for this Material
      */
-    @NotNull
+    @NonNull
     public EquipmentSlot getEquipmentSlot() {
         Preconditions.checkArgument(isItem(), "The Material is not an item!");
         switch (this) {
@@ -10852,8 +10852,8 @@ public enum Material implements Keyed, Translatable {
      * @return the immutable {@link Multimap} with the respective default
      * Attributes and modifiers, or an empty map if no attributes are set.
      */
-    @NotNull
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot slot) {
+    @NonNull
+    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NonNull EquipmentSlot slot) {
         Preconditions.checkArgument(isItem(), "The Material is not an item!");
 
         return Paper.getUnsafe().getDefaultAttributeModifiers(this, slot);
@@ -10900,7 +10900,7 @@ public enum Material implements Keyed, Translatable {
      * @param world the world to check
      * @return true if this material can be used in this World.
      */
-    public boolean isEnabledByFeature(@NotNull World world) {
+    public boolean isEnabledByFeature(@NonNull World world) {
         return Paper.getDataPackManager().isEnabledByFeature(this, world);
     }
 }
