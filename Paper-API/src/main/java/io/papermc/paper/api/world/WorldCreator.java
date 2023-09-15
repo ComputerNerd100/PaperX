@@ -16,7 +16,7 @@ import java.util.Random;
  * Represents various types of options that may be used to create a world.
  */
 public class WorldCreator {
-    private final NamespacedKey key; // Paper
+    private final NamespacedKey key;
     private final String name;
     private long seed;
     private World.Environment environment = World.Environment.NORMAL;

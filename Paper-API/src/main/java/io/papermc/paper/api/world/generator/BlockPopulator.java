@@ -1,9 +1,8 @@
 package io.papermc.paper.api.world.generator;
 
 import io.papermc.paper.api.block.BlockState;
-import io.papermc.paper.api.world.Chunk;
 import io.papermc.paper.api.world.World;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Random;
 
@@ -49,7 +48,7 @@ public abstract class BlockPopulator {
      * @param chunkZ The Z-coordinate of the chunk
      * @param limitedRegion The chunk region to populate
      */
-    public void populate(@NotNull WorldInfo worldInfo, @NotNull Random random, int chunkX, int chunkZ, @NotNull LimitedRegion limitedRegion) {
+    public void populate(@NonNull WorldInfo worldInfo, @NonNull Random random, int chunkX, int chunkZ, @NonNull LimitedRegion limitedRegion) {
     }
 }
 

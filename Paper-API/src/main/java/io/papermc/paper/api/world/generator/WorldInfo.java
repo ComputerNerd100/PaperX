@@ -1,7 +1,7 @@
 package io.papermc.paper.api.world.generator;
 
 import io.papermc.paper.api.world.World;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.UUID;
 
@@ -15,7 +15,7 @@ public interface WorldInfo {
      *
      * @return Name of this world
      */
-    @NotNull
+    @NonNull
     String getName();
 
     /**
@@ -23,7 +23,7 @@ public interface WorldInfo {
      *
      * @return Unique ID of this world.
      */
-    @NotNull
+    @NonNull
     UUID getUID();
 
     /**
@@ -31,8 +31,7 @@ public interface WorldInfo {
      *
      * @return This worlds Environment type
      */
-    @NotNull
-    World.Environment getEnvironment();
+    World.@NonNull Environment getEnvironment();
 
     /**
      * Gets the Seed for this world.
@@ -64,6 +63,6 @@ public interface WorldInfo {
      *
      * @return vanilla biome provider
      */
-    @NotNull BiomeProvider vanillaBiomeProvider();
+    @NonNull BiomeProvider vanillaBiomeProvider();
 }
 

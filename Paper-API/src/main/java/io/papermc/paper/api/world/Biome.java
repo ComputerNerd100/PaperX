@@ -3,14 +3,14 @@ package io.papermc.paper.api.world;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import net.kyori.adventure.translation.Translatable;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Locale;
 
 /**
  * Holds all accepted Biomes in the default server
  */
-public enum Biome implements Keyed, Translatable { // Paper
+public enum Biome implements Keyed, Translatable {
     OCEAN,
     PLAINS,
     DESERT,
@@ -86,16 +86,14 @@ public enum Biome implements Keyed, Translatable { // Paper
         this.key = NamespacedKey.minecraft(name().toLowerCase(Locale.ROOT));
     }
 
-    @NotNull
+    @NonNull
     @Override
     public NamespacedKey getKey() {
         return key;
     }
 
-    // Paper start
     @Override
-    public @NotNull String translationKey() {
+    public @NonNull String translationKey() {
         return "biome.minecraft." + this.key.getKey();
     }
-    // Paper end
 }

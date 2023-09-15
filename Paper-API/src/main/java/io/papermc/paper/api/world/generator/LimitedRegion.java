@@ -6,7 +6,7 @@ import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.util.vector.Vector;
 import io.papermc.paper.api.world.RegionAccessor;
 import io.papermc.paper.api.world.World;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.List;
 
@@ -37,7 +37,7 @@ public interface LimitedRegion extends RegionAccessor {
      * @param location the location to check
      * @return true if the location is in the region, otherwise false.
      */
-    boolean isInRegion(@NotNull Location location);
+    boolean isInRegion(@NonNull Location location);
 
     /**
      * Checks if the given coordinates are in the region.
@@ -55,7 +55,7 @@ public interface LimitedRegion extends RegionAccessor {
      *
      * @return a list of tile entities.
      */
-    @NotNull
+    @NonNull
     List<BlockState> getTileEntities();
 
 
@@ -66,7 +66,7 @@ public interface LimitedRegion extends RegionAccessor {
      * @param vector {@link Vector} representing the position of the block to set.
      * @param data   {@link BlockData} to set the block at the provided coordinates to.
      */
-    default void setBlockData(@NotNull Vector vector, @NotNull BlockData data) {
+    default void setBlockData(@NonNull Vector vector, @NonNull BlockData data) {
         setBlockData(vector.getBlockX(), vector.getBlockY(), vector.getBlockZ(), data);
     }
 
@@ -78,7 +78,7 @@ public interface LimitedRegion extends RegionAccessor {
      * @param z Z coordinate.
      * @param state The block state.
      */
-    void setBlockState(int x, int y, int z, @NotNull BlockState state);
+    void setBlockState(int x, int y, int z, @NonNull BlockState state);
 
     /**
      * Sets the {@link BlockState} at a location.
@@ -86,7 +86,7 @@ public interface LimitedRegion extends RegionAccessor {
      * @param location Location to set block state.
      * @param state The block state.
      */
-    default void setBlockState(@NotNull Vector location, @NotNull BlockState state) {
+    default void setBlockState(@NonNull Vector location, @NonNull BlockState state) {
         setBlockState(location.getBlockX(), location.getBlockY(), location.getBlockZ(), state);
     }
 
@@ -96,8 +96,8 @@ public interface LimitedRegion extends RegionAccessor {
      * @param location Location to get block state from.
      * @return The block state.
      */
-    @NotNull
-    default BlockState getBlockState(@NotNull Vector location) {
+    @NonNull
+    default BlockState getBlockState(@NonNull Vector location) {
         return getBlockState(location.getBlockX(), location.getBlockY(), location.getBlockZ());
     }
 
@@ -115,7 +115,7 @@ public interface LimitedRegion extends RegionAccessor {
      *
      * @param location {@link Vector} representing the position of the block to update.
      */
-    default void scheduleBlockUpdate(@NotNull Vector location) {
+    default void scheduleBlockUpdate(@NonNull Vector location) {
         scheduleBlockUpdate(location.getBlockX(), location.getBlockY(), location.getBlockZ());
     }
 
@@ -133,7 +133,7 @@ public interface LimitedRegion extends RegionAccessor {
      *
      * @param location {@link Vector} representing the position of the block to update.
      */
-    default void scheduleFluidUpdate(@NotNull Vector location) {
+    default void scheduleFluidUpdate(@NonNull Vector location) {
         scheduleFluidUpdate(location.getBlockX(), location.getBlockY(), location.getBlockZ());
     }
 
@@ -144,7 +144,7 @@ public interface LimitedRegion extends RegionAccessor {
      *
      * @return The {@link World} object that this region represents.
      */
-    @NotNull
+    @NonNull
     World getWorld();
 
     /**
@@ -153,8 +153,8 @@ public interface LimitedRegion extends RegionAccessor {
      * @param vector {@link Vector} representing the position of the block to get.
      * @return {@link BlockData} at the coordinates
      */
-    @NotNull
-    default BlockData getBlockData(@NotNull Vector vector) {
+    @NonNull
+    default BlockData getBlockData(@NonNull Vector vector) {
         return getBlockData(vector.getBlockX(), vector.getBlockY(), vector.getBlockZ());
     }
 

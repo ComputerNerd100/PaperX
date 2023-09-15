@@ -12,8 +12,8 @@ import io.papermc.paper.api.material.TreeType;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.util.BoundingBox;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Collection;
 import java.util.List;
@@ -34,8 +34,8 @@ public interface RegionAccessor extends Keyed {
      * @return Biome at the given location
      * @see #getComputedBiome(int, int, int)
      */
-    @NotNull
-    Biome getBiome(@NotNull Location location);
+    @NonNull
+    Biome getBiome(@NonNull Location location);
 
     /**
      * Gets the {@link Biome} at the given coordinates.
@@ -46,7 +46,7 @@ public interface RegionAccessor extends Keyed {
      * @return Biome at the given coordinates
      * @see #getComputedBiome(int, int, int)
      */
-    @NotNull
+    @NonNull
     Biome getBiome(int x, int y, int z);
 
     // Paper start
@@ -67,7 +67,7 @@ public interface RegionAccessor extends Keyed {
      * @param z Z-coordinate of the block
      * @return Biome at the given coordinates
      */
-    @NotNull
+    @NonNull
     Biome getComputedBiome(int x, int y, int z);
     // Paper end
 
@@ -77,7 +77,7 @@ public interface RegionAccessor extends Keyed {
      * @param location the location of the biome
      * @param biome New Biome type for this block
      */
-    void setBiome(@NotNull Location location, @NotNull Biome biome);
+    void setBiome(@NonNull Location location, @NonNull Biome biome);
 
     /**
      * Sets the {@link Biome} for the given block coordinates
@@ -87,7 +87,7 @@ public interface RegionAccessor extends Keyed {
      * @param z Z-coordinate of the block
      * @param biome New Biome type for this block
      */
-    void setBiome(int x, int y, int z, @NotNull Biome biome);
+    void setBiome(int x, int y, int z, @NonNull Biome biome);
 
     /**
      * Gets the {@link BlockState} at the given {@link Location}.
@@ -95,8 +95,8 @@ public interface RegionAccessor extends Keyed {
      * @param location The location of the block state
      * @return Block state at the given location
      */
-    @NotNull
-    BlockState getBlockState(@NotNull Location location);
+    @NonNull
+    BlockState getBlockState(@NonNull Location location);
 
     /**
      * Gets the {@link BlockState} at the given coordinates.
@@ -106,7 +106,7 @@ public interface RegionAccessor extends Keyed {
      * @param z Z-coordinate of the block state
      * @return Block state at the given coordinates
      */
-    @NotNull
+    @NonNull
     BlockState getBlockState(int x, int y, int z);
 
     /**
@@ -115,8 +115,8 @@ public interface RegionAccessor extends Keyed {
      * @param location The location of the block data
      * @return Block data at the given location
      */
-    @NotNull
-    BlockData getBlockData(@NotNull Location location);
+    @NonNull
+    BlockData getBlockData(@NonNull Location location);
 
     /**
      * Gets the {@link BlockData} at the given coordinates.
@@ -126,7 +126,7 @@ public interface RegionAccessor extends Keyed {
      * @param z Z-coordinate of the block data
      * @return Block data at the given coordinates
      */
-    @NotNull
+    @NonNull
     BlockData getBlockData(int x, int y, int z);
 
     /**
@@ -135,8 +135,8 @@ public interface RegionAccessor extends Keyed {
      * @param location The location of the block
      * @return Material at the given coordinates
      */
-    @NotNull
-    Material getType(@NotNull Location location);
+    @NonNull
+    Material getType(@NonNull Location location);
 
     /**
      * Gets the type of the block at the given coordinates.
@@ -146,7 +146,7 @@ public interface RegionAccessor extends Keyed {
      * @param z Z-coordinate of the block
      * @return Material at the given coordinates
      */
-    @NotNull
+    @NonNull
     Material getType(int x, int y, int z);
 
     /**
@@ -155,7 +155,7 @@ public interface RegionAccessor extends Keyed {
      * @param location The location of the block
      * @param blockData The block data to set the block to
      */
-    void setBlockData(@NotNull Location location, @NotNull BlockData blockData);
+    void setBlockData(@NonNull Location location, @NonNull BlockData blockData);
 
     /**
      * Sets the {@link BlockData} at the given coordinates.
@@ -165,7 +165,7 @@ public interface RegionAccessor extends Keyed {
      * @param z Z-coordinate of the block
      * @param blockData The block data to set the block to
      */
-    void setBlockData(int x, int y, int z, @NotNull BlockData blockData);
+    void setBlockData(int x, int y, int z, @NonNull BlockData blockData);
 
     /**
      * Sets the {@link Material} at the given {@link Location}.
@@ -173,7 +173,7 @@ public interface RegionAccessor extends Keyed {
      * @param location The location of the block
      * @param material The type to set the block to
      */
-    void setType(@NotNull Location location, @NotNull Material material);
+    void setType(@NonNull Location location, @NonNull Material material);
 
     /**
      * Sets the {@link Material} at the given coordinates.
@@ -183,7 +183,7 @@ public interface RegionAccessor extends Keyed {
      * @param z Z-coordinate of the block
      * @param material The type to set the block to
      */
-    void setType(int x, int y, int z, @NotNull Material material);
+    void setType(int x, int y, int z, @NonNull Material material);
 
     /**
      * Creates a tree at the given {@link Location}
@@ -193,7 +193,7 @@ public interface RegionAccessor extends Keyed {
      * @param type Type of the tree to create
      * @return true if the tree was created successfully, otherwise false
      */
-    boolean generateTree(@NotNull Location location, @NotNull Random random, @NotNull TreeType type);
+    boolean generateTree(@NonNull Location location, @NonNull Random random, @NonNull TreeType type);
 
     /**
      * Creates a tree at the given {@link Location}
@@ -213,7 +213,7 @@ public interface RegionAccessor extends Keyed {
      * @param stateConsumer The consumer which should get called for every block which gets changed
      * @return true if the tree was created successfully, otherwise false
      */
-    boolean generateTree(@NotNull Location location, @NotNull Random random, @NotNull TreeType type, @Nullable Consumer<BlockState> stateConsumer);
+    boolean generateTree(@NonNull Location location, @NonNull Random random, @NonNull TreeType type, @Nullable Consumer<BlockState> stateConsumer);
 
     /**
      * Creates a tree at the given {@link Location}
@@ -233,7 +233,7 @@ public interface RegionAccessor extends Keyed {
      * @param statePredicate The predicate which should get used to test if a block should be set or not.
      * @return true if the tree was created successfully, otherwise false
      */
-    boolean generateTree(@NotNull Location location, @NotNull Random random, @NotNull TreeType type, @Nullable Predicate<BlockState> statePredicate);
+    boolean generateTree(@NonNull Location location, @NonNull Random random, @NonNull TreeType type, @Nullable Predicate<BlockState> statePredicate);
 
     /**
      * Creates a entity at the given {@link Location}
@@ -242,8 +242,8 @@ public interface RegionAccessor extends Keyed {
      * @param type The entity to spawn
      * @return Resulting Entity of this method
      */
-    @NotNull
-    Entity spawnEntity(@NotNull Location location, @NotNull EntityType type);
+    @NonNull
+    Entity spawnEntity(@NonNull Location location, @NonNull EntityType type);
 
     /**
      * Creates a new entity at the given {@link Location}.
@@ -268,15 +268,15 @@ public interface RegionAccessor extends Keyed {
      *                      of entity.
      * @return the spawned entity instance.
      */
-    @NotNull
-    public Entity spawnEntity(@NotNull Location loc, @NotNull EntityType type, boolean randomizeData);
+    @NonNull
+    public Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, boolean randomizeData);
 
     /**
      * Get a list of all entities in this RegionAccessor
      *
      * @return A List of all Entities currently residing in this world accessor
      */
-    @NotNull
+    @NonNull
     List<Entity> getEntities();
 
     /**
@@ -284,7 +284,7 @@ public interface RegionAccessor extends Keyed {
      *
      * @return A List of all LivingEntities currently residing in this world accessor
      */
-    @NotNull
+    @NonNull
     List<LivingEntity> getLivingEntities();
 
     /**
@@ -296,8 +296,8 @@ public interface RegionAccessor extends Keyed {
      * @return A List of all Entities currently residing in this world accessor
      *     that match the given class/interface
      */
-    @NotNull
-    <T extends Entity> Collection<T> getEntitiesByClass(@NotNull Class<T> cls);
+    @NonNull
+    <T extends Entity> Collection<T> getEntitiesByClass(@NonNull Class<T> cls);
 
     /**
      * Get a collection of all entities in this RegionAccessor matching any of the
@@ -307,8 +307,8 @@ public interface RegionAccessor extends Keyed {
      * @return A List of all Entities currently residing in this world accessor
      *     that match one or more of the given classes/interfaces
      */
-    @NotNull
-    Collection<Entity> getEntitiesByClasses(@NotNull Class<?>... classes);
+    @NonNull
+    Collection<Entity> getEntitiesByClasses(@NonNull Class<?>... classes);
 
     /**
      * Spawn an entity of a specific class at the given {@link Location}
@@ -320,8 +320,8 @@ public interface RegionAccessor extends Keyed {
      * @throws IllegalArgumentException if either parameter is null or the
      *     {@link Entity} requested cannot be spawned
      */
-    @NotNull
-    <T extends Entity> T spawn(@NotNull Location location, @NotNull Class<T> clazz) throws IllegalArgumentException;
+    @NonNull
+    <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz) throws IllegalArgumentException;
 
     /**
      * Spawn an entity of a specific class at the given {@link Location}, with
@@ -339,34 +339,34 @@ public interface RegionAccessor extends Keyed {
      * @throws IllegalArgumentException if either parameter is null or the
      *     {@link Entity} requested cannot be spawned
      */
-    @NotNull
+    @NonNull
     // Paper start
-    public default <T extends Entity> T spawn(@NotNull Location location, @NotNull Class<T> clazz, @Nullable Consumer<T> function) throws IllegalArgumentException {
+    public default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, @Nullable Consumer<T> function) throws IllegalArgumentException {
         return spawn(location, clazz, CreatureSpawnEvent.SpawnReason.CUSTOM, function);
     }
 
-    @NotNull
-    public default <T extends Entity> T spawn(@NotNull Location location, @NotNull Class<T> clazz, @NotNull CreatureSpawnEvent.SpawnReason reason) throws IllegalArgumentException {
+    @NonNull
+    public default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, @NonNull CreatureSpawnEvent.SpawnReason reason) throws IllegalArgumentException {
         return spawn(location, clazz, reason, null);
     }
 
-    @NotNull
-    public default <T extends Entity> T spawn(@NotNull Location location, @NotNull Class<T> clazz, @NotNull CreatureSpawnEvent.SpawnReason reason, @Nullable Consumer<T> function) throws IllegalArgumentException {
+    @NonNull
+    public default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, @NonNull CreatureSpawnEvent.SpawnReason reason, @Nullable Consumer<T> function) throws IllegalArgumentException {
         return spawn(location, clazz, function, reason);
     }
 
-    @NotNull
-    public default Entity spawnEntity(@NotNull Location loc, @NotNull EntityType type, @NotNull CreatureSpawnEvent.SpawnReason reason) {
+    @NonNull
+    public default Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, @NonNull CreatureSpawnEvent.SpawnReason reason) {
         return spawn(loc, (Class<Entity>) type.getEntityClass(), reason, null);
     }
 
-    @NotNull
-    public default Entity spawnEntity(@NotNull Location loc, @NotNull EntityType type, @NotNull CreatureSpawnEvent.SpawnReason reason, @Nullable Consumer<Entity> function) {
+    @NonNull
+    public default Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, @NonNull CreatureSpawnEvent.SpawnReason reason, @Nullable Consumer<Entity> function) {
         return spawn(loc, (Class<Entity>) type.getEntityClass(), reason, function);
     }
 
-    @NotNull
-    public <T extends Entity> T spawn(@NotNull Location location, @NotNull Class<T> clazz, @Nullable Consumer<T> function, @NotNull CreatureSpawnEvent.SpawnReason reason) throws IllegalArgumentException;
+    @NonNull
+    public <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, @Nullable Consumer<T> function, @NonNull CreatureSpawnEvent.SpawnReason reason) throws IllegalArgumentException;
 
     /**
      * Creates a new entity at the given {@link Location} with the supplied
@@ -403,8 +403,8 @@ public interface RegionAccessor extends Keyed {
      * @return the spawned entity instance.
      * @throws IllegalArgumentException if either the world or clazz parameter are null.
      */
-    @NotNull
-    public <T extends Entity> T spawn(@NotNull Location location, @NotNull Class<T> clazz, boolean randomizeData, @Nullable Consumer<T> function) throws IllegalArgumentException;
+    @NonNull
+    public <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, boolean randomizeData, @Nullable Consumer<T> function) throws IllegalArgumentException;
 
     /**
      * Gets the highest non-empty (impassable) coordinate at the given
@@ -423,7 +423,7 @@ public interface RegionAccessor extends Keyed {
      * @param location Location of the blocks
      * @return Y-coordinate of the highest non-empty block
      */
-    public int getHighestBlockYAt(@NotNull Location location);
+    public int getHighestBlockYAt(@NonNull Location location);
 
     /**
      * Gets the highest coordinate corresponding to the {@link HeightMap} at the
@@ -437,7 +437,7 @@ public interface RegionAccessor extends Keyed {
      * @return Y-coordinate of the highest block corresponding to the
      * {@link HeightMap}
      */
-    public int getHighestBlockYAt(int x, int z, @NotNull HeightMap heightMap);
+    public int getHighestBlockYAt(int x, int z, @NonNull HeightMap heightMap);
 
     /**
      * Gets the highest coordinate corresponding to the {@link HeightMap} at the
@@ -449,13 +449,13 @@ public interface RegionAccessor extends Keyed {
      * @return Y-coordinate of the highest block corresponding to the
      * {@link HeightMap}
      */
-    public int getHighestBlockYAt(@NotNull Location location, @NotNull HeightMap heightMap);
+    public int getHighestBlockYAt(@NonNull Location location, @NonNull HeightMap heightMap);
 
     // Paper start
     /**
      * @return the current moon phase at the current time in the world
      */
-    @NotNull
+    @NonNull
     MoonPhase getMoonPhase();
 
     /**
@@ -463,7 +463,7 @@ public interface RegionAccessor extends Keyed {
      *
      * @return the world's key
      */
-    @NotNull
+    @NonNull
     @Override
     NamespacedKey getKey();
 
@@ -473,7 +473,7 @@ public interface RegionAccessor extends Keyed {
      * @param to target Location
      * @return whether a line of sight exists between {@code from} and {@code to}
      */
-    public boolean lineOfSightExists(@NotNull Location from, @NotNull Location to);
+    public boolean lineOfSightExists(@NonNull Location from, @NonNull Location to);
 
     /**
      * Checks if the world collides with the given boundingbox.
@@ -483,6 +483,6 @@ public interface RegionAccessor extends Keyed {
      * @param boundingBox the box to check collisions in
      * @return collides or not
      */
-    boolean hasCollisionsIn(@NotNull BoundingBox boundingBox);
+    boolean hasCollisionsIn(@NonNull BoundingBox boundingBox);
 }
 

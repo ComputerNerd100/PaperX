@@ -1,5 +1,7 @@
 package io.papermc.paper.api.world;
 
+import io.papermc.paper.api.tag.Tag;
+
 /**
  * Further information regarding heightmaps.
  *
