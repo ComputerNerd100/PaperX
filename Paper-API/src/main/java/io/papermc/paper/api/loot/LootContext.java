@@ -5,8 +5,9 @@ import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.entity.HumanEntity;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import io.papermc.paper.api.world.World;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents additional information a {@link LootTable} can use to modify it's
@@ -22,7 +23,7 @@ public final class LootContext {
     private final Entity lootedEntity;
     private final HumanEntity killer;
 
-    private LootContext(@NotNull Location location, float luck, int lootingModifier, @Nullable Entity lootedEntity, @Nullable HumanEntity killer) {
+    private LootContext(@NonNull Location location, float luck, int lootingModifier, @Nullable Entity lootedEntity, @Nullable HumanEntity killer) {
         Preconditions.checkArgument(location != null, "LootContext location cannot be null");
         Preconditions.checkArgument(location.getWorld() != null, "LootContext World cannot be null");
         this.location = location;
@@ -37,13 +38,13 @@ public final class LootContext {
      *
      * @return the Location of where the loot will be generated
      */
-    @NotNull
+    @NonNull
     public Location getLocation() {
         return location;
     }
 
     /**
-     * Represents the {@link org.bukkit.potion.PotionEffectType#LUCK} that an
+     * Represents the {@link PotionEffectType#LUCK} that an
      * entity can have. The higher the value the better chance of receiving more
      * loot.
      *
@@ -55,7 +56,7 @@ public final class LootContext {
 
     /**
      * Represents the
-     * {@link org.bukkit.enchantments.Enchantment#LOOT_BONUS_MOBS} the
+     * {@link Enchantment#LOOT_BONUS_MOBS} the
      * {@link #getKiller()} entity has on their equipped item.
      *
      * This value is only set via
@@ -92,7 +93,7 @@ public final class LootContext {
     /**
      * Utility class to make building {@link LootContext} easier. The only
      * required argument is {@link Location} with a valid (non-null)
-     * {@link org.bukkit.World}.
+     * {@link World}.
      */
     public static class Builder {
 
@@ -108,7 +109,7 @@ public final class LootContext {
          *
          * @param location the location the LootContext should use
          */
-        public Builder(@NotNull Location location) {
+        public Builder(@NonNull Location location) {
             this.location = location;
         }
 
@@ -118,14 +119,14 @@ public final class LootContext {
          * @param luck the luck level
          * @return the Builder
          */
-        @NotNull
+        @NonNull
         public Builder luck(float luck) {
             this.luck = luck;
             return this;
         }
 
         /**
-         * Set the {@link org.bukkit.enchantments.Enchantment#LOOT_BONUS_MOBS}
+         * Set the {@link Enchantment#LOOT_BONUS_MOBS}
          * level equivalent to use when generating loot. Values less than or
          * equal to 0 will force the {@link LootTable} to only return a single
          * {@link ItemStack} per pool.
@@ -133,7 +134,7 @@ public final class LootContext {
          * @param modifier the looting level modifier
          * @return the Builder
          */
-        @NotNull
+        @NonNull
         public Builder lootingModifier(int modifier) {
             this.lootingModifier = modifier;
             return this;
@@ -145,7 +146,7 @@ public final class LootContext {
          * @param lootedEntity the looted entity
          * @return the Builder
          */
-        @NotNull
+        @NonNull
         public Builder lootedEntity(@Nullable Entity lootedEntity) {
             this.lootedEntity = lootedEntity;
             return this;
@@ -159,7 +160,7 @@ public final class LootContext {
          * @param killer the killer entity
          * @return the Builder
          */
-        @NotNull
+        @NonNull
         public Builder killer(@Nullable HumanEntity killer) {
             this.killer = killer;
             return this;
@@ -171,7 +172,7 @@ public final class LootContext {
          *
          * @return a new {@link LootContext} instance
          */
-        @NotNull
+        @NonNull
         public LootContext build() {
             return new LootContext(location, luck, lootingModifier, lootedEntity, killer);
         }

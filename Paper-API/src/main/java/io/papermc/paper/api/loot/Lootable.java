@@ -2,7 +2,7 @@ package io.papermc.paper.api.loot;
 
 import io.papermc.paper.api.block.container.Container;
 import io.papermc.paper.api.entity.Mob;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a {@link Container} or a

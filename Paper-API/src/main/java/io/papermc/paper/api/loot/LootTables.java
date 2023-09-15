@@ -3,7 +3,7 @@ package io.papermc.paper.api.loot;
 import io.papermc.paper.api.Paper;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * This enum holds a list of all known {@link LootTable}s offered by Mojang.
@@ -186,11 +186,11 @@ public enum LootTables implements Keyed {
 
     private final String location;
 
-    private LootTables(/*@NotNull*/ String location) {
+    private LootTables(/*@NonNull*/ String location) {
         this.location = location;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public NamespacedKey getKey() {
         return NamespacedKey.minecraft(location);
@@ -202,7 +202,7 @@ public enum LootTables implements Keyed {
      *
      * @return the associated LootTable
      */
-    @NotNull
+    @NonNull
     public LootTable getLootTable() {
         return Paper.getLootTable(getKey());
     }

@@ -3,8 +3,8 @@ package io.papermc.paper.api.loot;
 import io.papermc.paper.api.inventory.Inventory;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.namespace.Keyed;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Collection;
 import java.util.Random;
@@ -26,8 +26,8 @@ public interface LootTable extends Keyed {
      * @param context context within to populate loot
      * @return a list of ItemStacks
      */
-    @NotNull
-    Collection<ItemStack> populateLoot(@Nullable Random random, @NotNull LootContext context);
+    @NonNull
+    Collection<ItemStack> populateLoot(@Nullable Random random, @NonNull LootContext context);
 
     /**
      * Attempt to fill an inventory with this LootTable's loot.
@@ -36,5 +36,5 @@ public interface LootTable extends Keyed {
      * @param random the random instance to use to generate loot
      * @param context context within to populate loot
      */
-    void fillInventory(@NotNull Inventory inventory, @Nullable Random random, @NotNull LootContext context);
+    void fillInventory(@NonNull Inventory inventory, @Nullable Random random, @NonNull LootContext context);
 }
