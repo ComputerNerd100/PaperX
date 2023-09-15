@@ -7,6 +7,7 @@ import io.papermc.paper.api.inventory.EquipmentSlot;
 import io.papermc.paper.api.inventory.ItemFlag;
 import io.papermc.paper.api.namespace.Namespaced;
 import io.papermc.paper.api.persistance.PersistentDataHolder;
+import io.papermc.paper.api.util.game.GameMode;
 import net.kyori.adventure.text.Component;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -353,7 +354,7 @@ public interface ItemMeta extends Cloneable, ConfigurationSerializable, Persiste
     @NonNull ItemMeta clone();
 
     /**
-     * Gets the collection of namespaced keys that the item can destroy in {@link org.bukkit.GameMode#ADVENTURE}
+     * Gets the collection of namespaced keys that the item can destroy in {@link GameMode#ADVENTURE}
      *
      * @return Set of {@link Namespaced}
      */
