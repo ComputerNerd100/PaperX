@@ -1,7 +1,7 @@
 package io.papermc.paper.api.namespace;
 
 import net.kyori.adventure.key.Key;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents an object which has a {@link NamespacedKey} attached to it.
@@ -13,7 +13,7 @@ public interface Keyed extends net.kyori.adventure.key.Keyed {
      *
      * @return this object's key
      */
-    @NotNull
+    @NonNull
     NamespacedKey getKey();
 
     /**
@@ -22,7 +22,7 @@ public interface Keyed extends net.kyori.adventure.key.Keyed {
      * @return this object's key
      */
     @Override
-    default @NotNull Key key() {
+    default @NonNull Key key() {
         return this.getKey();
     }
 }

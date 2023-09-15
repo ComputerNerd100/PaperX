@@ -1,6 +1,6 @@
 package io.papermc.paper.api.namespace;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a namespaced resource, see {@link NamespacedKey} for single elements
@@ -23,7 +23,7 @@ public interface Namespaced {
      *
      * @return resource namespace
      */
-    @NotNull
+    @NonNull
     String getNamespace();
 
     /**
@@ -34,6 +34,6 @@ public interface Namespaced {
      *
      * @return resource key
      */
-    @NotNull
+    @NonNull
     String getKey();
 }

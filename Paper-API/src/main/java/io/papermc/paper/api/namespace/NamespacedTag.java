@@ -1,8 +1,8 @@
 package io.papermc.paper.api.namespace;
 
 import com.google.common.base.Preconditions;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.ApiStatus;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
 import java.util.UUID;
@@ -45,7 +45,7 @@ public final class NamespacedTag implements Namespaced {
      * @deprecated should never be used by plugins, for internal use only!!
      */
     @Deprecated @ApiStatus.Internal
-    public NamespacedTag(@NotNull String namespace, @NotNull String key) {
+    public NamespacedTag(@NonNull String namespace, @NonNull String key) {
         Preconditions.checkArgument(namespace != null && VALID_NAMESPACE.matcher(namespace).matches(), "Invalid namespace. Must be [a-z0-9._-]: %s", namespace);
         Preconditions.checkArgument(key != null && VALID_KEY.matcher(key).matches(), "Invalid key. Must be [a-z0-9/._-]: %s", key);
 
@@ -68,7 +68,7 @@ public final class NamespacedTag implements Namespaced {
      * @param plugin the plugin to use for the namespace
      * @param key the key to create
      */
-    public NamespacedTag(@NotNull Plugin plugin, @NotNull String key) {
+    public NamespacedTag(@NonNull Plugin plugin, @NonNull String key) {
         Preconditions.checkArgument(plugin != null, "Plugin cannot be null");
         Preconditions.checkArgument(key != null, "Key cannot be null");
 
@@ -83,12 +83,12 @@ public final class NamespacedTag implements Namespaced {
         Preconditions.checkArgument(string.length() < 256, "NamespacedTag must be less than 256 characters (%s)", string);
     }
 
-    @NotNull
+    @NonNull
     public String getNamespace() {
         return namespace;
     }
 
-    @NotNull
+    @NonNull
     public String getKey() {
         return key;
     }
@@ -135,8 +135,8 @@ public final class NamespacedTag implements Namespaced {
      * @param key the key to use
      * @return new key in the Minecraft namespace
      */
-    @NotNull
-    public static NamespacedTag minecraft(@NotNull String key) {
+    @NonNull
+    public static NamespacedTag minecraft(@NonNull String key) {
         return new NamespacedTag(MINECRAFT, key);
     }
 }
