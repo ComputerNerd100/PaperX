@@ -1,7 +1,7 @@
 package io.papermc.paper.api.conversation;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * ValidatingPrompt is the base class for any prompt that requires validation.
@@ -24,7 +24,7 @@ public abstract class ValidatingPrompt implements Prompt {
      */
     @Override
     @Nullable
-    public Prompt acceptInput(@NotNull ConversationContext context, @Nullable String input) {
+    public Prompt acceptInput(@NonNull ConversationContext context, @Nullable String input) {
         if (isInputValid(context, input)) {
             return acceptValidatedInput(context, input);
         } else {
@@ -44,7 +44,7 @@ public abstract class ValidatingPrompt implements Prompt {
      * @return True.
      */
     @Override
-    public boolean blocksForInput(@NotNull ConversationContext context) {
+    public boolean blocksForInput(@NonNull ConversationContext context) {
         return true;
     }
 
@@ -55,7 +55,7 @@ public abstract class ValidatingPrompt implements Prompt {
      * @param input The player's raw console input.
      * @return True or false depending on the validity of the input.
      */
-    protected abstract boolean isInputValid(@NotNull ConversationContext context, @NotNull String input);
+    protected abstract boolean isInputValid(@NonNull ConversationContext context, @NonNull String input);
 
     /**
      * Override this method to accept and processes the validated input from
@@ -67,7 +67,7 @@ public abstract class ValidatingPrompt implements Prompt {
      * @return The next Prompt in the prompt graph.
      */
     @Nullable
-    protected abstract Prompt acceptValidatedInput(@NotNull ConversationContext context, @NotNull String input);
+    protected abstract Prompt acceptValidatedInput(@NonNull ConversationContext context, @NonNull String input);
 
     /**
      * Optionally override this method to display an additional message if the
@@ -78,7 +78,7 @@ public abstract class ValidatingPrompt implements Prompt {
      * @return A message explaining how to correct the input.
      */
     @Nullable
-    protected String getFailedValidationText(@NotNull ConversationContext context, @NotNull String invalidInput) {
+    protected String getFailedValidationText(@NonNull ConversationContext context, @NonNull String invalidInput) {
         return null;
     }
 }

@@ -1,6 +1,6 @@
 package io.papermc.paper.api.conversation;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * An ExactMatchConversationCanceller cancels a conversation if the user
@@ -15,20 +15,20 @@ public class ExactMatchConversationCanceller implements ConversationCanceller {
      * @param escapeSequence The string that, if entered by the user, will
      *     cancel the conversation.
      */
-    public ExactMatchConversationCanceller(@NotNull String escapeSequence) {
+    public ExactMatchConversationCanceller(@NonNull String escapeSequence) {
         this.escapeSequence = escapeSequence;
     }
 
     @Override
-    public void setConversation(@NotNull Conversation conversation) {}
+    public void setConversation(@NonNull Conversation conversation) {}
 
     @Override
-    public boolean cancelBasedOnInput(@NotNull ConversationContext context, @NotNull String input) {
+    public boolean cancelBasedOnInput(@NonNull ConversationContext context, @NonNull String input) {
         return input.equals(escapeSequence);
     }
 
     @Override
-    @NotNull
+    @NonNull
     public ConversationCanceller clone() {
         return new ExactMatchConversationCanceller(escapeSequence);
     }

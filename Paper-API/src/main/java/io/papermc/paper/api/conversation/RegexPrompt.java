@@ -1,6 +1,6 @@
 package io.papermc.paper.api.conversation;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.regex.Pattern;
 
@@ -12,11 +12,11 @@ public abstract class RegexPrompt extends ValidatingPrompt {
 
     private Pattern pattern;
 
-    public RegexPrompt(@NotNull String regex) {
+    public RegexPrompt(@NonNull String regex) {
         this(Pattern.compile(regex));
     }
 
-    public RegexPrompt(@NotNull Pattern pattern) {
+    public RegexPrompt(@NonNull Pattern pattern) {
         super();
         this.pattern = pattern;
     }
@@ -24,7 +24,7 @@ public abstract class RegexPrompt extends ValidatingPrompt {
     private RegexPrompt() {}
 
     @Override
-    protected boolean isInputValid(@NotNull ConversationContext context, @NotNull String input) {
+    protected boolean isInputValid(@NonNull ConversationContext context, @NonNull String input) {
         return pattern.matcher(input).matches();
     }
 }

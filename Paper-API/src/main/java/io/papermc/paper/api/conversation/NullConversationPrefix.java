@@ -1,6 +1,6 @@
 package io.papermc.paper.api.conversation;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * NullConversationPrefix is a {@link ConversationPrefix} implementation that
@@ -15,8 +15,8 @@ public class NullConversationPrefix implements ConversationPrefix {
      * @return An empty string.
      */
     @Override
-    @NotNull
-    public String getPrefix(@NotNull ConversationContext context) {
+    @NonNull
+    public String getPrefix(@NonNull ConversationContext context) {
         return "";
     }
 }

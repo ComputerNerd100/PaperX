@@ -1,6 +1,6 @@
 package io.papermc.paper.api.conversation;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * StringPrompt is the base class for any prompt that accepts an arbitrary
@@ -15,7 +15,7 @@ public abstract class StringPrompt implements Prompt {
      * @return True.
      */
     @Override
-    public boolean blocksForInput(@NotNull ConversationContext context) {
+    public boolean blocksForInput(@NonNull ConversationContext context) {
         return true;
     }
 }

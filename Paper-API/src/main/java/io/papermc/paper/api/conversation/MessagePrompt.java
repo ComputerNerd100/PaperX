@@ -1,7 +1,7 @@
 package io.papermc.paper.api.conversation;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * MessagePrompt is the base class for any prompt that only displays a message
@@ -20,7 +20,7 @@ public abstract class MessagePrompt implements Prompt {
      * @return Always false.
      */
     @Override
-    public boolean blocksForInput(@NotNull ConversationContext context) {
+    public boolean blocksForInput(@NonNull ConversationContext context) {
         return false;
     }
 
@@ -34,7 +34,7 @@ public abstract class MessagePrompt implements Prompt {
      */
     @Override
     @Nullable
-    public Prompt acceptInput(@NotNull ConversationContext context, @Nullable String input) {
+    public Prompt acceptInput(@NonNull ConversationContext context, @Nullable String input) {
         return getNextPrompt(context);
     }
 
@@ -45,6 +45,6 @@ public abstract class MessagePrompt implements Prompt {
      * @return The next prompt in the prompt graph.
      */
     @Nullable
-    protected abstract Prompt getNextPrompt(@NotNull ConversationContext context);
+    protected abstract Prompt getNextPrompt(@NonNull ConversationContext context);
 }
 

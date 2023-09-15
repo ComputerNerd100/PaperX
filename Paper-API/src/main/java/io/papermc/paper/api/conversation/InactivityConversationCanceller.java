@@ -1,6 +1,6 @@
 package io.papermc.paper.api.conversation;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * An InactivityConversationCanceller will cancel a {@link Conversation} after
@@ -18,19 +18,19 @@ public class InactivityConversationCanceller implements ConversationCanceller {
      * @param plugin The owning plugin.
      * @param timeoutSeconds The number of seconds of inactivity to wait.
      */
-    public InactivityConversationCanceller(@NotNull Plugin plugin, int timeoutSeconds) {
+    public InactivityConversationCanceller(@NonNull Plugin plugin, int timeoutSeconds) {
         this.plugin = plugin;
         this.timeoutSeconds = timeoutSeconds;
     }
 
     @Override
-    public void setConversation(@NotNull Conversation conversation) {
+    public void setConversation(@NonNull Conversation conversation) {
         this.conversation = conversation;
         startTimer();
     }
 
     @Override
-    public boolean cancelBasedOnInput(@NotNull ConversationContext context, @NotNull String input) {
+    public boolean cancelBasedOnInput(@NonNull ConversationContext context, @NonNull String input) {
         // Reset the inactivity timer
         stopTimer();
         startTimer();
@@ -38,7 +38,7 @@ public class InactivityConversationCanceller implements ConversationCanceller {
     }
 
     @Override
-    @NotNull
+    @NonNull
     public ConversationCanceller clone() {
         return new InactivityConversationCanceller(plugin, timeoutSeconds);
     }
@@ -77,7 +77,7 @@ public class InactivityConversationCanceller implements ConversationCanceller {
      *
      * @param conversation The conversation being abandoned.
      */
-    protected void cancelling(@NotNull Conversation conversation) {
+    protected void cancelling(@NonNull Conversation conversation) {
 
     }
 }

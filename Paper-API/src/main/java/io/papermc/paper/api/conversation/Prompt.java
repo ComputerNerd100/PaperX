@@ -1,7 +1,7 @@
 package io.papermc.paper.api.conversation;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * A Prompt is the main constituent of a {@link Conversation}. Each prompt
@@ -24,8 +24,8 @@ public interface Prompt extends Cloneable {
      * @param context Context information about the conversation.
      * @return The text to display.
      */
-    @NotNull
-    String getPromptText(@NotNull ConversationContext context);
+    @NonNull
+    String getPromptText(@NonNull ConversationContext context);
 
     /**
      * Checks to see if this prompt implementation should wait for user input
@@ -35,7 +35,7 @@ public interface Prompt extends Cloneable {
      * @return If true, the {@link Conversation} will wait for input before
      *     continuing. If false, {@link #acceptInput(ConversationContext, String)} will be called immediately with {@code null} input.
      */
-    boolean blocksForInput(@NotNull ConversationContext context);
+    boolean blocksForInput(@NonNull ConversationContext context);
 
     /**
      * Accepts and processes input from the user. Using the input, the next
@@ -46,6 +46,6 @@ public interface Prompt extends Cloneable {
      * @return The next Prompt in the prompt graph.
      */
     @Nullable
-    Prompt acceptInput(@NotNull ConversationContext context, @Nullable String input);
+    Prompt acceptInput(@NonNull ConversationContext context, @Nullable String input);
 }
 

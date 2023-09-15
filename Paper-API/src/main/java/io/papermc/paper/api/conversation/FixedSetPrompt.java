@@ -1,7 +1,7 @@
 package io.papermc.paper.api.conversation;
 
 import com.google.common.base.Joiner;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +22,7 @@ public abstract class FixedSetPrompt extends ValidatingPrompt {
      * @param fixedSet A fixed set of strings, one of which the user must
      *     type.
      */
-    public FixedSetPrompt(@NotNull String... fixedSet) {
+    public FixedSetPrompt(@NonNull String... fixedSet) {
         super();
         this.fixedSet = Arrays.asList(fixedSet);
     }
@@ -30,7 +30,7 @@ public abstract class FixedSetPrompt extends ValidatingPrompt {
     private FixedSetPrompt() {}
 
     @Override
-    protected boolean isInputValid(@NotNull ConversationContext context, @NotNull String input) {
+    protected boolean isInputValid(@NonNull ConversationContext context, @NonNull String input) {
         return fixedSet.contains(input);
     }
 
@@ -41,7 +41,7 @@ public abstract class FixedSetPrompt extends ValidatingPrompt {
      * @return the options formatted like "[bar, cheese, panda]" if bar,
      *     cheese, and panda were the options used
      */
-    @NotNull
+    @NonNull
     protected String formatFixedSet() {
         return "[" + Joiner.on(", ").join(fixedSet) + "]";
     }

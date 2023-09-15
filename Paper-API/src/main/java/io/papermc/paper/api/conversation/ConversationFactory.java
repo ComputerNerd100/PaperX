@@ -1,8 +1,8 @@
 package io.papermc.paper.api.conversation;
 
 import io.papermc.paper.api.entity.Player;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,7 +36,7 @@ public class ConversationFactory {
      *
      * @param plugin The plugin that owns the factory.
      */
-    public ConversationFactory(@NotNull Plugin plugin) {
+    public ConversationFactory(@NonNull Plugin plugin) {
         this.plugin = plugin;
         isModal = true;
         localEchoEnabled = true;
@@ -58,7 +58,7 @@ public class ConversationFactory {
      * @param modal The modality of all conversations to be created.
      * @return This object.
      */
-    @NotNull
+    @NonNull
     public ConversationFactory withModality(boolean modal) {
         isModal = modal;
         return this;
@@ -72,7 +72,7 @@ public class ConversationFactory {
      * @param localEchoEnabled The status of local echo.
      * @return This object.
      */
-    @NotNull
+    @NonNull
     public ConversationFactory withLocalEcho(boolean localEchoEnabled) {
         this.localEchoEnabled = localEchoEnabled;
         return this;
@@ -87,8 +87,8 @@ public class ConversationFactory {
      * @param prefix The ConversationPrefix to use.
      * @return This object.
      */
-    @NotNull
-    public ConversationFactory withPrefix(@NotNull ConversationPrefix prefix) {
+    @NonNull
+    public ConversationFactory withPrefix(@NonNull ConversationPrefix prefix) {
         this.prefix = prefix;
         return this;
     }
@@ -102,7 +102,7 @@ public class ConversationFactory {
      * @param timeoutSeconds The number of seconds to wait.
      * @return This object.
      */
-    @NotNull
+    @NonNull
     public ConversationFactory withTimeout(int timeoutSeconds) {
         return withConversationCanceller(new InactivityConversationCanceller(plugin, timeoutSeconds));
     }
@@ -115,7 +115,7 @@ public class ConversationFactory {
      * @param firstPrompt The first prompt.
      * @return This object.
      */
-    @NotNull
+    @NonNull
     public ConversationFactory withFirstPrompt(@Nullable Prompt firstPrompt) {
         this.firstPrompt = firstPrompt;
         return this;
@@ -129,8 +129,8 @@ public class ConversationFactory {
      *     sessionData.
      * @return This object.
      */
-    @NotNull
-    public ConversationFactory withInitialSessionData(@NotNull Map<Object, Object> initialSessionData) {
+    @NonNull
+    public ConversationFactory withInitialSessionData(@NonNull Map<Object, Object> initialSessionData) {
         this.initialSessionData = initialSessionData;
         return this;
     }
@@ -142,8 +142,8 @@ public class ConversationFactory {
      * @param escapeSequence Input to terminate the conversation.
      * @return This object.
      */
-    @NotNull
-    public ConversationFactory withEscapeSequence(@NotNull String escapeSequence) {
+    @NonNull
+    public ConversationFactory withEscapeSequence(@NonNull String escapeSequence) {
         return withConversationCanceller(new ExactMatchConversationCanceller(escapeSequence));
     }
 
@@ -153,8 +153,8 @@ public class ConversationFactory {
      * @param canceller The {@link ConversationCanceller} to add.
      * @return This object.
      */
-    @NotNull
-    public ConversationFactory withConversationCanceller(@NotNull ConversationCanceller canceller) {
+    @NonNull
+    public ConversationFactory withConversationCanceller(@NonNull ConversationCanceller canceller) {
         cancellers.add(canceller);
         return this;
     }
@@ -167,7 +167,7 @@ public class ConversationFactory {
      *     starting a conversation.
      * @return This object.
      */
-    @NotNull
+    @NonNull
     public ConversationFactory thatExcludesNonPlayersWithMessage(@Nullable String playerOnlyMessage) {
         this.playerOnlyMessage = playerOnlyMessage;
         return this;
@@ -180,8 +180,8 @@ public class ConversationFactory {
      * @param listener The listener to add.
      * @return This object.
      */
-    @NotNull
-    public ConversationFactory addConversationAbandonedListener(@NotNull ConversationAbandonedListener listener) {
+    @NonNull
+    public ConversationFactory addConversationAbandonedListener(@NonNull ConversationAbandonedListener listener) {
         abandonedListeners.add(listener);
         return this;
     }
@@ -193,8 +193,8 @@ public class ConversationFactory {
      * @param forWhom The entity for whom the new conversation is mediating.
      * @return A new conversation.
      */
-    @NotNull
-    public Conversation buildConversation(@NotNull Conversable forWhom) {
+    @NonNull
+    public Conversation buildConversation(@NonNull Conversable forWhom) {
         //Abort conversation construction if we aren't supposed to talk to non-players
         if (playerOnlyMessage != null && !(forWhom instanceof Player)) {
             return new Conversation(plugin, forWhom, new NotPlayerMessagePrompt());
@@ -226,14 +226,14 @@ public class ConversationFactory {
     private class NotPlayerMessagePrompt extends MessagePrompt {
 
         @Override
-        @NotNull
-        public String getPromptText(@NotNull ConversationContext context) {
+        @NonNull
+        public String getPromptText(@NonNull ConversationContext context) {
             return playerOnlyMessage;
         }
 
         @Nullable
         @Override
-        protected Prompt getNextPrompt(@NotNull ConversationContext context) {
+        protected Prompt getNextPrompt(@NonNull ConversationContext context) {
             return Prompt.END_OF_CONVERSATION;
         }
     }

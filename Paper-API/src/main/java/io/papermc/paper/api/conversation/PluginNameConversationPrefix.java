@@ -1,6 +1,6 @@
 package io.papermc.paper.api.conversation;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * PluginNameConversationPrefix is a {@link ConversationPrefix} implementation
@@ -14,11 +14,11 @@ public class PluginNameConversationPrefix implements ConversationPrefix {
 
     private String cachedPrefix;
 
-    public PluginNameConversationPrefix(@NotNull Plugin plugin) {
+    public PluginNameConversationPrefix(@NonNull Plugin plugin) {
         this(plugin, " > ", ChatColor.LIGHT_PURPLE);
     }
 
-    public PluginNameConversationPrefix(@NotNull Plugin plugin, @NotNull String separator, @NotNull ChatColor prefixColor) {
+    public PluginNameConversationPrefix(@NonNull Plugin plugin, @NonNull String separator, @NonNull ChatColor prefixColor) {
         this.separator = separator;
         this.prefixColor = prefixColor;
         this.plugin = plugin;
@@ -33,8 +33,8 @@ public class PluginNameConversationPrefix implements ConversationPrefix {
      * @return An empty string.
      */
     @Override
-    @NotNull
-    public String getPrefix(@NotNull ConversationContext context) {
+    @NonNull
+    public String getPrefix(@NonNull ConversationContext context) {
         return cachedPrefix;
     }
 }

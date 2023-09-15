@@ -1,8 +1,8 @@
 package io.papermc.paper.api.conversation;
 
 import io.papermc.paper.api.entity.Player;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * PlayerNamePrompt is the base class for any prompt that requires the player
@@ -11,19 +11,19 @@ import org.jetbrains.annotations.Nullable;
 public abstract class PlayerNamePrompt extends ValidatingPrompt {
     private Plugin plugin;
 
-    public PlayerNamePrompt(@NotNull Plugin plugin) {
+    public PlayerNamePrompt(@NonNull Plugin plugin) {
         super();
         this.plugin = plugin;
     }
 
     @Override
-    protected boolean isInputValid(@NotNull ConversationContext context, @NotNull String input) {
+    protected boolean isInputValid(@NonNull ConversationContext context, @NonNull String input) {
         return plugin.getServer().getPlayer(input) != null;
     }
 
     @Nullable
     @Override
-    protected Prompt acceptValidatedInput(@NotNull ConversationContext context, @NotNull String input) {
+    protected Prompt acceptValidatedInput(@NonNull ConversationContext context, @NonNull String input) {
         return acceptValidatedInput(context, plugin.getServer().getPlayer(input));
     }
 
@@ -36,6 +36,6 @@ public abstract class PlayerNamePrompt extends ValidatingPrompt {
      * @return The next {@link Prompt} in the prompt graph.
      */
     @Nullable
-    protected abstract Prompt acceptValidatedInput(@NotNull ConversationContext context, @NotNull Player input);
+    protected abstract Prompt acceptValidatedInput(@NonNull ConversationContext context, @NonNull Player input);
 }
 

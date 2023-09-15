@@ -1,7 +1,7 @@
 package io.papermc.paper.api.conversation;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,7 +52,7 @@ public class Conversation {
      * @param forWhom The entity for whom this conversation is mediating.
      * @param firstPrompt The first prompt in the conversation graph.
      */
-    public Conversation(@Nullable Plugin plugin, @NotNull Conversable forWhom, @Nullable Prompt firstPrompt) {
+    public Conversation(@Nullable Plugin plugin, @NonNull Conversable forWhom, @Nullable Prompt firstPrompt) {
         this(plugin, forWhom, firstPrompt, new HashMap<Object, Object>());
     }
 
@@ -65,7 +65,7 @@ public class Conversation {
      * @param initialSessionData Any initial values to put in the conversation
      *     context sessionData map.
      */
-    public Conversation(@Nullable Plugin plugin, @NotNull Conversable forWhom, @Nullable Prompt firstPrompt, @NotNull Map<Object, Object> initialSessionData) {
+    public Conversation(@Nullable Plugin plugin, @NonNull Conversable forWhom, @Nullable Prompt firstPrompt, @NonNull Map<Object, Object> initialSessionData) {
         this.firstPrompt = firstPrompt;
         this.context = new ConversationContext(plugin, forWhom, initialSessionData);
         this.modal = true;
@@ -80,7 +80,7 @@ public class Conversation {
      *
      * @return The entity.
      */
-    @NotNull
+    @NonNull
     public Conversable getForWhom() {
         return context.getForWhom();
     }
@@ -135,7 +135,7 @@ public class Conversation {
      *
      * @return The ConversationPrefix in use.
      */
-    @NotNull
+    @NonNull
     public ConversationPrefix getPrefix() {
         return prefix;
     }
@@ -146,7 +146,7 @@ public class Conversation {
      *
      * @param prefix The ConversationPrefix to use.
      */
-    void setPrefix(@NotNull ConversationPrefix prefix) {
+    void setPrefix(@NonNull ConversationPrefix prefix) {
         this.prefix = prefix;
     }
 
@@ -155,7 +155,7 @@ public class Conversation {
      *
      * @param canceller The {@link ConversationCanceller} to add.
      */
-    void addConversationCanceller(@NotNull ConversationCanceller canceller) {
+    void addConversationCanceller(@NonNull ConversationCanceller canceller) {
         canceller.setConversation(this);
         this.cancellers.add(canceller);
     }
@@ -165,7 +165,7 @@ public class Conversation {
      *
      * @return The list.
      */
-    @NotNull
+    @NonNull
     public List<ConversationCanceller> getCancellers() {
         return cancellers;
     }
@@ -175,7 +175,7 @@ public class Conversation {
      *
      * @return The ConversationContext.
      */
-    @NotNull
+    @NonNull
     public ConversationContext getContext() {
         return context;
     }
@@ -197,7 +197,7 @@ public class Conversation {
      *
      * @return The current state of the conversation.
      */
-    @NotNull
+    @NonNull
     public ConversationState getState() {
         if (currentPrompt != null) {
             return ConversationState.STARTED;
@@ -214,7 +214,7 @@ public class Conversation {
      *
      * @param input The user's chat text.
      */
-    public void acceptInput(@NotNull String input) {
+    public void acceptInput(@NonNull String input) {
         if (currentPrompt != null) {
 
             // Echo the user's input
@@ -241,7 +241,7 @@ public class Conversation {
      *
      * @param listener The listener to add.
      */
-    public synchronized void addConversationAbandonedListener(@NotNull ConversationAbandonedListener listener) {
+    public synchronized void addConversationAbandonedListener(@NonNull ConversationAbandonedListener listener) {
         abandonedListeners.add(listener);
     }
 
@@ -250,7 +250,7 @@ public class Conversation {
      *
      * @param listener The listener to remove.
      */
-    public synchronized void removeConversationAbandonedListener(@NotNull ConversationAbandonedListener listener) {
+    public synchronized void removeConversationAbandonedListener(@NonNull ConversationAbandonedListener listener) {
         abandonedListeners.remove(listener);
     }
 
@@ -268,7 +268,7 @@ public class Conversation {
      *
      * @param details Details about why the conversation was abandoned
      */
-    public synchronized void abandon(@NotNull ConversationAbandonedEvent details) {
+    public synchronized void abandon(@NonNull ConversationAbandonedEvent details) {
         if (!abandoned) {
             abandoned = true;
             currentPrompt = null;

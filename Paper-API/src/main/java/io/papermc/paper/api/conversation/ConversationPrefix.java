@@ -1,6 +1,6 @@
 package io.papermc.paper.api.conversation;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * A ConversationPrefix implementation prepends all output from the
@@ -15,7 +15,7 @@ public interface ConversationPrefix {
      * @param context Context information about the conversation.
      * @return The prefix text.
      */
-    @NotNull
-    String getPrefix(@NotNull ConversationContext context);
+    @NonNull
+    String getPrefix(@NonNull ConversationContext context);
 }
 

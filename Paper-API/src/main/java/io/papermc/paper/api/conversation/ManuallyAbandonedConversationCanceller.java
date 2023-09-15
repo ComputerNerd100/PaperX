@@ -1,6 +1,6 @@
 package io.papermc.paper.api.conversation;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * The ManuallyAbandonedConversationCanceller is only used as part of a {@link
@@ -9,17 +9,17 @@ import org.jetbrains.annotations.NotNull;
  */
 public class ManuallyAbandonedConversationCanceller implements ConversationCanceller {
     @Override
-    public void setConversation(@NotNull Conversation conversation) {
+    public void setConversation(@NonNull Conversation conversation) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public boolean cancelBasedOnInput(@NotNull ConversationContext context, @NotNull String input) {
+    public boolean cancelBasedOnInput(@NonNull ConversationContext context, @NonNull String input) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    @NotNull
+    @NonNull
     public ConversationCanceller clone() {
         throw new UnsupportedOperationException();
     }
