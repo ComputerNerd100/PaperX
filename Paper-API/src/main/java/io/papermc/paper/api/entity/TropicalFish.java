@@ -1,7 +1,7 @@
 package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.block.color.DyeColor;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Tropical fish.
@@ -13,7 +13,7 @@ public interface TropicalFish extends SchoolableFish { // Paper - Schooling Fish
      *
      * @return pattern color
      */
-    @NotNull
+    @NonNull
     DyeColor getPatternColor();
 
     /**
@@ -21,14 +21,14 @@ public interface TropicalFish extends SchoolableFish { // Paper - Schooling Fish
      *
      * @param color pattern color
      */
-    void setPatternColor(@NotNull DyeColor color);
+    void setPatternColor(@NonNull DyeColor color);
 
     /**
      * Gets the color of the fish's body.
      *
      * @return pattern color
      */
-    @NotNull
+    @NonNull
     DyeColor getBodyColor();
 
     /**
@@ -36,14 +36,14 @@ public interface TropicalFish extends SchoolableFish { // Paper - Schooling Fish
      *
      * @param color body color
      */
-    void setBodyColor(@NotNull DyeColor color);
+    void setBodyColor(@NonNull DyeColor color);
 
     /**
      * Gets the fish's pattern.
      *
      * @return pattern
      */
-    @NotNull
+    @NonNull
     Pattern getPattern();
 
     /**
@@ -51,7 +51,7 @@ public interface TropicalFish extends SchoolableFish { // Paper - Schooling Fish
      *
      * @param pattern new pattern
      */
-    void setPattern(@NotNull Pattern pattern);
+    void setPattern(@NonNull Pattern pattern);
 
     /**
      * Enumeration of all different fish patterns. Refer to the

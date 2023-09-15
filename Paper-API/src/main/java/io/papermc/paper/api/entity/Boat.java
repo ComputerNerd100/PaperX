@@ -1,7 +1,7 @@
 package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.material.Material;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a boat entity.
@@ -13,7 +13,7 @@ public interface Boat extends Vehicle {
      *
      * @return the boat type
      */
-    @NotNull
+    @NonNull
     Type getBoatType();
 
     /**
@@ -28,7 +28,7 @@ public interface Boat extends Vehicle {
      *
      * @return the status
      */
-    @NotNull
+    @NonNull
     Status getStatus();
 
     /**
@@ -48,7 +48,7 @@ public interface Boat extends Vehicle {
 
         private final Material materialBlock;
 
-        private Type(Material materialBlock) {
+        Type(Material materialBlock) {
             this.materialBlock = materialBlock;
         }
 
@@ -57,7 +57,7 @@ public interface Boat extends Vehicle {
          *
          * @return a material
          */
-        @NotNull
+        @NonNull
         public Material getMaterial() {
             return this.materialBlock;
         }
@@ -81,6 +81,6 @@ public interface Boat extends Vehicle {
      *
      * @return the boat material.
      */
-    @NotNull
+    @NonNull
     Material getBoatMaterial();
 }

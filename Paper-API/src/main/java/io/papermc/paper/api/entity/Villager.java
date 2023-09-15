@@ -4,8 +4,8 @@ import io.papermc.paper.api.entity.villager.Reputation;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Locale;
 import java.util.Map;
@@ -21,28 +21,28 @@ public interface Villager extends AbstractVillager {
      *
      * @return Current profession.
      */
-    @NotNull Profession getProfession();
+    @NonNull Profession getProfession();
 
     /**
      * Sets the new profession of this villager.
      *
      * @param profession New profession.
      */
-    void setProfession(@NotNull Profession profession);
+    void setProfession(@NonNull Profession profession);
 
     /**
      * Gets the current type of this villager.
      *
      * @return Current type.
      */
-    @NotNull Type getVillagerType();
+    @NonNull Type getVillagerType();
 
     /**
      * Sets the new type of this villager.
      *
      * @param type New type.
      */
-    void setVillagerType(@NotNull Type type);
+    void setVillagerType(@NonNull Type type);
 
     /**
      * Gets the level of this villager.
@@ -133,7 +133,7 @@ public interface Villager extends AbstractVillager {
      * @param location the location of the bed
      * @return whether the sleep was successful
      */
-    boolean sleep(@NotNull Location location);
+    boolean sleep(@NonNull Location location);
 
     /**
      * Causes this villager to wake up if he's currently sleeping.
@@ -177,7 +177,7 @@ public interface Villager extends AbstractVillager {
             this.key = NamespacedKey.minecraft(this.name().toLowerCase(Locale.ROOT));
         }
 
-        @NotNull
+        @NonNull
         @Override
         public NamespacedKey getKey() {
             return key;
@@ -266,14 +266,14 @@ public interface Villager extends AbstractVillager {
             this.key = NamespacedKey.minecraft(this.name().toLowerCase(Locale.ROOT));
         }
 
-        @NotNull
+        @NonNull
         @Override
         public NamespacedKey getKey() {
             return key;
         }
 
         @Override
-        public @NotNull String translationKey() {
+        public @NonNull String translationKey() {
             return "entity.minecraft.villager." + this.key.getKey();
         }
     }
@@ -285,7 +285,7 @@ public interface Villager extends AbstractVillager {
      * @param uniqueId The {@link UUID} of the player to get the reputation of.
      * @return The player's copied reputation with this villager.
      */
-    @Nullable Reputation getReputation(@NotNull UUID uniqueId);
+    @Nullable Reputation getReputation(@NonNull UUID uniqueId);
 
     /**
      * Get all {@link Reputation reputations}
@@ -294,7 +294,7 @@ public interface Villager extends AbstractVillager {
      * @return All {@link Reputation reputations} for all players
      * in a copied map.
      */
-    @NotNull Map<UUID, Reputation> getReputations();
+    @NonNull Map<UUID, Reputation> getReputations();
 
     /**
      * Set the {@link Reputation reputation}
@@ -303,7 +303,7 @@ public interface Villager extends AbstractVillager {
      * @param uniqueId The {@link UUID} of the player to set the reputation of.
      * @param reputation The {@link Reputation reputation} to set.
      */
-    void setReputation(@NotNull UUID uniqueId, @NotNull Reputation reputation);
+    void setReputation(@NonNull UUID uniqueId, @NonNull Reputation reputation);
 
     /**
      * Set all {@link Reputation reputations}
@@ -312,7 +312,7 @@ public interface Villager extends AbstractVillager {
      * @param reputations All {@link Reputation reputations}
      * for all players mapped by their {@link UUID unique IDs}.
      */
-    void setReputations(@NotNull Map<UUID, Reputation> reputations);
+    void setReputations(@NonNull Map<UUID, Reputation> reputations);
 
     /**
      * Clear all reputations from this villager. This removes every single

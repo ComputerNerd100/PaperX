@@ -1,6 +1,9 @@
 package io.papermc.paper.api.entity;
 
-import org.jetbrains.annotations.Nullable;
+
+import io.papermc.paper.api.location.Location;
+import io.papermc.paper.api.world.World;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a Primed TNT.
@@ -27,7 +30,7 @@ public interface TNTPrimed extends Explosive {
      * responsible for the creation of this primed TNT. (I.E. player ignites
      * TNT with flint and steel.) Take note that this can be null if there is
      * no suitable source. (created by the {@link
-     * org.bukkit.World#spawn(Location, Class)} method, for example.)
+     * World#spawn(Location, Class)} method, for example.)
      * <p>
      * The source will become null if the chunk this primed TNT is in is
      * unloaded then reloaded. The source entity may be invalid if for example

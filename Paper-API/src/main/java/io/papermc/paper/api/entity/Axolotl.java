@@ -1,6 +1,6 @@
 package io.papermc.paper.api.entity;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * An Axolotl.
@@ -30,7 +30,7 @@ public interface Axolotl extends Animals, Bucketable {
      *
      * @return axolotl variant
      */
-    @NotNull
+    @NonNull
     Variant getVariant();
 
     /**
@@ -38,7 +38,7 @@ public interface Axolotl extends Animals, Bucketable {
      *
      * @param variant axolotl variant
      */
-    void setVariant(@NotNull Variant variant);
+    void setVariant(@NonNull Variant variant);
 
     /**
      * Represents the variant of a axolotl - ie its color.

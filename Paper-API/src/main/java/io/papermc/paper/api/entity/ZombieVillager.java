@@ -1,9 +1,9 @@
 package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.player.OfflinePlayer;
+import io.papermc.paper.api.sound.Sound;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.jetbrains.annotations.NotNull;
-
 
 /**
  * Represents a {@link Zombie} which was once a {@link Villager}.
@@ -29,14 +29,14 @@ public interface ZombieVillager extends Zombie {
      *
      * @return Current type.
      */
-    @NotNull Villager.Type getVillagerType();
+    Villager.@NonNull Type getVillagerType();
 
     /**
      * Sets the new type of this villager.
      *
      * @param type New type.
      */
-    void setVillagerType(@NotNull Villager.Type type);
+    void setVillagerType(Villager.@NonNull Type type);
 
     /**
      * Get if this entity is in the process of converting to a Villager as a
@@ -103,7 +103,7 @@ public interface ZombieVillager extends Zombie {
      * @param broadcastEntityEvent whether this conversion time mutation should broadcast the
      *                             org.bukkit.{@link EntityEffect#ZOMBIE_TRANSFORM} entity event to the
      *                             world. If false, no entity event is published, preventing for example the
-     *                             org.bukkit.{@link org.bukkit.Sound#ENTITY_ZOMBIE_VILLAGER_CURE} from playing.
+     *                             org.bukkit.{@link Sound#ENTITY_ZOMBIE_VILLAGER_CURE} from playing.
      */
     void setConversionTime(int time, boolean broadcastEntityEvent);
 }

@@ -1,6 +1,6 @@
 package io.papermc.paper.api.entity;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * A list of all Effects that can happen to entities.
@@ -198,7 +198,7 @@ public enum EntityEffect {
     private final byte data;
     private final Class<? extends Entity> applicable;
 
-    EntityEffect(final int data, /*@NotNull*/ Class<? extends Entity> clazz) {
+    EntityEffect(final int data, /*@NonNull*/ Class<? extends Entity> clazz) {
         this.data = (byte) data;
         this.applicable = clazz;
     }
@@ -219,7 +219,7 @@ public enum EntityEffect {
      *
      * @return applicable class
      */
-    @NotNull
+    @NonNull
     public Class<? extends Entity> getApplicable() {
         return applicable;
     }

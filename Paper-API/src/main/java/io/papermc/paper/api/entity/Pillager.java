@@ -6,5 +6,5 @@ import io.papermc.paper.api.inventory.InventoryHolder;
 /**
  * Illager entity.
  */
-public interface Pillager extends Illager, InventoryHolder, RangedEntity { } // Paper
+public interface Pillager extends Illager, InventoryHolder, RangedEntity { }
 

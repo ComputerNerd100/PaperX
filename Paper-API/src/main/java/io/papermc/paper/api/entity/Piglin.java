@@ -2,7 +2,8 @@ package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.inventory.InventoryHolder;
 import io.papermc.paper.api.material.Material;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.jetbrains.annotations.NonNull;
 
 import java.util.Set;
 
@@ -32,7 +33,7 @@ public interface Piglin extends PiglinAbstract, InventoryHolder, RangedEntity {
      *
      * @return true if the item has been added successfully, false otherwise
      */
-    public boolean addBarterMaterial(@NotNull Material material);
+    public boolean addBarterMaterial(@NonNull Material material);
 
     /**
      * Removes a material from the allowed list of materials to barter with.
@@ -45,7 +46,7 @@ public interface Piglin extends PiglinAbstract, InventoryHolder, RangedEntity {
      *
      * @return true if the item has been removed successfully, false otherwise
      */
-    public boolean removeBarterMaterial(@NotNull Material material);
+    public boolean removeBarterMaterial(@NonNull Material material);
 
     /**
      * Adds a material the piglin will pickup and store in his inventory.
@@ -54,7 +55,7 @@ public interface Piglin extends PiglinAbstract, InventoryHolder, RangedEntity {
      *
      * @return true if the item has been added successfully, false otherwise
      */
-    public boolean addMaterialOfInterest(@NotNull Material material);
+    public boolean addMaterialOfInterest(@NonNull Material material);
 
     /**
      * Removes a material from the list of materials the piglin will pickup.
@@ -66,7 +67,7 @@ public interface Piglin extends PiglinAbstract, InventoryHolder, RangedEntity {
      * @param material The material you want removed from the interest list
      * @return true if the item has been removed successfully, false otherwise
      */
-    public boolean removeMaterialOfInterest(@NotNull Material material);
+    public boolean removeMaterialOfInterest(@NonNull Material material);
 
     /**
      * Returns a immutable set of materials the piglins will pickup.
@@ -77,7 +78,7 @@ public interface Piglin extends PiglinAbstract, InventoryHolder, RangedEntity {
      *
      * @return An immutable materials set
      */
-    @NotNull
+    @NonNull
     public Set<Material> getInterestList();
 
     /**
@@ -89,7 +90,7 @@ public interface Piglin extends PiglinAbstract, InventoryHolder, RangedEntity {
      *
      * @return An immutable materials set
      */
-    @NotNull
+    @NonNull
     public Set<Material> getBarterList();
 
     // Paper start
@@ -110,7 +111,5 @@ public interface Piglin extends PiglinAbstract, InventoryHolder, RangedEntity {
      * @return is charging
      */
     boolean isChargingCrossbow();
-    // Paper end
-
 }
 

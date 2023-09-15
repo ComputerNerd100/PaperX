@@ -2,8 +2,9 @@ package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.boss.DragonBattle;
 import io.papermc.paper.api.location.Location;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import io.papermc.paper.api.world.World;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents an Ender Dragon
@@ -72,7 +73,7 @@ public interface EnderDragon extends ComplexLivingEntity, Boss, Mob, Enemy {
      *
      * @return the current phase
      */
-    @NotNull
+    @NonNull
     Phase getPhase();
 
     /**
@@ -80,7 +81,7 @@ public interface EnderDragon extends ComplexLivingEntity, Boss, Mob, Enemy {
      *
      * @param phase the next phase
      */
-    void setPhase(@NotNull Phase phase);
+    void setPhase(@NonNull Phase phase);
 
     /**
      * Get the {@link DragonBattle} associated with this EnderDragon.
@@ -116,7 +117,7 @@ public interface EnderDragon extends ComplexLivingEntity, Boss, Mob, Enemy {
      *
      * @return the podium location of the dragon
      */
-    @NotNull
+    @NonNull
     Location getPodium();
 
     /**
@@ -125,6 +126,5 @@ public interface EnderDragon extends ComplexLivingEntity, Boss, Mob, Enemy {
      * @param location the location of the podium or null to use the default podium location (exit portal of the end)
      */
     void setPodium(@Nullable Location location);
-    // Paper end
 }
 

@@ -2,8 +2,8 @@ package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.util.Rotation;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents an Item Frame
@@ -15,7 +15,7 @@ public interface ItemFrame extends Hanging {
      *
      * @return a defensive copy the item in this item frame
      */
-    @NotNull ItemStack getItem();
+    @NonNull ItemStack getItem();
 
     /**
      * Set the item in this frame
@@ -62,7 +62,7 @@ public interface ItemFrame extends Hanging {
      *
      * @return the direction
      */
-    @NotNull Rotation getRotation();
+    @NonNull Rotation getRotation();
 
     /**
      * Set the rotation of the frame's item
@@ -70,7 +70,7 @@ public interface ItemFrame extends Hanging {
      * @param rotation the new rotation
      * @throws IllegalArgumentException if rotation is null
      */
-    void setRotation(@NotNull Rotation rotation) throws IllegalArgumentException;
+    void setRotation(@NonNull Rotation rotation) throws IllegalArgumentException;
 
     /**
      * Returns whether the item frame is visible or not.

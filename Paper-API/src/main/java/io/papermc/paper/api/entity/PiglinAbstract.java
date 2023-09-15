@@ -1,5 +1,7 @@
 package io.papermc.paper.api.entity;
 
+import io.papermc.paper.api.world.World;
+
 /**
  * Piglin / Piglin Brute.
  */

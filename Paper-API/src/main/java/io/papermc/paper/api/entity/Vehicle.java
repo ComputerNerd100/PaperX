@@ -1,7 +1,7 @@
 package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.util.vector.Vector;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a vehicle entity.
@@ -14,7 +14,7 @@ public interface Vehicle extends Entity {
      * @return velocity vector
      */
     @Override
-    @NotNull Vector getVelocity();
+    @NonNull Vector getVelocity();
 
     /**
      * Sets the vehicle's velocity in meters per tick.
@@ -22,6 +22,6 @@ public interface Vehicle extends Entity {
      * @param vel velocity vector
      */
     @Override
-    void setVelocity(@NotNull Vector vel);
+    void setVelocity(@NonNull Vector vel);
 }
 

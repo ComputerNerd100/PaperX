@@ -1,8 +1,5 @@
 package io.papermc.paper.api.entity;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 /**
  * A wild tameable cat
  */

@@ -1,8 +1,5 @@
 package io.papermc.paper.api.entity;
 
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-
 /**
  * This interface defines or represents the abstract concept of skeleton-like
  * entities on the server. The interface is hence not a direct representation
@@ -13,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
  * of this type, instanceOf checks against the specific subtypes listed prior
  * are recommended.
  */
-public interface AbstractSkeleton extends Monster, RangedEntity { // Paper
+public interface AbstractSkeleton extends Monster, RangedEntity {
 
     /**
      * Check if this skeleton will burn in the sunlight. This

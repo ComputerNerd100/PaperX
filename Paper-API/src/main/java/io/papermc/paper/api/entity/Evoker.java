@@ -1,6 +1,5 @@
 package io.papermc.paper.api.entity;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 

@@ -1,9 +1,10 @@
 package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.block.data.BlockData;
+import io.papermc.paper.api.world.World;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jetbrains.annotations.ApiStatus;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents an Enderman.
@@ -33,7 +34,7 @@ public interface Enderman extends Monster {
      * <p>
      * If the randomly selected point is in the ground, the point is moved 1 block
      * down until air is found or until it goes under
-     * {@link org.bukkit.World#getMinHeight()}.
+     * {@link World#getMinHeight()}.
      * <p>
      * This method will return false if this Enderman is not alive, or if the
      * teleport location was obstructed, or if the teleport location is in water.
@@ -51,7 +52,7 @@ public interface Enderman extends Monster {
      * That point is then moved within a 8x8x8 cuboid region. If the randomly
      * selected point is in the ground, the point is moved 1 block down until
      * air is found or until it goes under
-     * {@link org.bukkit.World#getMinHeight()}.
+     * {@link World#getMinHeight()}.
      * <p>
      * This method will return false if this Enderman is not alive, or if the
      * teleport location was obstructed, or if the teleport location is in water.
@@ -60,7 +61,7 @@ public interface Enderman extends Monster {
      * @return true if the teleport succeeded.
      */
     @ApiStatus.Experimental
-    boolean teleportTowards(@NotNull Entity entity);
+    boolean teleportTowards(@NonNull Entity entity);
 
     /**
      * Returns whether the enderman is screaming/angry.

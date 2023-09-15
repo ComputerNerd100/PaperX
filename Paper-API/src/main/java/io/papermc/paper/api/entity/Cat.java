@@ -3,7 +3,7 @@ package io.papermc.paper.api.entity;
 import io.papermc.paper.api.block.color.DyeColor;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Meow.
@@ -15,7 +15,7 @@ public interface Cat extends Tameable, Sittable, CollarColorable {
      *
      * @return Type of the cat.
      */
-    @NotNull
+    @NonNull
     Type getCatType();
 
     /**
@@ -23,14 +23,14 @@ public interface Cat extends Tameable, Sittable, CollarColorable {
      *
      * @param type New type of this cat.
      */
-    void setCatType(@NotNull Type type);
+    void setCatType(@NonNull Type type);
 
     /**
      * Get the collar color of this cat
      *
      * @return the color of the collar
      */
-    @NotNull
+    @NonNull
     @Override
     public DyeColor getCollarColor();
 
@@ -40,12 +40,12 @@ public interface Cat extends Tameable, Sittable, CollarColorable {
      * @param color the color to apply
      */
     @Override
-    public void setCollarColor(@NotNull DyeColor color);
+    void setCollarColor(@NonNull DyeColor color);
 
     /**
      * Represents the various different cat types there are.
      */
-    public enum Type implements Keyed {
+    enum Type implements Keyed {
         TABBY,
         BLACK,
         RED,
@@ -65,7 +65,7 @@ public interface Cat extends Tameable, Sittable, CollarColorable {
             this.key = NamespacedKey.minecraft(name().toLowerCase(java.util.Locale.ROOT));
         }
 
-        @NotNull
+        @NonNull
         @Override
         public NamespacedKey getKey() {
             return key;

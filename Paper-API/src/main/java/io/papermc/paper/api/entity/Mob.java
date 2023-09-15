@@ -4,23 +4,22 @@ import io.papermc.paper.api.inventory.EntityEquipment;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.loot.Lootable;
 import io.papermc.paper.api.sound.Sound;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a Mob. Mobs are living entities with simple AI.
  */
 public interface Mob extends LivingEntity, Lootable {
 
-    // Paper start
     @Override
-    @NotNull EntityEquipment getEquipment();
+    @NonNull EntityEquipment getEquipment();
 
     /**
      * Enables access to control the pathing of an Entity
      * @return Pathfinding Manager for this entity
      */
-    @NotNull
+    @NonNull
     Pathfinder getPathfinder();
 
     /**
@@ -37,7 +36,7 @@ public interface Mob extends LivingEntity, Lootable {
      *
      * @param location location to look at
      */
-    void lookAt(@NotNull Location location);
+    void lookAt(@NonNull Location location);
 
     /**
      * Instruct this Mob to look at a specific Location
@@ -48,7 +47,7 @@ public interface Mob extends LivingEntity, Lootable {
      * @param headRotationSpeed head rotation speed
      * @param maxHeadPitch max head pitch rotation
      */
-    void lookAt(@NotNull Location location, float headRotationSpeed, float maxHeadPitch);
+    void lookAt(@NonNull Location location, float headRotationSpeed, float maxHeadPitch);
 
     /**
      * Instruct this Mob to look at a specific Entity
@@ -59,7 +58,7 @@ public interface Mob extends LivingEntity, Lootable {
      *
      * @param entity entity to look at
      */
-    void lookAt(@NotNull Entity entity);
+    void lookAt(@NonNull Entity entity);
 
     /**
      * Instruct this Mob to look at a specific Entity
@@ -72,7 +71,7 @@ public interface Mob extends LivingEntity, Lootable {
      * @param headRotationSpeed head rotation speed
      * @param maxHeadPitch max head pitch rotation
      */
-    void lookAt(@NotNull Entity entity, float headRotationSpeed, float maxHeadPitch);
+    void lookAt(@NonNull Entity entity, float headRotationSpeed, float maxHeadPitch);
 
     /**
      * Instruct this Mob to look at a specific position

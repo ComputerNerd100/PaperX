@@ -1,7 +1,7 @@
 package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.block.color.DyeColor;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a Wolf
@@ -30,7 +30,7 @@ public interface Wolf extends Tameable, Sittable, CollarColorable {
      *
      * @return the color of the collar
      */
-    @NotNull
+    @NonNull
     @Override
     DyeColor getCollarColor();
 
@@ -40,7 +40,7 @@ public interface Wolf extends Tameable, Sittable, CollarColorable {
      * @param color the color to apply
      */
     @Override
-    void setCollarColor(@NotNull DyeColor color);
+    void setCollarColor(@NonNull DyeColor color);
 
     /**
      * Gets whether the wolf is wet

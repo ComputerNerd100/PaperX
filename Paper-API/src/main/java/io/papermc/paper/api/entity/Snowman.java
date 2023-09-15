@@ -3,7 +3,7 @@ package io.papermc.paper.api.entity;
 /**
  * Represents a snowman entity
  */
-public interface Snowman extends Golem, RangedEntity, Shearable { // Paper
+public interface Snowman extends Golem, RangedEntity, Shearable {
 
     /**
      * Gets whether this snowman is in "derp mode", meaning it is not wearing a

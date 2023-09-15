@@ -1,7 +1,7 @@
 package io.papermc.paper.api.entity;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a Wither boss
@@ -26,7 +26,7 @@ public interface Wither extends Monster, Boss, RangedEntity {
      * @param head the individual head
      * @param target the entity that should be targeted
      */
-    void setTarget(@NotNull Head head, @Nullable LivingEntity target);
+    void setTarget(@NonNull Head head, @Nullable LivingEntity target);
 
     /**
      * This method will get the target of individual heads {@link Head} of the
@@ -37,7 +37,7 @@ public interface Wither extends Monster, Boss, RangedEntity {
      * targeted
      */
     @Nullable
-    LivingEntity getTarget(@NotNull Head head);
+    LivingEntity getTarget(@NonNull Head head);
 
     /**
      * Represents one of the Wither's heads.

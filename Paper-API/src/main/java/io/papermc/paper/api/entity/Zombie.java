@@ -1,8 +1,5 @@
 package io.papermc.paper.api.entity;
 
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.Nullable;
-
 /**
  * Represents a Zombie.
  */
@@ -58,7 +55,6 @@ public interface Zombie extends Monster, Ageable {
      */
     void setCanBreakDoors(boolean flag);
 
-    // Paper start
     /**
      * Check if zombie is drowning
      *

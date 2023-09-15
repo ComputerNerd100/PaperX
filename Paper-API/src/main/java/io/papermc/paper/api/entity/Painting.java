@@ -1,7 +1,7 @@
 package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.util.Art;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a Painting.
@@ -13,7 +13,7 @@ public interface Painting extends Hanging {
      *
      * @return The art
      */
-    @NotNull
+    @NonNull
     public Art getArt();
 
     /**
@@ -23,7 +23,7 @@ public interface Painting extends Hanging {
      * @return False if the new art won't fit at the painting's current
      *     location
      */
-    public boolean setArt(@NotNull Art art);
+    public boolean setArt(@NonNull Art art);
 
     /**
      * Set the art on this painting
@@ -36,6 +36,6 @@ public interface Painting extends Hanging {
      * @return False if force was false and the new art won't fit at the
      *     painting's current location
      */
-    public boolean setArt(@NotNull Art art, boolean force);
+    public boolean setArt(@NonNull Art art, boolean force);
 }
 

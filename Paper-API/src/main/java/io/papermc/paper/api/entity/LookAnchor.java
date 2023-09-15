@@ -6,8 +6,8 @@ import org.jetbrains.annotations.ApiStatus;
 /**
  * Represents what part of the entity should be used when determining where to face a position/entity.
  *
- * @see org.bukkit.entity.Player#lookAt(Position, LookAnchor)
- * @see org.bukkit.entity.Player#lookAt(Entity, LookAnchor, LookAnchor)
+ * @see Player#lookAt(Position, LookAnchor)
+ * @see Player#lookAt(Entity, LookAnchor, LookAnchor)
  */
 @ApiStatus.Experimental
 public enum LookAnchor {
