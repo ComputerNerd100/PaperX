@@ -2,7 +2,6 @@ package io.papermc.paper.api.permisson;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.jetbrains.annotations.NonNull;
 
 
 import java.util.HashMap;
