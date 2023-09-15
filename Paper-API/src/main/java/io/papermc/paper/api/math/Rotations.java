@@ -1,6 +1,6 @@
 package io.papermc.paper.api.math;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Rotations is an immutable object that stores rotations
@@ -21,7 +21,7 @@ public interface Rotations {
      * @param z the angle for the Z axis in degrees
      * @return Rotations instance holding the provided rotations
      */
-    static @NotNull Rotations ofDegrees(double x, double y, double z) {
+    static @NonNull Rotations ofDegrees(double x, double y, double z) {
         return new RotationsImpl(x, y, z);
     }
 
@@ -53,7 +53,7 @@ public interface Rotations {
      * @param x the angle in degrees
      * @return the resultant Rotations
      */
-    @NotNull Rotations withX(double x);
+    @NonNull Rotations withX(double x);
 
     /**
      * Returns a new Rotations instance which is the result
@@ -62,7 +62,7 @@ public interface Rotations {
      * @param y the angle in degrees
      * @return the resultant Rotations
      */
-    @NotNull Rotations withY(double y);
+    @NonNull Rotations withY(double y);
 
     /**
      * Returns a new Rotations instance which is the result
@@ -71,7 +71,7 @@ public interface Rotations {
      * @param z the angle in degrees
      * @return the resultant Rotations
      */
-    @NotNull Rotations withZ(double z);
+    @NonNull Rotations withZ(double z);
 
     /**
      * Returns a new Rotations instance which is the result of adding
@@ -82,7 +82,7 @@ public interface Rotations {
      * @param z the angle to add to the Z axis in degrees
      * @return the resultant Rotations
      */
-    @NotNull Rotations add(double x, double y, double z);
+    @NonNull Rotations add(double x, double y, double z);
 
     /**
      * Returns a new Rotations instance which is the result of subtracting
@@ -93,7 +93,7 @@ public interface Rotations {
      * @param z the angle to subtract from the Z axis in degrees
      * @return the resultant Rotations
      */
-    default @NotNull Rotations subtract(double x, double y, double z) {
+    default @NonNull Rotations subtract(double x, double y, double z) {
         return add(-x, -y, -z);
     }
 

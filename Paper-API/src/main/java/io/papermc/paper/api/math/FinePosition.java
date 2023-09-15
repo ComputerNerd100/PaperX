@@ -1,8 +1,8 @@
 package io.papermc.paper.api.math;
 
 import io.papermc.paper.api.util.NumberConversions;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.ApiStatus;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * A position represented with doubles.
@@ -39,17 +39,17 @@ public interface FinePosition extends Position {
     }
 
     @Override
-    default @NotNull BlockPosition toBlock() {
+    default @NonNull BlockPosition toBlock() {
         return new BlockPositionImpl(this.blockX(), this.blockY(), this.blockZ());
     }
 
     @Override
-    default @NotNull FinePosition offset(int x, int y, int z) {
+    default @NonNull FinePosition offset(int x, int y, int z) {
         return this.offset((double) x, y, z);
     }
 
     @Override
-    default @NotNull FinePosition offset(double x, double y, double z) {
+    default @NonNull FinePosition offset(double x, double y, double z) {
         return x == 0.0 && y == 0.0 && z == 0.0 ? this : new FinePositionImpl(this.x() + x, this.y() + y, this.z() + z);
     }
 }

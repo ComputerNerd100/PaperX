@@ -2,9 +2,9 @@ package io.papermc.paper.api.math;
 
 import io.papermc.paper.api.block.BlockFace;
 import io.papermc.paper.api.util.Axis;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 
 @ApiStatus.Experimental
 public interface BlockPosition extends Position {
@@ -35,17 +35,17 @@ public interface BlockPosition extends Position {
     }
 
     @Override
-    default @NotNull BlockPosition toBlock() {
+    default @NonNull BlockPosition toBlock() {
         return this;
     }
 
     @Override
-    default @NotNull BlockPosition offset(int x, int y, int z) {
+    default @NonNull BlockPosition offset(int x, int y, int z) {
         return x == 0 && y == 0 && z == 0 ? this : new BlockPositionImpl(this.blockX() + x, this.blockY() + y, this.blockZ() + z);
     }
 
     @Override
-    default @NotNull FinePosition offset(double x, double y, double z) {
+    default @NonNull FinePosition offset(double x, double y, double z) {
         return new FinePositionImpl(this.blockX() + x, this.blockY() + y, this.blockZ() + z);
     }
 
@@ -56,7 +56,7 @@ public interface BlockPosition extends Position {
      * @return the offset block position
      */
     @Contract(value = "_ -> new", pure = true)
-    default @NotNull BlockPosition offset(@NotNull BlockFace blockFace) {
+    default @NonNull BlockPosition offset(@NonNull BlockFace blockFace) {
         return this.offset(blockFace, 1);
     }
 
@@ -69,7 +69,7 @@ public interface BlockPosition extends Position {
      * @return the offset block position
      */
     @Contract(pure = true)
-    default @NotNull BlockPosition offset(@NotNull BlockFace blockFace, int amount) {
+    default @NonNull BlockPosition offset(@NonNull BlockFace blockFace, int amount) {
         return amount == 0 ? this : new BlockPositionImpl(this.blockX() + (blockFace.getModX() * amount), this.blockY() + (blockFace.getModY() * amount), this.blockZ() + (blockFace.getModZ() * amount));
     }
 
@@ -82,7 +82,7 @@ public interface BlockPosition extends Position {
      * @return the offset block position
      */
     @Contract(pure = true)
-    default @NotNull BlockPosition offset(@NotNull Axis axis, int amount) {
+    default @NonNull BlockPosition offset(@NonNull Axis axis, int amount) {
         return amount == 0 ? this : switch (axis) {
             case X -> new BlockPositionImpl(this.blockX() + amount, this.blockY(), this.blockZ());
             case Y -> new BlockPositionImpl(this.blockX(), this.blockY() + amount, this.blockZ());
