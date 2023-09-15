@@ -1,7 +1,7 @@
 package io.papermc.paper.api.metadata;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public interface MetadataValue {
     /**
@@ -66,7 +66,7 @@ public interface MetadataValue {
      *
      * @return the value as a string.
      */
-    @NotNull
+    @NonNull
     String asString();
 
     /**

@@ -2,15 +2,15 @@ package io.papermc.paper.api.metadata;
 
 import com.google.common.base.Preconditions;
 import io.papermc.paper.api.util.NumberConversions;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.lang.ref.WeakReference;
 
 public abstract class MetadataValueAdapter implements MetadataValue {
     protected final WeakReference<Plugin> owningPlugin;
 
-    protected MetadataValueAdapter(@NotNull Plugin owningPlugin) {
+    protected MetadataValueAdapter(@NonNull Plugin owningPlugin) {
         Preconditions.checkArgument(owningPlugin != null, "owningPlugin cannot be null");
         this.owningPlugin = new WeakReference<Plugin>(owningPlugin);
     }
@@ -70,7 +70,7 @@ public abstract class MetadataValueAdapter implements MetadataValue {
     }
 
     @Override
-    @NotNull
+    @NonNull
     public String asString() {
         Object value = value();
 

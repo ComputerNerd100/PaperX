@@ -1,6 +1,6 @@
 package io.papermc.paper.api.metadata;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public interface MetadataStore<T> {
      * @throws IllegalArgumentException If value is null, or the owning plugin
      *     is null
      */
-    public void setMetadata(@NotNull T subject, @NotNull String metadataKey, @NotNull MetadataValue newMetadataValue);
+    public void setMetadata(@NonNull T subject, @NonNull String metadataKey, @NonNull MetadataValue newMetadataValue);
 
     /**
      * Returns all metadata values attached to an object. If multiple plugins
@@ -25,8 +25,8 @@ public interface MetadataStore<T> {
      * @return A list of values, one for each plugin that has set the
      *     requested value.
      */
-    @NotNull
-    public List<MetadataValue> getMetadata(@NotNull T subject, @NotNull String metadataKey);
+    @NonNull
+    public List<MetadataValue> getMetadata(@NonNull T subject, @NonNull String metadataKey);
 
     /**
      * Tests to see if a metadata attribute has been set on an object.
@@ -36,7 +36,7 @@ public interface MetadataStore<T> {
      * @param metadataKey the unique metadata key being queried.
      * @return the existence of the metadataKey within subject.
      */
-    public boolean hasMetadata(@NotNull T subject, @NotNull String metadataKey);
+    public boolean hasMetadata(@NonNull T subject, @NonNull String metadataKey);
 
     /**
      * Removes a metadata item owned by a plugin from a subject.
@@ -47,7 +47,7 @@ public interface MetadataStore<T> {
      * @param owningPlugin the plugin attempting to remove a metadata item.
      * @throws IllegalArgumentException If plugin is null
      */
-    public void removeMetadata(@NotNull T subject, @NotNull String metadataKey, @NotNull Plugin owningPlugin);
+    public void removeMetadata(@NonNull T subject, @NonNull String metadataKey, @NonNull Plugin owningPlugin);
 
     /**
      * Invalidates all metadata in the metadata store that originates from the
@@ -57,5 +57,5 @@ public interface MetadataStore<T> {
      * @param owningPlugin the plugin requesting the invalidation.
      * @throws IllegalArgumentException If plugin is null
      */
-    public void invalidateAll(@NotNull Plugin owningPlugin);
+    public void invalidateAll(@NonNull Plugin owningPlugin);
 }

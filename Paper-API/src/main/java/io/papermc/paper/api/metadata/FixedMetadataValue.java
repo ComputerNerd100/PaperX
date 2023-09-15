@@ -1,7 +1,7 @@
 package io.papermc.paper.api.metadata;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * A FixedMetadataValue is a special case metadata item that contains the same
@@ -25,7 +25,7 @@ public class FixedMetadataValue extends LazyMetadataValue {
      * @param owningPlugin the {@link Plugin} that created this metadata value
      * @param value the value assigned to this metadata value
      */
-    public FixedMetadataValue(@NotNull Plugin owningPlugin, @Nullable final Object value) {
+    public FixedMetadataValue(@NonNull Plugin owningPlugin, @Nullable final Object value) {
         super(owningPlugin);
         this.internalValue = value;
     }

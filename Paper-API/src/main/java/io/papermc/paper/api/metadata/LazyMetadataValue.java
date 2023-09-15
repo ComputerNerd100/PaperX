@@ -1,8 +1,8 @@
 package io.papermc.paper.api.metadata;
 
 import com.google.common.base.Preconditions;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.lang.ref.SoftReference;
 import java.util.concurrent.Callable;
@@ -32,7 +32,7 @@ public class LazyMetadataValue extends MetadataValueAdapter {
      *     value.
      * @param lazyValue the lazy value assigned to this metadata value.
      */
-    public LazyMetadataValue(@NotNull Plugin owningPlugin, @NotNull Callable<Object> lazyValue) {
+    public LazyMetadataValue(@NonNull Plugin owningPlugin, @NonNull Callable<Object> lazyValue) {
         this(owningPlugin, CacheStrategy.CACHE_AFTER_FIRST_EVAL, lazyValue);
     }
 
@@ -45,7 +45,7 @@ public class LazyMetadataValue extends MetadataValueAdapter {
      *     value.
      * @param lazyValue the lazy value assigned to this metadata value.
      */
-    public LazyMetadataValue(@NotNull Plugin owningPlugin, @NotNull CacheStrategy cacheStrategy, @NotNull Callable<Object> lazyValue) {
+    public LazyMetadataValue(@NonNull Plugin owningPlugin, @NonNull CacheStrategy cacheStrategy, @NonNull Callable<Object> lazyValue) {
         super(owningPlugin);
         Preconditions.checkArgument(cacheStrategy != null, "cacheStrategy cannot be null");
         Preconditions.checkArgument(lazyValue != null, "lazyValue cannot be null");
@@ -60,7 +60,7 @@ public class LazyMetadataValue extends MetadataValueAdapter {
      *
      * @param owningPlugin the owning plugin
      */
-    protected LazyMetadataValue(@NotNull Plugin owningPlugin) {
+    protected LazyMetadataValue(@NonNull Plugin owningPlugin) {
         super(owningPlugin);
     }
 
