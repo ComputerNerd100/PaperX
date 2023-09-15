@@ -19,8 +19,7 @@ public interface ProjectileSource {
      * @param projectile class of the projectile to launch
      * @return the launched projectile
      */
-    @NonNull
-    public <T extends Projectile> T launchProjectile(@NonNull Class<? extends T> projectile);
+    @NonNull <T extends Projectile> T launchProjectile(@NonNull Class<? extends T> projectile);
 
     /**
      * Launches a {@link Projectile} from the ProjectileSource with an
@@ -31,10 +30,8 @@ public interface ProjectileSource {
      * @param velocity the velocity with which to launch
      * @return the launched projectile
      */
-    @NonNull
-    public <T extends Projectile> T launchProjectile(@NonNull Class<? extends T> projectile, @Nullable Vector velocity);
+    @NonNull <T extends Projectile> T launchProjectile(@NonNull Class<? extends T> projectile, @Nullable Vector velocity);
 
-    // Paper start
     /**
      * Launches a {@link Projectile} from the ProjectileSource with an
      * initial velocity, with the supplied function run before the
@@ -50,8 +47,6 @@ public interface ProjectileSource {
      * @param function the function to be run before the entity is spawned
      * @return the launched projectile
      */
-    @NonNull
-    public <T extends Projectile> T launchProjectile(@NonNull Class<? extends T> projectile, @Nullable Vector velocity, @Nullable Consumer<T> function);
-    // Paper end
+    @NonNull <T extends Projectile> T launchProjectile(@NonNull Class<? extends T> projectile, @Nullable Vector velocity, @Nullable Consumer<T> function);
 }
 
