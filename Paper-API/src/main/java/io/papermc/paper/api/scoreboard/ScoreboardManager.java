@@ -1,6 +1,6 @@
 package io.papermc.paper.api.scoreboard;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.lang.ref.WeakReference;
 
@@ -17,7 +17,7 @@ public interface ScoreboardManager {
      *
      * @return the default server scoreboard
      */
-    @NotNull
+    @NonNull
     Scoreboard getMainScoreboard();
 
     /**
@@ -28,7 +28,7 @@ public interface ScoreboardManager {
      * @return the registered Scoreboard
      * @see WeakReference
      */
-    @NotNull
+    @NonNull
     Scoreboard getNewScoreboard();
 }
 

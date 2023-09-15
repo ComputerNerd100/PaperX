@@ -5,8 +5,8 @@ import io.papermc.paper.api.player.OfflinePlayer;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Collection;
 import java.util.List;
@@ -25,7 +25,7 @@ public interface Team {
      * @return Objective name
      * @throws IllegalStateException if this team has been unregistered
      */
-    @NotNull
+    @NonNull
     String getName();
 
     /**
@@ -34,7 +34,7 @@ public interface Team {
      * @return Team display name
      * @throws IllegalStateException if this team has been unregistered
      */
-    @NotNull Component displayName();
+    @NonNull Component displayName();
 
     /**
      * Sets the name displayed to entries for this team
@@ -50,7 +50,7 @@ public interface Team {
      * @return Team prefix
      * @throws IllegalStateException if this team has been unregistered
      */
-    @NotNull Component prefix();
+    @NonNull Component prefix();
 
     /**
      * Sets the prefix prepended to the display of entries on this team.
@@ -66,7 +66,7 @@ public interface Team {
      * @return the team's current suffix
      * @throws IllegalStateException if this team has been unregistered
      */
-    net.kyori.adventure.text.@NotNull Component suffix();
+    net.kyori.adventure.text.@NonNull Component suffix();
 
     /**
      * Sets the suffix appended to the display of entries on this team.
@@ -95,7 +95,7 @@ public interface Team {
      * @throws IllegalStateException if the team doesn't have a color
      * @see #hasColor()
      */
-    @NotNull TextColor color();
+    @NonNull TextColor color();
 
     /**
      * Sets the color of the team.
@@ -147,7 +147,7 @@ public interface Team {
      * @return entries on the team
      * @throws IllegalStateException if this team has been unregistered
      */
-    @NotNull
+    @NonNull
     Set<String> getEntries();
 
     /**
@@ -176,7 +176,7 @@ public interface Team {
      * @throws IllegalStateException if this team has been unregistered
      * @see #addEntry(String)
      */
-    void addPlayer(@NotNull OfflinePlayer player);
+    void addPlayer(@NonNull OfflinePlayer player);
 
     /**
      * This puts the specified entry onto this team for the scoreboard.
@@ -186,7 +186,7 @@ public interface Team {
      * @param entry the entry to add
      * @throws IllegalStateException if this team has been unregistered
      */
-    void addEntry(@NotNull String entry);
+    void addEntry(@NonNull String entry);
 
     /**
      * This puts a collection of entities onto this team for the scoreboard which results in one
@@ -198,7 +198,7 @@ public interface Team {
      * @throws IllegalArgumentException if entities are null
      * @throws IllegalStateException if this team has been unregistered
      */
-    default void addEntities(@NotNull Entity @NotNull ...entities) {
+    default void addEntities(@NonNull Entity @NonNull ...entities) {
         this.addEntities(List.of(entities));
     }
 
@@ -212,7 +212,7 @@ public interface Team {
      * @throws IllegalArgumentException if entities are null
      * @throws IllegalStateException if this team has been unregistered
      */
-    void addEntities(@NotNull Collection<Entity> entities) throws IllegalStateException, IllegalArgumentException;
+    void addEntities(@NonNull Collection<Entity> entities) throws IllegalStateException, IllegalArgumentException;
 
     /**
      * This puts a collection of entries onto this team for the scoreboard which results in one
@@ -224,7 +224,7 @@ public interface Team {
      * @throws IllegalArgumentException if entries are null
      * @throws IllegalStateException if this team has been unregistered
      */
-    default void addEntries(@NotNull String... entries) throws IllegalStateException, IllegalArgumentException {
+    default void addEntries(@NonNull String... entries) throws IllegalStateException, IllegalArgumentException {
         this.addEntries(List.of(entries));
     }
 
@@ -238,7 +238,7 @@ public interface Team {
      * @throws IllegalArgumentException if entries are null
      * @throws IllegalStateException if this team has been unregistered
      */
-    void addEntries(@NotNull Collection<String> entries) throws IllegalStateException, IllegalArgumentException;
+    void addEntries(@NonNull Collection<String> entries) throws IllegalStateException, IllegalArgumentException;
 
     /**
      * Removes the player from this team.
@@ -248,7 +248,7 @@ public interface Team {
      * @throws IllegalStateException if this team has been unregistered
      * @see #removeEntry(String)
      */
-    boolean removePlayer(@NotNull OfflinePlayer player);
+    boolean removePlayer(@NonNull OfflinePlayer player);
 
     /**
      * Removes the entry from this team.
@@ -257,7 +257,7 @@ public interface Team {
      * @return if the entry was a part of this team
      * @throws IllegalStateException if this team has been unregistered
      */
-    boolean removeEntry(@NotNull String entry);
+    boolean removeEntry(@NonNull String entry);
 
     // Paper start
     /**
@@ -269,7 +269,7 @@ public interface Team {
      * @throws IllegalArgumentException if entities is null
      * @throws IllegalStateException if this team has been unregistered
      */
-    default boolean removeEntities(@NotNull Entity @NotNull ... entities) throws IllegalStateException, IllegalArgumentException {
+    default boolean removeEntities(@NonNull Entity @NonNull ... entities) throws IllegalStateException, IllegalArgumentException {
         return this.removeEntities(java.util.List.of(entities));
     }
 
@@ -282,7 +282,7 @@ public interface Team {
      * @throws IllegalArgumentException if entities is null
      * @throws IllegalStateException if this team has been unregistered
      */
-    boolean removeEntities(@NotNull java.util.Collection<Entity> entities) throws IllegalStateException, IllegalArgumentException;
+    boolean removeEntities(@NonNull java.util.Collection<Entity> entities) throws IllegalStateException, IllegalArgumentException;
 
     /**
      * Removes a collection of entries from this team which results in one
@@ -293,7 +293,7 @@ public interface Team {
      * @throws IllegalArgumentException if entries is null
      * @throws IllegalStateException if this team has been unregistered
      */
-    default boolean removeEntries(@NotNull String... entries) throws IllegalStateException, IllegalArgumentException {
+    default boolean removeEntries(@NonNull String... entries) throws IllegalStateException, IllegalArgumentException {
         return this.removeEntries(List.of(entries));
     }
 
@@ -306,7 +306,7 @@ public interface Team {
      * @throws IllegalArgumentException if entries is null
      * @throws IllegalStateException if this team has been unregistered
      */
-    boolean removeEntries(@NotNull Collection<String> entries) throws IllegalStateException, IllegalArgumentException;
+    boolean removeEntries(@NonNull Collection<String> entries) throws IllegalStateException, IllegalArgumentException;
 
     /**
      * Unregisters this team from the Scoreboard
@@ -323,7 +323,7 @@ public interface Team {
      * @throws IllegalStateException if this team has been unregistered
      * @see #hasEntry(String)
      */
-    boolean hasPlayer(@NotNull OfflinePlayer player);
+    boolean hasPlayer(@NonNull OfflinePlayer player);
 
     /**
      * Checks to see if the specified entry is a member of this team.
@@ -332,7 +332,7 @@ public interface Team {
      * @return true if the entry is a member of this team
      * @throws IllegalStateException if this team has been unregistered
      */
-    boolean hasEntry(@NotNull String entry);
+    boolean hasEntry(@NonNull String entry);
 
     /**
      * Get an option for this team
@@ -341,8 +341,8 @@ public interface Team {
      * @return the option status
      * @throws IllegalStateException if this team has been unregistered
      */
-    @NotNull
-    OptionStatus getOption(@NotNull Option option);
+    @NonNull
+    OptionStatus getOption(@NonNull Option option);
 
     /**
      * Set an option for this team
@@ -351,7 +351,7 @@ public interface Team {
      * @param status the new option status
      * @throws IllegalStateException if this team has been unregistered
      */
-    void setOption(@NotNull Option option, @NotNull OptionStatus status);
+    void setOption(@NonNull Option option, @NonNull OptionStatus status);
 
     /**
      * This puts the specified entity onto this team for the scoreboard.
@@ -363,7 +363,7 @@ public interface Team {
      * @throws IllegalStateException if this team has been unregistered
      * @see #addEntry(String)
      */
-    void addEntity(@NotNull Entity entity) throws IllegalStateException, IllegalArgumentException;
+    void addEntity(@NonNull Entity entity) throws IllegalStateException, IllegalArgumentException;
 
     /**
      * Removes the entity from this team.
@@ -374,7 +374,7 @@ public interface Team {
      * @throws IllegalStateException if this team has been unregistered
      * @see #removeEntry(String)
      */
-    boolean removeEntity(@NotNull Entity entity) throws IllegalStateException, IllegalArgumentException;
+    boolean removeEntity(@NonNull Entity entity) throws IllegalStateException, IllegalArgumentException;
 
     /**
      * Checks to see if the specified entity is a member of this team.
@@ -385,7 +385,7 @@ public interface Team {
      * @throws IllegalStateException if this team has been unregistered
      * @see #hasEntry(String)
      */
-    boolean hasEntity(@NotNull Entity entity) throws IllegalStateException, IllegalArgumentException;
+    boolean hasEntity(@NonNull Entity entity) throws IllegalStateException, IllegalArgumentException;
 
     /**
      * Represents an option which may be applied to this team.

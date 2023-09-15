@@ -5,7 +5,7 @@ import io.papermc.paper.api.Paper;
 import io.papermc.paper.api.entity.EntityType;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.util.Statistic;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a scoreboard criteria, either custom or built-in to the Minecraft server, used to
@@ -196,7 +196,7 @@ public interface Criteria {
      *
      * @return the name
      */
-    @NotNull String getName();
+    @NonNull String getName();
 
     /**
      * Get whether or not this criteria is read only. If read only, scoreboards with this criteria
@@ -211,7 +211,7 @@ public interface Criteria {
      *
      * @return the default render type
      */
-    @NotNull RenderType getDefaultRenderType();
+    @NonNull RenderType getDefaultRenderType();
 
     /**
      * Get a {@link Criteria} for the specified statistic pertaining to blocks or items.
@@ -239,8 +239,8 @@ public interface Criteria {
      * @throws IllegalArgumentException if {@link Statistic#getType()} is {@link Statistic.Type#ITEM}, but
      * {@link Material#isItem()} is false
      */
-    @NotNull
-    static Criteria statistic(@NotNull Statistic statistic, @NotNull Material material) {
+    @NonNull
+    static Criteria statistic(@NonNull Statistic statistic, @NonNull Material material) {
         Preconditions.checkArgument(statistic != null, "statistic must not be null");
         Preconditions.checkArgument(material != null, "material must not be null");
 
@@ -293,8 +293,8 @@ public interface Criteria {
      * @return the criteria
      * @throws IllegalArgumentException if {@link Statistic#getType()} is not {@link Statistic.Type#ENTITY}
      */
-    @NotNull
-    static Criteria statistic(@NotNull Statistic statistic, @NotNull EntityType entityType) {
+    @NonNull
+    static Criteria statistic(@NonNull Statistic statistic, @NonNull EntityType entityType) {
         Preconditions.checkArgument(statistic != null, "statistic must not be null");
         Preconditions.checkArgument(entityType != null, "entityType must not be null");
         Preconditions.checkArgument(statistic.getType() == Statistic.Type.ENTITY, "statistic type must be ENTITY, given %s", statistic.getType());
@@ -326,8 +326,8 @@ public interface Criteria {
      * @param statistic the statistic for which to get a criteria
      * @return the criteria
      */
-    @NotNull
-    static Criteria statistic(@NotNull Statistic statistic) {
+    @NonNull
+    static Criteria statistic(@NonNull Statistic statistic) {
         Preconditions.checkArgument(statistic != null, "statistic must not be null");
         return Paper.getScoreboardCriteria(Paper.getUnsafe().getStatisticCriteriaKey(statistic)); // Paper
     }
@@ -338,8 +338,8 @@ public interface Criteria {
      * @param name the criteria name
      * @return the created criteria
      */
-    @NotNull
-    static Criteria create(@NotNull String name) {
+    @NonNull
+    static Criteria create(@NonNull String name) {
         return Paper.getScoreboardCriteria(name);
     }
 
