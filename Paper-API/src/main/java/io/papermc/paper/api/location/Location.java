@@ -13,9 +13,8 @@ import io.papermc.paper.api.util.vector.Vector;
 import io.papermc.paper.api.world.Chunk;
 import io.papermc.paper.api.world.HeightMap;
 import io.papermc.paper.api.world.World;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.jetbrains.annotations.NotNull;
-
 
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
@@ -112,7 +111,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      *
      * @return Chunk at the represented location
      */
-    @NotNull
+    @NonNull
     public Chunk getChunk() {
         return getWorld().getChunkAt(this);
     }
@@ -122,7 +121,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      *
      * @return Block at the represented location
      */
-    @NotNull
+    @NonNull
     public Block getBlock() {
         return getWorld().getBlockAt(this);
     }
@@ -286,7 +285,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @return a vector pointing the direction of this location's {@link
      *     #getPitch() pitch} and {@link #getYaw() yaw}
      */
-    @NotNull
+    @NonNull
     public Vector getDirection() {
         Vector vector = new Vector();
 
@@ -310,8 +309,8 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param vector the direction vector
      * @return the same location
      */
-    @NotNull
-    public Location setDirection(@NotNull Vector vector) {
+    @NonNull
+    public Location setDirection(@NonNull Vector vector) {
         /*
          * Sin = Opp / Hyp
          * Cos = Adj / Hyp
@@ -348,8 +347,8 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @throws IllegalArgumentException for differing worlds
      * @see Vector
      */
-    @NotNull
-    public Location add(@NotNull Location vec) {
+    @NonNull
+    public Location add(@NonNull Location vec) {
         if (vec == null || vec.getWorld() != getWorld()) {
             throw new IllegalArgumentException("Cannot add Locations of differing worlds");
         }
@@ -367,8 +366,8 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @return the same location
      * @see Vector
      */
-    @NotNull
-    public Location add(@NotNull Vector vec) {
+    @NonNull
+    public Location add(@NonNull Vector vec) {
         this.x += vec.getX();
         this.y += vec.getY();
         this.z += vec.getZ();
@@ -384,7 +383,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @return the same location
      * @see Vector
      */
-    @NotNull
+    @NonNull
     public Location add(double x, double y, double z) {
         this.x += x;
         this.y += y;
@@ -400,8 +399,8 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @throws IllegalArgumentException for differing worlds
      * @see Vector
      */
-    @NotNull
-    public Location subtract(@NotNull Location vec) {
+    @NonNull
+    public Location subtract(@NonNull Location vec) {
         if (vec == null || vec.getWorld() != getWorld()) {
             throw new IllegalArgumentException("Cannot add Locations of differing worlds");
         }
@@ -419,8 +418,8 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @return the same location
      * @see Vector
      */
-    @NotNull
-    public Location subtract(@NotNull Vector vec) {
+    @NonNull
+    public Location subtract(@NonNull Vector vec) {
         this.x -= vec.getX();
         this.y -= vec.getY();
         this.z -= vec.getZ();
@@ -437,7 +436,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @return the same location
      * @see Vector
      */
-    @NotNull
+    @NonNull
     public Location subtract(double x, double y, double z) {
         this.x -= x;
         this.y -= y;
@@ -483,7 +482,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @throws IllegalArgumentException for differing worlds
      * @see Vector
      */
-    public double distance(@NotNull Location o) {
+    public double distance(@NonNull Location o) {
         return Math.sqrt(distanceSquared(o));
     }
 
@@ -495,7 +494,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @throws IllegalArgumentException for differing worlds
      * @see Vector
      */
-    public double distanceSquared(@NotNull Location o) {
+    public double distanceSquared(@NonNull Location o) {
         if (o == null) {
             throw new IllegalArgumentException("Cannot measure distance to a null location");
         } else if (o.getWorld() == null || getWorld() == null) {
@@ -515,7 +514,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @return the same location
      * @see Vector
      */
-    @NotNull
+    @NonNull
     public Location multiply(double m) {
         x *= m;
         y *= m;
@@ -529,7 +528,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @return the same location
      * @see Vector
      */
-    @NotNull
+    @NonNull
     public Location zero() {
         x = 0;
         y = 0;
@@ -547,7 +546,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      */
     public boolean isGenerated() {
         World world = this.getWorld();
-        Preconditions.checkNotNull(world, "Location has no world!");
+        Preconditions.checkNonNull(world, "Location has no world!");
         return world.isChunkGenerated(locToBlock(x) >> 4, locToBlock(z) >> 4);
     }
 
@@ -560,7 +559,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param z Z coordinate
      * @return self (not cloned)
      */
-    @NotNull
+    @NonNull
     public Location set(double x, double y, double z) {
         this.x = x;
         this.y = y;
@@ -578,8 +577,8 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param z Z coordinate to add to base
      * @return self (not cloned)
      */
-    @NotNull
-    public Location add(@NotNull Location base, double x, double y, double z) {
+    @NonNull
+    public Location add(@NonNull Location base, double x, double y, double z) {
         return this.set(base.x + x, base.y + y, base.z + z);
     }
 
@@ -593,15 +592,15 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param z Z coordinate to subtract from base
      * @return self (not cloned)
      */
-    @NotNull
-    public Location subtract(@NotNull Location base, double x, double y, double z) {
+    @NonNull
+    public Location subtract(@NonNull Location base, double x, double y, double z) {
         return this.set(base.x - x, base.y - y, base.z - z);
     }
 
     /**
      * @return A new location where X/Y/Z are on the Block location (integer value of X/Y/Z)
      */
-    @NotNull
+    @NonNull
     public Location toBlockLocation() {
         Location blockLoc = clone();
         blockLoc.setX(getBlockX());
@@ -613,7 +612,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
     /**
      * @return A new location where X/Y/Z are the center of the block
      */
-    @NotNull
+    @NonNull
     public Location toCenterLocation() {
         Location centerLoc = clone();
         centerLoc.setX(getBlockX() + 0.5);
@@ -627,7 +626,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @return A copy of this location except with y = getWorld().getHighestBlockYAt(this.getBlockX(), this.getBlockZ())
      * @throws NullPointerException if {{@link #getWorld()}} is {@code null}
      */
-    @NotNull
+    @NonNull
     public Location toHighestLocation() {
         return this.toHighestLocation(HeightMap.WORLD_SURFACE);
     }
@@ -637,8 +636,8 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param heightMap The heightmap to use for finding the highest y location.
      * @return A copy of this location except with y = getWorld().getHighestBlockYAt(this.getBlockX(), this.getBlockZ(), heightMap)
      */
-    @NotNull
-    public Location toHighestLocation(@NotNull final HeightMap heightMap) {
+    @NonNull
+    public Location toHighestLocation(@NonNull final HeightMap heightMap) {
         final Location ret = this.clone();
         ret.setY(this.getWorld().getHighestBlockYAt(this, heightMap));
         return ret;
@@ -735,7 +734,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param z 1/2 the size of the box along z axis
      * @return the collection of entities near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<Entity> getNearbyEntities(double x, double y, double z) {
         World world = this.getWorld();
         if (world == null) {
@@ -749,7 +748,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param radius X Radius
      * @return the collection of entities near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<LivingEntity> getNearbyLivingEntities(double radius) {
         return getNearbyEntitiesByType(LivingEntity.class, radius, radius, radius);
     }
@@ -760,7 +759,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param yRadius Y Radius
      * @return the collection of living entities near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<LivingEntity> getNearbyLivingEntities(double xzRadius, double yRadius) {
         return getNearbyEntitiesByType(LivingEntity.class, xzRadius, yRadius, xzRadius);
     }
@@ -772,7 +771,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param zRadius Z radius
      * @return the collection of living entities near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<LivingEntity> getNearbyLivingEntities(double xRadius, double yRadius, double zRadius) {
         return getNearbyEntitiesByType(LivingEntity.class, xRadius, yRadius, zRadius);
     }
@@ -783,7 +782,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param predicate a predicate used to filter results
      * @return the collection of living entities near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<LivingEntity> getNearbyLivingEntities(double radius, @Nullable Predicate<LivingEntity> predicate) {
         return getNearbyEntitiesByType(LivingEntity.class, radius, radius, radius, predicate);
     }
@@ -795,7 +794,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param predicate a predicate used to filter results
      * @return the collection of living entities near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<LivingEntity> getNearbyLivingEntities(double xzRadius, double yRadius, @Nullable Predicate<LivingEntity> predicate) {
         return getNearbyEntitiesByType(LivingEntity.class, xzRadius, yRadius, xzRadius, predicate);
     }
@@ -808,7 +807,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param predicate a predicate used to filter results
      * @return the collection of living entities near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<LivingEntity> getNearbyLivingEntities(double xRadius, double yRadius, double zRadius, @Nullable Predicate<LivingEntity> predicate) {
         return getNearbyEntitiesByType(LivingEntity.class, xRadius, yRadius, zRadius, predicate);
     }
@@ -818,7 +817,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param radius X/Y/Z Radius
      * @return the collection of players near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<Player> getNearbyPlayers(double radius) {
         return getNearbyEntitiesByType(Player.class, radius, radius, radius);
     }
@@ -829,7 +828,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param yRadius Y Radius
      * @return the collection of players near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<Player> getNearbyPlayers(double xzRadius, double yRadius) {
         return getNearbyEntitiesByType(Player.class, xzRadius, yRadius, xzRadius);
     }
@@ -841,7 +840,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param zRadius Z Radius
      * @return the collection of players near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<Player> getNearbyPlayers(double xRadius, double yRadius, double zRadius) {
         return getNearbyEntitiesByType(Player.class, xRadius, yRadius, zRadius);
     }
@@ -852,7 +851,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param predicate a predicate used to filter results
      * @return the collection of players near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<Player> getNearbyPlayers(double radius, @Nullable Predicate<Player> predicate) {
         return getNearbyEntitiesByType(Player.class, radius, radius, radius, predicate);
     }
@@ -864,7 +863,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param predicate a predicate used to filter results
      * @return the collection of players near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<Player> getNearbyPlayers(double xzRadius, double yRadius, @Nullable Predicate<Player> predicate) {
         return getNearbyEntitiesByType(Player.class, xzRadius, yRadius, xzRadius, predicate);
     }
@@ -877,7 +876,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param predicate a predicate used to filter results
      * @return the collection of players near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public Collection<Player> getNearbyPlayers(double xRadius, double yRadius, double zRadius, @Nullable Predicate<Player> predicate) {
         return getNearbyEntitiesByType(Player.class, xRadius, yRadius, zRadius, predicate);
     }
@@ -889,7 +888,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param <T> the entity type
      * @return the collection of entities of type clazz near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public <T extends Entity> Collection<T> getNearbyEntitiesByType(@Nullable Class<? extends T> clazz, double radius) {
         return getNearbyEntitiesByType(clazz, radius, radius, radius, null);
     }
@@ -902,7 +901,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param <T> the entity type
      * @return the collection of entities near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public <T extends Entity> Collection<T> getNearbyEntitiesByType(@Nullable Class<? extends T> clazz, double xzRadius, double yRadius) {
         return getNearbyEntitiesByType(clazz, xzRadius, yRadius, xzRadius, null);
     }
@@ -916,7 +915,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param <T> the entity type
      * @return the collection of entities near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public <T extends Entity> Collection<T> getNearbyEntitiesByType(@Nullable Class<? extends T> clazz, double xRadius, double yRadius, double zRadius) {
         return getNearbyEntitiesByType(clazz, xRadius, yRadius, zRadius, null);
     }
@@ -929,7 +928,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param <T> the entity type
      * @return the collection of entities near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public <T extends Entity> Collection<T> getNearbyEntitiesByType(@Nullable Class<? extends T> clazz, double radius, @Nullable Predicate<T> predicate) {
         return getNearbyEntitiesByType(clazz, radius, radius, radius, predicate);
     }
@@ -943,7 +942,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param <T> the entity type
      * @return the collection of entities near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public <T extends Entity> Collection<T> getNearbyEntitiesByType(@Nullable Class<? extends T> clazz, double xzRadius, double yRadius, @Nullable Predicate<T> predicate) {
         return getNearbyEntitiesByType(clazz, xzRadius, yRadius, xzRadius, predicate);
     }
@@ -958,7 +957,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @param <T> the entity type
      * @return the collection of entities near location. This will always be a non-null collection.
      */
-    @NotNull
+    @NonNull
     public <T extends Entity> Collection<T> getNearbyEntitiesByType(@Nullable Class<? extends Entity> clazz, double xRadius, double yRadius, double zRadius, @Nullable Predicate<T> predicate) {
         World world = this.getWorld();
         if (world == null) {
@@ -1026,13 +1025,13 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @return New Vector containing the coordinates represented by this
      *     Location
      */
-    @NotNull
+    @NonNull
     public Vector toVector() {
         return new Vector(x, y, z);
     }
 
     @Override
-    @NotNull
+    @NonNull
     public Location clone() {
         try {
             return (Location) super.clone();
@@ -1067,7 +1066,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
 
     @Override
     @Utility
-    @NotNull
+    @NonNull
     public Map<String, Object> serialize() {
         Map<String, Object> data = new HashMap<String, Object>();
 
@@ -1093,8 +1092,8 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
      * @throws IllegalArgumentException if the world don't exists
      * @see ConfigurationSerializable
      */
-    @NotNull
-    public static Location deserialize(@NotNull Map<String, Object> args) {
+    @NonNull
+    public static Location deserialize(@NonNull Map<String, Object> args) {
         World world = null;
         if (args.containsKey("world")) {
             world = Paper.getWorld((String) args.get("world"));
@@ -1157,7 +1156,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
     }
 
     @Override
-    public @NotNull Location toLocation(@NotNull World world) {
+    public @NonNull Location toLocation(@NonNull World world) {
         return new Location(world, this.x(), this.y(), this.z(), this.getYaw(), this.getPitch());
     }
 }
