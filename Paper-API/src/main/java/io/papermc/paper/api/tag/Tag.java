@@ -7,7 +7,7 @@ import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.util.fluid.Fluid;
 import io.papermc.paper.api.util.game.GameEvent;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Set;
 
@@ -992,14 +992,14 @@ public interface Tag<T extends Keyed> extends Keyed {
      * @param item to check
      * @return if it is tagged
      */
-    boolean isTagged(@NotNull T item);
+    boolean isTagged(@NonNull T item);
 
     /**
      * Gets an immutable set of all tagged items.
      *
      * @return set of tagged items
      */
-    @NotNull
+    @NonNull
     Set<T> getValues();
 
 }

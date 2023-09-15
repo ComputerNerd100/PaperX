@@ -7,8 +7,8 @@ import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Collection;
 import java.util.Set;
@@ -18,51 +18,51 @@ import java.util.stream.Stream;
 
 public class MaterialSetTag extends BaseTag<Material, MaterialSetTag> {
 
-    public MaterialSetTag(@Nullable NamespacedKey key, @NotNull Predicate<Material> filter) {
+    public MaterialSetTag(@Nullable NamespacedKey key, @NonNull Predicate<Material> filter) {
         this(key, Stream.of(Material.values()).filter(filter).collect(Collectors.toList()));
     }
 
-    public MaterialSetTag(@Nullable NamespacedKey key, @NotNull Material... materials) {
+    public MaterialSetTag(@Nullable NamespacedKey key, @NonNull Material... materials) {
         this(key, Lists.newArrayList(materials));
     }
 
-    public MaterialSetTag(@Nullable NamespacedKey key, @NotNull Collection<Material> materials) {
+    public MaterialSetTag(@Nullable NamespacedKey key, @NonNull Collection<Material> materials) {
         this(key != null ? key : NamespacedKey.randomKey(), materials, ((Predicate<Material>) Material::isLegacy).negate());
     }
 
-    public MaterialSetTag(@Nullable NamespacedKey key, @NotNull Collection<Material> materials, @NotNull Predicate<Material>...globalPredicates) {
+    public MaterialSetTag(@Nullable NamespacedKey key, @NonNull Collection<Material> materials, @NonNull Predicate<Material>...globalPredicates) {
         super(Material.class, key != null ? key : NamespacedKey.randomKey(), materials, globalPredicates);
     }
 
-    @NotNull
+    @NonNull
     @Override
     protected Set<Material> getAllPossibleValues() {
         return Stream.of(Material.values()).collect(Collectors.toSet());
     }
 
     @Override
-    @NotNull
-    protected String getName(@NotNull Material value) {
+    @NonNull
+    protected String getName(@NonNull Material value) {
         return value.name();
     }
 
-    public boolean isTagged(@NotNull BlockData block) {
+    public boolean isTagged(@NonNull BlockData block) {
         return isTagged(block.getMaterial());
     }
 
-    public boolean isTagged(@NotNull BlockState block) {
+    public boolean isTagged(@NonNull BlockState block) {
         return isTagged(block.getType());
     }
 
-    public boolean isTagged(@NotNull Block block) {
+    public boolean isTagged(@NonNull Block block) {
         return isTagged(block.getType());
     }
 
-    public boolean isTagged(@NotNull ItemStack item) {
+    public boolean isTagged(@NonNull ItemStack item) {
         return isTagged(item.getType());
     }
 
-    public boolean isTagged(@NotNull Material material) {
+    public boolean isTagged(@NonNull Material material) {
         return this.tagged.contains(material);
     }
 }

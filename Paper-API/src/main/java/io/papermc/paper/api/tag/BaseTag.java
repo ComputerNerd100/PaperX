@@ -3,7 +3,7 @@ package io.papermc.paper.api.tag;
 import com.google.common.collect.Lists;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -16,20 +16,20 @@ public abstract class BaseTag<T extends Keyed, C extends BaseTag<T, C>> implemen
     private final List<Predicate<T>> globalPredicates;
     private boolean locked = false;
 
-    public BaseTag(@NotNull Class<T> clazz, @NotNull NamespacedKey key, @NotNull Predicate<T> filter) {
+    public BaseTag(@NonNull Class<T> clazz, @NonNull NamespacedKey key, @NonNull Predicate<T> filter) {
         this(clazz, key);
         add(filter);
     }
 
-    public BaseTag(@NotNull Class<T> clazz, @NotNull NamespacedKey key, @NotNull T...values) {
+    public BaseTag(@NonNull Class<T> clazz, @NonNull NamespacedKey key, @NonNull T...values) {
         this(clazz, key, Lists.newArrayList(values));
     }
 
-    public BaseTag(@NotNull Class<T> clazz, @NotNull NamespacedKey key, @NotNull Collection<T> values) {
+    public BaseTag(@NonNull Class<T> clazz, @NonNull NamespacedKey key, @NonNull Collection<T> values) {
         this(clazz, key, values, o -> true);
     }
 
-    public BaseTag(@NotNull Class<T> clazz, @NotNull NamespacedKey key, @NotNull Collection<T> values, @NotNull Predicate<T>... globalPredicates) {
+    public BaseTag(@NonNull Class<T> clazz, @NonNull NamespacedKey key, @NonNull Collection<T> values, @NonNull Predicate<T>... globalPredicates) {
         this.key = key != null ? key : NamespacedKey.randomKey();
         this.tagged = clazz.isEnum() ? createEnumSet(clazz) : new HashSet<>();
         this.tagged.addAll(values);
@@ -41,7 +41,7 @@ public abstract class BaseTag<T extends Keyed, C extends BaseTag<T, C>> implemen
         return (Set<E>) EnumSet.noneOf((Class<Enum>) enumClass);
     }
 
-    public @NotNull C lock() {
+    public @NonNull C lock() {
         this.locked = true;
         return (C) this;
     }
@@ -56,110 +56,110 @@ public abstract class BaseTag<T extends Keyed, C extends BaseTag<T, C>> implemen
         }
     }
 
-    @NotNull
+    @NonNull
     @Override
     public NamespacedKey getKey() {
         return key;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public Set<T> getValues() {
         return Collections.unmodifiableSet(tagged);
     }
 
     @Override
-    public boolean isTagged(@NotNull T item) {
+    public boolean isTagged(@NonNull T item) {
         return tagged.contains(item);
     }
 
-    @NotNull
-    public C add(@NotNull Tag<T>...tags) {
+    @NonNull
+    public C add(@NonNull Tag<T>...tags) {
         for (Tag<T> tag : tags) {
             add(tag.getValues());
         }
         return (C) this;
     }
 
-    @NotNull
-    public C add(@NotNull T...values) {
+    @NonNull
+    public C add(@NonNull T...values) {
         this.checkLock();
         this.tagged.addAll(Lists.newArrayList(values));
         return (C) this;
     }
 
-    @NotNull
-    public C add(@NotNull Collection<T> collection) {
+    @NonNull
+    public C add(@NonNull Collection<T> collection) {
         this.checkLock();
         this.tagged.addAll(collection);
         return (C) this;
     }
 
-    @NotNull
-    public C add(@NotNull Predicate<T> filter) {
+    @NonNull
+    public C add(@NonNull Predicate<T> filter) {
         return add(getAllPossibleValues().stream().filter(globalPredicates.stream().reduce(Predicate::or).orElse(t -> true)).filter(filter).collect(Collectors.toSet()));
     }
 
-    @NotNull
-    public C contains(@NotNull String with) {
+    @NonNull
+    public C contains(@NonNull String with) {
         return add(value -> getName(value).contains(with));
     }
 
-    @NotNull
-    public C endsWith(@NotNull String with) {
+    @NonNull
+    public C endsWith(@NonNull String with) {
         return add(value -> getName(value).endsWith(with));
     }
 
-    @NotNull
-    public C startsWith(@NotNull String with) {
+    @NonNull
+    public C startsWith(@NonNull String with) {
         return add(value -> getName(value).startsWith(with));
     }
 
-    @NotNull
-    public C not(@NotNull Tag<T>...tags) {
+    @NonNull
+    public C not(@NonNull Tag<T>...tags) {
         for (Tag<T> tag : tags) {
             not(tag.getValues());
         }
         return (C) this;
     }
 
-    @NotNull
-    public C not(@NotNull T...values) {
+    @NonNull
+    public C not(@NonNull T...values) {
         this.checkLock();
         this.tagged.removeAll(Lists.newArrayList(values));
         return (C) this;
     }
 
-    @NotNull
-    public C not(@NotNull Collection<T> values) {
+    @NonNull
+    public C not(@NonNull Collection<T> values) {
         this.checkLock();
         this.tagged.removeAll(values);
         return (C) this;
     }
 
-    @NotNull
-    public C not(@NotNull Predicate<T> filter) {
+    @NonNull
+    public C not(@NonNull Predicate<T> filter) {
         not(getAllPossibleValues().stream().filter(globalPredicates.stream().reduce(Predicate::or).orElse(t -> true)).filter(filter).collect(Collectors.toSet()));
         return (C) this;
     }
 
-    @NotNull
-    public C notContains(@NotNull String with) {
+    @NonNull
+    public C notContains(@NonNull String with) {
         return not(value -> getName(value).contains(with));
     }
 
-    @NotNull
-    public C notEndsWith(@NotNull String with) {
+    @NonNull
+    public C notEndsWith(@NonNull String with) {
         return not(value -> getName(value).endsWith(with));
     }
 
-    @NotNull
-    public C notStartsWith(@NotNull String with) {
+    @NonNull
+    public C notStartsWith(@NonNull String with) {
         return not(value -> getName(value).startsWith(with));
     }
 
-    @NotNull
-    public C ensureSize(@NotNull String label, int size) {
+    @NonNull
+    public C ensureSize(@NonNull String label, int size) {
         long actual = this.tagged.stream().filter(globalPredicates.stream().reduce(Predicate::or).orElse(t -> true)).count();
         if (size != actual) {
             throw new IllegalStateException(key.toString() + ": " + label + " - Expected " + size + " values, got " + actual);
@@ -167,10 +167,10 @@ public abstract class BaseTag<T extends Keyed, C extends BaseTag<T, C>> implemen
         return (C) this;
     }
 
-    @NotNull
+    @NonNull
     protected abstract Set<T> getAllPossibleValues();
 
-    @NotNull
-    protected abstract String getName(@NotNull T value);
+    @NonNull
+    protected abstract String getName(@NonNull T value);
 }
 
