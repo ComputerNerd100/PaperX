@@ -3,7 +3,6 @@ package io.papermc.paper.api.entity;
 import io.papermc.paper.api.inventory.InventoryHolder;
 import io.papermc.paper.api.material.Material;
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.jetbrains.annotations.NonNull;
 
 import java.util.Set;
 
