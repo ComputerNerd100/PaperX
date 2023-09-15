@@ -1,7 +1,7 @@
 package io.papermc.paper.api.scheduler.threadedregion;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.function.Consumer;
 
@@ -42,7 +42,7 @@ public interface EntityScheduler {
      *         will be invoked (but never both), or {@code false} indicating neither the run nor retired function will be invoked
      *         since the scheduler has been retired.
      */
-    boolean execute(@NotNull Plugin plugin, @NotNull Runnable run, @Nullable Runnable retired, long delay);
+    boolean execute(@NonNull Plugin plugin, @NonNull Runnable run, @Nullable Runnable retired, long delay);
 
     /**
      * Schedules a task to execute on the next tick. If the task failed to schedule because the scheduler is retired (entity
@@ -59,7 +59,7 @@ public interface EntityScheduler {
      * @param retired Retire callback to run if the entity is retired before the run callback can be invoked, may be null.
      * @return The {@link ScheduledTask} that represents the scheduled task, or {@code null} if the entity has been removed.
      */
-    @Nullable ScheduledTask run(@NotNull Plugin plugin, @NotNull Consumer<ScheduledTask> task,
+    @Nullable ScheduledTask run(@NonNull Plugin plugin, @NonNull Consumer<ScheduledTask> task,
                                 @Nullable Runnable retired);
 
     /**
@@ -78,7 +78,7 @@ public interface EntityScheduler {
      * @param delayTicks The delay, in ticks.
      * @return The {@link ScheduledTask} that represents the scheduled task, or {@code null} if the entity has been removed.
      */
-    @Nullable ScheduledTask runDelayed(@NotNull Plugin plugin, @NotNull Consumer<ScheduledTask> task,
+    @Nullable ScheduledTask runDelayed(@NonNull Plugin plugin, @NonNull Consumer<ScheduledTask> task,
                                        @Nullable Runnable retired, long delayTicks);
 
     /**
@@ -98,6 +98,6 @@ public interface EntityScheduler {
      * @param periodTicks The period, in ticks.
      * @return The {@link ScheduledTask} that represents the scheduled task, or {@code null} if the entity has been removed.
      */
-    @Nullable ScheduledTask runAtFixedRate(@NotNull Plugin plugin, @NotNull Consumer<ScheduledTask> task,
+    @Nullable ScheduledTask runAtFixedRate(@NonNull Plugin plugin, @NonNull Consumer<ScheduledTask> task,
                                            @Nullable Runnable retired, long initialDelayTicks, long periodTicks);
 }

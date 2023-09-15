@@ -3,7 +3,7 @@ package io.papermc.paper.api.scheduler.threadedregion;
 import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.world.World;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.function.Consumer;
 
@@ -27,7 +27,7 @@ public interface RegionScheduler {
      * @param chunkZ The chunk Z coordinate of the region that owns the task
      * @param run    The task to execute
      */
-    void execute(@NotNull Plugin plugin, @NotNull World world, int chunkX, int chunkZ, @NotNull Runnable run);
+    void execute(@NonNull Plugin plugin, @NonNull World world, int chunkX, int chunkZ, @NonNull Runnable run);
 
     /**
      * Schedules a task to be executed on the region which owns the location.
@@ -36,7 +36,7 @@ public interface RegionScheduler {
      * @param location The location at which the region executing should own
      * @param run      The task to execute
      */
-    default void execute(@NotNull Plugin plugin, @NotNull Location location, @NotNull Runnable run) {
+    default void execute(@NonNull Plugin plugin, @NonNull Location location, @NonNull Runnable run) {
         this.execute(plugin, location.getWorld(), location.getBlockX() >> 4, location.getBlockZ() >> 4, run);
     }
 
@@ -50,7 +50,7 @@ public interface RegionScheduler {
      * @param task   The task to execute
      * @return The {@link ScheduledTask} that represents the scheduled task.
      */
-    @NotNull ScheduledTask run(@NotNull Plugin plugin, @NotNull World world, int chunkX, int chunkZ, @NotNull Consumer<ScheduledTask> task);
+    @NonNull ScheduledTask run(@NonNull Plugin plugin, @NonNull World world, int chunkX, int chunkZ, @NonNull Consumer<ScheduledTask> task);
 
     /**
      * Schedules a task to be executed on the region which owns the location on the next tick.
@@ -60,7 +60,7 @@ public interface RegionScheduler {
      * @param task     The task to execute
      * @return The {@link ScheduledTask} that represents the scheduled task.
      */
-    default @NotNull ScheduledTask run(@NotNull Plugin plugin, @NotNull Location location, @NotNull Consumer<ScheduledTask> task) {
+    default @NonNull ScheduledTask run(@NonNull Plugin plugin, @NonNull Location location, @NonNull Consumer<ScheduledTask> task) {
         return this.run(plugin, location.getWorld(), location.getBlockX() >> 4, location.getBlockZ() >> 4, task);
     }
 
@@ -75,7 +75,7 @@ public interface RegionScheduler {
      * @param delayTicks The delay, in ticks.
      * @return The {@link ScheduledTask} that represents the scheduled task.
      */
-    @NotNull ScheduledTask runDelayed(@NotNull Plugin plugin, @NotNull World world, int chunkX, int chunkZ, @NotNull Consumer<ScheduledTask> task,
+    @NonNull ScheduledTask runDelayed(@NonNull Plugin plugin, @NonNull World world, int chunkX, int chunkZ, @NonNull Consumer<ScheduledTask> task,
                                       long delayTicks);
 
     /**
@@ -87,7 +87,7 @@ public interface RegionScheduler {
      * @param delayTicks The delay, in ticks.
      * @return The {@link ScheduledTask} that represents the scheduled task.
      */
-    default @NotNull ScheduledTask runDelayed(@NotNull Plugin plugin, @NotNull Location location, @NotNull Consumer<ScheduledTask> task,
+    default @NonNull ScheduledTask runDelayed(@NonNull Plugin plugin, @NonNull Location location, @NonNull Consumer<ScheduledTask> task,
                                               long delayTicks) {
         return this.runDelayed(plugin, location.getWorld(), location.getBlockX() >> 4, location.getBlockZ() >> 4, task, delayTicks);
     }
@@ -105,7 +105,7 @@ public interface RegionScheduler {
      * @param periodTicks       The period, in ticks.
      * @return The {@link ScheduledTask} that represents the scheduled task.
      */
-    @NotNull ScheduledTask runAtFixedRate(@NotNull Plugin plugin, @NotNull World world, int chunkX, int chunkZ, @NotNull Consumer<ScheduledTask> task,
+    @NonNull ScheduledTask runAtFixedRate(@NonNull Plugin plugin, @NonNull World world, int chunkX, int chunkZ, @NonNull Consumer<ScheduledTask> task,
                                           long initialDelayTicks, long periodTicks);
 
     /**
@@ -119,7 +119,7 @@ public interface RegionScheduler {
      * @param periodTicks       The period, in ticks.
      * @return The {@link ScheduledTask} that represents the scheduled task.
      */
-    default @NotNull ScheduledTask runAtFixedRate(@NotNull Plugin plugin, @NotNull Location location, @NotNull Consumer<ScheduledTask> task,
+    default @NonNull ScheduledTask runAtFixedRate(@NonNull Plugin plugin, @NonNull Location location, @NonNull Consumer<ScheduledTask> task,
                                                   long initialDelayTicks, long periodTicks) {
         return this.runAtFixedRate(plugin, location.getWorld(), location.getBlockX() >> 4, location.getBlockZ() >> 4, task, initialDelayTicks, periodTicks);
     }

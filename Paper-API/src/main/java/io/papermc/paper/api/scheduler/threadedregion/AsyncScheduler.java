@@ -1,6 +1,6 @@
 package io.papermc.paper.api.scheduler.threadedregion;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
@@ -16,7 +16,7 @@ public interface AsyncScheduler {
      * @param task Specified task.
      * @return The {@link ScheduledTask} that represents the scheduled task.
      */
-    @NotNull ScheduledTask runNow(@NotNull Plugin plugin, @NotNull Consumer<ScheduledTask> task);
+    @NonNull ScheduledTask runNow(@NonNull Plugin plugin, @NonNull Consumer<ScheduledTask> task);
 
     /**
      * Schedules the specified task to be executed asynchronously after the time delay has passed.
@@ -26,8 +26,8 @@ public interface AsyncScheduler {
      * @param unit The time unit for the time delay.
      * @return The {@link ScheduledTask} that represents the scheduled task.
      */
-    @NotNull ScheduledTask runDelayed(@NotNull Plugin plugin, @NotNull Consumer<ScheduledTask> task, long delay,
-                                      @NotNull TimeUnit unit);
+    @NonNull ScheduledTask runDelayed(@NonNull Plugin plugin, @NonNull Consumer<ScheduledTask> task, long delay,
+                                      @NonNull TimeUnit unit);
 
     /**
      * Schedules the specified task to be executed asynchronously after the initial delay has passed,
@@ -39,13 +39,13 @@ public interface AsyncScheduler {
      * @param unit The time unit for the initial delay and period.
      * @return The {@link ScheduledTask} that represents the scheduled task.
      */
-    @NotNull ScheduledTask runAtFixedRate(@NotNull Plugin plugin, @NotNull Consumer<ScheduledTask> task,
-                                          long initialDelay, long period, @NotNull TimeUnit unit);
+    @NonNull ScheduledTask runAtFixedRate(@NonNull Plugin plugin, @NonNull Consumer<ScheduledTask> task,
+                                          long initialDelay, long period, @NonNull TimeUnit unit);
 
     /**
      * Attempts to cancel all tasks scheduled by the specified plugin.
      * @param plugin Specified plugin.
      */
-    void cancelTasks(@NotNull Plugin plugin);
+    void cancelTasks(@NonNull Plugin plugin);
 }
 

@@ -1,6 +1,6 @@
 package io.papermc.paper.api.scheduler.threadedregion;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.function.Consumer;
 
@@ -18,7 +18,7 @@ public interface GlobalRegionScheduler {
      * @param plugin The plugin that owns the task
      * @param run The task to execute
      */
-    void execute(@NotNull Plugin plugin, @NotNull Runnable run);
+    void execute(@NonNull Plugin plugin, @NonNull Runnable run);
 
     /**
      * Schedules a task to be executed on the global region on the next tick.
@@ -26,7 +26,7 @@ public interface GlobalRegionScheduler {
      * @param task The task to execute
      * @return The {@link ScheduledTask} that represents the scheduled task.
      */
-    @NotNull ScheduledTask run(@NotNull Plugin plugin, @NotNull Consumer<ScheduledTask> task);
+    @NonNull ScheduledTask run(@NonNull Plugin plugin, @NonNull Consumer<ScheduledTask> task);
 
     /**
      * Schedules a task to be executed on the global region after the specified delay in ticks.
@@ -35,7 +35,7 @@ public interface GlobalRegionScheduler {
      * @param delayTicks The delay, in ticks.
      * @return The {@link ScheduledTask} that represents the scheduled task.
      */
-    @NotNull ScheduledTask runDelayed(@NotNull Plugin plugin, @NotNull Consumer<ScheduledTask> task, long delayTicks);
+    @NonNull ScheduledTask runDelayed(@NonNull Plugin plugin, @NonNull Consumer<ScheduledTask> task, long delayTicks);
 
     /**
      * Schedules a repeating task to be executed on the global region after the initial delay with the
@@ -46,13 +46,13 @@ public interface GlobalRegionScheduler {
      * @param periodTicks The period, in ticks.
      * @return The {@link ScheduledTask} that represents the scheduled task.
      */
-    @NotNull ScheduledTask runAtFixedRate(@NotNull Plugin plugin, @NotNull Consumer<ScheduledTask> task,
+    @NonNull ScheduledTask runAtFixedRate(@NonNull Plugin plugin, @NonNull Consumer<ScheduledTask> task,
                                           long initialDelayTicks, long periodTicks);
 
     /**
      * Attempts to cancel all tasks scheduled by the specified plugin.
      * @param plugin Specified plugin.
      */
-    void cancelTasks(@NotNull Plugin plugin);
+    void cancelTasks(@NonNull Plugin plugin);
 }
 

@@ -1,6 +1,6 @@
 package io.papermc.paper.api.scheduler.threadedregion;
 
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Represents a task scheduled to a scheduler.
@@ -11,7 +11,7 @@ public interface ScheduledTask {
      * Returns the plugin that scheduled this task.
      * @return the plugin that scheduled this task.
      */
-    @NotNull Plugin getOwningPlugin();
+    @NonNull Plugin getOwningPlugin();
 
     /**
      * Returns whether this task executes on a fixed period, as opposed to executing only once.
@@ -24,13 +24,13 @@ public interface ScheduledTask {
      * being executed no attempt is made to halt the task, however any executions in the future are halted.
      * @return the result of the cancellation attempt.
      */
-    @NotNull CancelledState cancel();
+    @NonNull CancelledState cancel();
 
     /**
      * Returns the current execution state of this task.
      * @return the current execution state of this task.
      */
-    @NotNull ExecutionState getExecutionState();
+    @NonNull ExecutionState getExecutionState();
 
     /**
      * Returns whether the current execution state is {@link ExecutionState#CANCELLED} or {@link ExecutionState#CANCELLED_RUNNING}.
