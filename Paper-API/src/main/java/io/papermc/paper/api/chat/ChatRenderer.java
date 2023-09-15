@@ -3,8 +3,8 @@ package io.papermc.paper.api.chat;
 import io.papermc.paper.api.entity.Player;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.ApiStatus;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * A chat renderer is responsible for rendering chat messages sent by {@link Player}s to the server.
@@ -21,15 +21,15 @@ public interface ChatRenderer {
      * @return a rendered chat message
      */
     @ApiStatus.OverrideOnly
-    @NotNull
-    Component render(@NotNull Player source, @NotNull Component sourceDisplayName, @NotNull Component message, @NotNull Audience viewer);
+    @NonNull
+    Component render(@NonNull Player source, @NonNull Component sourceDisplayName, @NonNull Component message, @NonNull Audience viewer);
 
     /**
      * Create a new instance of the default {@link ChatRenderer}.
      *
      * @return a new {@link ChatRenderer}
      */
-    @NotNull
+    @NonNull
     static ChatRenderer defaultRenderer() {
         return new ViewerUnawareImpl.Default((source, sourceDisplayName, message) -> Component.translatable("chat.type.text", sourceDisplayName, message));
     }
@@ -45,8 +45,8 @@ public interface ChatRenderer {
      * @param renderer the viewer unaware renderer
      * @return a new {@link ChatRenderer}
      */
-    @NotNull
-    static ChatRenderer viewerUnaware(final @NotNull ViewerUnaware renderer) {
+    @NonNull
+    static ChatRenderer viewerUnaware(final @NonNull ViewerUnaware renderer) {
         return new ViewerUnawareImpl(renderer);
     }
 
@@ -65,8 +65,8 @@ public interface ChatRenderer {
          * @return a rendered chat message
          */
         @ApiStatus.OverrideOnly
-        @NotNull
-        Component render(@NotNull Player source, @NotNull Component sourceDisplayName, @NotNull Component message);
+        @NonNull
+        Component render(@NonNull Player source, @NonNull Component sourceDisplayName, @NonNull Component message);
     }
 }
 
