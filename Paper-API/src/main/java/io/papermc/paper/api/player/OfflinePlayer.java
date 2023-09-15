@@ -218,19 +218,6 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      */
     long getFirstPlayed();
 
-    /**
-     * Gets the last date and time that this player was witnessed on this
-     * server.
-     * <p>
-     * If the player has never played before, this will return 0. Otherwise,
-     * it will be the amount of milliseconds since midnight, January 1, 1970
-     * UTC.
-     *
-     * @return Date of last log-in for this player, or 0
-     * @deprecated The API contract is ambiguous and the implementation may or may not return the correct value given this API ambiguity. It is instead recommended use {@link #getLastLogin()} or {@link #getLastSeen()} depending on your needs.
-     */
-    @Deprecated
-    long getLastPlayed();
 
     /**
      * Checks if this player has played on this server before.
