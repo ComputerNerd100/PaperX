@@ -54,6 +54,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
 import java.util.function.UnaryOperator;
 
@@ -1868,7 +1869,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      *
      * @return the player's locale
      */
-    @NonNull java.util.Locale locale();
+    @NonNull Locale locale();
 
     /**
      * Gets the player's estimated ping in milliseconds.
