@@ -158,13 +158,13 @@ public class PermissibleBase implements Permissible {
     @Override
     public synchronized void recalculatePermissions() { // Paper - synchronized
         clearPermissions();
-        Set<Permission> defaults = Paper.getServer().getPluginManager().getDefaultPermissions(isOp());
-        Paper.getServer().getPluginManager().subscribeToDefaultPerms(isOp(), parent);
+        Set<Permission> defaults = Paper.getServer().pluginManager().getDefaultPermissions(isOp());
+        Paper.getServer().pluginManager().subscribeToDefaultPerms(isOp(), parent);
 
         for (Permission perm : defaults) {
             String name = perm.getName().toLowerCase(java.util.Locale.ENGLISH);
             permissions.put(name, new PermissionAttachmentInfo(parent, name, null, true));
-            Paper.getServer().getPluginManager().subscribeToPermission(name, parent);
+            Paper.getServer().pluginManager().subscribeToPermission(name, parent);
             calculateChildPermissions(perm.getChildren(), false, null);
         }
 
@@ -177,11 +177,11 @@ public class PermissibleBase implements Permissible {
         Set<String> perms = permissions.keySet();
 
         for (String name : perms) {
-            Paper.getServer().getPluginManager().unsubscribeFromPermission(name, parent);
+            Paper.getServer().pluginManager().unsubscribeFromPermission(name, parent);
         }
 
-        Paper.getServer().getPluginManager().unsubscribeFromDefaultPerms(false, parent);
-        Paper.getServer().getPluginManager().unsubscribeFromDefaultPerms(true, parent);
+        Paper.getServer().pluginManager().unsubscribeFromDefaultPerms(false, parent);
+        Paper.getServer().pluginManager().unsubscribeFromDefaultPerms(true, parent);
 
         permissions.clear();
     }
@@ -190,12 +190,12 @@ public class PermissibleBase implements Permissible {
         for (Map.Entry<String, Boolean> entry : children.entrySet()) {
             String name = entry.getKey();
 
-            Permission perm = Paper.getServer().getPluginManager().getPermission(name);
+            Permission perm = Paper.getServer().pluginManager().getPermission(name);
             boolean value = entry.getValue() ^ invert;
             String lname = name.toLowerCase(java.util.Locale.ENGLISH);
 
             permissions.put(lname, new PermissionAttachmentInfo(parent, lname, attachment, value));
-            Paper.getServer().getPluginManager().subscribeToPermission(name, parent);
+            Paper.getServer().pluginManager().subscribeToPermission(name, parent);
 
             if (perm != null) {
                 calculateChildPermissions(perm.getChildren(), !value, attachment);
