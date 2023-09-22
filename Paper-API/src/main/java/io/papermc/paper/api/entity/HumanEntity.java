@@ -2,6 +2,7 @@ package io.papermc.paper.api.entity;
 
 import io.papermc.paper.api.block.sign.Side;
 import io.papermc.paper.api.block.tilestate.Sign;
+import io.papermc.paper.api.event.events.inventory.InventoryCloseEvent;
 import io.papermc.paper.api.inventory.*;
 import io.papermc.paper.api.inventory.meta.FireworkMeta;
 import io.papermc.paper.api.location.Location;
@@ -265,7 +266,7 @@ public interface HumanEntity extends LivingEntity, AnimalTamer, InventoryHolder 
      *
      * @param reason why the inventory is closing
      */
-    public void closeInventory(@NonNull InventoryCloseEvent.Reason reason);
+    public void closeInventory(InventoryCloseEvent.@NonNull Reason reason);
 
     /**
      * Returns the ItemStack currently on your cursor, can be empty. Will
