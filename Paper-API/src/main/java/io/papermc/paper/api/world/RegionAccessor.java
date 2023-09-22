@@ -6,6 +6,7 @@ import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.entity.EntityType;
 import io.papermc.paper.api.entity.LivingEntity;
 import io.papermc.paper.api.entity.Mob;
+import io.papermc.paper.api.event.events.entity.CreatureSpawnEvent;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.material.Material;
 import io.papermc.paper.api.material.TreeType;
@@ -346,27 +347,27 @@ public interface RegionAccessor extends Keyed {
     }
 
     @NonNull
-    public default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, @NonNull CreatureSpawnEvent.SpawnReason reason) throws IllegalArgumentException {
+    public default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, CreatureSpawnEvent.@NonNull SpawnReason reason) throws IllegalArgumentException {
         return spawn(location, clazz, reason, null);
     }
 
     @NonNull
-    public default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, @NonNull CreatureSpawnEvent.SpawnReason reason, @Nullable Consumer<T> function) throws IllegalArgumentException {
+    public default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, CreatureSpawnEvent.@NonNull SpawnReason reason, @Nullable Consumer<T> function) throws IllegalArgumentException {
         return spawn(location, clazz, function, reason);
     }
 
     @NonNull
-    public default Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, @NonNull CreatureSpawnEvent.SpawnReason reason) {
+    public default Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, CreatureSpawnEvent.@NonNull SpawnReason reason) {
         return spawn(loc, (Class<Entity>) type.getEntityClass(), reason, null);
     }
 
     @NonNull
-    public default Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, @NonNull CreatureSpawnEvent.SpawnReason reason, @Nullable Consumer<Entity> function) {
+    public default Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, CreatureSpawnEvent.@NonNull SpawnReason reason, @Nullable Consumer<Entity> function) {
         return spawn(loc, (Class<Entity>) type.getEntityClass(), reason, function);
     }
 
     @NonNull
-    public <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, @Nullable Consumer<T> function, @NonNull CreatureSpawnEvent.SpawnReason reason) throws IllegalArgumentException;
+    public <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, @Nullable Consumer<T> function, CreatureSpawnEvent.@NonNull SpawnReason reason) throws IllegalArgumentException;
 
     /**
      * Creates a new entity at the given {@link Location} with the supplied
