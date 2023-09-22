@@ -132,9 +132,9 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
     }
     @NonNull
     default BanEntry banPlayer(@Nullable String reason, @Nullable Date expires, @Nullable String source, boolean kickIfOnline) {
-        BanEntry banEntry = Paper.getServer().getBanList(BanList.Type.NAME).addBan(getName(), reason, expires, source);
+        BanEntry banEntry = Paper.getServer().banList(BanList.Type.NAME).addBan(getName(), reason, expires, source);
         if (kickIfOnline && isOnline()) {
-            getPlayer().kickPlayer(reason);
+            getPlayer().kick(reason);
         }
         return banEntry;
     }
