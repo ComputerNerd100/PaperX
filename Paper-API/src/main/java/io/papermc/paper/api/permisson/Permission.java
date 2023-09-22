@@ -150,7 +150,7 @@ public class Permission {
      */
     @NonNull
     public Set<Permissible> getPermissibles() {
-        return Paper.getServer().getPluginManager().getPermissionSubscriptions(name);
+        return Paper.getServer().pluginManager().getPermissionSubscriptions(name);
     }
 
     /**
@@ -162,7 +162,7 @@ public class Permission {
     public void recalculatePermissibles() {
         Set<Permissible> perms = getPermissibles();
 
-        Paper.getServer().getPluginManager().recalculatePermissionDefaults(this);
+        Paper.getServer().pluginManager().recalculatePermissionDefaults(this);
 
         for (Permissible p : perms) {
             p.recalculatePermissions();
@@ -181,7 +181,7 @@ public class Permission {
      */
     @NonNull
     public Permission addParent(@NonNull String name, boolean value) {
-        PluginManager pm = Paper.getServer().getPluginManager();
+        PluginManager pm = Paper.getServer().pluginManager();
         String lname = name.toLowerCase(java.util.Locale.ENGLISH);
 
         Permission perm = pm.getPermission(lname);
@@ -234,7 +234,7 @@ public class Permission {
             try {
                 result.add(Permission.loadPermission(entry.getKey().toString(), (Map<?, ?>) entry.getValue(), def, result));
             } catch (Throwable ex) {
-                Paper.getServer().getLogger().log(Level.SEVERE, String.format(error, entry.getKey()), ex);
+                Paper.getServer().logger().log(Level.SEVERE, String.format(error, entry.getKey()), ex);
             }
         }
 
