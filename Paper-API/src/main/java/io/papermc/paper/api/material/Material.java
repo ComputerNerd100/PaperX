@@ -10899,9 +10899,11 @@ public enum Material implements Keyed, Translatable {
      *
      * @param world the world to check
      * @return true if this material can be used in this World.
+     *
+     * TODO: Confirm removal
      */
     public boolean isEnabledByFeature(@NonNull World world) {
-        return Paper.getDataPackManager().isEnabledByFeature(this, world);
+        return Paper.getDatapackManager().isEnabledByFeature(this, world);
     }
 }
 

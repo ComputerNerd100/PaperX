@@ -461,8 +461,10 @@ public enum EntityType implements Keyed, Translatable {
      *
      * @param world the world to check
      * @return true if this EntityType can be used to spawn an Entity for this World.
+     *
+     * TODO: Confirm removal
      */
     public boolean isEnabledByFeature(@NonNull World world) {
-        return Paper.getDataPackManager().isEnabledByFeature(this, world);
+        return Paper.getDatapackManager().isEnabledByFeature(this, world);
     }
 }
