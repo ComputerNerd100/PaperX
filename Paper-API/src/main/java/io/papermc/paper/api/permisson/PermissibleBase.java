@@ -234,8 +234,8 @@ public class PermissibleBase implements Permissible {
 
         PermissionAttachment result = addAttachment(plugin);
 
-        if (Paper.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new RemoveAttachmentRunnable(result), ticks) == -1) {
-            Paper.getServer().getLogger().log(Level.WARNING, "Could not add PermissionAttachment to " + parent + " for plugin " + plugin.getDescription().getFullName() + ": Scheduler returned -1");
+        if (Paper.getServer().scheduler().scheduleSyncDelayedTask(plugin, new RemoveAttachmentRunnable(result), ticks) == -1) {
+            Paper.getServer().logger().log(Level.WARNING, "Could not add PermissionAttachment to " + parent + " for plugin " + plugin.getDescription().getFullName() + ": Scheduler returned -1");
             result.remove();
             return null;
         } else {
