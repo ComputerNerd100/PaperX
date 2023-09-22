@@ -219,7 +219,7 @@ public interface Server extends PluginMessageRecipient, ForwardingAudience { // 
 
     @NonNull Set<OfflinePlayer> bannedPlayers();
 
-    @NonNull BanList banList(@NotNull BanList.Type type);
+    @NonNull <T extends BanList<?>> T banList(@NotNull BanList.Type type);
 
     @NonNull Set<OfflinePlayer> operators();
 
