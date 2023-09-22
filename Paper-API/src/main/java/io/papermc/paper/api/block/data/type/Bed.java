@@ -54,7 +54,7 @@ public interface Bed extends Directional {
         /**
          * The foot is the lower half of the bed.
          */
-        FOOT;
+        FOOT
     }
 }
 

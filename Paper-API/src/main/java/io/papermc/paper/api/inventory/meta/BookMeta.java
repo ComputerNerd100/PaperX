@@ -31,7 +31,7 @@ public interface BookMeta extends ItemMeta, net.kyori.adventure.inventory.Book {
         /**
          * Unused; unobtainable by players. Can't be copied.
          */
-        TATTERED;
+        TATTERED
     }
 
     /**

@@ -10,13 +10,13 @@ public interface Ocelot extends Animals {
      *
      * @return true if it trusts players
      */
-    public boolean isTrusting();
+    boolean isTrusting();
 
     /**
      * Sets if this ocelot trusts players.
      *
      * @param trust true if it trusts players
      */
-    public void setTrusting(boolean trust);
+    void setTrusting(boolean trust);
 }
 

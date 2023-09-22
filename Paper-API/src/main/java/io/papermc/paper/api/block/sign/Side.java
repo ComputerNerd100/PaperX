@@ -6,5 +6,5 @@ package io.papermc.paper.api.block.sign;
 public enum Side {
 
     FRONT,
-    BACK;
+    BACK
 }

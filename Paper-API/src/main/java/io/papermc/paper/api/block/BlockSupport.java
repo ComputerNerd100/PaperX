@@ -28,6 +28,6 @@ public enum BlockSupport {
      * full-supportable top faces are rigid, unlike walls and posts, or the side of a
      * stone block, none of which are rigid.
      */
-    RIGID;
+    RIGID
 
 }

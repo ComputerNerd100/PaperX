@@ -48,7 +48,7 @@ public interface Stairs extends Bisected, Directional, Waterlogged {
         /**
          * Outer corner stair block with higher right side.
          */
-        OUTER_RIGHT;
+        OUTER_RIGHT
     }
 }
 

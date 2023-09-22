@@ -58,6 +58,6 @@ public interface Wall extends Waterlogged {
         /**
          * Tall wall present.
          */
-        TALL;
+        TALL
     }
 }

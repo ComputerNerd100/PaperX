@@ -12,6 +12,5 @@ public interface ComplexEntityPart extends Entity {
      *
      * @return Parent complex entity
      */
-    @NonNull
-    public ComplexLivingEntity getParent();
+    @NonNull ComplexLivingEntity getParent();
 }

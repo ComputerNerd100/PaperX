@@ -19,6 +19,6 @@ public interface ServerLoadEvent extends ServerEvent {
      * Represents the context in which the enclosing event has been completed.
      */
     enum LoadType {
-        STARTUP, RELOAD;
+        STARTUP, RELOAD
     }
 }

@@ -72,7 +72,6 @@ public interface EntityDamageEvent extends CancellableEntityEvent {
          * effect.
          */
         ABSORPTION,
-        ;
     }
 
     /**
@@ -278,7 +277,7 @@ public interface EntityDamageEvent extends CancellableEntityEvent {
          * <p>
          * Damage: 10
          */
-        SONIC_BOOM;
+        SONIC_BOOM
     }
 
 }

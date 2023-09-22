@@ -269,8 +269,7 @@ public interface RegionAccessor extends Keyed {
      *                      of entity.
      * @return the spawned entity instance.
      */
-    @NonNull
-    public Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, boolean randomizeData);
+    @NonNull Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, boolean randomizeData);
 
     /**
      * Get a list of all entities in this RegionAccessor
@@ -342,32 +341,31 @@ public interface RegionAccessor extends Keyed {
      */
     @NonNull
     // Paper start
-    public default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, @Nullable Consumer<T> function) throws IllegalArgumentException {
+    default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, @Nullable Consumer<T> function) throws IllegalArgumentException {
         return spawn(location, clazz, CreatureSpawnEvent.SpawnReason.CUSTOM, function);
     }
 
     @NonNull
-    public default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, CreatureSpawnEvent.@NonNull SpawnReason reason) throws IllegalArgumentException {
+    default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, CreatureSpawnEvent.@NonNull SpawnReason reason) throws IllegalArgumentException {
         return spawn(location, clazz, reason, null);
     }
 
     @NonNull
-    public default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, CreatureSpawnEvent.@NonNull SpawnReason reason, @Nullable Consumer<T> function) throws IllegalArgumentException {
+    default <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, CreatureSpawnEvent.@NonNull SpawnReason reason, @Nullable Consumer<T> function) throws IllegalArgumentException {
         return spawn(location, clazz, function, reason);
     }
 
     @NonNull
-    public default Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, CreatureSpawnEvent.@NonNull SpawnReason reason) {
+    default Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, CreatureSpawnEvent.@NonNull SpawnReason reason) {
         return spawn(loc, (Class<Entity>) type.getEntityClass(), reason, null);
     }
 
     @NonNull
-    public default Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, CreatureSpawnEvent.@NonNull SpawnReason reason, @Nullable Consumer<Entity> function) {
+    default Entity spawnEntity(@NonNull Location loc, @NonNull EntityType type, CreatureSpawnEvent.@NonNull SpawnReason reason, @Nullable Consumer<Entity> function) {
         return spawn(loc, (Class<Entity>) type.getEntityClass(), reason, function);
     }
 
-    @NonNull
-    public <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, @Nullable Consumer<T> function, CreatureSpawnEvent.@NonNull SpawnReason reason) throws IllegalArgumentException;
+    @NonNull <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, @Nullable Consumer<T> function, CreatureSpawnEvent.@NonNull SpawnReason reason) throws IllegalArgumentException;
 
     /**
      * Creates a new entity at the given {@link Location} with the supplied
@@ -404,8 +402,7 @@ public interface RegionAccessor extends Keyed {
      * @return the spawned entity instance.
      * @throws IllegalArgumentException if either the world or clazz parameter are null.
      */
-    @NonNull
-    public <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, boolean randomizeData, @Nullable Consumer<T> function) throws IllegalArgumentException;
+    @NonNull <T extends Entity> T spawn(@NonNull Location location, @NonNull Class<T> clazz, boolean randomizeData, @Nullable Consumer<T> function) throws IllegalArgumentException;
 
     /**
      * Gets the highest non-empty (impassable) coordinate at the given
@@ -415,7 +412,7 @@ public interface RegionAccessor extends Keyed {
      * @param z Z-coordinate of the blocks
      * @return Y-coordinate of the highest non-empty block
      */
-    public int getHighestBlockYAt(int x, int z);
+    int getHighestBlockYAt(int x, int z);
 
     /**
      * Gets the highest non-empty (impassable) coordinate at the given
@@ -424,7 +421,7 @@ public interface RegionAccessor extends Keyed {
      * @param location Location of the blocks
      * @return Y-coordinate of the highest non-empty block
      */
-    public int getHighestBlockYAt(@NonNull Location location);
+    int getHighestBlockYAt(@NonNull Location location);
 
     /**
      * Gets the highest coordinate corresponding to the {@link HeightMap} at the
@@ -438,7 +435,7 @@ public interface RegionAccessor extends Keyed {
      * @return Y-coordinate of the highest block corresponding to the
      * {@link HeightMap}
      */
-    public int getHighestBlockYAt(int x, int z, @NonNull HeightMap heightMap);
+    int getHighestBlockYAt(int x, int z, @NonNull HeightMap heightMap);
 
     /**
      * Gets the highest coordinate corresponding to the {@link HeightMap} at the
@@ -450,7 +447,7 @@ public interface RegionAccessor extends Keyed {
      * @return Y-coordinate of the highest block corresponding to the
      * {@link HeightMap}
      */
-    public int getHighestBlockYAt(@NonNull Location location, @NonNull HeightMap heightMap);
+    int getHighestBlockYAt(@NonNull Location location, @NonNull HeightMap heightMap);
 
     // Paper start
     /**
@@ -474,7 +471,7 @@ public interface RegionAccessor extends Keyed {
      * @param to target Location
      * @return whether a line of sight exists between {@code from} and {@code to}
      */
-    public boolean lineOfSightExists(@NonNull Location from, @NonNull Location to);
+    boolean lineOfSightExists(@NonNull Location from, @NonNull Location to);
 
     /**
      * Checks if the world collides with the given boundingbox.

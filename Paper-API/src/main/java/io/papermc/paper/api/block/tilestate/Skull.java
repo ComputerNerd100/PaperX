@@ -18,7 +18,7 @@ public interface Skull extends TileState {
      *
      * @return true if the skull has an owner
      */
-    public boolean hasOwner();
+    boolean hasOwner();
 
 
     /**
@@ -27,8 +27,7 @@ public interface Skull extends TileState {
      *
      * @return owning player
      */
-    @Nullable
-    public OfflinePlayer getOwningPlayer();
+    @Nullable OfflinePlayer getOwningPlayer();
 
     /**
      * Set the player which owns the skull. This player may appear as the
@@ -36,7 +35,7 @@ public interface Skull extends TileState {
      *
      * @param player the owning player
      */
-    public void setOwningPlayer(@NonNull OfflinePlayer player);
+    void setOwningPlayer(@NonNull OfflinePlayer player);
 
     /**
      * Sets this skull to use the supplied Player Profile, which can include textures already prefilled.

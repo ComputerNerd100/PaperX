@@ -265,9 +265,9 @@ public interface Server extends PluginMessageRecipient, ForwardingAudience { // 
 
     @Nullable CachedServerIcon serverIcon();
 
-    @NonNull CachedServerIcon loadServerIcon(@NonNull Path file) throws IllegalArgumentException, Exception;
+    @NonNull CachedServerIcon loadServerIcon(@NonNull Path file) throws Exception;
 
-    @NonNull CachedServerIcon loadServerIcon(@NonNull BufferedImage image) throws IllegalArgumentException, Exception;
+    @NonNull CachedServerIcon loadServerIcon(@NonNull BufferedImage image) throws Exception;
 
     int idleTimeout();
 

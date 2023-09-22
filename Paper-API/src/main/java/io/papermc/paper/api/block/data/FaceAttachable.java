@@ -28,7 +28,7 @@ public interface FaceAttachable extends BlockData {
     /**
      * The face to which a switch type block is stuck.
      */
-    public enum AttachedFace {
+    enum AttachedFace {
         /**
          * The switch is mounted to the floor and pointing upwards.
          */
@@ -40,7 +40,7 @@ public interface FaceAttachable extends BlockData {
         /**
          * The switch is mounted to the ceiling and pointing downwards.
          */
-        CEILING;
+        CEILING
     }
 }
 

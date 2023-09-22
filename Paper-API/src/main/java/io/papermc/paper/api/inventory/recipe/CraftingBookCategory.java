@@ -8,5 +8,5 @@ public enum CraftingBookCategory {
     BUILDING,
     REDSTONE,
     EQUIPMENT,
-    MISC;
+    MISC
 }

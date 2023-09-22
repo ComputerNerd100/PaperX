@@ -12,5 +12,5 @@ public enum RenderType {
     /**
      * Display number of hearts corresponding to value.
      */
-    HEARTS;
+    HEARTS
 }

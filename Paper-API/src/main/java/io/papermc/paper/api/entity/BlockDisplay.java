@@ -13,14 +13,13 @@ public interface BlockDisplay extends Display {
      *
      * @return the displayed block
      */
-    @NonNull
-    public BlockData getBlock();
+    @NonNull BlockData getBlock();
 
     /**
      * Sets the displayed block.
      *
      * @param block the new block
      */
-    public void setBlock(@NonNull BlockData block);
+    void setBlock(@NonNull BlockData block);
 }
 

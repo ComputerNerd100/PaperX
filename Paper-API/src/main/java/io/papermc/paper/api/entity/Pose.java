@@ -65,5 +65,5 @@ public enum Pose {
     /**
      * Entity is digging.
      */
-    DIGGING;
+    DIGGING
 }

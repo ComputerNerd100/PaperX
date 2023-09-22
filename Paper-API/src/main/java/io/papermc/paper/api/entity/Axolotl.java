@@ -43,7 +43,7 @@ public interface Axolotl extends Animals, Bucketable {
     /**
      * Represents the variant of a axolotl - ie its color.
      */
-    public enum Variant {
+    enum Variant {
 
         /**
          * Leucistic (pink) axolotl.
@@ -64,6 +64,6 @@ public interface Axolotl extends Animals, Bucketable {
         /**
          * Blue axolotl.
          */
-        BLUE;
+        BLUE
     }
 }

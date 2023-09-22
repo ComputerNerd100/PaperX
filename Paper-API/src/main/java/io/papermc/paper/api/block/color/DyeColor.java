@@ -83,7 +83,7 @@ public enum DyeColor {
     private static final Map<Color, DyeColor> BY_COLOR;
     private static final Map<Color, DyeColor> BY_FIREWORK;
 
-    private DyeColor(final int woolData, final int dyeData, /*@NonNull*/ Color color, /*@NonNull*/ Color firework) {
+    DyeColor(final int woolData, final int dyeData, /*@NonNull*/ Color color, /*@NonNull*/ Color firework) {
         this.woolData = (byte) woolData;
         this.dyeData = (byte) dyeData;
         this.color = color;

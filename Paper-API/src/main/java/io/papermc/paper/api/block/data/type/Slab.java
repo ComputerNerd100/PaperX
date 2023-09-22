@@ -39,6 +39,6 @@ public interface Slab extends Waterlogged {
         /**
          * The slab occupies the entire block.
          */
-        DOUBLE;
+        DOUBLE
     }
 }

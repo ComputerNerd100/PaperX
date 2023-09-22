@@ -27,7 +27,7 @@ public interface Bisected extends BlockData {
     /**
      * The half of a vertically bisected block.
      */
-    public enum Half {
+    enum Half {
         /**
          * The top half of the block, normally with the higher y coordinate.
          */
@@ -35,6 +35,6 @@ public interface Bisected extends BlockData {
         /**
          * The bottom half of the block, normally with the lower y coordinate.
          */
-        BOTTOM;
+        BOTTOM
     }
 }

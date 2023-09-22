@@ -18,7 +18,7 @@ import java.util.Map;
  */
 public final class GameRule<T> implements net.kyori.adventure.translation.Translatable {
 
-    private static Map<String, GameRule<?>> gameRules = new HashMap<>();
+    private static final Map<String, GameRule<?>> gameRules = new HashMap<>();
     // Boolean rules
     /**
      * Toggles the announcing of advancements.
@@ -290,10 +290,9 @@ public final class GameRule<T> implements net.kyori.adventure.translation.Transl
         if (this == obj) {
             return true;
         }
-        if (!(obj instanceof GameRule)) {
+        if (!(obj instanceof GameRule<?> other)) {
             return false;
         }
-        GameRule<?> other = (GameRule<?>) obj;
         return this.getName().equals(other.getName()) && this.getType() == other.getType();
     }
 

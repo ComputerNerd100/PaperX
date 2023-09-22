@@ -41,7 +41,7 @@ public interface BigDripleaf extends Dripleaf {
         /**
          * Pinball.
          */
-        FULL;
+        FULL
     }
 }
 

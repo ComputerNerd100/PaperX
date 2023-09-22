@@ -53,6 +53,6 @@ public interface LightningStrikeEvent extends WeatherEvent, Cancellable {
         /**
          * Unknown trigger.
          */
-        UNKNOWN;
+        UNKNOWN
     }
 }

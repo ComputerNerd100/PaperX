@@ -17,7 +17,7 @@ public interface Conversable {
      *
      * @return True if a conversation is in progress
      */
-    public boolean isConversing();
+    boolean isConversing();
 
     /**
      * Accepts input into the active conversation. If no conversation is in
@@ -25,7 +25,7 @@ public interface Conversable {
      *
      * @param input The input message into the conversation
      */
-    public void acceptConversationInput(@NonNull String input);
+    void acceptConversationInput(@NonNull String input);
 
     /**
      * Enters into a dialog with a Conversation object.
@@ -34,14 +34,14 @@ public interface Conversable {
      * @return True if the conversation should proceed, false if it has been
      *     enqueued
      */
-    public boolean beginConversation(@NonNull Conversation conversation);
+    boolean beginConversation(@NonNull Conversation conversation);
 
     /**
      * Abandons an active conversation.
      *
      * @param conversation The conversation to abandon
      */
-    public void abandonConversation(@NonNull Conversation conversation);
+    void abandonConversation(@NonNull Conversation conversation);
 
     /**
      * Abandons an active conversation.
@@ -49,7 +49,7 @@ public interface Conversable {
      * @param conversation The conversation to abandon
      * @param details Details about why the conversation was abandoned
      */
-    public void abandonConversation(@NonNull Conversation conversation, @NonNull ConversationAbandonedEvent details);
+    void abandonConversation(@NonNull Conversation conversation, @NonNull ConversationAbandonedEvent details);
 
     /**
      * Sends this sender a message raw
@@ -57,7 +57,7 @@ public interface Conversable {
      * @param message Message to be displayed
      */
     @org.jetbrains.annotations.ApiStatus.Obsolete // Paper
-    public void sendRawMessage(@NonNull String message);
+    void sendRawMessage(@NonNull String message);
 
     /**
      * Sends this sender a message raw
@@ -67,6 +67,6 @@ public interface Conversable {
      * @deprecated sender UUID is ignored
      */
     @Deprecated // Paper
-    public void sendRawMessage(@Nullable UUID sender, @NonNull String message);
+    void sendRawMessage(@Nullable UUID sender, @NonNull String message);
 }
 

@@ -235,7 +235,7 @@ public interface ArmorStand extends LivingEntity {
          * empty slot with a new item, but can swap items between themselves and
          * the ArmorStand.
          */
-        ADDING;
+        ADDING
     }
     /**
      * Tests if this armor stand can move.

@@ -12,7 +12,7 @@ public interface LightningStrike extends Entity {
      *
      * @return whether the strike is an effect
      */
-    public boolean isEffect();
+    boolean isEffect();
 
     /**
      * Returns the amount of flash iterations that will be done before the lightning dies.

@@ -32,7 +32,7 @@ public interface Cat extends Tameable, Sittable, CollarColorable {
      */
     @NonNull
     @Override
-    public DyeColor getCollarColor();
+    DyeColor getCollarColor();
 
     /**
      * Set the collar color of this cat

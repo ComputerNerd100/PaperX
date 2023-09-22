@@ -17,8 +17,7 @@ public interface CommandBlock extends TileState, CommandBlockHolder {
      *
      * @return Command that this CommandBlock will run when powered.
      */
-    @NonNull
-    public String getCommand();
+    @NonNull String getCommand();
 
     /**
      * Sets the command that this CommandBlock will run when powered.

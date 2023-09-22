@@ -106,7 +106,7 @@ public interface ScheduledTask {
         /**
          * The task is repeating and currently executing, but future executions are cancelled and will not occur.
          */
-        CANCELLED_RUNNING;
+        CANCELLED_RUNNING
     }
 }
 

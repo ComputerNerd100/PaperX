@@ -403,7 +403,7 @@ public interface Team {
         /**
          * How players of this team collide with others.
          */
-        COLLISION_RULE;
+        COLLISION_RULE
     }
 
     /**
@@ -426,7 +426,7 @@ public interface Team {
         /**
          * Apply this option for only team members.
          */
-        FOR_OWN_TEAM;
+        FOR_OWN_TEAM
     }
 }
 

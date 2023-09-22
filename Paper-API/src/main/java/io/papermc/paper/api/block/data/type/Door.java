@@ -38,6 +38,6 @@ public interface Door extends Bisected, Directional, Openable, Powerable {
         /**
          * Door is attached to the right side.
          */
-        RIGHT;
+        RIGHT
     }
 }

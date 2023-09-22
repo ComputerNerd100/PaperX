@@ -36,6 +36,6 @@ public interface PlayerExpCooldownChangeEvent extends PlayerResultEvent {
          *
          * @see Player#setExpCooldown(int)
          */
-        PLUGIN;
+        PLUGIN
     }
 }

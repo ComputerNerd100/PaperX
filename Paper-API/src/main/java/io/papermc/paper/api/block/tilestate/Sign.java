@@ -18,7 +18,7 @@ public interface Sign extends TileState, Colorable {
      *
      * @return if this sign is waxed
      */
-    public boolean isWaxed();
+    boolean isWaxed();
 
     /**
      * Sets whether or not this sign has been waxed. If a sign has been waxed, it
@@ -26,7 +26,7 @@ public interface Sign extends TileState, Colorable {
      *
      * @param waxed if this sign is waxed
      */
-    public void setWaxed(boolean waxed);
+    void setWaxed(boolean waxed);
 
 
     /**
@@ -35,8 +35,7 @@ public interface Sign extends TileState, Colorable {
      * @param side the side of the sign
      * @return the selected side of the sign
      */
-    @NonNull
-    public SignSide getSide(@NonNull Side side);
+    @NonNull SignSide getSide(@NonNull Side side);
 
     /**
      * Compute the side facing the specified entity.

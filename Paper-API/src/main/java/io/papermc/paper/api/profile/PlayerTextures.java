@@ -25,7 +25,7 @@ public interface PlayerTextures {
         /**
          * The slim model has slimmer arms than the classic model.
          */
-        SLIM;
+        SLIM
     }
 
     /**

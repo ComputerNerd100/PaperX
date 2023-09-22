@@ -138,28 +138,25 @@ public class RayTraceResult {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (!(obj instanceof RayTraceResult)) return false;
-        RayTraceResult other = (RayTraceResult) obj;
+        if (!(obj instanceof RayTraceResult other)) return false;
         if (!hitPosition.equals(other.hitPosition)) return false;
         if (!Objects.equals(hitBlock, other.hitBlock)) return false;
         if (!Objects.equals(hitBlockFace, other.hitBlockFace)) return false;
-        if (!Objects.equals(hitEntity, other.hitEntity)) return false;
-        return true;
+        return Objects.equals(hitEntity, other.hitEntity);
     }
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("RayTraceResult [hitPosition=");
-        builder.append(hitPosition);
-        builder.append(", hitBlock=");
-        builder.append(hitBlock);
-        builder.append(", hitBlockFace=");
-        builder.append(hitBlockFace);
-        builder.append(", hitEntity=");
-        builder.append(hitEntity);
-        builder.append("]");
-        return builder.toString();
+        String builder = "RayTraceResult [hitPosition=" +
+                hitPosition +
+                ", hitBlock=" +
+                hitBlock +
+                ", hitBlockFace=" +
+                hitBlockFace +
+                ", hitEntity=" +
+                hitEntity +
+                "]";
+        return builder;
     }
 }
 

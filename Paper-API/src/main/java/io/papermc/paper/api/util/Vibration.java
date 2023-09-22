@@ -41,7 +41,7 @@ public class Vibration {
 
     public interface Destination {
 
-        public static class EntityDestination implements Destination {
+        class EntityDestination implements Destination {
 
             private final Entity entity;
 
@@ -55,7 +55,7 @@ public class Vibration {
             }
         }
 
-        public static class BlockDestination implements Destination {
+        class BlockDestination implements Destination {
 
             private final Location block;
 

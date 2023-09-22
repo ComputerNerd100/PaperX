@@ -44,6 +44,6 @@ public interface Bell extends Directional, Powerable {
         /**
          * Placed between two walls.
          */
-        DOUBLE_WALL;
+        DOUBLE_WALL
     }
 }

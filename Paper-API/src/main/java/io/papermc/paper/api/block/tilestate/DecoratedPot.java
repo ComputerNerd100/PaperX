@@ -23,7 +23,7 @@ public interface DecoratedPot extends TileState {
      * tagged by {@link Tag#ITEMS_DECORATED_POT_SHERDS}, {@link Material#BRICK},
      * or {@code null}
      */
-    public void setSherd(@NonNull Side side, @Nullable Material sherd);
+    void setSherd(@NonNull Side side, @Nullable Material sherd);
 
     /**
      * Get the sherd on the provided side.
@@ -31,8 +31,7 @@ public interface DecoratedPot extends TileState {
      * @param side the side to get
      * @return the sherd on the side or {@link Material#BRICK} if it's blank
      */
-    @NonNull
-    public Material getSherd(@NonNull Side side);
+    @NonNull Material getSherd(@NonNull Side side);
 
     /**
      * Gets a Map of all sides on this decorated pot and the sherds on them.
@@ -41,14 +40,13 @@ public interface DecoratedPot extends TileState {
      *
      * @return the sherds
      */
-    @NonNull
-    public Map<Side, Material> getSherds();
+    @NonNull Map<Side, Material> getSherds();
 
     /**
      * A side on a decorated pot. Sides are relative to the facing state of a
      * {@link org.bukkit.block.data.type.DecoratedPot}.
      */
-    public static enum Side {
+    enum Side {
         BACK,
         LEFT,
         RIGHT,

@@ -82,7 +82,7 @@ public enum Biome implements Keyed, Translatable {
 
     private final NamespacedKey key;
 
-    private Biome() {
+    Biome() {
         this.key = NamespacedKey.minecraft(name().toLowerCase(Locale.ROOT));
     }
 

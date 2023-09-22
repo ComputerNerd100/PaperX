@@ -41,7 +41,6 @@ public interface Skeleton extends AbstractSkeleton {
      */
     void setConversionTime(int time);
 
-    // Paper start
     /**
      * Gets the time the skeleton
      * has been inside powdered snow.
@@ -49,7 +48,6 @@ public interface Skeleton extends AbstractSkeleton {
      * @return time in ticks
      */
     int inPowderedSnowTime();
-    // Paper end
 
     /**
      * A legacy enum that defines the different variances of skeleton-like
@@ -59,7 +57,7 @@ public interface Skeleton extends AbstractSkeleton {
      *     the Skeleton interface to preserve backwards compatibility.
      */
     @Deprecated
-    public enum SkeletonType {
+    enum SkeletonType {
 
         /**
          * Standard skeleton type.
@@ -72,7 +70,7 @@ public interface Skeleton extends AbstractSkeleton {
         /**
          * Stray skeleton. Generally found in ice biomes. Shoots tipped arrows.
          */
-        STRAY;
+        STRAY
     }
 }
 

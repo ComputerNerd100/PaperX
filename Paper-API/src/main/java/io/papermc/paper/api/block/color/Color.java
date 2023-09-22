@@ -370,10 +370,9 @@ public final class Color implements ConfigurationSerializable {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Color)) {
+        if (!(o instanceof final Color that)) {
             return false;
         }
-        final Color that = (Color) o;
         return this.alpha == that.alpha && this.blue == that.blue && this.green == that.green && this.red == that.red;
     }
 

@@ -16,8 +16,7 @@ public interface ThrownPotion extends ThrowableProjectile {
      *
      * @return The potion effects
      */
-    @NonNull
-    public Collection<PotionEffect> getEffects();
+    @NonNull Collection<PotionEffect> getEffects();
 
     /**
      * Returns a copy of the ItemStack for this thrown potion.
@@ -28,15 +27,14 @@ public interface ThrownPotion extends ThrowableProjectile {
      *
      * @return A copy of the ItemStack for this thrown potion.
      */
-    @NonNull
-    public ItemStack getItem();
+    @NonNull ItemStack getItem();
 
     /**
      * Set the ItemStack for this thrown potion.
      *
      * @param item New ItemStack
      */
-    public void setItem(@NonNull ItemStack item);
+    void setItem(@NonNull ItemStack item);
 
     /**
      * Gets a copy of the PotionMeta for this thrown potion.

@@ -46,6 +46,6 @@ public interface HopperInventorySearchEvent extends BlockResultEvent {
          *
          * This is the Inventory the Hopper pushes items into.
          */
-        DESTINATION;
+        DESTINATION
     }
 }

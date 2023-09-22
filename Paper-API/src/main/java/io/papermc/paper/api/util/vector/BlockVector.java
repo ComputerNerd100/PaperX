@@ -79,10 +79,9 @@ public class BlockVector extends Vector {
      */
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof BlockVector)) {
+        if (!(obj instanceof BlockVector other)) {
             return false;
         }
-        BlockVector other = (BlockVector) obj;
 
         return (int) other.getX() == (int) this.x && (int) other.getY() == (int) this.y && (int) other.getZ() == (int) this.z;
 

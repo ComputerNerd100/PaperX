@@ -14,7 +14,7 @@ public interface MetadataStore<T> {
      * @throws IllegalArgumentException If value is null, or the owning plugin
      *     is null
      */
-    public void setMetadata(@NonNull T subject, @NonNull String metadataKey, @NonNull MetadataValue newMetadataValue);
+    void setMetadata(@NonNull T subject, @NonNull String metadataKey, @NonNull MetadataValue newMetadataValue);
 
     /**
      * Returns all metadata values attached to an object. If multiple plugins
@@ -25,8 +25,7 @@ public interface MetadataStore<T> {
      * @return A list of values, one for each plugin that has set the
      *     requested value.
      */
-    @NonNull
-    public List<MetadataValue> getMetadata(@NonNull T subject, @NonNull String metadataKey);
+    @NonNull List<MetadataValue> getMetadata(@NonNull T subject, @NonNull String metadataKey);
 
     /**
      * Tests to see if a metadata attribute has been set on an object.
@@ -36,7 +35,7 @@ public interface MetadataStore<T> {
      * @param metadataKey the unique metadata key being queried.
      * @return the existence of the metadataKey within subject.
      */
-    public boolean hasMetadata(@NonNull T subject, @NonNull String metadataKey);
+    boolean hasMetadata(@NonNull T subject, @NonNull String metadataKey);
 
     /**
      * Removes a metadata item owned by a plugin from a subject.
@@ -47,7 +46,7 @@ public interface MetadataStore<T> {
      * @param owningPlugin the plugin attempting to remove a metadata item.
      * @throws IllegalArgumentException If plugin is null
      */
-    public void removeMetadata(@NonNull T subject, @NonNull String metadataKey, @NonNull Plugin owningPlugin);
+    void removeMetadata(@NonNull T subject, @NonNull String metadataKey, @NonNull Plugin owningPlugin);
 
     /**
      * Invalidates all metadata in the metadata store that originates from the
@@ -57,5 +56,5 @@ public interface MetadataStore<T> {
      * @param owningPlugin the plugin requesting the invalidation.
      * @throws IllegalArgumentException If plugin is null
      */
-    public void invalidateAll(@NonNull Plugin owningPlugin);
+    void invalidateAll(@NonNull Plugin owningPlugin);
 }

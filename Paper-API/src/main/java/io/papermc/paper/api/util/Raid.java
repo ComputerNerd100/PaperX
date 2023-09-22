@@ -114,7 +114,7 @@ public interface Raid {
     /**
      * Represents the status of a {@link Raid}.
      */
-    public enum RaidStatus {
+    enum RaidStatus {
 
         /**
          * The raid is in progress.
@@ -131,7 +131,7 @@ public interface Raid {
         /**
          * The raid was terminated.
          */
-        STOPPED;
+        STOPPED
     }
 }
 

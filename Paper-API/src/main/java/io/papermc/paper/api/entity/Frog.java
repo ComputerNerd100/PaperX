@@ -61,7 +61,7 @@ public interface Frog extends Animals {
         COLD;
         private final NamespacedKey key;
 
-        private Variant() {
+        Variant() {
             this.key = NamespacedKey.minecraft(name().toLowerCase(Locale.ROOT));
         }
 

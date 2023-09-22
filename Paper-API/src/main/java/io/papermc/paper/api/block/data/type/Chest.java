@@ -46,7 +46,7 @@ public interface Chest extends Directional, Waterlogged {
          * The chest is the right hand side of a double chest and shares a 54
          * block inventory with the chest to its left.
          */
-        RIGHT;
+        RIGHT
     }
 }
 

@@ -12,7 +12,7 @@ public class PluginNameConversationPrefix implements ConversationPrefix {
     protected ChatColor prefixColor;
     protected Plugin plugin;
 
-    private String cachedPrefix;
+    private final String cachedPrefix;
 
     public PluginNameConversationPrefix(@NonNull Plugin plugin) {
         this(plugin, " > ", ChatColor.LIGHT_PURPLE);

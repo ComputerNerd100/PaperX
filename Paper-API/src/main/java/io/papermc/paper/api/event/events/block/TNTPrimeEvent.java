@@ -75,7 +75,7 @@ public interface TNTPrimeEvent extends CancellableBlockEvent {
          * Note: This event is not called for a dispenser dispensing TNT
          * directly.
          */
-        DISPENSER;
+        DISPENSER
     }
 
 }

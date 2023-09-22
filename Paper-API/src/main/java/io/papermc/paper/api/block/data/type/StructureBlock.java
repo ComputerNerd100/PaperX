@@ -44,6 +44,6 @@ public interface StructureBlock extends BlockData {
          * Dummy block used to run a custom function during world generation
          * before being removed.
          */
-        DATA;
+        DATA
     }
 }

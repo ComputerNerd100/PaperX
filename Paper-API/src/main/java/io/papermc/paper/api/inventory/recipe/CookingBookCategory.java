@@ -7,5 +7,5 @@ public enum CookingBookCategory {
 
     FOOD,
     BLOCKS,
-    MISC;
+    MISC
 }

@@ -1,6 +1,7 @@
 package io.papermc.paper.api.util;
 
 import io.papermc.paper.api.Server;
+import io.papermc.paper.api.event.events.server.ServerListPingEvent;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -13,8 +14,7 @@ import org.jetbrains.annotations.Nullable;
  * @see ServerListPingEvent#setServerIcon(CachedServerIcon)
  */
 public interface CachedServerIcon {
-    @Nullable
-    public String getData();
+    @Nullable String getData();
     default boolean isEmpty() {
         return getData() == null;
     }

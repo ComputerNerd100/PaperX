@@ -12,6 +12,6 @@ public enum Axis {
     /**
      * The z axis.
      */
-    Z;
+    Z
 }
 

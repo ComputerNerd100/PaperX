@@ -40,6 +40,6 @@ public interface Bamboo extends Ageable, Sapling {
         /**
          * Large leaves.
          */
-        LARGE;
+        LARGE
     }
 }

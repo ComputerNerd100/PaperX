@@ -59,7 +59,7 @@ public interface FurnaceInventory extends Inventory {
      * @param item Item to check
      * @return True if a valid fuel source
      */
-    public boolean isFuel(@Nullable ItemStack item);
+    boolean isFuel(@Nullable ItemStack item);
 
     /**
      * Check if an item can be smelted in this furnace container
@@ -67,7 +67,7 @@ public interface FurnaceInventory extends Inventory {
      * @param item Item to check
      * @return True if can be smelt
      */
-    public boolean canSmelt(@Nullable ItemStack item);
+    boolean canSmelt(@Nullable ItemStack item);
 
     @Override
     @Nullable

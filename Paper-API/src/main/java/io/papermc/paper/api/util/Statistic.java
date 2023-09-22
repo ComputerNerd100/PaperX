@@ -100,11 +100,11 @@ public enum Statistic implements Keyed {
     private final Type type;
     private final NamespacedKey key;
 
-    private Statistic() {
+    Statistic() {
         this(Type.UNTYPED);
     }
 
-    private Statistic(/*@NonNull*/ Type type) {
+    Statistic(/*@NonNull*/ Type type) {
         this.type = type;
         this.key = NamespacedKey.minecraft(name().toLowerCase(Locale.ROOT));
     }
@@ -175,7 +175,7 @@ public enum Statistic implements Keyed {
         /**
          * Statistics of this type require an EntityType qualifier.
          */
-        ENTITY;
+        ENTITY
     }
 }
 

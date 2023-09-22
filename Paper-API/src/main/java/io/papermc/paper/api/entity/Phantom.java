@@ -14,34 +14,33 @@ public interface Phantom extends Flying, Enemy {
     /**
      * @return The size of the phantom
      */
-    public int getSize();
+    int getSize();
 
     /**
      * @param sz The new size of the phantom.
      */
-    public void setSize(int sz);
+    void setSize(int sz);
 
     /**
      * Get the UUID of the entity that caused this phantom to spawn
      *
      * @return UUID
      */
-    @Nullable
-    public UUID getSpawningEntity();
+    @Nullable UUID getSpawningEntity();
 
     /**
      * Check if this phantom will burn in the sunlight
      *
      * @return True if phantom will burn in sunlight
      */
-    public boolean shouldBurnInDay();
+    boolean shouldBurnInDay();
 
     /**
      * Set if this phantom should burn in the sunlight
      *
      * @param shouldBurnInDay True to burn in sunlight
      */
-    public void setShouldBurnInDay(boolean shouldBurnInDay);
+    void setShouldBurnInDay(boolean shouldBurnInDay);
 
     /**
      * Gets the location that this phantom circles around when not attacking a player

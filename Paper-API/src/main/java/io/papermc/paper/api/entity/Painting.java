@@ -1,5 +1,6 @@
 package io.papermc.paper.api.entity;
 
+import io.papermc.paper.api.event.events.hanging.HangingBreakEvent;
 import io.papermc.paper.api.util.Art;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
@@ -13,8 +14,7 @@ public interface Painting extends Hanging {
      *
      * @return The art
      */
-    @NonNull
-    public Art getArt();
+    @NonNull Art getArt();
 
     /**
      * Set the art on this painting
@@ -23,7 +23,7 @@ public interface Painting extends Hanging {
      * @return False if the new art won't fit at the painting's current
      *     location
      */
-    public boolean setArt(@NonNull Art art);
+    boolean setArt(@NonNull Art art);
 
     /**
      * Set the art on this painting
@@ -36,6 +36,6 @@ public interface Painting extends Hanging {
      * @return False if force was false and the new art won't fit at the
      *     painting's current location
      */
-    public boolean setArt(@NonNull Art art, boolean force);
+    boolean setArt(@NonNull Art art, boolean force);
 }
 

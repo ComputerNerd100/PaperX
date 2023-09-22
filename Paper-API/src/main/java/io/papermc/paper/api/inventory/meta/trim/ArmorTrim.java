@@ -65,11 +65,10 @@ public class ArmorTrim {
             return true;
         }
 
-        if (!(obj instanceof ArmorTrim)) {
+        if (!(obj instanceof ArmorTrim other)) {
             return false;
         }
 
-        ArmorTrim other = (ArmorTrim) obj;
         return material == other.material && pattern == other.pattern;
     }
 }

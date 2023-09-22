@@ -7,7 +7,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
  * enters an exact input string
  */
 public class ExactMatchConversationCanceller implements ConversationCanceller {
-    private String escapeSequence;
+    private final String escapeSequence;
 
     /**
      * Builds an ExactMatchConversationCanceller.

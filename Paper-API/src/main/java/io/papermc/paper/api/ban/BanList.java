@@ -18,7 +18,7 @@ public interface BanList<T> {
     /**
      * Represents a ban-type that a {@link BanList} may track.
      */
-    public enum Type {
+    enum Type {
         /**
          * Banned player names
          *
@@ -34,7 +34,6 @@ public interface BanList<T> {
          * Banned player profiles
          */
         PROFILE,
-        ;
     }
 
     /**
@@ -43,8 +42,7 @@ public interface BanList<T> {
      * @param target entry parameter to search for
      * @return the corresponding entry, or null if none found
      */
-    @Nullable
-    public BanEntry<T> getBanEntry(@NonNull T target);
+    @Nullable BanEntry<T> getBanEntry(@NonNull T target);
 
     /**
      * Adds a ban to this list. If a previous ban exists, this will
@@ -58,8 +56,7 @@ public interface BanList<T> {
      * @return the entry for the newly created ban, or the entry for the
      *     (updated) previous ban
      */
-    @Nullable
-    public BanEntry<T> addBan(@NonNull T target, @Nullable String reason, @Nullable Date expires, @Nullable String source);
+    @Nullable BanEntry<T> addBan(@NonNull T target, @Nullable String reason, @Nullable Date expires, @Nullable String source);
 
     /**
      * Adds a ban to this list. If a previous ban exists, this will
@@ -73,8 +70,7 @@ public interface BanList<T> {
      * @return the entry for the newly created ban, or the entry for the
      *     (updated) previous ban
      */
-    @Nullable
-    public BanEntry<T> addBan(@NonNull T target, @Nullable String reason, @Nullable Instant expires, @Nullable String source);
+    @Nullable BanEntry<T> addBan(@NonNull T target, @Nullable String reason, @Nullable Instant expires, @Nullable String source);
 
     /**
      * Adds a ban to this list. If a previous ban exists, this will
@@ -88,16 +84,14 @@ public interface BanList<T> {
      * @return the entry for the newly created ban, or the entry for the
      *     (updated) previous ban
      */
-    @Nullable
-    public BanEntry<T> addBan(@NonNull T target, @Nullable String reason, @Nullable Duration duration, @Nullable String source);
+    @Nullable BanEntry<T> addBan(@NonNull T target, @Nullable String reason, @Nullable Duration duration, @Nullable String source);
 
     /**
      * Gets a set containing every {@link BanEntry} in this list.
      *
      * @return an immutable set containing every entry tracked by this list
      */
-    @NonNull
-    public <E extends BanEntry<? super T>> Set<E> getEntries(); // Paper
+    @NonNull <E extends BanEntry<? super T>> Set<E> getEntries(); // Paper
 
     /**
      * Gets if a {@link BanEntry} exists for the target, indicating an active
@@ -110,7 +104,7 @@ public interface BanList<T> {
      * @return true if a {@link BanEntry} exists for the target, indicating an
      *     active ban status, false otherwise
      */
-    public boolean isBanned(@NonNull T target);
+    boolean isBanned(@NonNull T target);
 
     /**
      * Removes the specified target from this list, therefore indicating a
@@ -121,6 +115,6 @@ public interface BanList<T> {
      *
      * @param target the target to remove from this list
      */
-    public void pardon(@NonNull T target);
+    void pardon(@NonNull T target);
 
 }

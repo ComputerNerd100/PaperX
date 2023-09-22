@@ -24,7 +24,7 @@ import java.util.Random;
 public class Vector implements Cloneable, ConfigurationSerializable {
     private static final long serialVersionUID = -2657651106777219169L;
 
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     /**
      * Threshold for fuzzy equals().
@@ -736,11 +736,9 @@ public class Vector implements Cloneable, ConfigurationSerializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Vector)) {
+        if (!(obj instanceof Vector other)) {
             return false;
         }
-
-        Vector other = (Vector) obj;
 
         return Math.abs(x - other.x) < epsilon && Math.abs(y - other.y) < epsilon && Math.abs(z - other.z) < epsilon && (this.getClass().equals(obj.getClass()));
     }

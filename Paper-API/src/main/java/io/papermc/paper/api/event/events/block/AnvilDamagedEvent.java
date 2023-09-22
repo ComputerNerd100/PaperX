@@ -25,7 +25,7 @@ public interface AnvilDamagedEvent extends CancellableInventoryEvent {
         DAMAGED(Material.DAMAGED_ANVIL),
         BROKEN(Material.AIR);
 
-        private Material material;
+        private final Material material;
 
         DamageState(@NonNull Material material) {
             this.material = material;

@@ -69,7 +69,7 @@ public interface PlayerRespawnEvent extends PlayerResultEvent {
         /**
          * When a plugin respawns the player.
          */
-        PLUGIN;
+        PLUGIN
     }
 
     enum RespawnFlag {

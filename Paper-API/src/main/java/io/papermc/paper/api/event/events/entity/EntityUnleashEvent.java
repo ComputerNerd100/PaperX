@@ -44,6 +44,6 @@ public interface EntityUnleashEvent extends CancellableEntityEvent {
          * When the entity's leashholder is more than 10 blocks away
          */
         DISTANCE,
-        UNKNOWN;
+        UNKNOWN
     }
 }

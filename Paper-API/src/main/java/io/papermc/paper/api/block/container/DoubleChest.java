@@ -13,7 +13,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * Represents a double chest.
  */
 public class DoubleChest implements InventoryHolder {
-    private DoubleChestInventory inventory;
+    private final DoubleChestInventory inventory;
 
     public DoubleChest(@NonNull DoubleChestInventory chest) {
         inventory = chest;

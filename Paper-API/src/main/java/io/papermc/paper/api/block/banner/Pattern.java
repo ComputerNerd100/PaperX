@@ -48,7 +48,7 @@ public class Pattern implements ConfigurationSerializable {
     @NonNull
     @Override
     public Map<String, Object> serialize() {
-        return ImmutableMap.<String, Object>of(
+        return ImmutableMap.of(
                 COLOR, color.toString(),
                 PATTERN, pattern.getIdentifier()
         );

@@ -17,7 +17,7 @@ public interface Metadatable {
      * @throws IllegalArgumentException If value is null, or the owning plugin
      *     is null
      */
-    public void setMetadata(@NonNull String metadataKey, @NonNull MetadataValue newMetadataValue);
+    void setMetadata(@NonNull String metadataKey, @NonNull MetadataValue newMetadataValue);
 
     /**
      * Returns a list of previously set metadata values from the implementing
@@ -27,8 +27,7 @@ public interface Metadatable {
      * @return A list of values, one for each plugin that has set the
      *     requested value.
      */
-    @NonNull
-    public List<MetadataValue> getMetadata(@NonNull String metadataKey);
+    @NonNull List<MetadataValue> getMetadata(@NonNull String metadataKey);
 
     /**
      * Tests to see whether the implementing object contains the given
@@ -37,7 +36,7 @@ public interface Metadatable {
      * @param metadataKey the unique metadata key being queried.
      * @return the existence of the metadataKey within subject.
      */
-    public boolean hasMetadata(@NonNull String metadataKey);
+    boolean hasMetadata(@NonNull String metadataKey);
 
     /**
      * Removes the given metadata value from the implementing object's
@@ -49,5 +48,5 @@ public interface Metadatable {
      *     other values will be left untouched.
      * @throws IllegalArgumentException If plugin is null
      */
-    public void removeMetadata(@NonNull String metadataKey, @NonNull Plugin owningPlugin);
+    void removeMetadata(@NonNull String metadataKey, @NonNull Plugin owningPlugin);
 }

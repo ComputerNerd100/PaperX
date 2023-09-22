@@ -210,8 +210,8 @@ public interface GS4QueryEvent extends Event {
             private int maxPlayers;
             private int port;
 
-            private List<String> players = new ArrayList<>();
-            private List<PluginInformation> plugins = new ArrayList<>();
+            private final List<String> players = new ArrayList<>();
+            private final List<PluginInformation> plugins = new ArrayList<>();
 
             private Builder() {}
 

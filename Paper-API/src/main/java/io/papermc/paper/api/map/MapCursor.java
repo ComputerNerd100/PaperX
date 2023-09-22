@@ -289,9 +289,9 @@ public final class MapCursor {
         BANNER_BLACK(25),
         RED_X(26);
 
-        private byte value;
+        private final byte value;
 
-        private Type(int value) {
+        Type(int value) {
             this.value = (byte) value;
         }
 

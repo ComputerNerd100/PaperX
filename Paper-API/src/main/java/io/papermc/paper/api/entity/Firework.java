@@ -93,8 +93,7 @@ public interface Firework extends Projectile {
      *
      * @return firework item
      */
-    @NonNull
-    public ItemStack getItem();
+    @NonNull ItemStack getItem();
 
     /**
      * Sets the item used in the firework.

@@ -17,6 +17,6 @@ public enum FluidCollisionMode {
     /**
      * Collide with all fluids.
      */
-    ALWAYS;
+    ALWAYS
 }
 

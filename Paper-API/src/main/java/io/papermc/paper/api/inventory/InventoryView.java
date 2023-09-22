@@ -112,7 +112,7 @@ public interface InventoryView {
         BOOK_PAGE(0, InventoryType.LECTERN);
         int id;
         InventoryType style;
-        private Property(int id, /*@NonNull*/ InventoryType appliesTo) {
+        Property(int id, /*@NonNull*/ InventoryType appliesTo) {
             this.id = id;
             style = appliesTo;
         }
@@ -184,8 +184,7 @@ public interface InventoryView {
      * @param slot The ID as returned by InventoryClickEvent.getRawSlot()
      * @return The item currently in the slot.
      */
-    @Nullable
-    public ItemStack getItem(int slot);
+    @Nullable ItemStack getItem(int slot);
 
     /**
      * Sets the item on the cursor of one of the viewing players.

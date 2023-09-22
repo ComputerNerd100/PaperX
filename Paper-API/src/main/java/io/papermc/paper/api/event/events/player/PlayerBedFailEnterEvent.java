@@ -67,6 +67,6 @@ public interface PlayerBedFailEnterEvent extends CancellablePlayerEvent {
         /**
          * Entering the bed is prevented due to there being monsters nearby.
          */
-        NOT_SAFE;
+        NOT_SAFE
     }
 }

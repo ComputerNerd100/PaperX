@@ -974,34 +974,31 @@ public class BoundingBox implements Cloneable, ConfigurationSerializable {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (!(obj instanceof BoundingBox)) return false;
-        BoundingBox other = (BoundingBox) obj;
+        if (!(obj instanceof BoundingBox other)) return false;
         if (Double.doubleToLongBits(maxX) != Double.doubleToLongBits(other.maxX)) return false;
         if (Double.doubleToLongBits(maxY) != Double.doubleToLongBits(other.maxY)) return false;
         if (Double.doubleToLongBits(maxZ) != Double.doubleToLongBits(other.maxZ)) return false;
         if (Double.doubleToLongBits(minX) != Double.doubleToLongBits(other.minX)) return false;
         if (Double.doubleToLongBits(minY) != Double.doubleToLongBits(other.minY)) return false;
-        if (Double.doubleToLongBits(minZ) != Double.doubleToLongBits(other.minZ)) return false;
-        return true;
+        return Double.doubleToLongBits(minZ) == Double.doubleToLongBits(other.minZ);
     }
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("BoundingBox [minX=");
-        builder.append(minX);
-        builder.append(", minY=");
-        builder.append(minY);
-        builder.append(", minZ=");
-        builder.append(minZ);
-        builder.append(", maxX=");
-        builder.append(maxX);
-        builder.append(", maxY=");
-        builder.append(maxY);
-        builder.append(", maxZ=");
-        builder.append(maxZ);
-        builder.append("]");
-        return builder.toString();
+        String builder = "BoundingBox [minX=" +
+                minX +
+                ", minY=" +
+                minY +
+                ", minZ=" +
+                minZ +
+                ", maxX=" +
+                maxX +
+                ", maxY=" +
+                maxY +
+                ", maxZ=" +
+                maxZ +
+                "]";
+        return builder;
     }
 
     /**

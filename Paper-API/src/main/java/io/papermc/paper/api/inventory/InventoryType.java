@@ -158,11 +158,11 @@ public enum InventoryType {
         return defaultTitleComponent;
     }
     // Paper end
-    private InventoryType(int defaultSize, /*@NonNull*/ String defaultTitle) {
+    InventoryType(int defaultSize, /*@NonNull*/ String defaultTitle) {
         this(defaultSize, defaultTitle, true);
     }
 
-    private InventoryType(int defaultSize, /*@NonNull*/ String defaultTitle, boolean isCreatable) {
+    InventoryType(int defaultSize, /*@NonNull*/ String defaultTitle, boolean isCreatable) {
         size = defaultSize;
         title = defaultTitle;
         this.isCreatable = isCreatable;
@@ -213,7 +213,7 @@ public enum InventoryType {
          * The fuel slot in a furnace inventory, or the ingredient slot in a
          * brewing stand inventory.
          */
-        FUEL;
+        FUEL
     }
 }
 

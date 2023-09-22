@@ -36,6 +36,6 @@ public interface TechnicalPiston extends Directional {
         /**
          * A sticky piston which will also retract connected blocks.
          */
-        STICKY;
+        STICKY
     }
 }

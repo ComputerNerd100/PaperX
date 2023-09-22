@@ -107,10 +107,9 @@ public class AttributeModifier implements ConfigurationSerializable {
 
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof AttributeModifier)) {
+        if (!(other instanceof AttributeModifier mod)) {
             return false;
         }
-        AttributeModifier mod = (AttributeModifier) other;
         boolean slots = (this.slot != null ? (this.slot == mod.slot) : mod.slot == null);
         return this.uuid.equals(mod.uuid) && this.name.equals(mod.name) && this.amount == mod.amount && this.operation == mod.operation && slots;
     }
@@ -161,6 +160,6 @@ public class AttributeModifier implements ConfigurationSerializable {
         /**
          * Multiply amount by this value, after adding 1 to it.
          */
-        MULTIPLY_SCALAR_1;
+        MULTIPLY_SCALAR_1
     }
 }

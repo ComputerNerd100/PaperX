@@ -79,6 +79,6 @@ public interface PointedDripstone extends Waterlogged {
         /**
          * Base.
          */
-        BASE;
+        BASE
     }
 }

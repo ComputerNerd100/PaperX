@@ -27,7 +27,7 @@ public interface SculkSensor extends AnaloguePowerable, Waterlogged {
     /**
      * The Phase of the sensor.
      */
-    public enum Phase {
+    enum Phase {
 
         /**
          * The sensor is inactive.
@@ -40,6 +40,6 @@ public interface SculkSensor extends AnaloguePowerable, Waterlogged {
         /**
          * The sensor is cooling down.
          */
-        COOLDOWN;
+        COOLDOWN
     }
 }

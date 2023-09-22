@@ -13,20 +13,19 @@ public interface MushroomCow extends Cow, Shearable {
      *
      * @return cow variant
      */
-    @NonNull
-    public Variant getVariant();
+    @NonNull Variant getVariant();
 
     /**
      * Set the variant of this cow.
      *
      * @param variant cow variant
      */
-    public void setVariant(@NonNull Variant variant);
+    void setVariant(@NonNull Variant variant);
 
     /**
      * Represents the variant of a cow - ie its color.
      */
-    public enum Variant {
+    enum Variant {
         /**
          * Red mushroom cow.
          */
@@ -34,7 +33,7 @@ public interface MushroomCow extends Cow, Shearable {
         /**
          * Brown mushroom cow.
          */
-        BROWN;
+        BROWN
     }
 
     /**

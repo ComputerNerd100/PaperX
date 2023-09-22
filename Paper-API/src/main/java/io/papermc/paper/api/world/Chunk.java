@@ -311,7 +311,7 @@ public interface Chunk extends PersistentDataHolder {
     /**
      * An enum to specify the load level of a chunk.
      */
-    public enum LoadLevel {
+    enum LoadLevel {
 
         /**
          * No game logic is processed, world generation may still occur.
@@ -332,7 +332,7 @@ public interface Chunk extends PersistentDataHolder {
         /**
          * This chunk is not loaded.
          */
-        UNLOADED;
+        UNLOADED
     }
 }
 

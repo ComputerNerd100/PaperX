@@ -24,5 +24,5 @@ public enum StructureRotation {
      * <br>
      * Equivalent to rotating clockwise 270 degrees.
      */
-    COUNTERCLOCKWISE_90;
+    COUNTERCLOCKWISE_90
 }

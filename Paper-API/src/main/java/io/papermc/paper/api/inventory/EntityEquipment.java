@@ -17,7 +17,7 @@ public interface EntityEquipment {
      * @param slot the slot to put the ItemStack
      * @param item the ItemStack to set
      */
-    public void setItem(@NonNull EquipmentSlot slot, @Nullable ItemStack item);
+    void setItem(@NonNull EquipmentSlot slot, @Nullable ItemStack item);
 
     /**
      * Stores the ItemStack at the given equipment slot in the inventory.
@@ -26,7 +26,7 @@ public interface EntityEquipment {
      * @param item the ItemStack to set
      * @param silent whether or not the equip sound should be silenced
      */
-    public void setItem(@NonNull EquipmentSlot slot, @Nullable ItemStack item, boolean silent);
+    void setItem(@NonNull EquipmentSlot slot, @Nullable ItemStack item, boolean silent);
 
     /**
      * Gets the ItemStack at the given equipment slot in the inventory.
@@ -34,8 +34,7 @@ public interface EntityEquipment {
      * @param slot the slot to get the ItemStack
      * @return the ItemStack in the given slot
      */
-    @NonNull
-    public ItemStack getItem(@NonNull EquipmentSlot slot);
+    @NonNull ItemStack getItem(@NonNull EquipmentSlot slot);
 
     /**
      * Gets the item the entity is currently holding

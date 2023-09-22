@@ -77,6 +77,6 @@ public interface PlayerBedEnterEvent extends CancellablePlayerEvent {
         /**
          * Entering the bed is prevented due to there being some other problem.
          */
-        OTHER_PROBLEM;
+        OTHER_PROBLEM
     }
 }

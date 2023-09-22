@@ -38,6 +38,6 @@ public interface Comparator extends Directional, Powerable {
          * Alternate subtraction mode. The output signal strength will be equal
          * to max(rear-max(left,right),0).
          */
-        SUBTRACT;
+        SUBTRACT
     }
 }

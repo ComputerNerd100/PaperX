@@ -52,7 +52,7 @@ public interface RedstoneWire extends AnaloguePowerable {
         /**
          * The wire does not connect in this direction.
          */
-        NONE;
+        NONE
     }
 }
 

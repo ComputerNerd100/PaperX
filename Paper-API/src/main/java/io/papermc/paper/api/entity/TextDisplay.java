@@ -131,7 +131,7 @@ public interface TextDisplay extends Display {
     /**
      * Represents possible text alignments for this display.
      */
-    public enum TextAlignment {
+    enum TextAlignment {
 
         /**
          * Center aligned text (default).
@@ -144,7 +144,7 @@ public interface TextDisplay extends Display {
         /**
          * Right aligned text.
          */
-        RIGHT;
+        RIGHT
     }
 }
 

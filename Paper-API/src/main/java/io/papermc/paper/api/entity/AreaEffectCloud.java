@@ -229,15 +229,14 @@ public interface AreaEffectCloud extends Entity {
      *
      * @return the {@link ProjectileSource} that threw the LingeringPotion
      */
-    @Nullable
-    public ProjectileSource getSource();
+    @Nullable ProjectileSource getSource();
 
     /**
      * Set the original source of this cloud.
      *
      * @param source the {@link ProjectileSource} that threw the LingeringPotion
      */
-    public void setSource(@Nullable ProjectileSource source);
+    void setSource(@Nullable ProjectileSource source);
 
     /**
      * Get the entity UUID for the owner of this area effect cloud.

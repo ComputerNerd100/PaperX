@@ -21,6 +21,7 @@ import java.lang.ref.WeakReference;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 public class Location implements Cloneable, ConfigurationSerializable, FinePosition {
@@ -978,7 +979,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
 
         World world = (this.world == null) ? null : this.world.get();
         World otherWorld = (other.world == null) ? null : other.world.get();
-        if (world != otherWorld && (world == null || !world.equals(otherWorld))) {
+        if (!Objects.equals(world, otherWorld)) {
             return false;
         }
         if (Double.doubleToLongBits(this.x) != Double.doubleToLongBits(other.x)) {
@@ -993,10 +994,7 @@ public class Location implements Cloneable, ConfigurationSerializable, FinePosit
         if (Float.floatToIntBits(this.pitch) != Float.floatToIntBits(other.pitch)) {
             return false;
         }
-        if (Float.floatToIntBits(this.yaw) != Float.floatToIntBits(other.yaw)) {
-            return false;
-        }
-        return true;
+        return Float.floatToIntBits(this.yaw) == Float.floatToIntBits(other.yaw);
     }
 
     @Override

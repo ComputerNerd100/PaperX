@@ -38,7 +38,7 @@ public enum Difficulty implements net.kyori.adventure.translation.Translatable {
     private final int value;
     private static final Map<Integer, Difficulty> BY_ID = Maps.newHashMap();
 
-    private Difficulty(final int value) {
+    Difficulty(final int value) {
         this.value = value;
     }
 

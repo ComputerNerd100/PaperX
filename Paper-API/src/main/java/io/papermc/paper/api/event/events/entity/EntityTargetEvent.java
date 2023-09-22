@@ -104,6 +104,6 @@ public interface EntityTargetEvent extends CancellableEntityEvent {
         /**
          * A currently unknown reason for the entity changing target.
          */
-        UNKNOWN;
+        UNKNOWN
     }
 }

@@ -186,7 +186,7 @@ public enum LootTables implements Keyed {
 
     private final String location;
 
-    private LootTables(/*@NonNull*/ String location) {
+    LootTables(/*@NonNull*/ String location) {
         this.location = location;
     }
 

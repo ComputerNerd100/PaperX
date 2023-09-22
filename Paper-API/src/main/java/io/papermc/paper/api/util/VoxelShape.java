@@ -18,8 +18,7 @@ public interface VoxelShape {
      *
      * @return shape converted to bounding boxes
      */
-    @NonNull
-    public Collection<BoundingBox> getBoundingBoxes();
+    @NonNull Collection<BoundingBox> getBoundingBoxes();
 
     /**
      * Checks if the given bounding box intersects this block shape.
@@ -27,6 +26,6 @@ public interface VoxelShape {
      * @param other bounding box to test
      * @return true if other overlaps this, false otherwise
      */
-    public boolean overlaps(@NonNull BoundingBox other);
+    boolean overlaps(@NonNull BoundingBox other);
 }
 

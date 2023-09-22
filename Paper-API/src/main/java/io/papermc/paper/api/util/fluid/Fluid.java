@@ -36,7 +36,7 @@ public enum Fluid implements Keyed {
 
     private final NamespacedKey key;
 
-    private Fluid() {
+    Fluid() {
         this.key = NamespacedKey.minecraft(this.name().toLowerCase(Locale.ROOT));
     }
 

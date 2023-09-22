@@ -35,6 +35,6 @@ public interface VillagerCareerChangeEvent extends CancellableEntityEvent {
         /**
          * Villager gained employment.
          */
-        EMPLOYED;
+        EMPLOYED
     }
 }

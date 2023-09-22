@@ -270,11 +270,11 @@ public interface Registry<T extends Keyed> extends Iterable<T> {
 
         private final Map<NamespacedKey, T> map;
 
-        protected SimpleRegistry(@NonNull Class<T> type) {
-            this(type, Predicates.<T>alwaysTrue());
+        private SimpleRegistry(@NonNull Class<T> type) {
+            this(type, Predicates.alwaysTrue());
         }
 
-        protected SimpleRegistry(@NonNull Class<T> type, @NonNull Predicate<T> predicate) {
+        private SimpleRegistry(@NonNull Class<T> type, @NonNull Predicate<T> predicate) {
             ImmutableMap.Builder<NamespacedKey, T> builder = ImmutableMap.builder();
 
             for (T entry : type.getEnumConstants()) {

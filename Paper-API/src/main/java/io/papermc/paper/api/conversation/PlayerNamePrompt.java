@@ -9,7 +9,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * to enter another player's name.
  */
 public abstract class PlayerNamePrompt extends ValidatingPrompt {
-    private Plugin plugin;
+    private final Plugin plugin;
 
     public PlayerNamePrompt(@NonNull Plugin plugin) {
         super();

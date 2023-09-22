@@ -38,6 +38,6 @@ public interface PlayerResourcePackStatusEvent extends PlayerResultEvent {
         /**
          * The client accepted the pack and is beginning a download of it.
          */
-        ACCEPTED;
+        ACCEPTED
     }
 }

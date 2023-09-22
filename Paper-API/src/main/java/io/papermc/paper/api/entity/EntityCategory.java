@@ -56,6 +56,6 @@ public enum EntityCategory {
      *   <li>Are capable of swimming in water rather than floating or sinking.
      * </ul>
      */
-    WATER;
+    WATER
 }
 

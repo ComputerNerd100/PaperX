@@ -38,7 +38,7 @@ public interface Rail extends Waterlogged {
     /**
      * The different types of shapes a rail block can occupy.
      */
-    public enum Shape {
+    enum Shape {
 
         /**
          * The rail runs flat along the north/south (Z) axis.
@@ -83,7 +83,7 @@ public interface Rail extends Waterlogged {
          * The rail forms a curve connecting the north and east faces of the
          * block.
          */
-        NORTH_EAST;
+        NORTH_EAST
     }
 }
 

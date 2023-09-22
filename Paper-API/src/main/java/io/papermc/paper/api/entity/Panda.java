@@ -166,7 +166,7 @@ public interface Panda extends Animals, Sittable {
     boolean isSitting();
     // Paper end - Panda API
 
-    public enum Gene {
+    enum Gene {
 
         NORMAL(false),
         LAZY(false),
@@ -178,7 +178,7 @@ public interface Panda extends Animals, Sittable {
 
         private final boolean recessive;
 
-        private Gene(boolean recessive) {
+        Gene(boolean recessive) {
             this.recessive = recessive;
         }
 

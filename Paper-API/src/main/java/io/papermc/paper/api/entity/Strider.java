@@ -10,7 +10,7 @@ public interface Strider extends Steerable, Vehicle {
      *
      * @return true if shivering, false otherwise
      */
-    public boolean isShivering();
+    boolean isShivering();
 
     /**
      * Set whether or not this strider is shivering.
@@ -21,6 +21,6 @@ public interface Strider extends Steerable, Vehicle {
      *
      * @param shivering its new shivering state
      */
-    public void setShivering(boolean shivering);
+    void setShivering(boolean shivering);
 }
 

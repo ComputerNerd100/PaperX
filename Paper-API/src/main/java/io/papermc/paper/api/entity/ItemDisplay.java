@@ -46,7 +46,7 @@ public interface ItemDisplay extends Display {
     /**
      * Represents the item model transform to be applied to the displayed item.
      */
-    public enum ItemDisplayTransform {
+    enum ItemDisplayTransform {
 
         NONE,
         THIRDPERSON_LEFTHAND,
@@ -56,6 +56,6 @@ public interface ItemDisplay extends Display {
         HEAD,
         GUI,
         GROUND,
-        FIXED;
+        FIXED
     }
 }

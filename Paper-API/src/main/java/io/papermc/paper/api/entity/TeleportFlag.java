@@ -45,7 +45,7 @@ public sealed interface TeleportFlag permits TeleportFlag.EntityState, TeleportF
         /**
          * Represents the player's pitch
          */
-        PITCH;
+        PITCH
     }
 
     /**
@@ -76,7 +76,7 @@ public sealed interface TeleportFlag permits TeleportFlag.EntityState, TeleportF
          * Note:
          * This option will be ignored when teleported to a different world.
          */
-        RETAIN_OPEN_INVENTORY;
+        RETAIN_OPEN_INVENTORY
     }
 
 }
