@@ -17,6 +17,12 @@ import io.papermc.paper.api.block.tilestate.Sign;
 import io.papermc.paper.api.block.tilestate.TileState;
 import io.papermc.paper.api.conversation.Conversable;
 import io.papermc.paper.api.effect.Effect;
+import io.papermc.paper.api.event.events.block.BlockBreakEvent;
+import io.papermc.paper.api.event.events.block.BlockDropItemEvent;
+import io.papermc.paper.api.event.events.player.PlayerElytraBoostEvent;
+import io.papermc.paper.api.event.events.player.PlayerExpCooldownChangeEvent;
+import io.papermc.paper.api.event.events.player.PlayerKickEvent;
+import io.papermc.paper.api.event.events.player.PlayerResourcePackStatusEvent;
 import io.papermc.paper.api.inventory.EquipmentSlot;
 import io.papermc.paper.api.inventory.ItemStack;
 import io.papermc.paper.api.location.Location;
@@ -52,10 +58,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.function.UnaryOperator;
 
 /**
@@ -903,9 +906,9 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      */
     @Nullable
     default BanEntry banPlayerIP(@Nullable String reason, @Nullable Date expires, @Nullable String source, boolean kickPlayer) {
-        BanEntry banEntry = Paper.getServer().getBanList(BanList.Type.IP).addBan(getAddress().getAddress().getHostAddress(), reason, expires, source);
+        BanEntry banEntry = Paper.getServer().banList(BanList.Type.IP).addBan(getAddress().getAddress().getHostAddress(), reason, expires, source);
         if (kickPlayer && isOnline()) {
-            getPlayer().kickPlayer(reason);
+            getPlayer().kick(reason);
         }
 
         return banEntry;
@@ -2094,12 +2097,11 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @return the most recent resource pack status received from the player,
      *         or null if no status has ever been received from this player.
      */
-    @Nullable
-    PlayerResourcePackStatusEvent.Status getResourcePackStatus();
+    PlayerResourcePackStatusEvent.@Nullable Status getResourcePackStatus();
 
     /**
      * @return true if the last resource pack status received from this player
-     *         was {@link org.bukkit.event.player.PlayerResourcePackStatusEvent.Status#SUCCESSFULLY_LOADED}
+     *         was {@link PlayerResourcePackStatusEvent.Status#SUCCESSFULLY_LOADED}
      */
     boolean hasResourcePack();
 
@@ -2114,7 +2116,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * Changes the PlayerProfile for this player. This will cause this player
      * to be reregistered to all clients that can currently see this player.
      *
-     * After executing this method, the player {@link java.util.UUID} won't
+     * After executing this method, the player {@link UUID} won't
      * be swapped, only their name and gameprofile properties.
      *
      * @param profile The new profile to use
@@ -2150,7 +2152,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
     /**
      * Boost a Player that's {@link #isGliding()} using a {@link Firework}.
      * If the creation of the entity is cancelled, no boosting is done.
-     * This method does not fire {@link com.destroystokyo.paper.event.player.PlayerElytraBoostEvent}.
+     * This method does not fire {@link PlayerElytraBoostEvent}.
      *
      * @param firework The {@link Material#FIREWORK_ROCKET} to boost the player with
      * @return The {@link Firework} boosting the Player or null if the spawning of the entity was cancelled
