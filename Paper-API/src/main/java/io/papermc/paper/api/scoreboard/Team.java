@@ -282,7 +282,7 @@ public interface Team {
      * @throws IllegalArgumentException if entities is null
      * @throws IllegalStateException if this team has been unregistered
      */
-    boolean removeEntities(@NonNull java.util.Collection<Entity> entities) throws IllegalStateException, IllegalArgumentException;
+    boolean removeEntities(@NonNull Collection<Entity> entities) throws IllegalStateException, IllegalArgumentException;
 
     /**
      * Removes a collection of entries from this team which results in one
