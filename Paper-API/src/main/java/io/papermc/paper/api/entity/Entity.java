@@ -5,6 +5,9 @@ import io.papermc.paper.api.Server;
 import io.papermc.paper.api.block.BlockFace;
 import io.papermc.paper.api.block.PistonMoveReaction;
 import io.papermc.paper.api.command.CommandSender;
+import io.papermc.paper.api.event.events.entity.CreatureSpawnEvent;
+import io.papermc.paper.api.event.events.entity.EntityDamageEvent;
+import io.papermc.paper.api.event.events.player.PlayerTeleportEvent;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.metadata.Metadatable;
 import io.papermc.paper.api.persistance.PersistentDataHolder;
@@ -139,7 +142,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      */
     @org.jetbrains.annotations.ApiStatus.Experimental
     default boolean teleport(@NonNull Location location, @NonNull TeleportFlag @NonNull... teleportFlags) {
-        return this.teleport(location, TeleportCause.PLUGIN, teleportFlags);
+        return this.teleport(location, PlayerTeleportEvent.TeleportCause.PLUGIN, teleportFlags);
     }
 
     /**
@@ -151,7 +154,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      * @return <code>true</code> if the teleport was successful
      */
     @org.jetbrains.annotations.ApiStatus.Experimental
-    boolean teleport(@NonNull Location location, @NonNull TeleportCause cause, @NonNull TeleportFlag @NonNull... teleportFlags);
+    boolean teleport(@NonNull Location location, PlayerTeleportEvent.@NonNull TeleportCause cause, @NonNull TeleportFlag @NonNull... teleportFlags);
 
     /**
      * Teleports this entity to the given location. If this entity is riding a
@@ -170,7 +173,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      * @param cause The cause of this teleportation
      * @return <code>true</code> if the teleport was successful
      */
-    public boolean teleport(@NonNull Location location, @NonNull TeleportCause cause);
+    public boolean teleport(@NonNull Location location, PlayerTeleportEvent.@NonNull TeleportCause cause);
 
     /**
      * Teleports this entity to the target Entity. If this entity is riding a
@@ -189,7 +192,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      * @param cause The cause of this teleportation
      * @return <code>true</code> if the teleport was successful
      */
-    public boolean teleport(@NonNull Entity destination, @NonNull TeleportCause cause);
+    public boolean teleport(@NonNull Entity destination, PlayerTeleportEvent.@NonNull TeleportCause cause);
 
     // Paper start
     /**
@@ -199,7 +202,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      */
     @NonNull
     default CompletableFuture<Boolean> teleportAsync(@NonNull Location loc) {
-        return teleportAsync(loc, TeleportCause.PLUGIN);
+        return teleportAsync(loc, PlayerTeleportEvent.TeleportCause.PLUGIN);
     }
     /**
      * Loads/Generates(in 1.13+) the Chunk asynchronously, and then teleports the entity when the chunk is ready.
@@ -208,7 +211,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      * @return A future that will be completed with the result of the teleport
      */
     @NonNull
-    default CompletableFuture<Boolean> teleportAsync(@NonNull Location loc, @NonNull TeleportCause cause) {
+    default CompletableFuture<Boolean> teleportAsync(@NonNull Location loc, PlayerTeleportEvent.@NonNull TeleportCause cause) {
         java.util.concurrent.CompletableFuture<Boolean> future = new java.util.concurrent.CompletableFuture<>();
         loc.getWorld().getChunkAtAsyncUrgently(loc).thenAccept((chunk) -> future.complete(teleport(loc, cause))).exceptionally(ex -> {
             future.completeExceptionally(ex);
@@ -926,7 +929,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
      * @param reason   The reason for the entity being spawned.
      * @return Whether the entity was successfully spawned.
      */
-    public boolean spawnAt(@NonNull Location location, @NonNull CreatureSpawnEvent.SpawnReason reason);
+    public boolean spawnAt(@NonNull Location location, CreatureSpawnEvent.@NonNull SpawnReason reason);
 
     /**
      * Check if entity is inside powdered snow.
@@ -995,7 +998,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
     /**
      * Returns the task scheduler for this entity. The entity scheduler can be used to schedule tasks
      * that are guaranteed to always execute on the tick thread that owns the entity.
-     * <p><b>If you do not need/want to make your plugin run on Folia, use {@link Server#getScheduler()} instead.</b></p>
+     * <p><b>If you do not need/want to make your plugin run on Folia, use {@link Server#scheduler()} instead.</b></p>
      * @return the task scheduler for this entity.
      * @see EntityScheduler
      */
