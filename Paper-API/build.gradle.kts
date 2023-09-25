@@ -10,6 +10,10 @@ dependencies {
     api("com.google.guava:guava:31.1-jre")
     implementation("org.apache.commons:commons-lang3:3.13.0")
     implementation("org.apache.logging.log4j:log4j-core:2.20.0")
+
+    val cloudVersion = "1.8.3"
+    implementation("cloud.commandframework:cloud-core:$cloudVersion")
+
 }
 
 description = "Paper-Api"
