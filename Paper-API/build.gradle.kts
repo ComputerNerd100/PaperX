@@ -11,8 +11,10 @@ dependencies {
     implementation("org.apache.commons:commons-lang3:3.13.0")
     implementation("org.apache.logging.log4j:log4j-core:2.20.0")
 
-    val cloudVersion = "1.8.3"
+    val cloudVersion = "1.8.4"
     implementation("cloud.commandframework:cloud-core:$cloudVersion")
+    implementation("cloud.commandframework:cloud-tasks:$cloudVersion")
+    implementation("cloud.commandframework:cloud-brigadier:$cloudVersion")
 
 }
 
