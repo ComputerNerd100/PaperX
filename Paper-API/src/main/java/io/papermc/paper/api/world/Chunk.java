@@ -6,6 +6,7 @@ import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.location.Location;
 import io.papermc.paper.api.persistance.PersistentDataHolder;
+import io.papermc.paper.api.plugin.Plugin;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.Collection;

@@ -32,6 +32,7 @@ import io.papermc.paper.api.math.Position;
 import io.papermc.paper.api.network.NetworkClient;
 import io.papermc.paper.api.particle.Particle;
 import io.papermc.paper.api.player.OfflinePlayer;
+import io.papermc.paper.api.plugin.Plugin;
 import io.papermc.paper.api.profile.PlayerProfile;
 import io.papermc.paper.api.scoreboard.Scoreboard;
 import io.papermc.paper.api.scoreboard.ScoreboardManager;

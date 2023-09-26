@@ -3,6 +3,7 @@ package io.papermc.paper.api.world;
 import io.papermc.paper.api.Paper;
 import io.papermc.paper.api.command.CommandSender;
 import io.papermc.paper.api.namespace.NamespacedKey;
+import io.papermc.paper.api.plugin.Plugin;
 import io.papermc.paper.api.world.generator.BiomeProvider;
 import io.papermc.paper.api.world.generator.ChunkGenerator;
 import net.kyori.adventure.util.TriState;

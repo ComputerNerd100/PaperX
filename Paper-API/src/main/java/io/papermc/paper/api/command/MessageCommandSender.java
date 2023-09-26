@@ -5,6 +5,7 @@ import io.papermc.paper.api.Server;
 import io.papermc.paper.api.permisson.Permission;
 import io.papermc.paper.api.permisson.PermissionAttachment;
 import io.papermc.paper.api.permisson.PermissionAttachmentInfo;
+import io.papermc.paper.api.plugin.Plugin;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 

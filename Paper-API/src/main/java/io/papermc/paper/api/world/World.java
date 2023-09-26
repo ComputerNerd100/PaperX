@@ -15,6 +15,7 @@ import io.papermc.paper.api.metadata.Metadatable;
 import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.particle.Particle;
 import io.papermc.paper.api.persistance.PersistentDataHolder;
+import io.papermc.paper.api.plugin.Plugin;
 import io.papermc.paper.api.sound.Sound;
 import io.papermc.paper.api.sound.SoundCategory;
 import io.papermc.paper.api.util.*;

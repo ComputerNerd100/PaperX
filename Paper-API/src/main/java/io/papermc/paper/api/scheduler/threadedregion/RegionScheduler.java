@@ -2,6 +2,7 @@ package io.papermc.paper.api.scheduler.threadedregion;
 
 import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.location.Location;
+import io.papermc.paper.api.plugin.Plugin;
 import io.papermc.paper.api.world.World;
 import org.checkerframework.checker.nullness.qual.NonNull;
 

@@ -1,6 +1,7 @@
 package io.papermc.paper.api.event.events.server;
 
 import io.papermc.paper.api.event.util.Param;
+import io.papermc.paper.api.plugin.Plugin;
 
 /**
  * Used for plugin enable and disable events

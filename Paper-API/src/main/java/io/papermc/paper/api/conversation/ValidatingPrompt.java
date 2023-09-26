@@ -1,5 +1,6 @@
 package io.papermc.paper.api.conversation;
 
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -30,7 +31,7 @@ public abstract class ValidatingPrompt implements Prompt {
         } else {
             String failPrompt = getFailedValidationText(context, input);
             if (failPrompt != null) {
-                context.getForWhom().sendRawMessage(ChatColor.RED + failPrompt);
+                context.getForWhom().sendRawMessage(NamedTextColor.RED + failPrompt);
             }
             // Redisplay this prompt to the user to re-collect input
             return this;

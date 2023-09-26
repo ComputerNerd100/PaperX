@@ -1,6 +1,7 @@
 package io.papermc.paper.api.metadata;
 
 import com.google.common.base.Preconditions;
+import io.papermc.paper.api.plugin.Plugin;
 import io.papermc.paper.api.util.NumberConversions;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;

@@ -1,6 +1,7 @@
 package io.papermc.paper.api.conversation;
 
 import io.papermc.paper.api.entity.Player;
+import io.papermc.paper.api.plugin.Plugin;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 

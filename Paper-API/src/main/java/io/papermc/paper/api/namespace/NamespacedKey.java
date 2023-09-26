@@ -1,6 +1,7 @@
 package io.papermc.paper.api.namespace;
 
 import com.google.common.base.Preconditions;
+import io.papermc.paper.api.plugin.Plugin;
 import net.kyori.adventure.key.Key;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;

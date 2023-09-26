@@ -29,6 +29,7 @@ import io.papermc.paper.api.namespace.Keyed;
 import io.papermc.paper.api.namespace.NamespacedKey;
 import io.papermc.paper.api.permisson.Permissible;
 import io.papermc.paper.api.player.OfflinePlayer;
+import io.papermc.paper.api.plugin.Plugin;
 import io.papermc.paper.api.profile.PlayerProfile;
 import io.papermc.paper.api.registry.Registry;
 import io.papermc.paper.api.scheduler.threadedregion.AsyncScheduler;

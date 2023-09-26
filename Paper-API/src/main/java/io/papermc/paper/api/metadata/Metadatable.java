@@ -1,5 +1,6 @@
 package io.papermc.paper.api.metadata;
 
+import io.papermc.paper.api.plugin.Plugin;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.List;
