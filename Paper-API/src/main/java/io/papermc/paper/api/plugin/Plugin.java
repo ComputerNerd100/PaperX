@@ -17,7 +17,7 @@ public interface Plugin {
     Path dataFolder();
     Logger logger();
     boolean enabled();
-    String description();
-    ChunkGenerator defaultWorldGenerator(World world, String id);
-    BiomeProvider defaultBiomeProvider(World world, String id);
+    PluginDescriptionFile description();
+    ChunkGenerator defaultWorldGenerator(String world, String id);
+    BiomeProvider defaultBiomeProvider(String world, String id);
 }
