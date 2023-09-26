@@ -1,3 +1,8 @@
+repositories {
+    maven("https://libraries.minecraft.net/")
+
+}
+
 dependencies {
     val adventureVersion = "4.14.0"
     api("net.kyori:adventure-api:$adventureVersion")
@@ -17,6 +22,7 @@ dependencies {
     implementation("cloud.commandframework:cloud-tasks:$cloudVersion")
     implementation("cloud.commandframework:cloud-brigadier:$cloudVersion")
 
+    implementation("com.mojang:brigadier:1.0.500")
 }
 
 description = "Paper-Api"
