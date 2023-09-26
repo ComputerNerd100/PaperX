@@ -16,6 +16,7 @@ import io.papermc.paper.api.entity.Entity;
 import io.papermc.paper.api.entity.Player;
 import io.papermc.paper.api.entity.SpawnCategory;
 import io.papermc.paper.api.entity.ai.MobGoals;
+import io.papermc.paper.api.event.events.server.ServerListPingEvent;
 import io.papermc.paper.api.inventory.*;
 import io.papermc.paper.api.inventory.meta.ItemMeta;
 import io.papermc.paper.api.inventory.recipe.Recipe;
