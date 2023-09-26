@@ -7,7 +7,7 @@ dependencies {
     api("net.kyori:adventure-text-serializer-legacy:4.14.0")
     api("net.kyori:adventure-text-serializer-plain:4.14.0")
 
-    api("com.google.guava:guava:31.1-jre")
+    api("com.google.guava:guava:32.1.2-jre")
     implementation("org.apache.commons:commons-lang3:3.13.0")
     implementation("org.apache.logging.log4j:log4j-core:2.20.0")
 
