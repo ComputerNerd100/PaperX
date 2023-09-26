@@ -840,8 +840,7 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
     /**
      * @return The {@link CreatureSpawnEvent.SpawnReason} that initially spawned this entity. <!-- Paper - added "initially" to clarify that the SpawnReason doesn't change after the Entity was initially spawned" -->
      */
-    @NonNull
-    CreatureSpawnEvent.SpawnReason getEntitySpawnReason();
+    CreatureSpawnEvent.@NonNull SpawnReason getEntitySpawnReason();
 
     /**
      * Check if entity is underwater
