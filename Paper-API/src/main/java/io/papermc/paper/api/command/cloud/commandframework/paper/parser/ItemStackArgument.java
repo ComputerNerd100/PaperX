@@ -179,7 +179,7 @@ public final class ItemStackArgument<C> extends CommandArgument<C, ProtoItemStac
                 "net.minecraft.world.item.ItemStack"
         );
         private static final Class<?> CRAFT_ITEM_STACK_CLASS =
-                CraftPaperReflection.needOBCClass("inventory.CraftItemStack");
+                CraftPaperReflection.needIPCClass("inventory.CraftItemStack");
         private static final Class<?> ARGUMENT_ITEM_STACK_CLASS =
                 MinecraftArgumentTypes.getClassByKey(NamespacedKey.minecraft("item_stack"));
         private static final Class<?> ITEM_INPUT_CLASS = requireNonNull(findItemInputClass(), "ItemInput class");
@@ -188,7 +188,7 @@ public final class ItemStackArgument<C> extends CommandArgument<C, ProtoItemStac
                 "net.minecraft.world.item.Item"
         );
         private static final Class<?> CRAFT_MAGIC_NUMBERS_CLASS =
-                CraftPaperReflection.needOBCClass("util.CraftMagicNumbers");
+                CraftPaperReflection.needIPCClass("util.CraftMagicNumbers");
         private static final Method GET_MATERIAL_METHOD = CraftPaperReflection
                 .needMethod(CRAFT_MAGIC_NUMBERS_CLASS, "getMaterial", NMS_ITEM_CLASS);
         private static final Method CREATE_ITEM_STACK_METHOD = CraftPaperReflection.firstNonNullOrThrow(
