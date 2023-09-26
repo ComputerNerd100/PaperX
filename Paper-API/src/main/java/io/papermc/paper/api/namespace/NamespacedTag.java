@@ -73,7 +73,7 @@ public final class NamespacedTag implements Namespaced {
         Preconditions.checkArgument(plugin != null, "Plugin cannot be null");
         Preconditions.checkArgument(key != null, "Key cannot be null");
 
-        this.namespace = plugin.getName().toLowerCase(Locale.ROOT);
+        this.namespace = plugin.name().toLowerCase(Locale.ROOT);
         this.key = key.toLowerCase().toLowerCase(Locale.ROOT);
 
         // Check validity after normalization

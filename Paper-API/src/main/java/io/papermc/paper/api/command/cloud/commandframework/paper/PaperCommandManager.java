@@ -308,7 +308,7 @@ public class PaperCommandManager<C extends CommandSender> extends CommandManager
         }
 
         /* Remove leading plugin namespace */
-        final String namespace = String.format("%s:", this.getOwningPlugin().getName().toLowerCase());
+        final String namespace = String.format("%s:", this.getOwningPlugin().name().toLowerCase());
         if (input.startsWith(namespace)) {
             input = input.substring(namespace.length());
         }

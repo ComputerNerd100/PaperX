@@ -108,8 +108,8 @@ public class PermissibleBase implements Permissible {
             throw new IllegalArgumentException("Permission name cannot be null");
         } else if (plugin == null) {
             throw new IllegalArgumentException("Plugin cannot be null");
-        } else if (!plugin.isEnabled()) {
-            throw new IllegalArgumentException("Plugin " + plugin.getDescription().getFullName() + " is disabled");
+        } else if (!plugin.enabled()) {
+            throw new IllegalArgumentException("Plugin " + plugin.description().getFullName() + " is disabled");
         }
 
         PermissionAttachment result = addAttachment(plugin);
@@ -125,8 +125,8 @@ public class PermissibleBase implements Permissible {
     public synchronized PermissionAttachment addAttachment(@NonNull Plugin plugin) {
         if (plugin == null) {
             throw new IllegalArgumentException("Plugin cannot be null");
-        } else if (!plugin.isEnabled()) {
-            throw new IllegalArgumentException("Plugin " + plugin.getDescription().getFullName() + " is disabled");
+        } else if (!plugin.enabled()) {
+            throw new IllegalArgumentException("Plugin " + plugin.description().getFullName() + " is disabled");
         }
 
         PermissionAttachment result = new PermissionAttachment(plugin, parent);
@@ -211,8 +211,8 @@ public class PermissibleBase implements Permissible {
             throw new IllegalArgumentException("Permission name cannot be null");
         } else if (plugin == null) {
             throw new IllegalArgumentException("Plugin cannot be null");
-        } else if (!plugin.isEnabled()) {
-            throw new IllegalArgumentException("Plugin " + plugin.getDescription().getFullName() + " is disabled");
+        } else if (!plugin.enabled()) {
+            throw new IllegalArgumentException("Plugin " + plugin.description().getFullName() + " is disabled");
         }
 
         PermissionAttachment result = addAttachment(plugin, ticks);
@@ -229,14 +229,14 @@ public class PermissibleBase implements Permissible {
     public synchronized PermissionAttachment addAttachment(@NonNull Plugin plugin, int ticks) {
         if (plugin == null) {
             throw new IllegalArgumentException("Plugin cannot be null");
-        } else if (!plugin.isEnabled()) {
-            throw new IllegalArgumentException("Plugin " + plugin.getDescription().getFullName() + " is disabled");
+        } else if (!plugin.enabled()) {
+            throw new IllegalArgumentException("Plugin " + plugin.description().getFullName() + " is disabled");
         }
 
         PermissionAttachment result = addAttachment(plugin);
 
         if (Paper.getServer().scheduler().scheduleSyncDelayedTask(plugin, new RemoveAttachmentRunnable(result), ticks) == -1) {
-            Paper.getServer().logger().log(Level.WARNING, "Could not add PermissionAttachment to " + parent + " for plugin " + plugin.getDescription().getFullName() + ": Scheduler returned -1");
+            Paper.getServer().logger().log(Level.WARNING, "Could not add PermissionAttachment to " + parent + " for plugin " + plugin.description().getFullName() + ": Scheduler returned -1");
             result.remove();
             return null;
         } else {

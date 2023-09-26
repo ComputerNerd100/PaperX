@@ -48,7 +48,7 @@ public class InactivityConversationCanceller implements ConversationCanceller {
      * Starts an inactivity timer.
      */
     private void startTimer() {
-        taskId = plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+        taskId = plugin.server().scheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
             @Override
             public void run() {
                 if (conversation.getState() == Conversation.ConversationState.UNSTARTED) {
@@ -66,7 +66,7 @@ public class InactivityConversationCanceller implements ConversationCanceller {
      */
     private void stopTimer() {
         if (taskId != -1) {
-            plugin.getServer().getScheduler().cancelTask(taskId);
+            plugin.server().scheduler().cancelTask(taskId);
             taskId = -1;
         }
     }

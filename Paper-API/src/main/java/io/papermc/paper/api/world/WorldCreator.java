@@ -522,10 +522,10 @@ public class WorldCreator {
 
             if (plugin == null) {
                 output.sendMessage("Could not set generator for world '" + world + "': Plugin '" + split[0] + "' does not exist");
-            } else if (!plugin.isEnabled()) {
-                output.sendMessage("Could not set generator for world '" + world + "': Plugin '" + plugin.getDescription().getFullName() + "' is not enabled");
+            } else if (!plugin.enabled()) {
+                output.sendMessage("Could not set generator for world '" + world + "': Plugin '" + plugin.description().getFullName() + "' is not enabled");
             } else {
-                result = plugin.getDefaultWorldGenerator(world, id);
+                result = plugin.defaultWorldGenerator(world, id);
             }
         }
 
@@ -567,10 +567,10 @@ public class WorldCreator {
 
             if (plugin == null) {
                 output.sendMessage("Could not set biome provider for world '" + world + "': Plugin '" + split[0] + "' does not exist");
-            } else if (!plugin.isEnabled()) {
-                output.sendMessage("Could not set set biome provider for world '" + world + "': Plugin '" + plugin.getDescription().getFullName() + "' is not enabled");
+            } else if (!plugin.enabled()) {
+                output.sendMessage("Could not set set biome provider for world '" + world + "': Plugin '" + plugin.description().getFullName() + "' is not enabled");
             } else {
-                result = plugin.getDefaultBiomeProvider(world, id);
+                result = plugin.defaultBiomeProvider(world, id);
             }
         }
 

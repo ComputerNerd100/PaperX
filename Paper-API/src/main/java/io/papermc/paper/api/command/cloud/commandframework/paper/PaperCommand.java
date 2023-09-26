@@ -139,7 +139,7 @@ public abstract class PaperCommand<C extends CommandSender> {
                                     CommandExecutionException.class,
                                     (CommandExecutionException) throwable, (c, e) -> {
                                         commandSender.sendMessage(MESSAGE_INTERNAL_ERROR);
-                                        this.manager.getOwningPlugin().getLogger().log(
+                                        this.manager.getOwningPlugin().logger().log(
                                                 Level.SEVERE,
                                                 "Exception executing command handler",
                                                 finalThrowable.getCause()
@@ -148,7 +148,7 @@ public abstract class PaperCommand<C extends CommandSender> {
                             );
                         } else {
                             commandSender.sendMessage(MESSAGE_INTERNAL_ERROR);
-                            this.manager.getOwningPlugin().getLogger().log(
+                            this.manager.getOwningPlugin().logger().log(
                                     Level.SEVERE,
                                     "An unhandled exception was thrown during command execution",
                                     throwable

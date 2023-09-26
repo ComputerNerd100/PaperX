@@ -24,7 +24,7 @@ public class PaperSynchronizer implements TaskSynchronizer {
     @Override
     public <I> CompletableFuture<Void> runSynchronous(final @NonNull I input, final @NonNull TaskConsumer<I> consumer) {
         final CompletableFuture<Void> future = new CompletableFuture<>();
-        this.plugin.getServer().getScheduler().runTask(this.plugin, () -> {
+        this.plugin.server().scheduler().runTask(this.plugin, () -> {
             consumer.accept(input);
             future.complete(null);
         });
@@ -34,14 +34,14 @@ public class PaperSynchronizer implements TaskSynchronizer {
     @Override
     public <I, O> CompletableFuture<O> runSynchronous(final @NonNull I input, final @NonNull TaskFunction<I, O> function) {
         final CompletableFuture<O> future = new CompletableFuture<>();
-        this.plugin.getServer().getScheduler().runTask(this.plugin, () -> future.complete(function.apply(input)));
+        this.plugin.server().scheduler().runTask(this.plugin, () -> future.complete(function.apply(input)));
         return future;
     }
 
     @Override
     public <I> CompletableFuture<Void> runAsynchronous(final @NonNull I input, final @NonNull TaskConsumer<I> consumer) {
         final CompletableFuture<Void> future = new CompletableFuture<>();
-        this.plugin.getServer().getScheduler().runTaskAsynchronously(this.plugin, () -> {
+        this.plugin.server().scheduler().runTaskAsynchronously(this.plugin, () -> {
             consumer.accept(input);
             future.complete(null);
         });
@@ -51,7 +51,7 @@ public class PaperSynchronizer implements TaskSynchronizer {
     @Override
     public <I, O> CompletableFuture<O> runAsynchronous(final @NonNull I input, final @NonNull TaskFunction<I, O> function) {
         final CompletableFuture<O> future = new CompletableFuture<>();
-        this.plugin.getServer().getScheduler().runTaskAsynchronously(this.plugin, () -> future.complete(function.apply(input)));
+        this.plugin.server().scheduler().runTaskAsynchronously(this.plugin, () -> future.complete(function.apply(input)));
         return future;
     }
 

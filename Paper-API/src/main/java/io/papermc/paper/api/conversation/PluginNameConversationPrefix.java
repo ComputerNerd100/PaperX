@@ -25,7 +25,7 @@ public class PluginNameConversationPrefix implements ConversationPrefix {
         this.prefixColor = prefixColor;
         this.plugin = plugin;
 
-        cachedPrefix = prefixColor + plugin.getDescription().getName() + separator + NamedTextColor.WHITE;
+        cachedPrefix = prefixColor + plugin.description().getName() + separator + NamedTextColor.WHITE;
     }
 
     /**

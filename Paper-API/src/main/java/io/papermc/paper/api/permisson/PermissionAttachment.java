@@ -20,8 +20,8 @@ public class PermissionAttachment {
     public PermissionAttachment(@NonNull Plugin plugin, @NonNull Permissible permissible) {
         if (plugin == null) {
             throw new IllegalArgumentException("Plugin cannot be null");
-        } else if (!plugin.isEnabled()) {
-            throw new IllegalArgumentException("Plugin " + plugin.getDescription().getFullName() + " is disabled");
+        } else if (!plugin.enabled()) {
+            throw new IllegalArgumentException("Plugin " + plugin.description().getFullName() + " is disabled");
         }
 
         this.permissible = permissible;

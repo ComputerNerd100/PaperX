@@ -86,7 +86,7 @@ public class PaperPluginRegistrationHandler<C extends CommandSender> implements 
 
         this.commandMap.register(
                 label,
-                this.paperCommandManager.getOwningPlugin().getName().toLowerCase(),
+                this.paperCommandManager.getOwningPlugin().name().toLowerCase(),
                 paperCommand
         );
 
@@ -142,7 +142,7 @@ public class PaperPluginRegistrationHandler<C extends CommandSender> implements 
     }
 
     private @NonNull String getNamespacedLabel(final @NonNull String label) {
-        return String.format("%s:%s", this.paperCommandManager.getOwningPlugin().getName(), label).toLowerCase();
+        return String.format("%s:%s", this.paperCommandManager.getOwningPlugin().name(), label).toLowerCase();
     }
 
     /**
@@ -180,7 +180,7 @@ public class PaperPluginRegistrationHandler<C extends CommandSender> implements 
         if (existingCommand instanceof PluginIdentifiableCommand) {
             return existingCommand.getLabel().equals(commandLabel)
                     && !((PluginIdentifiableCommand) existingCommand).getPlugin().getName()
-                    .equalsIgnoreCase(this.paperCommandManager.getOwningPlugin().getName());
+                    .equalsIgnoreCase(this.paperCommandManager.getOwningPlugin().name());
         }
         return existingCommand.getLabel().equals(commandLabel);
     }
@@ -195,7 +195,7 @@ public class PaperPluginRegistrationHandler<C extends CommandSender> implements 
         final PaperCommand<C> command = this.paperCommands.get(commandLabel);
         if (command instanceof PluginIdentifiableCommand identifiableCommand) {
             return !(identifiableCommand.getPlugin().getName()
-                    .equalsIgnoreCase(this.paperCommandManager.getOwningPlugin().getName()));
+                    .equalsIgnoreCase(this.paperCommandManager.getOwningPlugin().name()));
         }
         return command != null;
     }
