@@ -5,7 +5,7 @@ import io.papermc.paper.api.annotation.Warning;
 import io.papermc.paper.api.ban.BanList;
 import io.papermc.paper.api.block.data.BlockData;
 import io.papermc.paper.api.boss.*;
-import io.papermc.paper.api.command.CommandException;
+import io.papermc.paper.api.command.exception.CommandException;
 import io.papermc.paper.api.command.CommandSender;
 import io.papermc.paper.api.command.ConsoleCommandSender;
 import io.papermc.paper.api.datapack.DatapackManager;
